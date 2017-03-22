@@ -1,0 +1,140 @@
+@font-face{
+	font-family: "DroidSansFallback";
+	src:url("../fonts/DroidSansFallback.ttf");
+}
+body{
+	font-family: "微软雅黑";
+	background: url(../images/bgimage2.jpg);
+	position: relative;
+	/*opacity: 0.5;*/
+	
+}
+div,h5{
+	margin:0;
+	padding: 0;
+}
+li{
+	list-style-type: none;
+}
+a{
+	color:#000;
+}
+a:hover{
+	text-decoration: none;
+}
+#fl-background-img{
+	width: 100%;
+	height: 100%;
+	position:absolute;
+	left: 0px;
+	top:-50px;
+	background-color: rgba(255,255,255,0.6);
+	z-index: -1;
+}
+.a{
+	margin:0;
+	padding: 0;
+}
+.b{
+	color:#000;
+}
+#fl-nav{
+	margin-bottom: 50px;
+	/*box-shadow: 0px 5px 5px #000;*/
+}
+#fl-nav .navbar-brand{
+	width:200px;
+}
+#fl-nav .fl-navbar-link:hover{
+	color: #EF95A8;
+	/*color:#fff;*/
+}
+.fl-navbar-main{
+	color:#000;
+}
+.navbar-toggle{
+	margin-right: 0px;
+}
+.container{
+	padding:0;
+}
+.row{
+	margin:6px 0 0 0;
+}
+#fl-registerreg,#fl-loginreg{
+	margin-top: 6px;
+}
+#fl-registerreg,#fl-loginreg p{
+	margin:10px 0;
+}
+#fl-registerreg .myerror,#fl-loginreg .myerror{
+	margin:0;
+	color:red;
+}
+#fl-registerreg .myerror li,#fl-loginreg .myerror li{
+	height: 30px;
+	list-style: none;
+}
+#fl-registerreg .text,#fl-loginreg .text{
+	width:220px;
+	height:25px;
+	border-radius:4px;
+	border:1px solid #ccc;
+	background: #eee;
+	text-indent: 5px;
+	color:#666;
+	background: #fff;
+
+}
+
+
+#fl-footer{
+	/*width:100%;
+	position: absolute;
+	bottom: -50px;*/
+	/*margin-top:1000px;*/
+	background:#EF95A8;
+	height:60px;
+	font-size: 15px;
+}
+#fl-footer a,p{
+	color:#000
+}
+
+
+@media (max-width: 768px) {
+	nav .container{
+		height: 50px;
+	}
+	.fl-navbar-main{
+		width:130px;
+		float:right;
+		/*display: none;*/
+	}
+	.fl-login{
+		font-size: 13px;
+		display: inline-block;
+	}
+	.fl-login a:hover{
+		text-decoration: none;
+	}
+	.navbar-header{
+		width:160px;
+		display: inline-block;
+	}
+	.glyphicon-chevron-left{
+		font-size: 20px;
+	}
+	#fl-footer{
+		font-size: 13px;
+	}
+}
+@media (min-width: 769px) and (max-width: 992px){
+	#fl-nav .navbar-header{
+		width:140px;
+		/*background: red;*/
+	}
+}
+@media (min-width: 993px) (max-width: 1200px){
+
+}

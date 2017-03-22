@@ -1,0 +1,49 @@
+#myCarousel{
+	margin-top:50px;
+}
+
+#fl-main .photoalbum p{
+	height:25px;
+	line-height: 25px;
+	margin-top: 20px;
+	border-bottom: 2px solid #EF95A8;
+}
+#fl-main .photoalbum a{
+	color:#000;
+	float:right;
+}
+#fl-main .fl-diary-main{
+	height: 400px;
+}
+#fl-main .fl-followUp-main{
+	height: 400px;
+}
+#fl-main .fl-thumbnail{
+
+}
+#fl-main .fl-thumbnail:hover{
+	transform: scale(1.8,1.8);
+	/*background: #EF95A8;*/
+}
+#fl-main .fl-activity{
+	margin-bottom: 30px;
+	background:#eee;
+}
+#username-error,#fl-user-error,#fl-email-error,#fl-pass-error,#fl-password-error{
+	color:red;
+	float:right;
+}
+#fl-registerreg .star,#fl-loginreg .star{
+	font-size: 14px;
+	color:red;
+}
+#fl-registerreg  label,#fl-loginreg label{
+	font-weight: normal;
+}
+
+
+@media (max-width: 768px) {
+	
+}
+
+

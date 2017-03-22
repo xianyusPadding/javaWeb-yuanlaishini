@@ -1,0 +1,71 @@
+#fl-footer{
+	margin-top:50px;
+}
+.fl-share{
+	background:#DEDDD8;
+}
+.fl-share-publish{
+	margin:0 10px;
+}
+.fl-share-publish ul{
+	margin:-1px 0 2px 0;
+}
+.fl-share-publish ul li a{
+	font-size: 12px;
+}
+.fl-share-publish ul li a:hover{
+	background: #ccc;
+}
+.fl-share-publish h5{
+	line-height: 40px;
+	height: 40px;
+	font-size: 18px;
+	font-family: "DroidSansFallback";
+}
+.fl-share-publishMain{
+	width:100%;
+	line-height: 20px;
+	border:2px solid #ccc;
+	font-size: 18px;
+}
+.fl-share li a{
+	color:#000;
+}
+.fl-navbar-left{
+	background: #DEDDD8;
+	height:430px;
+}
+.fl-navbar-left .fl-navbarLeft-search{
+	margin:10px 0;
+}
+.fl-navbar-left .fl-navbarLeft-search .glyphicon-search{
+	border-top-left-radius:20px;
+	border-bottom-left-radius:20px;
+}
+.fl-navbar-left .fl-navbarLeft-search .form-control{
+	margin-top:1.2px;
+	border-radius:20px;
+}
+.fl-navbar-left li a{
+	display: inline-block;
+	border-radius: 0;
+	line-height: 20px;
+	font-size:14px;
+}
+.fl-navbar-left li a:hover,.fl-navbar-left li:hover{
+	background: #B4AEA2;
+	color:#000;
+}
+.fl-navbar-left1 span{
+	cursor: pointer;
+	line-height: 40px;
+	float:right;
+}
+.fl-navbar-left1 a{
+	width:140px;
+}
+/*@media (min-width: 992px){
+	.fl-main-right{
+		display:none;
+	}
+}*/
