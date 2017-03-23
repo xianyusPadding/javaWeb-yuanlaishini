@@ -1,6 +1,7 @@
 <%@page contentType="text/html;charset=UTF-8"%>     
 <%@page pageEncoding="UTF-8"%>  
 <%request.setCharacterEncoding("UTF-8");%> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -31,13 +32,16 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<%if(session.getAttribute("username")==null){ %>
-			<p class="navbar-text navbar-right fl-login" style="margin-right: 5px;"><a href="#" class="navbar-link" id="fl-register">注册</a></p>
-			<p class="navbar-text navbar-right fl-login"><a href="#" class="navbar-link fl-login" id="fl-login">登录</a></p>
-			<%} else{ %>
-			<p class="navbar-text navbar-right fl-login"><a href="logoutServlet" class="navbar-link fl-login" >注销</a></p>
-			<p class="navbar-text navbar-right fl-login"><a href="personal.jsp" class="navbar-link fl-login" >${username}</a></p>
-			<%} %>
+			<c:choose>
+				<c:when test="${user==null }">
+					<p class="navbar-text navbar-right fl-login" style="margin-right: 5px;"><a href="#" class="navbar-link" id="fl-register">注册</a></p>
+					<p class="navbar-text navbar-right fl-login"><a href="#" class="navbar-link fl-login" id="fl-login">登录</a></p>
+				</c:when>
+				<c:otherwise>
+					<p class="navbar-text navbar-right fl-login"><a href="logoutServlet" class="navbar-link fl-login" >注销</a></p>
+					<p class="navbar-text navbar-right fl-login"><a href="personal.jsp" class="navbar-link fl-login" >${user.username}</a></p>
+				</c:otherwise>
+			</c:choose>
 		</div>
 		
 		

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -28,12 +29,15 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<%if(session.getAttribute("username")==null){ 
-				out.print("<script type='text/javascript'>alert('请先登录!');location.href='index.jsp';</script>"); 
-			} else{ %>
-			<p class="navbar-text navbar-right fl-login"><a href="logoutServlet" class="navbar-link fl-login" >注销</a></p>
-			<p class="navbar-text navbar-right fl-login"><a href="personal.jsp" class="navbar-link fl-login" >${username}</a></p>
-			<%} %>
+			<c:choose>
+				<c:when test="${user==null }">
+					<c:out value="<script type='text/javascript'>alert('请先登录!');location.href='index.jsp';</script>" escapeXml="false"></c:out>
+				</c:when>
+				<c:otherwise>
+					<p class="navbar-text navbar-right fl-login"><a href="logoutServlet" class="navbar-link fl-login" >注销</a></p>
+					<p class="navbar-text navbar-right fl-login"><a href="personal.jsp" class="navbar-link fl-login" >${user.username}</a></p>
+				</c:otherwise>
+			</c:choose>
 		</div>
 		
 		
@@ -60,7 +64,7 @@
 		</div>
 		<div class="fl-cover-float">
 			<img src="images/photoalbum1.jpg" class="fl-cover-icon" alt="">
-			<p class="fl-cover-id">myID</p>
+			<p class="fl-cover-id"><c:out value="${user.username}"></c:out></p> 
 			<p class="fl-cover-signature">personalSignature</p>
 		</div>
 	</div>

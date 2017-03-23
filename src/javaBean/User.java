@@ -115,4 +115,7 @@ public class User {
 				+ email + ", i_p_url=" + i_p_url + ", age=" + age + ", tall=" + tall + ", salary=" + salary
 				+ ", province=" + province + ", city=" + city + ", country=" + country + ", date=" + date + "]";
 	}
+	public User() {
+		
+	}
 }

@@ -31,8 +31,7 @@ public class RegisiterServlet extends HttpServlet {
 		HttpSession session =req.getSession();
 		boolean result=registerAction.register(user);
 		if(result){
-			session.setAttribute("username", user.getUsername());
-			session.setAttribute("i_p_url", user.getI_p_url());
+			session.setAttribute("user", user);
 			resp.sendRedirect(req.getContextPath()+"/index.jsp");
 		}else{
 			session.setAttribute("status",MyConstant.STATUS_REGISTER_ERROR);

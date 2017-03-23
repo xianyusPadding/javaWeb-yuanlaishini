@@ -28,8 +28,7 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session =req.getSession();
 		User user =loginAction.login(username,password);
 		if(user!=null){
-			session.setAttribute("username", user.getUsername());
-			session.setAttribute("i_p_url", user.getI_p_url());
+			session.setAttribute("user", user);
 			resp.sendRedirect(req.getContextPath()+"/index.jsp");
 		}else{
 			session.setAttribute("status",MyConstant.STATUS_LOGIN_ERROR);

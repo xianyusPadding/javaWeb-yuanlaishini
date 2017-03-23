@@ -9,6 +9,28 @@ import com.mysql.jdbc.PreparedStatement;
 import javaBean.User;
 
 public class OptionDB {
+	
+	public User login(String username,String password){
+		Connection conn=ConDataBase.getConn();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		User user = null;
+		try {
+			pstmt=(PreparedStatement) conn.prepareStatement("select * from User where u_id=? and password=?");
+			pstmt.setString(1, username);
+			pstmt.setString(2, password);
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				user=new User(rs.getString("username"), rs.getString("u_id"),  rs.getString("password"),rs.getString("sex"), rs.getString("email"), rs.getString("i_p_url"), rs.getInt("age"), rs.getInt("tall"), rs.getInt("salary"), rs.getString("province"), rs.getString("city"), rs.getString("country"), rs.getString("date"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConDataBase.closeConn(rs, pstmt, conn);
+		}
+		return user;
+	}
+	
 	/***
 	 * User
 	 * @param conn
@@ -70,26 +92,7 @@ public class OptionDB {
 			return result!=0?true :false;
 		}
 	}
-	public User login(String username,String password){
-		Connection conn=ConDataBase.getConn();
-		ResultSet rs = null;
-		PreparedStatement pstmt = null;
-		User user = null;
-		try {
-			pstmt=(PreparedStatement) conn.prepareStatement("select * from User where u_id=? and password=?");
-			pstmt.setString(1, username);
-			pstmt.setString(2, password);
-			rs=pstmt.executeQuery();
-			if(rs.next()){
-				user=new User(rs.getString("username"), rs.getString("u_id"),  rs.getString("password"),rs.getString("sex"), rs.getString("email"), rs.getString("i_p_url"), rs.getInt("age"), rs.getInt("tall"), rs.getInt("salary"), rs.getString("province"), rs.getString("city"), rs.getString("country"), rs.getString("date"));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			ConDataBase.closeConn(rs, pstmt, conn);
-		}
-		return user;
-	}
+
 	
 	/*@SuppressWarnings("finally")
 	@Override
