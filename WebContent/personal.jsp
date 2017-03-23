@@ -158,75 +158,42 @@
 		<div id="fl-tab2">
 			<div class="container">
 				<div class="row">
+					<button class="btn btn-default fl-photoalbum-btn" style="margin-bottom:20px"><a href="#">创建相册</a></button>
+					<button class="btn btn-default fl-uploadPhoto-btn" style="margin-bottom:20px"><a href="#">上传相片</a></button>
+				</div>
+				<div class="row">
 					<p>2016.1</p>
 					<div class="wrapper" >
 						<ul class="thumbs" id="thumbs">
-							<li><img src="images/1.png" alt=""><div></div></li>
-							<li><img src="images/2.png" alt=""><div></div></li>
-							<li><img src="images/3.png" alt=""><div></div></li>
-							<li><img src="images/4.png" alt=""><div></div></li>
-							<li><img src="images/5.png" alt=""><div></div></li>
-							<li><img src="images/1.png" alt=""><div></div></li>
-							<li><img src="images/2.png" alt=""><div></div></li>
-							<li><img src="images/3.png" alt=""><div></div></li>
-							<li><img src="images/4.png" alt=""><div></div></li>
-							<li><img src="images/5.png" alt=""><div></div></li>
+							<li><img src="images/1.png" alt="" class="fl-showPhoto"><div></div></li>
+							<li><img src="images/2.png" alt="" style="display: none;"><div></div></li>
+							<li><img src="images/3.png" alt="" style="display: none;"><div></div></li>
+							<li><img src="images/4.png" alt="" style="display: none;"><div></div></li>
+							<li><img src="images/5.png" alt="" style="display: none;"><div></div></li>
+							<li><img src="images/1.png" alt="" style="display: none;"><div></div></li>
+							<li><img src="images/2.png" alt="" style="display: none;"><div></div></li>
+							<li><img src="images/3.png" alt="" style="display: none;"><div></div></li>
+							<li><img src="images/4.png" alt="" style="display: none;"><div></div></li>
+							<li><img src="images/5.png" alt="" style="display: none;"><div></div></li>
 						</ul>
 					</div>
 				</div>
-				<div class="row">
-					<p>2016.2</p>
-					<div class="wrapper" >
-						<ul class="thumbs" id="thumbs">
-							<li><img src="images/1.png" alt=""><div></div></li>
-							<li><img src="images/2.png" alt=""><div></div></li>
-							<li><img src="images/3.png" alt=""><div></div></li>
-							<li><img src="images/4.png" alt=""><div></div></li>
-							<li><img src="images/5.png" alt=""><div></div></li>
-							<li><img src="images/1.png" alt=""><div></div></li>
-							<li><img src="images/2.png" alt=""><div></div></li>
-							<li><img src="images/3.png" alt=""><div></div></li>
-							<li><img src="images/4.png" alt=""><div></div></li>
-							<li><img src="images/5.png" alt=""><div></div></li>
-						</ul>
-					</div>
-				</div>
-				<div class="row">
-					<p>2016.3</p>
-					<div class="wrapper" >
-						<ul class="thumbs" id="thumbs">
-							<li><img src="images/1.png" alt=""><div></div></li>
-							<li><img src="images/2.png" alt=""><div></div></li>
-							<li><img src="images/3.png" alt=""><div></div></li>
-							<li><img src="images/4.png" alt=""><div></div></li>
-							<li><img src="images/5.png" alt=""><div></div></li>
-							<li><img src="images/1.png" alt=""><div></div></li>
-							<li><img src="images/2.png" alt=""><div></div></li>
-							<li><img src="images/3.png" alt=""><div></div></li>
-							<li><img src="images/4.png" alt=""><div></div></li>
-							<li><img src="images/5.png" alt=""><div></div></li>
-						</ul>
-					</div>
-				</div>
-				
-				<!-- <p style="float:left">2016.1</p> -->
-				<!-- <div class="wrapper" style="display: block">
-					<ul class="thumbs" id="thumbs">
-						<li><img src="images/1.png" alt=""><div></div></li>
-						<li><img src="images/2.png" alt=""><div></div></li>
-						<li><img src="images/3.png" alt=""><div></div></li>
-						<li><img src="images/4.png" alt=""><div></div></li>
-						<li><img src="images/5.png" alt=""><div></div></li>
-						<li><img src="images/1.png" alt=""><div></div></li>
-						<li><img src="images/2.png" alt=""><div></div></li>
-						<li><img src="images/3.png" alt=""><div></div></li>
-						<li><img src="images/4.png" alt=""><div></div></li>
-						<li><img src="images/5.png" alt=""><div></div></li>
-					</ul>
-				</div> -->
 			</div>
 
 		</div>
+		
+		<form id="fl-bulid-photoalbum" action="">
+			<input class="form-control" type="text" name="title" placeholder="相册名称" style="margin:10px 0"/>
+			<input class="fl-photoalbum-flag" type="radio" name="flag" id="flag" value="0" checked="checked"/><label for="flag">公开</label>
+			<input class="fl-photoalbum-flag"  type="radio" name="flag" id="flaga" value="1"/><label for="flaga">私密</label>
+			<input class="fl-btn-closeBulidAlbum btn btn-default btn-group-justified" type="submit" value="确定" style="margin:10px 0"/>
+		</form>
+		
+		<form id="fl-upload-photo" action="">
+			<label for='img'><a   class="fl-browsePhoto btn btn-default">选择图片<input type='file' id='img' name='photoalbum' onChange='show_image()'/></a></label>
+			<div id='showImage'><img src='' id='show'></div>
+			<input class="fl-btn-closeBulidUpload btn btn-default btn-group-justified " type="submit" value="上传"/>
+		</form>
 		<div id="fl-tab3">tab3-content</div>
 	</div>
 			

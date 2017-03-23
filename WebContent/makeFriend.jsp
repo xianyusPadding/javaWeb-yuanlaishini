@@ -66,7 +66,7 @@
 <div id="fl-main" style="height:1500px;margin-top:-6px;">
 	<div class="container" style="">
 		<div class="row">
-			<div class="col-md-2 col-sm-4 fl-navbar-left">
+			<div class=" fl-navbar-left" style="position: fixed;">
 				
 					<div class="input-group fl-navbarLeft-search">
 						<!-- <span class="input-group-addon glyphicon glyphicon-search"></span> -->
@@ -89,7 +89,7 @@
 				
 			</div>
 			
-			<div class="col-md-7 col-sm-8" class="fl-center">				
+			<div class="col-md-7 col-md-offset-2" class="fl-center">				
 				<div class="row fl-dynamic" style="margin-top:0">
 					<div class="col-md-1" style="float:left">
 						<img class="fl-dynamic-img" src="images/photoalbum5.jpg" alt=""  />

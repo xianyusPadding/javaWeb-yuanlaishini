@@ -69,8 +69,15 @@
 	height: 300px;
 	font-size: 18px;
 }
-#fl-tab1 ul{
-	/*margin:-1px 0 2px 0;*/
+#fl-tab1 .fl-personal-dynamic{
+	margin-top: 10px;
+	padding-top:10px;
+	background:#B97A57;
+}
+#fl-tab1 .fl-dynamic-img{
+	width:60px;
+	height:60px;
+	border-radius: 50px;
 }
 #fl-tab1 ul li a{
 	font-size: 13px;
@@ -118,11 +125,15 @@
 #fl-tab2 ul li img:hover{
 	box-shadow:1px 1px 7px #777;
 }
+
 #fl-tab2 ul li:nth-child(even) img{
 	height:40px;
 }
 #fl-tab2 ul li:nth-child(odd) img{
 	height:60px;
+}
+#fl-tab2 ul li:nth-child(1) img{
+	height:130px;
 }
 #fl-tab2 ul li:nth-child(5n) img{
 	height:90px;
@@ -133,8 +144,25 @@
 #fl-tab2 ul li:nth-child(7n) img{
 	height:40px;
 }
-
-
+.fl-browsePhoto{
+/*	display: inline-block;*/
+	position: relative;
+}
+.fl-browsePhoto>input{
+	position: absolute;
+	right:0;
+	top:0;
+	opacity: 0;
+}
+#fl-upload-photo{
+	position: relative;
+}
+.fl-btn-closeBulidUpload{
+	/*padding: 0 10px;*/
+	position: absolute;
+	left:0;
+	bottom: 5px;	
+}
 @media (min-width: 768px){
 	#fl-section-cover .fl-cover-img img{
 		height: 330px;
