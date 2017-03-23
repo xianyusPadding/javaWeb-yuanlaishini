@@ -69,11 +69,11 @@ $(function() {
 		$("#fl-upload-photo").dialog("close");
 	})
 
-	$("#fl-tab2 ul li img:nth-of-type(1)").toggle(function(){
-		$("#fl-tab2 ul li img").show();		
-	},function(){
-		$("#fl-tab2 ul li img").hide();	
-	})
+//	$("#fl-tab2 ul li img:nth-of-type(1)").toggle(function(){
+//		$("#fl-tab2 ul li img").show();		
+//	},function(){
+//		$("#fl-tab2 ul li img").hide();	
+//	})
 	
 		
 

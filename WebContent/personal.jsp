@@ -166,15 +166,15 @@
 					<div class="wrapper" >
 						<ul class="thumbs" id="thumbs">
 							<li><img src="images/1.png" alt="" class="fl-showPhoto"><div></div></li>
-							<li><img src="images/2.png" alt="" style="display: none;"><div></div></li>
-							<li><img src="images/3.png" alt="" style="display: none;"><div></div></li>
-							<li><img src="images/4.png" alt="" style="display: none;"><div></div></li>
-							<li><img src="images/5.png" alt="" style="display: none;"><div></div></li>
-							<li><img src="images/1.png" alt="" style="display: none;"><div></div></li>
-							<li><img src="images/2.png" alt="" style="display: none;"><div></div></li>
-							<li><img src="images/3.png" alt="" style="display: none;"><div></div></li>
-							<li><img src="images/4.png" alt="" style="display: none;"><div></div></li>
-							<li><img src="images/5.png" alt="" style="display: none;"><div></div></li>
+							<li><img src="images/2.png" alt="" ><div></div></li>
+							<li><img src="images/3.png" alt="" ><div></div></li>
+							<li><img src="images/4.png" alt="" ><div></div></li>
+							<li><img src="images/5.png" alt="" ><div></div></li>
+							<li><img src="images/1.png" alt="" ><div></div></li>
+							<li><img src="images/2.png" alt="" ><div></div></li>
+							<li><img src="images/3.png" alt="" ><div></div></li>
+							<li><img src="images/4.png" alt="" ><div></div></li>
+							<li><img src="images/5.png" alt="" ><div></div></li>
 						</ul>
 					</div>
 				</div>
