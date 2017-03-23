@@ -63,11 +63,11 @@
 </div>
 
 
-<div id="fl-main" style="height:1500px;margin-top:-6px">
+<div id="fl-main" style="height:1500px;margin-top:-6px;">
 	<div class="container" style="">
 		<div class="row">
 			<div class="col-md-2 col-sm-4 fl-navbar-left">
-				<div>
+				
 					<div class="input-group fl-navbarLeft-search">
 						<!-- <span class="input-group-addon glyphicon glyphicon-search"></span> -->
 						<input type="text" class="form-control" placeholder="搜索">
@@ -77,56 +77,96 @@
 						<li><a href="#"><span class="glyphicon glyphicon-star-empty"></span> 我的收藏</a></li>
 						<li><a href="#"><span class="glyphicon glyphicon-thumbs-up"></span> 我的赞</a></li>
 					</ul>
-					<p style="margin:30px 0 10px 15px">分组</p>
+					<p style="margin:30px 0 10px 15px;">分组</p>
 					<ul class="fl-navbar-left1 nav nav-pills nav-stacked">
-						<li><a href="#">1. 我的好友</a><span class="glyphicon glyphicon-triangle-right"></span></li>
-						<li><a href="#">2. 我喜欢的人</a><span class="glyphicon glyphicon-triangle-right"></span></li>
-						<li><a href="#">3. 闺蜜</a><span class="glyphicon glyphicon-triangle-right"></span></li>
+						<li><a href="#">1. 我的好友</a></li>
+						<li><a href="#">2. 有好感的人</a></li>
+						<li><a href="#">3. 特别收藏</a></li>
 						<!--<li><a href=""></a></li>
 						<li><a href="">5</a></li>-->
 					</ul>
 					<button class="btn btn-default" style="margin:20px 0 0 60px;">展开</button>
-				</div>
-			</div>
-			
-			<div class="col-md-7 col-sm-8">
-				<div class="row" style="margin-top:0">
-					<div class="fl-share">
-						<div class="fl-share-publish" style="height:300px">
-							<h5 style="">小分享，大快乐，来一起分享你的故事吧！</h5>
-							<textarea name="" class="fl-share-publishMain" cols="30" rows="10"></textarea>
-							<ul class="nav nav-pills" style="float:left">
-								<li><a href="#"><span class="glyphicon glyphicon-th-large"></span> 表情</a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-picture"></span> 图片</a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-fire"></span> 话题</a></li>
-							</ul>
-							<button style="float:right" class="btn btn-default">发表</button>
-						</div>
-					</div>				
-				</div>
-				<div class="row" style="height:300px;background: #eee;">
-					<div class="fl-trends">					
-					</div>
-				</div>
-				<div class="row" style="height:300px;background: #eee;">
-					
-				</div>
-				<div class="row" style="height:300px;background: #eee;">
-					
-				</div>		
-				<div class="row" style="height:300px;background: #eee;">
-					
-				</div>		
-							
 				
 			</div>
 			
-			<div class="col-md-3">
-				<div class="row" style="background: #DEDDD8;height:300px;margin:0">
-					个人资料 头像 简介
+			<div class="col-md-7 col-sm-8" class="fl-center">				
+				<div class="row fl-dynamic" style="margin-top:0">
+					<div class="col-md-1" style="float:left">
+						<img class="fl-dynamic-img" src="images/photoalbum5.jpg" alt=""  />
+					</div>
+					<div class="col-md-11" style="float:left">
+						<h4>myId</h4>
+							<p style="font-size: 12px">2016-1-1</p>
+							<p style="font-size: 15px">执子之手，与子偕老！</p>
+					</div>
+					<ul class="nav nav-tabs nav-justified" style="">
+						<li style=""><a href="">阅读121</a></li>
+						<li><a href="">转发</a></li>
+						<li><a href="">评论</a></li>
+						<li><a href="">赞</a></li>
+					</ul>
 				</div>
-				<div class="row" style="background: #DEDDD8;height:500px;margin:5px 0 0 0">
-					许愿树 可匿名发布
+				<div class="row fl-dynamic" style="">
+					<div class="col-md-1" style="float:left">
+						<img class="fl-dynamic-img" src="images/photoalbum5.jpg" alt=""  />
+					</div>
+					<div class="col-md-11" style="float:left">
+						<h4>myId</h4>
+							<p style="font-size: 12px">2016-1-1</p>
+							<p style="font-size: 15px">执子之手，与子偕老！</p>
+					</div>
+					<ul class="nav nav-tabs nav-justified" style="">
+						<li style=""><a href="">阅读121</a></li>
+						<li><a href="">转发</a></li>
+						<li><a href="">评论</a></li>
+						<li><a href="">赞</a></li>
+					</ul>
+				</div>
+				<div class="row fl-dynamic" style="">
+					<div class="col-md-1" style="float:left">
+						<img class="fl-dynamic-img" src="images/photoalbum5.jpg" alt=""  />
+					</div>
+					<div class="col-md-11" style="float:left">
+						<h4>myId</h4>
+							<p style="font-size: 12px">2016-1-1</p>
+							<p style="font-size: 15px">执子之手，与子偕老！</p>
+					</div>
+					<ul class="nav nav-tabs nav-justified" style="">
+						<li style=""><a href="">阅读121</a></li>
+						<li><a href="">转发</a></li>
+						<li><a href="">评论</a></li>
+						<li><a href="">赞</a></li>
+					</ul>
+				</div>
+				<div class="row fl-dynamic" style="">
+					<div class="col-md-1" style="float:left">
+						<img class="fl-dynamic-img" src="images/photoalbum5.jpg" alt=""  />
+					</div>
+					<div class="col-md-11" style="float:left">
+						<h4>myId</h4>
+							<p style="font-size: 12px">2016-1-1</p>
+							<p style="font-size: 15px">执子之手，与子偕老！</p>
+					</div>
+					<ul class="nav nav-tabs nav-justified" style="">
+						<li style=""><a href="">阅读121</a></li>
+						<li><a href="">转发</a></li>
+						<li><a href="">评论</a></li>
+						<li><a href="">赞</a></li>
+					</ul>
+				</div>			
+			</div>
+			
+			<div class="col-md-3">
+				<div class="row" style="background:url(images/黑色磨砂.png);margin:0">
+					<div class="fl-easy-introduction">
+						<img src="images/photoalbum5.jpg" alt="" />
+						<h4>myId</h4>
+						<p>来自广东茂名化州</p>
+						<p>喜欢打篮球，游泳</p>
+					</div>
+				</div>
+				<div class="row fl-desireTree" style="background: #DEDDD8;height:500px;margin:5px 0 0 0">
+					<a href=""><img src="images/许愿树.jpg" alt="" style="width: 100%;height: 250px;"/></a>
 				</div>
 				<div class="row"></div>
 			</div>

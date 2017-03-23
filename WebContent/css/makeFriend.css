@@ -32,8 +32,9 @@
 	color:#000;
 }
 .fl-navbar-left{
+	/*background: url(../images/黑色磨砂.png);*/
 	background: #DEDDD8;
-	height:430px;
+	height:430px
 }
 .fl-navbar-left .fl-navbarLeft-search{
 	margin:10px 0;
@@ -46,8 +47,11 @@
 	margin-top:1.2px;
 	border-radius:20px;
 }
+/*.fl-navbar-left p,.fl-navbar-left ul li a,.fl-navbar-left ul li span{
+	color:#fff;
+}*/
 .fl-navbar-left li a{
-	display: inline-block;
+	display: block;
 	border-radius: 0;
 	line-height: 20px;
 	font-size:14px;
@@ -63,6 +67,42 @@
 }
 .fl-navbar-left1 a{
 	width:140px;
+}
+.fl-dynamic{
+	background: #B97A57;
+}
+.fl-dynamic .fl-dynamic-img{
+	margin-top: 20px;
+	width: 45px;
+	height:45px;
+	border-radius: 50px;
+}
+.fl-dynamic ul li{
+	border-top:1px solid #000;
+}
+.fl-dynamic ul li a:hover,.fl-dynamic ul li a:hover{
+	color:#000;
+	border:none;
+	background: #B97A57;
+}
+.fl-easy-introduction{
+	text-align: center;
+}
+.fl-easy-introduction img{
+	width:70px;
+	height: 70px;
+	margin-top:20px;
+	border-radius: 50px;
+}
+.fl-easy-introduction h4{
+	color:#fff;
+	margin-bottom: 30px;
+}
+.fl-easy-introduction p{
+	color:#fff;
+}
+.fl-desireTree img{
+	width:100px;
 }
 /*@media (min-width: 992px){
 	.fl-main-right{
