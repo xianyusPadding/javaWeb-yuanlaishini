@@ -100,7 +100,8 @@ $(function() {
 		width:1263,
 		autoOpen:false,
 	})
-
+	
+	$(".fl-btn-closeBulidUpload").attr("disabled", true);
 	
 
 	//显示image的方法

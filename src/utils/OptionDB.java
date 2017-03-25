@@ -560,6 +560,7 @@ public class OptionDB {
 	}
 	
 	//unloadphotoalbum表
+	@SuppressWarnings("finally")
 	public boolean insertphoto(Photo photo) {
 		Connection conn=ConDataBase.getConn();
 		ResultSet rs = null;
@@ -570,13 +571,11 @@ public class OptionDB {
 			String uid=photo.getU_id();
 			int aid=photo.getA_id();
 			String apurl=photo.getA_p_url();
-			String date=photo.getDate();
 			pstmt=(PreparedStatement) conn.prepareStatement
-					("insert into unloadphotoalbum values(?,?,?,?,now())");
-			pstmt.setInt(1, upid);
-			pstmt.setString(2, uid);
-			pstmt.setInt(3, aid);
-			pstmt.setString(4, apurl);
+					("insert into unloadphotoalbum(u_id,a_id,a_p_url,date) values(?,?,?,now())");
+			pstmt.setString(1, uid);
+			pstmt.setInt(2, aid);
+			pstmt.setString(3, apurl);
 			//写进数据库
 			result=pstmt.executeUpdate();
 		} catch (SQLException e) {

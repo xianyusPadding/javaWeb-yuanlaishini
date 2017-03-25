@@ -68,4 +68,13 @@
     <servlet-name>PersonalServlet</servlet-name>
     <url-pattern>/personalServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <servlet-name>UploadServlet</servlet-name>
+    <servlet-class>servlet.UploadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UploadServlet</servlet-name>
+    <url-pattern>/uploadServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

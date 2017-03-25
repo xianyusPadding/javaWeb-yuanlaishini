@@ -165,7 +165,7 @@
 				<div class="row">
 					<c:forEach var="a" items="${albumList}">
 						 	<div class="col-md-3 fl-textcenter" style="display:inline-block">
-								<h4>${a.a_title } </h4><p>${a.date }</p>
+								<h4>${a.a_title } </h4><p>${a.date }(${a.flag })</p>
 								<img src="images/4.png" alt="" class="fl-photoAlbum">
 							</div>
 					 </c:forEach>
@@ -199,7 +199,7 @@
 			<input class="fl-btn-closeBulidAlbum btn btn-default btn-group-justified" type="submit" value="确定" style="margin:10px 0"/>
 		</form>
 		
-		<form id="fl-upload-photo" action="">
+		<form id="fl-upload-photo" action="uploadServlet" method="post" enctype="multipart/form-data">
 			<label for='img'><a   class="fl-browsePhoto btn btn-default">选择图片<input type='file' id='img' name='photoalbum' onChange='show_image()'/></a></label>
 			<c:choose>
 				<c:when test="${size==0}">
@@ -213,7 +213,6 @@
 					</select>
 				</c:otherwise>
 			</c:choose>
-			
 			<div id='showImage'><img src='' id='show'></div>
 			<input class="fl-btn-closeBulidUpload btn btn-default btn-group-justified " type="submit" value="上传"/>
 		</form>
@@ -237,6 +236,8 @@
 		iptfileupload = document.getElementById('img');
 		//以下即为完整客户端路径
 		getPath(file_img, iptfileupload, file_img);
+		 if($("#fl-upload-photo").find("option").length !=0 && $("#showImage").find("img").length !=0 )		
+				$(".fl-btn-closeBulidUpload").attr("disabled", false);
 	}
 
 	function getPath(obj, fileQuery, transImg) {

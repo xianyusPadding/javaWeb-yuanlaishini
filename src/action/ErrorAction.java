@@ -38,7 +38,14 @@ public class ErrorAction {
 				message="相册名称不能为空！";
 				link="personal.jsp";
 				break ;
-
+			case MyConstant.STATUS_UPLOAD_PHOTO:
+				message="上传相片出错！";
+				link="personal.jsp";
+				break ;
+			case MyConstant.STATUS_UPLOAD_INSERTPHOTO:
+				message="未知错误！";
+				link="personal.jsp";
+				break ;
 		}
 		return this;
 	}
