@@ -17,7 +17,7 @@ public class SetCharacterEncodingFilter implements Filter {
         public Request(HttpServletRequest request) {
             super(request);
         }
-        public String toChi(String input) {
+        public String toUTF8(String input) {
             try {
                 byte[] bytes = input.getBytes("ISO8859-1");
                 return new String(bytes, "utf-8");
@@ -32,14 +32,14 @@ public class SetCharacterEncodingFilter implements Filter {
         public String getParameter(String name)
         {
             return
-            toChi(getHttpServletRequest().getParameter(name));
+            		toUTF8(getHttpServletRequest().getParameter(name));
         }
         public String[] getParameterValues(String name)
         {
             String values[] =getHttpServletRequest().getParameterValues(name);
             if (values != null) {
                 for (int i = 0; i < values.length; i++) {
-                    values[i] = toChi(values[i]);
+                    values[i] = toUTF8(values[i]);
                 }
             }
             return values;

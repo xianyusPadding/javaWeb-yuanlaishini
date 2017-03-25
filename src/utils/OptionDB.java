@@ -268,23 +268,25 @@ public class OptionDB {
 	 * @return
 	 */
 		@SuppressWarnings("finally")
-		public List<Album> selectAlbum(Album album) {
+		public List<Album> selectAlbum(User user) {
 			Connection conn=ConDataBase.getConn();
 			ResultSet rs = null;
 			PreparedStatement pstmt = null;
 		    List<Album> list=new ArrayList<Album>();
 			try {
-				String uid=album.getU_id();
+				String uid=user.getU_id();
 				pstmt=(PreparedStatement) conn.prepareStatement
 						("select * from album where u_id=?");
 				pstmt.setString(1, uid);			
 				//写进数据库
 				rs=pstmt.executeQuery();
-				Album album1=null;
+				Album album=null;
 				while(rs.next()){
-					album1=new Album(rs.getInt(1),rs.getString(2),rs.getString(3),
-							rs.getString(4),rs.getString(5));
-					list.add(album1);
+					String date =rs.getString(5);
+					String[] dates=date.split(" ");
+					album=new Album(rs.getInt(1),rs.getString(2),rs.getString(3),
+							rs.getString(4),dates[0]);
+					list.add(album);
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();

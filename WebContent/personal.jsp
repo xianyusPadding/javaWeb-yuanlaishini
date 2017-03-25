@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%request.setCharacterEncoding("UTF-8");%> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -65,7 +66,7 @@
 		<div class="fl-cover-float">
 			<img src="images/photoalbum1.jpg" class="fl-cover-icon" alt="">
 			<p class="fl-cover-id"><c:out value="${user.username}"></c:out></p> 
-			<p class="fl-cover-signature">personalSignature</p>
+			<p class="fl-cover-signature">人没有了梦想，就和飞龙一样...</p>
 		</div>
 	</div>
 </div>
@@ -162,25 +163,15 @@
 					<button class="btn btn-default fl-uploadPhoto-btn" style="margin-bottom:20px"><a href="#">上传相片</a></button>
 				</div>
 				<div class="row">
-					<div class="col-md-3 fl-textcenter" style="display:inline-block">
-						<h4>相册ID </h4><p>2016.1</p>
-						<img src="images/1.png" alt="" class="fl-photoAlbum">
-					</div>
-					<div class="col-md-3 fl-textcenter" style="display:inline-block">
-						<h4>相册ID </h4><p>2016.1</p>
-						<img src="images/2.png" alt="" class="fl-photoAlbum">
-					</div>
-					<div class="col-md-3 fl-textcenter" style="display:inline-block">
-						<h4>相册ID </h4><p>2016.1</p>
-						<img src="images/3.png" alt="" class="fl-photoAlbum">
-					</div>
-					<div class="col-md-3 fl-textcenter" style="display:inline-block">
-						<h4>相册ID </h4><p>2016.1</p>
-						<img src="images/4.png" alt="" class="fl-photoAlbum">
-					</div>
+					<c:forEach var="a" items="${albumList}">
+						 	<div class="col-md-3 fl-textcenter" style="display:inline-block">
+								<h4>${a.a_title } </h4><p>${a.date }</p>
+								<img src="images/4.png" alt="" class="fl-photoAlbum">
+							</div>
+					 </c:forEach>
 				</div>
-			</div>
 
+			</div>
 		</div>
 		
 		<form id="fl-photoShow">
@@ -196,11 +187,12 @@
 							<li><img src="images/3.png" alt=""  ><div></div></li>
 							<li><img src="images/4.png" alt=""  ><div></div></li>
 							<li><img src="images/5.png" alt=""  ><div></div></li>
-						</ul>					
+						</ul>
+				
 					</div>
 		</form>
 				
-		<form id="fl-bulid-photoalbum" action="">
+		<form id="fl-bulid-photoalbum"  action="albumServlet" method="post">
 			<input class="form-control fl-phototitle" type="text" name="title" placeholder="相册名称" style="margin:10px 0"/>
 			<input class="fl-photoalbum-flag" type="radio" name="flag" id="flag" value="0" checked="checked"/><label for="flag">公开</label>
 			<input class="fl-photoalbum-flag"  type="radio" name="flag" id="flaga" value="1"/><label for="flaga">私密</label>
@@ -209,11 +201,19 @@
 		
 		<form id="fl-upload-photo" action="">
 			<label for='img'><a   class="fl-browsePhoto btn btn-default">选择图片<input type='file' id='img' name='photoalbum' onChange='show_image()'/></a></label>
-			<select name="title" class="btn btn-default">
-				<option value="">相册1</option>
-				<option value="">相册2</option>
-				<option value="">相册3</option
-			</select>
+			<c:choose>
+				<c:when test="${size==0}">
+				你还没有相册哦，先创建一个相册吧。
+				</c:when>
+				<c:otherwise>
+					<select name="album" class="btn btn-default">
+						<c:forEach var="a" items="${albumList}">
+							<option value="${a.a_id }">${a.a_title }</option>
+						</c:forEach>
+					</select>
+				</c:otherwise>
+			</c:choose>
+			
 			<div id='showImage'><img src='' id='show'></div>
 			<input class="fl-btn-closeBulidUpload btn btn-default btn-group-justified " type="submit" value="上传"/>
 		</form>

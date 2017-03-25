@@ -73,8 +73,10 @@ $(function() {
 
 	//点击dialog里面的“确认”和“上传”按钮，关闭对话框
 	$(".fl-btn-closeBulidAlbum").click(function() {
-		if($(".fl-phototitle").val()=="")
+		if($(".fl-phototitle").val()==""){
 			alert("相册名称不得为空");
+			return false;
+		}
 		else
 			$("#fl-bulid-photoalbum").dialog("close");
 	})

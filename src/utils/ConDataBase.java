@@ -21,7 +21,7 @@ public class ConDataBase {
     public static Connection getConn(){
         try {
             
-            return (Connection) DriverManager.getConnection(ConnDate.get("url")+"?charset=utf8",ConnDate.get("user"),ConnDate.get("password"));
+            return (Connection) DriverManager.getConnection(ConnDate.get("url")+"?useUnicode=true&characterEncoding=UTF-8",ConnDate.get("user"),ConnDate.get("password"));
             
         } catch (SQLException e) {
             

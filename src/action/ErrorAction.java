@@ -18,6 +18,10 @@ public class ErrorAction {
 	}
 	public ErrorAction error(){
 		switch(status){
+			case MyConstant.STATUS_AUTHOR:
+				message="请先登录！";
+				link="index.jsp";
+				break ;
 			case MyConstant.STATUS_LOGIN_ERROR:
 				message="账号或密码错误！";
 				link="index.jsp";
@@ -26,6 +30,15 @@ public class ErrorAction {
 				message="用户名已存在！";
 				link="index.jsp";
 				break ;
+			case MyConstant.STATUS_ALBUM_INSERT:
+				message="创建相册失败！";
+				link="personal.jsp";
+				break ;
+			case MyConstant.STATUS_ALBUM_INSERT_EMPTY:
+				message="相册名称不能为空！";
+				link="personal.jsp";
+				break ;
+
 		}
 		return this;
 	}
