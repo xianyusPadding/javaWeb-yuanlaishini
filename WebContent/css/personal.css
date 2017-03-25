@@ -89,59 +89,72 @@
 	border:none;
 	background: #B97A57;
 }
-#fl-tab2 .warpper{
-	width: 70%;
-	margin:30px auto 100px auto;
-	position: relative;
+#fl-tab2 h4{
+	
 }
-#fl-tab2 p{
-	font-weight: bold;
-	font-size: 18px;
+#fl-tab2 h4 p{
+	font-size: 14px;
 }
-#fl-tab2 ul li{
-	float: left;
-	margin:5px;
-}
-#fl-tab2 ul li div{
-	position: absolute;
-	top:5px;
-	width:180px;
-	padding:0 10px; 
-}
-#fl-tab2 ul li:nth-child(1){
-	margin-left: 50px;
-}
-#fl-tab2 ul li:nth-child(even){
-	margin-left: 30px;
-}
-#fl-tab2 ul li:nth-child(3n){
-	margin-left: 20px;
-}
-#fl-tab2 ul li img{
+#fl-tab2 .fl-photoAlbum{
 	border:7px solid #fff;
 	cursor:pointer;
 	box-shadow:1px 1px 1px #aaa;
 }
-#fl-tab2 ul li img:hover{
+#fl-tab2 .fl-photoAlbum:hover{
+	box-shadow:1px 1px 7px #777;
+}
+.fl-textcenter{
+	text-align: center;
+}
+#fl-photoShow .warpper{
+	width: 100%;
+	margin:30px auto 100px auto;
+	position: relative;
+}
+#fl-photoShow ul li{
+	float: left;
+	margin:5px;
+}
+/*#fl-photoShow ul li div{
+	position: absolute;
+	top:5px;
+	width:180px;
+	padding:0 10px; 
+}*/
+#fl-photoShow ul li:nth-child(1){
+	margin-left: 10px;
+}
+#fl-photoShow ul li:nth-child(even){
+	margin-left: 30px;
+}
+#fl-photoShow ul li:nth-child(3n){
+	margin-left: 20px;
+}
+#fl-photoShow  ul li img{
+	border:7px solid #fff;
+	cursor:pointer;
+	box-shadow:1px 1px 1px #aaa;
+}
+#fl-photoShow ul li img:hover{
 	box-shadow:1px 1px 7px #777;
 }
 
-#fl-tab2 ul li:nth-child(even) img{
+#fl-photoShow ul li:nth-child(even) img{
 	height:40px;
 }
-#fl-tab2 ul li:nth-child(odd) img{
+#fl-photoShow ul li:nth-child(odd) img{
 	height:60px;
 }
-#fl-tab2 ul li:nth-child(1) img{
+#fl-photoShow ul li:nth-child(1) img{
 	height:130px;
 }
-#fl-tab2 ul li:nth-child(5n) img{
+#fl-photoShow ul li:nth-child(5n) img{
 	height:90px;
 }
-#fl-tab2 ul li:nth-child(6n) img{
+#fl-photoShow ul li:nth-child(6n) img{
 	height:130px;
 }
-#fl-tab2 ul li:nth-child(7n) img{
+#fl-photoShow ul li:nth-child(7n) img{
 	height:40px;
 }
 .fl-browsePhoto{
@@ -162,6 +175,9 @@
 	position: absolute;
 	left:0;
 	bottom: 5px;	
+}
+#fl-tab2 .fl-showPhoto{
+	
 }
 @media (min-width: 768px){
 	#fl-section-cover .fl-cover-img img{

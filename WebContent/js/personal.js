@@ -13,14 +13,12 @@ $(function() {
 	var arrH = [];
 	var arrW = [];
 	$.each($("#fl-tab2 ul li img"), function(index, value) {
-//		alert(index);
 		arrH[index] = $(value).height() + 14 + "px";
 		arrW[index] = $(value).width() + 14 + "px";
 		$("#fl-tab2 ul").find("img").eq(index).css("height", arrH[index]);
 		$("#fl-tab2 ul").find("img").eq(index).css("width", arrW[index]);
 	})
 
-	//$(".fl-tabPhoto-link").css("width",$(".container").width()/3-8+"px");
 	$(window).resize(function() {
 		$(".fl-cover-float").css("left", ($(".fl-cover-img img").width() - $(".fl-cover-float").width()) / 2 + "px");
 		$(".fl-cover-float").css("top", ($(".fl-cover-img img").height() - $(".fl-cover-float").height()) / 2 + "px");
@@ -47,6 +45,19 @@ $(function() {
 		autoOpen: false,
 	})
 
+//$("#fl-bulid-photoalbum").validate({
+//	rules:{
+//		title:{
+//			required:true,
+//		},
+//	},
+//	messages:{
+//		title:{
+//			required:"相册名称不得为空"
+//		},
+//	},
+//})
+
 	//上传图片的dialog
 	$(".fl-uploadPhoto-btn").click(function() {
 		$("#fl-upload-photo").dialog("open");
@@ -62,21 +73,35 @@ $(function() {
 
 	//点击dialog里面的“确认”和“上传”按钮，关闭对话框
 	$(".fl-btn-closeBulidAlbum").click(function() {
-		$("#fl-bulid-photoalbum").dialog("close");
+		if($(".fl-phototitle").val()=="")
+			alert("相册名称不得为空");
+		else
+			$("#fl-bulid-photoalbum").dialog("close");
 	})
 
 	$(".fl-btn-closeBulidUpload").click(function() {
 		$("#fl-upload-photo").dialog("close");
 	})
 
-//	$("#fl-tab2 ul li img:nth-of-type(1)").toggle(function(){
-//		$("#fl-tab2 ul li img").show();		
-//	},function(){
-//		$("#fl-tab2 ul li img").hide();	
-//	})
-	
-		
 
+	$("#fl-photoShow").dialog({
+		title:$(".fl-photoAlbum").parent().find("h4").html(),
+		width:860,
+		autoOpen:false,
+	})
+	
+	$(".fl-photoAlbum").click(function(){
+		$("#fl-photoShow").dialog("open");
+	})
+
+	$(".fl-showPriphoto").dialog({
+		width:1263,
+		autoOpen:false,
+	})
+
+	
+
+	//显示image的方法
 	
 
 })
