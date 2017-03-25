@@ -157,7 +157,7 @@
 			</div>
 			
 			<div class="col-md-3">
-				<div class="row" style="background:url(images/黑色磨砂.png);margin:0">
+				<div class="row" style="background:url(images/blackMatte.png);margin:0">
 					<div class="fl-easy-introduction">
 						<img src="images/photoalbum5.jpg" alt="" />
 						<h4>myId</h4>
@@ -166,7 +166,7 @@
 					</div>
 				</div>
 				<div class="row fl-desireTree" style="background: #DEDDD8;height:500px;margin:5px 0 0 0">
-					<a href=""><img src="images/许愿树.jpg" alt="" style="width: 100%;height: 250px;"/></a>
+					<a href=""><img src="images/wishingTree.jpg" alt="" style="width: 100%;height: 250px;"/></a>
 				</div>
 				<div class="row"></div>
 			</div>
