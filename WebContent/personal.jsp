@@ -185,7 +185,7 @@
 													<c:forEach var="ps" items="${p_s_list}" varStatus="p_status">
 															<c:choose>
 																<c:when test="${ps.a_id==a.a_id }">
-																	<img id ="${a.a_id} " src="${ps.a_p_url }" name="${a.u_id}" alt="${ps.u_p_id }" class="fl-photoAlbum" ><div>${ps.a_id }</div>
+																	<img id ="${a.a_id} " src="${ps.a_p_url }" name="${a.u_id}" alt="${ps.u_p_id }" class="fl-photoAlbum" ><div></div>
 																	<% i =1; %>
 																</c:when>
 																<c:otherwise>
