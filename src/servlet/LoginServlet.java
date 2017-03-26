@@ -13,7 +13,6 @@ import javaBean.User;
 import utils.MyConstant;
 
 public class LoginServlet extends HttpServlet {
-	
 	public void init()throws ServletException{
 		
 	}

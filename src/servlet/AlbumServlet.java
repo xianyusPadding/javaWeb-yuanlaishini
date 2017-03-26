@@ -36,8 +36,8 @@ public class AlbumServlet extends HttpServlet {
 			boolean rs =albumAction.insert(album);
 			if(rs){
 				List<Album> list =albumAction.select(user);
-				session.setAttribute("albumList", list);
-				session.setAttribute("size", list.size());
+				session.setAttribute("a_list", list);
+				session.setAttribute("a_size", list.size());
 				response.sendRedirect(request.getContextPath()+"/personal.jsp");
 			}else{
 				session.setAttribute("status",MyConstant.STATUS_ALBUM_INSERT);

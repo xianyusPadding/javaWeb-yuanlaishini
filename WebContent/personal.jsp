@@ -163,7 +163,7 @@
 					<button class="btn btn-default fl-uploadPhoto-btn" style="margin-bottom:20px"><a href="#">上传相片</a></button>
 				</div>
 				<div class="row">
-					<c:forEach var="a" items="${albumList}">
+					<c:forEach var="a" items="${a_list}">
 						 	<div class="col-md-3 fl-textcenter" style="display:inline-block">
 								<h4>${a.a_title } </h4><p>${a.date }(${a.flag })</p>
 								<img src="images/4.png" alt="" class="fl-photoAlbum">
@@ -176,19 +176,18 @@
 		
 		<form id="fl-photoShow">
 			<div class="wrapper" >
+				<c:choose>
+				<c:when test="${p_size==0}">
+				相片
+				</c:when>
+				<c:otherwise>
 						<ul class="thumbs" id="thumbs">
-							<li><img src="images/1.png" alt="" class="fl-showPhoto"><div></div></li>
-							<li><img src="images/2.png" alt=""  ><div></div></li>
-							<li><img src="images/3.png" alt=""  ><div></div></li>
-							<li><img src="images/4.png" alt=""  ><div></div></li>
-							<li><img src="images/5.png" alt=""  ><div></div></li>
-							<li><img src="images/1.png" alt=""  ><div></div></li>
-							<li><img src="images/2.png" alt=""  ><div></div></li>
-							<li><img src="images/3.png" alt=""  ><div></div></li>
-							<li><img src="images/4.png" alt=""  ><div></div></li>
-							<li><img src="images/5.png" alt=""  ><div></div></li>
+							<c:forEach var="p" items="${p_list}">
+								<li><img src="${p.a_p_url }" alt="${p.u_p_id }" ><div></div></li>
+							</c:forEach>
 						</ul>
-				
+				</c:otherwise>
+			</c:choose>
 					</div>
 		</form>
 				
@@ -202,12 +201,12 @@
 		<form id="fl-upload-photo" action="uploadServlet" method="post" enctype="multipart/form-data">
 			<label for='img'><a   class="fl-browsePhoto btn btn-default">选择图片<input type='file' id='img' name='photoalbum' onChange='show_image()'/></a></label>
 			<c:choose>
-				<c:when test="${size==0}">
+				<c:when test="${a_size==0}">
 				你还没有相册哦，先创建一个相册吧。
 				</c:when>
 				<c:otherwise>
 					<select name="album" class="btn btn-default">
-						<c:forEach var="a" items="${albumList}">
+						<c:forEach var="a" items="${a_list}">
 							<option value="${a.a_id }">${a.a_title }</option>
 						</c:forEach>
 					</select>

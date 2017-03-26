@@ -604,31 +604,65 @@ public class OptionDB {
 			return result!=0?true :false;
 		}
 	}
-	public boolean selectPhoto(Photo photo) {
+	
+	@SuppressWarnings("finally")
+	public List<Photo> selectPhoto_Ablum(Photo photo) {
 		Connection conn=ConDataBase.getConn();
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
-		boolean flag1=false;
+	    List<Photo> list=new ArrayList<Photo>();
 		try {
-			int upid=photo.getU_p_id();
 			String uid=photo.getU_id();
 			int aid=photo.getA_id();
-			String apurl=photo.getA_p_url();
-			String date=photo.getDate();
 			pstmt=(PreparedStatement) conn.prepareStatement
-					("select * from unloadphotoalbum where u_p_id=?");
-			pstmt.setInt(1, upid);			
+					("select * from unloadphotoalbum where u_id=? and a_id=?");
+			pstmt.setString(1, uid);	
+			pstmt.setInt(2, aid);	
 			//写进数据库
 			rs=pstmt.executeQuery();
-			flag1=true;
+			Photo photo1=null;
+			while(rs.next()){
+				String date =rs.getString(5);
+				String[] dates=date.split(" ");
+				photo1=new Photo(rs.getInt(1),rs.getString(2),rs.getInt(3),
+						rs.getString(4),dates[0]);
+				list.add(photo1);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			ConDataBase.closeConn(rs, pstmt, conn);
-			return flag1;
+			return list;
 		}
 	}
-	
+	@SuppressWarnings("finally")
+	public List<Photo> selectPhoto_User(Photo photo) {
+		Connection conn=ConDataBase.getConn();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+	    List<Photo> list=new ArrayList<Photo>();
+		try {
+			String uid=photo.getU_id();
+			pstmt=(PreparedStatement) conn.prepareStatement
+					("select * from unloadphotoalbum where u_id=?");
+			pstmt.setString(1, uid);	
+			//写进数据库
+			rs=pstmt.executeQuery();
+			Photo photo1=null;
+			while(rs.next()){
+				String date =rs.getString(5);
+				String[] dates=date.split(" ");
+				photo1=new Photo(rs.getInt(1),rs.getString(2),rs.getInt(3),
+						rs.getString(4),dates[0]);
+				list.add(photo1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConDataBase.closeConn(rs, pstmt, conn);
+			return list;
+		}
+	}
 	public boolean alterPhoto(Photo photo) {
 		Connection conn=ConDataBase.getConn();
 		ResultSet rs = null;

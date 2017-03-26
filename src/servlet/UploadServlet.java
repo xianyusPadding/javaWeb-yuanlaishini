@@ -3,6 +3,7 @@ package servlet;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class UploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	// 上传文件存储目录
-    private static final String UPLOAD_DIRECTORY = "D:/web/Itweb/WebContent/upload";
+    private static final String UPLOAD_DIRECTORY = "F:/javaworkspace/Itweb/WebContent/upload";
     // 上传配置
     private static final int MEMORY_THRESHOLD   = 1024 * 1024 * 3;  // 3MB
     private static final int MAX_FILE_SIZE      = 1024 * 1024 * 40; // 40MB
@@ -42,6 +43,7 @@ public class UploadServlet extends HttpServlet {
     	String picPath = null;
     	String a_id = null;
     	HttpSession session = request.getSession();
+    	
     	User user =(User) session.getAttribute("user");
 		// 检测是否为多媒体上传
 		if (!ServletFileUpload.isMultipartContent(request)) {
@@ -68,8 +70,8 @@ public class UploadServlet extends HttpServlet {
  
         // 构造临时路径来存储上传的文件
         // 这个路径相对当前应用的目录
-        String uploadPath = UPLOAD_DIRECTORY;
-               
+        //获取服务器上upload的绝对路径
+        String uploadPath=UPLOAD_DIRECTORY;
         // 如果目录不存在则创建
         File uploadDir = new File(uploadPath);
         if (!uploadDir.exists()) {
@@ -105,15 +107,16 @@ public class UploadServlet extends HttpServlet {
                         // 保存文件到硬盘
                         item.write(storeFile);
                         Photo photo=new Photo(0, user.getU_id(), Integer.parseInt(a_id), picPath, null);
+                        System.out.println(filePath);
                         // 在控制台输出文件的上传路径
-                        System.out.println("PicPath="+picPath);
-                        System.out.println("filePath="+filePath);
                         //写入数据库
                         UploadAction uAction =new UploadAction();
                         if(uAction.uploadImg(photo)){
+                        	List<Photo>photoList=uAction.selectImg_user(photo);
+                        	session.setAttribute("p_list",photoList);
+                        	session.setAttribute("p_size",photoList.size());
                         	response.sendRedirect(request.getContextPath()+"/personal.jsp");
                         }else{
-                        	System.out.println("PicPath="+picPath);
                         	session.setAttribute("status",MyConstant.STATUS_UPLOAD_INSERTPHOTO);
                 			response.sendRedirect(request.getContextPath()+"/errorServlet");
                         }
