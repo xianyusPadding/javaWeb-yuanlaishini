@@ -32,12 +32,9 @@
 	color:#000;
 }
 .fl-navbar-left{
-	/*background: url(../images/黑色磨砂.png);*/
 	background: #DEDDD8;
-	height:430px
-}
-.fl-navbar-left .fl-navbarLeft-search{
-	margin:10px 0;
+	border-bottom-right-radius:10px;
+	border-bottom-left-radius:10px;
 }
 .fl-navbar-left .fl-navbarLeft-search .glyphicon-search{
 	border-top-left-radius:20px;
@@ -60,14 +57,25 @@
 	background: #B4AEA2;
 	color:#000;
 }
-.fl-navbar-left1 span{
-	cursor: pointer;
-	line-height: 40px;
+/*.fl-navbar-left .fl-navbar-group{}*/
+.fl-navbar-left .fl-navbar-group a{
+	display: block;
+	line-height: 35px;
+	padding:0 0 0 15px;
+/*	background: redl;*/
+/*	float:left;*/
+}
+.fl-navbar-group span{
+	line-height: 35px;
 	float:right;
+	padding-right:10px;
 }
-.fl-navbar-left1 a{
-	width:140px;
+.dropdown-menu{
+	position: inherit;
+	border-radius: 0;
 }
+
+
 .fl-dynamic{
 	background: #B97A57;
 }
