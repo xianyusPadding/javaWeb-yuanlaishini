@@ -6,11 +6,12 @@ import java.util.List;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
+
+import javaBean.Album;
 import javaBean.Comment;
+import javaBean.Photo;
 import javaBean.Share;
 import javaBean.User;
-import javaBean.Album;
-import javaBean.Photo;
 public class OptionDB {
 	/***
 	 * User
@@ -605,6 +606,11 @@ public class OptionDB {
 		}
 	}
 	
+	/**
+	 * 返回一个用户一个相册的所有图片
+	 * @param photo
+	 * @return
+	 */
 	@SuppressWarnings("finally")
 	public List<Photo> selectPhoto_Ablum(Photo photo) {
 		Connection conn=ConDataBase.getConn();
@@ -635,6 +641,11 @@ public class OptionDB {
 			return list;
 		}
 	}
+	/**
+	 * 返回一个用户的所有图片
+	 * @param photo
+	 * @return
+	 */
 	@SuppressWarnings("finally")
 	public List<Photo> selectPhoto_User(Photo photo) {
 		Connection conn=ConDataBase.getConn();
@@ -646,6 +657,41 @@ public class OptionDB {
 			pstmt=(PreparedStatement) conn.prepareStatement
 					("select * from unloadphotoalbum where u_id=?");
 			pstmt.setString(1, uid);	
+			//写进数据库
+			rs=pstmt.executeQuery();
+			Photo photo1=null;
+			while(rs.next()){
+				String date =rs.getString(5);
+				String[] dates=date.split(" ");
+				photo1=new Photo(rs.getInt(1),rs.getString(2),rs.getInt(3),
+						rs.getString(4),dates[0]);
+				list.add(photo1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConDataBase.closeConn(rs, pstmt, conn);
+			return list;
+		}
+	}
+	
+	/**
+	 * 返回一个用户的每个相册的一张图片
+	 * @param photo
+	 * @return
+	 */
+	@SuppressWarnings("finally")
+	public List<Photo> selectPhoto_single(Photo photo) {
+		Connection conn=ConDataBase.getConn();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+	    List<Photo> list=new ArrayList<Photo>();
+		try {
+			String uid=photo.getU_id();
+			pstmt=(PreparedStatement) conn.prepareStatement
+					("select * from unloadphotoalbum where u_id=? group by a_id");
+			pstmt.setString(1, uid);	
+			
 			//写进数据库
 			rs=pstmt.executeQuery();
 			Photo photo1=null;

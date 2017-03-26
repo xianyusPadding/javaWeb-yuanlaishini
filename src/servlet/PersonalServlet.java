@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -33,12 +34,14 @@ public class PersonalServlet extends HttpServlet {
 			Photo photo=new Photo(0, user.getU_id(), 0, null, null);
 			PersonalAction personal=new PersonalAction();
 			List<Album> list =personal.selectAlbum(user);
-			List<Photo> plist=personal.selectImg_user(photo);
+			List<Photo> pulist=personal.selectImg_user(photo);
+			List<Photo> pslist=personal.selectImg_single(photo);
+
 			session.setAttribute("a_list",list );
 			session.setAttribute("a_size", list.size());
 			
-			session.setAttribute("p_list",plist );
-			session.setAttribute("p_size", plist.size());
+			session.setAttribute("p_s_list",pslist );
+			session.setAttribute("p_s_size", pslist.size());
 			response.sendRedirect(request.getContextPath()+"/personal.jsp");
 		}else{
 			session.setAttribute("status",MyConstant.STATUS_AUTHOR);

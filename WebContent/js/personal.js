@@ -93,7 +93,23 @@ $(function() {
 	})
 	
 	$(".fl-photoAlbum").click(function(){
-		$("#fl-photoShow").dialog("open");
+		var a_id=$(this).attr("id");
+		var u_id=$(this).attr("name");
+		var a_title=$(this).prev().prev().html();
+		var thumbs=$("#thumbs");
+		$.ajax({
+	        type:'POST',
+	        url:'ajaxPhotoServlet',
+	        data:{
+	        	a_id:a_id,
+	        	u_id:u_id
+	        },
+	        success:function(response){
+	        	console.log(response);
+	        	thumbs.html(response);
+	        	$("#fl-photoShow").dialog("option","title", a_title).dialog("open");
+	        }
+	    });
 	})
 
 	$(".fl-showPriphoto").dialog({

@@ -45,7 +45,7 @@
 		<div class="collapse navbar-collapse" id="navbar-collapse" style="margin-top:-5px">
 			<ul class="nav navbar-nav" style="margin: 0px">
 				<li class="active b"><a href="index.jsp" class="fl-navbar-link"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
-				<li><a href="personal.jsp" class="fl-navbar-link"><span class="glyphicon glyphicon-user"></span> 个人中心</a></li>
+				<li><a href="personalServlet" class="fl-navbar-link"><span class="glyphicon glyphicon-user"></span> 个人中心</a></li>
 				<li><a href="makeFriend.jsp" class="fl-navbar-link"><span class="glyphicon glyphicon-list"></span> 交友广场</a></li>
 				<li><a href="matching.jsp" class="fl-navbar-link"><span class="glyphicon glyphicon-fire"></span> 完美匹配</a></li>
 				<li><a href="#" class="fl-navbar-link"><span class="glyphicon glyphicon-question-sign"></span> 公司简介</a></li>
@@ -163,32 +163,50 @@
 					<button class="btn btn-default fl-uploadPhoto-btn" style="margin-bottom:20px"><a href="#">上传相片</a></button>
 				</div>
 				<div class="row">
-					<c:forEach var="a" items="${a_list}">
-						 	<div class="col-md-3 fl-textcenter" style="display:inline-block">
-								<h4>${a.a_title } </h4><p>${a.date }(${a.flag })</p>
-								<img src="images/4.png" alt="" class="fl-photoAlbum">
-							</div>
-					 </c:forEach>
+				<!-- 相册封面 -->
+				<c:if test="${a_size==0 }">
+								<div class="col-md-3 fl-textcenter" style="display:inline-block">
+									<p>创建你的相册</p><img src="images/4.png" alt="" class="fl-photoAlbum-none">
+								</div>
+				</c:if>
+				<%!  int i=0; %>
+					<c:forEach var="a" items="${a_list}" varStatus="a_status">
+							<c:choose>
+									<c:when test="${p_s_size==0 }">
+											<div class="col-md-3 fl-textcenter" style="display:inline-block">
+													<h4>${a.a_title } </h4><p>${a.date }(${a.flag })</p>
+													<img src="images/4.png" alt="" class="fl-photoAlbum">
+											</div>	
+									</c:when>
+									<c:otherwise>
+												<%   i=0; %>
+											 	<div class="col-md-3 fl-textcenter" style="display:inline-block">
+													<h4 >${a.a_title } </h4><p>${a.date }(${a.flag })</p>
+													<c:forEach var="ps" items="${p_s_list}" varStatus="p_status">
+															<c:choose>
+																<c:when test="${ps.a_id==a.a_id }">
+																	<img id ="${a.a_id} " src="${ps.a_p_url }" name="${a.u_id}" alt="${ps.u_p_id }" class="fl-photoAlbum" ><div>${ps.a_id }</div>
+																	<% i =1; %>
+																</c:when>
+																<c:otherwise>
+																	<%if(i==0) {%>
+																		<c:if test="${p_status.last==true}"><img id ="${a.a_id} " name="${a.u_id}" src="images/4.png" alt="" class="fl-photoAlbum"></c:if>
+																	<%} %>
+																</c:otherwise>
+															</c:choose>
+													</c:forEach>
+												</div>
+									</c:otherwise>
+							</c:choose>				
+					</c:forEach>
 				</div>
 
 			</div>
 		</div>
-		
 		<form id="fl-photoShow">
 			<div class="wrapper" >
-				<c:choose>
-				<c:when test="${p_size==0}">
-				相片
-				</c:when>
-				<c:otherwise>
-						<ul class="thumbs" id="thumbs">
-							<c:forEach var="p" items="${p_list}">
-								<li><img src="${p.a_p_url }" alt="${p.u_p_id }" ><div></div></li>
-							</c:forEach>
-						</ul>
-				</c:otherwise>
-			</c:choose>
-					</div>
+					<ul class="thumbs" id="thumbs"></ul>
+			</div>
 		</form>
 				
 		<form id="fl-bulid-photoalbum"  action="albumServlet" method="post">

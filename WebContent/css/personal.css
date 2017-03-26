@@ -96,11 +96,23 @@
 	font-size: 14px;
 }
 #fl-tab2 .fl-photoAlbum{
+	width:90px;
+	height:130px;
 	border:7px solid #fff;
 	cursor:pointer;
 	box-shadow:1px 1px 1px #aaa;
 }
 #fl-tab2 .fl-photoAlbum:hover{
+	box-shadow:1px 1px 7px #777;
+}
+#fl-tab2 .fl-photoAlbum-none{
+	width:90px;
+	height:130px;
+	border:7px solid #fff;
+	cursor:pointer;
+	box-shadow:1px 1px 1px #aaa;
+}
+#fl-tab2 .fl-photoAlbum-none:hover{
 	box-shadow:1px 1px 7px #777;
 }
 .fl-textcenter{

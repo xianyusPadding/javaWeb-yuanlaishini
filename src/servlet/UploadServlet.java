@@ -29,8 +29,9 @@ public class UploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	// 上传文件存储目录
-    private static final String UPLOAD_DIRECTORY = "F:/javaworkspace/Itweb/WebContent/upload";
-    // 上传配置
+    //private static final String UPLOAD_DIRECTORY = "F:/javaworkspace/Itweb/WebContent/upload";
+	private static final String UPLOAD_DIRECTORY = "D:/web/Itweb/WebContent/upload";
+	// 上传配置
     private static final int MEMORY_THRESHOLD   = 1024 * 1024 * 3;  // 3MB
     private static final int MAX_FILE_SIZE      = 1024 * 1024 * 40; // 40MB
     private static final int MAX_REQUEST_SIZE   = 1024 * 1024 * 50; // 50MB
@@ -112,10 +113,7 @@ public class UploadServlet extends HttpServlet {
                         //写入数据库
                         UploadAction uAction =new UploadAction();
                         if(uAction.uploadImg(photo)){
-                        	List<Photo>photoList=uAction.selectImg_user(photo);
-                        	session.setAttribute("p_list",photoList);
-                        	session.setAttribute("p_size",photoList.size());
-                        	response.sendRedirect(request.getContextPath()+"/personal.jsp");
+                        	response.sendRedirect(request.getContextPath()+"/personalServlet");
                         }else{
                         	session.setAttribute("status",MyConstant.STATUS_UPLOAD_INSERTPHOTO);
                 			response.sendRedirect(request.getContextPath()+"/errorServlet");

@@ -12,8 +12,16 @@ public class PersonalAction {
 		AlbumAction albumAction=new AlbumAction();
 		return albumAction.select(user);
 	}
+	public List<Photo> selectImg_album(Photo photo){
+		UploadAction uAction=new UploadAction();
+		return uAction.selectImg_album(photo);
+	}
 	public List<Photo> selectImg_user(Photo photo){
 		UploadAction uAction=new UploadAction();
 		return uAction.selectImg_user(photo);
+	}
+	public List<Photo> selectImg_single(Photo photo){
+		UploadAction uAction=new UploadAction();
+		return uAction.selectImg_single(photo);
 	}
 }

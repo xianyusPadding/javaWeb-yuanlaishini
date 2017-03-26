@@ -16,4 +16,7 @@ public class UploadAction {
 	public List<Photo> selectImg_user(Photo photo){
 		return optionDB.selectPhoto_User(photo);
 	}
+	public List<Photo> selectImg_single(Photo photo){
+		return optionDB.selectPhoto_single(photo);
+	}
 }

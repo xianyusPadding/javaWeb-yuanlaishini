@@ -77,4 +77,13 @@
     <servlet-name>UploadServlet</servlet-name>
     <url-pattern>/uploadServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <servlet-name>AjaxPhotoServlet</servlet-name>
+    <servlet-class>servlet.AjaxPhotoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxPhotoServlet</servlet-name>
+    <url-pattern>/ajaxPhotoServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
