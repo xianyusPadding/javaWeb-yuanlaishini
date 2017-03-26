@@ -55,37 +55,52 @@
 
 
 
-<div style="margin-top:50px;background:#ccc;width:100%;height:40px;">
-	<!-- <div class="container">
+<div style="margin-top:31px;background:#ccc;width:100%;height:40px;">
+	 <div class="container">
 		<div style="background:#ccc;width:100%;height:40px;">
 		</div>	
-	</div> -->
+	</div> 
 </div>
+
 
 
 <div id="fl-main" style="height:1500px;margin-top:-6px;">
 	<div class="container" style="">
 		<div class="row">
-			<div class=" fl-navbar-left" style="position: fixed;">
-				
-					<div class="input-group fl-navbarLeft-search">
+			<div class="fl-navbar-left" style="position: fixed;">			
+					<div class="input-group fl-navbarLeft-search" style="margin:5px">
 						<!-- <span class="input-group-addon glyphicon glyphicon-search"></span> -->
 						<input type="text" class="form-control" placeholder="搜索">
 					</div>
 					<ul class="nav nav-pills nav-stacked" style="margin-top=10px;">
-						<li><a href="#"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
-						<li><a href="#"><span class="glyphicon glyphicon-star-empty"></span> 我的收藏</a></li>
-						<li><a href="#"><span class="glyphicon glyphicon-thumbs-up"></span> 我的赞</a></li>
+						<li><a href="#" ><span class="glyphicon glyphicon-home"></span>  首页</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-star-empty"></span>  我的收藏</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-thumbs-up"></span>  我的赞</a></li>
 					</ul>
 					<p style="margin:30px 0 10px 15px;">分组</p>
-					<ul class="fl-navbar-left1 nav nav-pills nav-stacked">
-						<li><a href="#">1. 我的好友</a></li>
-						<li><a href="#">2. 有好感的人</a></li>
-						<li><a href="#">3. 特别收藏</a></li>
-						<!--<li><a href=""></a></li>
-						<li><a href="">5</a></li>-->
+					<ul class="fl-navbar-group nav nav-pills nav-stacked">
+						<li class="dropdown"><a href="#" data-toggle="dropdown">1.  我的好友 <span class="glyphicon glyphicon-chevron-down"></span></a>
+							<ul class="dropdown-menu" style="background: #DEDDD8;">
+								<li><a href="">1</a></li>
+								<li><a href="">2</a></li>
+								<li><a href="">3</a></li>
+								<li><a href="">4</a></li>
+							</ul>
+						</li>
+						<li class="dropdown"><a href="#" data-toggle="dropdown">2.  有好感的人 <span class="glyphicon glyphicon-chevron-down"></span></a>
+							<ul class="dropdown-menu" style="background: #DEDDD8;">
+								<li><a href="">1</a></li>
+								<li><a href="">2</a></li>
+								<li><a href="">3</a></li>
+								<li><a href="">4</a></li>
+							</ul>
+						</li>
+						<li><a href="#">3.  特别收藏<span class="glyphicon glyphicon-chevron-down"></span></a></li>
+						<li><a href="#">4.  初中同学<span class="glyphicon glyphicon-chevron-down"></span></a></li>
+						<li><a href="#">5.  大学同学<span class="glyphicon glyphicon-chevron-down"></span></a></li>
 					</ul>
-					<button class="btn btn-default" style="margin:20px 0 0 60px;">展开</button>
+					<button class="fl-group-openBtn btn btn-default" style="margin:20px 0 10px 60px;">展开</button>
+					<button class="fl-group-closeBtn btn btn-default" style="margin:20px 0 10px 60px;display:none">收起</button>
 				
 			</div>
 			
