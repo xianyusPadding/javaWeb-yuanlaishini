@@ -29,7 +29,7 @@ $(function() {
 
 	//个人中心的选项卡
 	$("#fl-tabs").tabs({
-		active: 1,
+		active: 0,
 	});
 
 	//创建相册的dialog
@@ -45,18 +45,6 @@ $(function() {
 		autoOpen: false,
 	})
 
-//$("#fl-bulid-photoalbum").validate({
-//	rules:{
-//		title:{
-//			required:true,
-//		},
-//	},
-//	messages:{
-//		title:{
-//			required:"相册名称不得为空"
-//		},
-//	},
-//})
 
 	//上传图片的dialog
 	$(".fl-uploadPhoto-btn").click(function() {
@@ -143,7 +131,26 @@ $(function() {
 	
 	$(".fl-btn-closeBulidUpload").attr("disabled", true);
 	
+	//显示评论
+	$(".fl-href-comment").click(function(){
+		var div=$(this).parent().parent().parent().next();
+		if(div.css("display")=="none"){
+				$(".fl-comment").css("display","none");
+				div.css("display","");
+		}else
+			div.css("display","none");
+	})
 
+
+	//显示回复
+	$(".fl-reply").click(function(){
+		var div1=$(this).next();
+		if(div1.css("display")=="none"){
+			$(".fl-replyArea").css("display","none");
+			div1.css("display","");
+		}else
+			div1.css("display","none");
+	})
 	//显示image的方法
 	
 

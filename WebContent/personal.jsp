@@ -115,14 +115,47 @@
 									<ul class="nav nav-tabs nav-justified" style="">
 										<li style=""><a href="">阅读(${s.readNum})</a></li>
 										<li><a href="">转发</a></li>
-										<li><a href="">评论</a></li>
+										<li class="fl-href-comment"><a href="#1">评论</a></li>
 										<li><a href="">赞(${s.startNum})</a></li>
 									</ul>
 								</div>
 							</div>
+							
+							<!--评论区-->
+							<div class="fl-comment" class="row" style="display: none;background: #B66F58;">
+								<div class="row" >
+									<div class="col-md-1">
+										<img class="" src="images/photoalbum1.jpg" alt=""/>
+									</div>
+									<textarea class="col-md-11 fl-commentText" name="comment" cols="30" rows="3"  wrap="hard"></textarea>
+								</div>
+								<div class="row fl-commentSubmit">
+									<input type="submit" class="btn btn-default" name="comment" value="评论" />
+								</div>
+								
+								<div class="row" >
+									<div class="col-md-1 fl-commentHead">
+										<img  src="images/photoalbum3.jpg" alt="" />
+									</div>
+									<div class="col-md-11 ">
+										<p>游客1:这就是我当年为什么不选择清华的原因了</p>
+										<p style="float:left;">刚刚</p>
+										<a href="#1" style="float:right;">&nbsp;&nbsp;赞+15</a><a href="#1" class="fl-reply" style="float:right;">回复&nbsp;&nbsp;|</a>
+										<div class="row fl-replyArea" style="display: none;">
+											<textarea class="col-md-12" name="comment"  cols="30" rows="1"  wrap="hard"></textarea>
+											<input type="submit" class="btn btn-default btn-sm" value="回复"/>
+										</div>
+									</div>
+							</div>
+							
 							</c:forEach>
 						</c:otherwise>
 					</c:choose>
+					
+					
+					
+					
+				</div>
 				</div>
 			</div>
 		</div>
