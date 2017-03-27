@@ -45,6 +45,18 @@ $(function() {
 		autoOpen: false,
 	})
 
+//$("#fl-bulid-photoalbum").validate({
+//	rules:{
+//		title:{
+//			required:true,
+//		},
+//	},
+//	messages:{
+//		title:{
+//			required:"相册名称不得为空"
+//		},
+//	},
+//})
 
 	//上传图片的dialog
 	$(".fl-uploadPhoto-btn").click(function() {
@@ -87,7 +99,7 @@ $(function() {
 		var thumbs=$("#thumbs");
 		$.ajax({
 	        type:'POST',
-	        url:'ajaxPhotoServlet',
+	        url:'photoSelectServlet',
 	        data:{
 	        	a_id:a_id,
 	        	u_id:u_id
@@ -104,7 +116,7 @@ $(function() {
 		
 		$.ajax({
 	        type:'POST',
-	        url:'ajaxShareServlet',
+	        url:'shareAddServlet',
 	        data:{
 	        	content:$("#s_content").val(),
 	        	s_p_url:$("#s_p_url").val(),
@@ -112,8 +124,11 @@ $(function() {
 	        },
 	        success:function(response){
 	        	if(response=="0"){
-	        		alert("动态内容不能为空");
+	        		alert("请先登录!");
+	        		location.href="index.jsp";
 	        	}else if(response=="1"){
+	        		alert("动态内容不能为空");
+	        	}else if(response=="2"){
 	        		alert("未知错误");
 	        	}else{
 	        		shareContent.html(response);
@@ -134,14 +149,14 @@ $(function() {
 	//显示评论
 	$(".fl-href-comment").click(function(){
 		var div=$(this).parent().parent().parent().next();
+		//清除上一次评论和回复的内容
+		div.find('Textarea').val("");
 		if(div.css("display")=="none"){
 				$(".fl-comment").css("display","none");
 				div.css("display","");
 		}else
 			div.css("display","none");
 	})
-
-
 	//显示回复
 	$(".fl-reply").click(function(){
 		var div1=$(this).next();
@@ -151,6 +166,39 @@ $(function() {
 		}else
 			div1.css("display","none");
 	})
+
+	//评论异步提交ajax
+	$(".comment_submit").click(function(){
+		var commentDiv=$(this).parent().next();
+		var comment_content=$(this).parent().prev().find('Textarea');
+		var s_id=comment_content.next().val();
+		if(comment_content.val()==""){
+			alert("评论内容不能为空");
+			return;
+		}
+		$.ajax({
+	        type:'POST',
+	        url:'comAddServlet',
+	        data:{
+	        	s_id:s_id,
+	        	c_content:comment_content.val()
+	        },
+	        success:function(response){
+	        	if(response=="0"){
+	        		alert("请先登录!");
+	        		location.href="index.jsp";
+	        	}else if(response=="1"){
+	        		alert("评论内容不能为空");
+	        	}else if(response=="2"){
+	        		alert("未知错误");
+	        	}else{
+	        		commentDiv.html(response);
+	        	}
+	        	comment_content.val("");
+	        }
+	    });
+	})
+	
 	//显示image的方法
 	
 

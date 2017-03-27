@@ -79,15 +79,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <servlet-name>AjaxPhotoServlet</servlet-name>
-    <servlet-class>servlet.AjaxPhotoServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AjaxPhotoServlet</servlet-name>
-    <url-pattern>/ajaxPhotoServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>ShareServlet</display-name>
     <servlet-name>ShareServlet</servlet-name>
     <servlet-class>servlet.ShareServlet</servlet-class>
@@ -98,12 +89,41 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <servlet-name>AjaxPhotoServlet</servlet-name>
+    <servlet-class>servlet.ajax.PhotoSelectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxPhotoServlet</servlet-name>
+    <url-pattern>/photoSelectServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>AjaxShareServlet</display-name>
     <servlet-name>AjaxShareServlet</servlet-name>
-    <servlet-class>servlet.AjaxShareServlet</servlet-class>
+    <servlet-class>servlet.ajax.ShareAddServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AjaxShareServlet</servlet-name>
-    <url-pattern>/ajaxShareServlet</url-pattern>
+    <url-pattern>/shareAddServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxComAddServlet</display-name>
+    <servlet-name>AjaxComAddServlet</servlet-name>
+    <servlet-class>servlet.ajax.ComAddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxComAddServlet</servlet-name>
+    <url-pattern>/comAddServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ComSelectServlet</display-name>
+    <servlet-name>ComSelectServlet</servlet-name>
+    <servlet-class>servlet.ajax.ComSelectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ComSelectServlet</servlet-name>
+    <url-pattern>/ComSelectServlet</url-pattern>
   </servlet-mapping>
 </web-app>

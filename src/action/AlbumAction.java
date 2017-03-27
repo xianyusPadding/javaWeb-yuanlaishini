@@ -1,7 +1,6 @@
 package action;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javaBean.Album;
@@ -15,8 +14,6 @@ public class AlbumAction {
 		return db.insertAlbum(album);
 	}
 	public List<Album> select(User user){
-		List<Album> list =new ArrayList<>();
-		list=db.selectAlbum(user);
-		return list;
+		return db.selectAlbum(user);
 	}
 }

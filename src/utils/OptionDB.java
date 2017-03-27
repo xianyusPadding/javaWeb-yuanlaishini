@@ -139,11 +139,11 @@ public class OptionDB {
 			rs=pstmt.executeQuery();			
 		
 			while(rs.next()){
-	    user=new User(rs.getString(1),rs.getString(2),
-		    rs.getString(3),rs.getString(4),rs.getString(5),
-		    rs.getString(6),rs.getInt(7),rs.getInt(8),
-		    rs.getInt(9),rs.getString(10),rs.getString(11),
-		    rs.getString(12),rs.getString(13));
+			    user=new User(rs.getString(1),rs.getString(2),
+				    rs.getString(3),rs.getString(4),rs.getString(5),
+				    rs.getString(6),rs.getInt(7),rs.getInt(8),
+				    rs.getInt(9),rs.getString(10),rs.getString(11),
+				    rs.getString(12),rs.getString(13));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -336,7 +336,6 @@ public class OptionDB {
 		PreparedStatement pstmt = null;
 		int result=0;
 		try {
-			int cid =comment.getCid();
 			String u_id=comment.getUid();
 			int sid=comment.getSid();
 			String cContent=comment.getcContent();
@@ -355,6 +354,7 @@ public class OptionDB {
 		}
 	}
 
+	@SuppressWarnings("finally")
 	public boolean deleteComment(Comment comment) {
 		Connection conn=ConDataBase.getConn();
 		ResultSet rs = null;
@@ -362,10 +362,6 @@ public class OptionDB {
 		int result=0;
 		try {
 			int cid =comment.getCid();
-			String u_id=comment.getUid();
-			int sid=comment.getSid();
-			String cContent=comment.getcContent();
-			String date=comment.getDate();
 			pstmt=(PreparedStatement) conn.prepareStatement
 					("delete  from comment where c_id=?");
 			pstmt.setInt(1, cid);
@@ -379,27 +375,30 @@ public class OptionDB {
 		}
 	}
 	
-	public boolean selectComment(Comment comment) {
+	@SuppressWarnings("finally")
+	public List<Comment> selectComment_share(Share share) {
 		Connection conn=ConDataBase.getConn();
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
-		int result=0;
+	    List<Comment> list=new ArrayList<Comment>();
 		try {
-			int cid =comment.getCid();
-			String u_id=comment.getUid();
-			int sid=comment.getSid();
-			String cContent=comment.getcContent();
-			String date=comment.getDate();
+			int s_id =share.getS_id();
 			pstmt=(PreparedStatement) conn.prepareStatement
-					("select * from comment where s_id=?");
-			pstmt.setInt(1, sid);
-			//写进数据库
+					("select * from comment where s_id=? order by date DESC");
+			pstmt.setInt(1, s_id);
 			rs=pstmt.executeQuery();
+			while(rs.next()){
+				String date =rs.getString(5);
+				String[] dates=date.split(" ");
+				Comment comment=new Comment(rs.getInt(1),rs.getString(2),rs.getInt(3),
+						rs.getString(4),dates[0]);
+				list.add(comment);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			ConDataBase.closeConn(rs, pstmt, conn);
-			return result!=0?true :false;
+			return list;
 		}
 	}
 	
@@ -467,6 +466,7 @@ public class OptionDB {
 			return result!=0?true :false;
 		}
 	}
+	@SuppressWarnings("finally")
 	public boolean deleteShare(Share share) {
 		Connection conn=ConDataBase.getConn();
 		ResultSet rs = null;
@@ -486,6 +486,7 @@ public class OptionDB {
 			return result!=0?true :false;
 		}
 	}
+	@SuppressWarnings("finally")
 	public boolean selectShare_single(Share share) {
 		Connection conn=ConDataBase.getConn();
 		ResultSet rs = null;
@@ -493,14 +494,6 @@ public class OptionDB {
 		boolean flag1=false;
 		try {
 			int sid =share.getS_id();
-			String uid=share.getU_id();
-			String stitle=share.getS_title();
-			String scontent=share.getS_content();
-			String spurl=share.getS_p_url();
-			int startNum=share.getStartNum();
-			int readNum=share.getReadNum();
-			String flag=share.getFlag();
-			String date=share.getDate();
 			pstmt=(PreparedStatement) conn.prepareStatement
 					("select * from share where s_id=?");
 			pstmt.setInt(1, sid);			
@@ -521,7 +514,6 @@ public class OptionDB {
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
 		List<Share> list=new ArrayList<>();
-		boolean flag1=false;
 		try {
 			String uid=user.getU_id();
 			pstmt=(PreparedStatement) conn.prepareStatement
@@ -556,7 +548,6 @@ public class OptionDB {
 			int startNum=share.getStartNum();
 			int readNum=share.getReadNum();
 			String flag=share.getFlag();
-			String date=share.getDate();
 			pstmt=(PreparedStatement) conn.prepareStatement
 					("update share set u_id=?,s_title=?,s_content=?,"
 		+ "s_p_url=?,startNum=?,readNum=?,flag=?,date=now() where s_id=?");
