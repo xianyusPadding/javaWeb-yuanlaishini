@@ -78,83 +78,53 @@
 			<li class="fl-tabs-link"><a href="#fl-tab3">管理中心</a></li>
 		</ul>
 		 <div id="fl-tab1">
-			<div id=container>
+			<div id="container">
+			<!-- <form action="ajaxShareServlet" method="post"> -->
 				<div class="row fl-tab1-publish">
 					<h5>有什么新鲜或者记忆深刻的事想告诉大家？</h5>
-					<textarea name="" class="fl-tab1-publishMain" cols="30" rows="10"></textarea>
+					<textarea id="s_content" name="content" class="fl-tab1-publishMain" cols="30" rows="10"></textarea>
+					<input id="s_p_url" type="text" name="s_p_url" hidden="hidden" value="null">
+					<input id="flag" type="text" name="flag" hidden="hidden" value="0">
 					<ul class="nav nav-pills" style="float:left">
 						<li><a href="#"><span class="glyphicon glyphicon-th-large"></span> 表情</a></li>
 						<li><a href="#"><span class="glyphicon glyphicon-picture"></span> 图片</a></li>
 						<li><a href="#"><span class="glyphicon glyphicon-fire"></span> 话题</a></li>
 					</ul>
-					<button style="float:right" class="btn btn-default">发表</button>
+					<button id="share_submit" style="float:right" class="btn btn-default">发表</button>
 				</div>
-
-				<div class="row fl-personal-dynamic" style="margin-top: 10px;padding-top:10px;background:#B97A57">
-					<div class="row">
-						<div class="col-md-1" style="float:left">
-							<img src="images/photoalbum1.jpg" style="width:60px;height:60px;border-radius: 50px;" alt="">
-						</div>
-						<div class="col-md-11" style="float:left">
-							<h4>myId</h4>
-							<p style="font-size: 12px">2016-1-1</p>
-							<p style="font-size: 15px">执子之手，与子偕老！</p>
-						</div>
-					</div>
-					<div class="row">
-						<ul class="nav nav-tabs nav-justified" style="">
-							<li style=""><a href="">阅读121</a></li>
-							<li><a href="">转发</a></li>
-							<li><a href="">评论</a></li>
-							<li><a href="">赞</a></li>
-						</ul>
-					</div>
+			<!-- </form> -->
+				<div id="share_content">
+					<c:choose>
+						<c:when test="${shareSize==0 }">
+						
+						</c:when>
+						<c:otherwise>
+							<c:forEach var="s" items="${shareList}" varStatus="s_status">
+							<div class="row fl-personal-dynamic" style="margin-top: 10px;padding-top:10px;background:#B97A57">
+								<div class="row">
+									<div class="col-md-1" style="float:left">
+										<img src="images/photoalbum1.jpg" style="width:60px;height:60px;border-radius: 50px;" alt="">
+									</div>
+									<div class="col-md-11" style="float:left">
+										<h4>${user.username }</h4>
+										<p style="font-size: 12px">${s.date}</p>
+										<p style="font-size: 15px">${s.s_content}</p>
+									</div>
+								</div>
+								<div class="row">
+									<ul class="nav nav-tabs nav-justified" style="">
+										<li style=""><a href="">阅读(${s.readNum})</a></li>
+										<li><a href="">转发</a></li>
+										<li><a href="">评论</a></li>
+										<li><a href="">赞(${s.startNum})</a></li>
+									</ul>
+								</div>
+							</div>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
 				</div>
-
-				<div class="row fl-personal-dynamic" style="margin-top: 10px;padding-top:10px;background:#B97A57">
-					<div class="row">
-						<div class="col-md-1" style="float:left">
-							<img src="images/photoalbum1.jpg" style="width:60px;height:60px;border-radius: 50px;" alt="">
-						</div>
-						<div class="col-md-11" style="float:left">
-							<h4>myId</h4>
-							<p style="font-size: 12px">2016-1-1</p>
-							<p style="font-size: 15px">#白骨精心得#1012:某新朋问我为什么别人赞我的时候我没什么反应, 答:我已经过了那个阶段,领悟到了人必须有自知之明,人的优秀是相对的,从不同的角度看,用不同的参照物做对比，结果都截然不同,所以无论赞弹,不必太介意,重点是你懂得知道怎样经营自己的工作,生活及快乐,懂得欣赏别人及看到自己的差距。 ​​​​ </p>
-						</div>
-					</div>
-					<div class="row">
-						<ul class="nav nav-tabs nav-justified" style="">
-							<li style=""><a href="">阅读121</a></li>
-							<li><a href="">转发</a></li>
-							<li><a href="">评论</a></li>
-							<li><a href="">赞</a></li>
-						</ul>
-					</div>
-				</div>
-				
-				<div class="row fl-personal-dynamic" style="margin-top: 10px;padding-top:10px;background:#B97A57">
-					<div class="row">
-						<div class="col-md-1" style="float:left">
-							<img src="images/photoalbum1.jpg" style="width:60px;height:60px;border-radius: 50px;" alt="">
-						</div>
-						<div class="col-md-11" style="float:left">
-							<h4>myId</h4>
-							<p style="font-size: 12px">2016-1-1</p>
-							<p style="font-size: 15px">执子之手，与子偕老！</p>
-						</div>
-					</div>
-					<div class="row">
-						<ul class="nav nav-tabs nav-justified" style="">
-							<li style=""><a href="">阅读121</a></li>
-							<li><a href="">转发</a></li>
-							<li><a href="">评论</a></li>
-							<li><a href="">赞</a></li>
-						</ul>
-					</div>
-				</div>
-				
 			</div>
-			
 		</div>
 		<div id="fl-tab2" style="padding:0 0 60px 0">
 			<div class="container" >

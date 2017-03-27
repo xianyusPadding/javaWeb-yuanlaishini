@@ -65,6 +65,20 @@ public class Share {
 	public void setDate(String date) {
 		this.date = date;
 	}
+	
+	public Share(int s_id, String u_id, String s_title, String s_content, String s_p_url, int startNum, int readNum,
+			String flag, String date) {
+		super();
+		this.s_id = s_id;
+		this.u_id = u_id;
+		this.s_title = s_title;
+		this.s_content = s_content;
+		this.s_p_url = s_p_url;
+		this.startNum = startNum;
+		this.readNum = readNum;
+		this.flag = flag;
+		this.date = date;
+	}
 	@Override
 	public String toString() {
 		return "share [s_id=" + s_id + ", u_id=" + u_id + ", s_title=" + s_title + ", s_content=" + s_content

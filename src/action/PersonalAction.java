@@ -4,6 +4,7 @@ import java.util.List;
 
 import javaBean.Album;
 import javaBean.Photo;
+import javaBean.Share;
 import javaBean.User;
 
 public class PersonalAction {
@@ -23,5 +24,9 @@ public class PersonalAction {
 	public List<Photo> selectImg_single(Photo photo){
 		UploadAction uAction=new UploadAction();
 		return uAction.selectImg_single(photo);
+	}
+	public List<Share> selectShare_user(User user){
+		ShareAction sAction=new ShareAction();
+		return sAction.selectShare_user(user);
 	}
 }

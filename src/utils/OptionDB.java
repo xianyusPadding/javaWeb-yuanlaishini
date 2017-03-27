@@ -431,27 +431,21 @@ public class OptionDB {
 		}
 	}
 	
-	//album表
+	//share表
+	@SuppressWarnings("finally")
 	public boolean insertShare(Share share) {
 		Connection conn=ConDataBase.getConn();
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
 		int result=0;
 		try {
-			int sid =share.getS_id();
 			String uid=share.getU_id();
 			String stitle=share.getS_title();
 			String scontent=share.getS_content();
 			String spurl=share.getS_p_url();
-			int startNum=share.getStartNum();
-			int readNum=share.getReadNum();
 			String flag=share.getFlag();
-			String date=share.getDate();
 			pstmt=(PreparedStatement) conn.prepareStatement
-					("insert into share values("
-					+ "?,"
-					+ "?,"
-					+ "?,"
+					("insert into share(u_id,s_title,s_content,s_p_url,flag,date) values("
 					+ "?,"
 					+ "?,"
 					+ "?,"
@@ -459,14 +453,11 @@ public class OptionDB {
 					+ "?,"
 					+ "now()"
 					+")");
-			pstmt.setInt(1, sid);
-			pstmt.setString(2, uid);
-			pstmt.setString(3, stitle);
-			pstmt.setString(4, scontent);
-			pstmt.setString(5, spurl);
-			pstmt.setInt(6, startNum);
-			pstmt.setInt(7, readNum);
-			pstmt.setString(8, flag);
+			pstmt.setString(1, uid);
+			pstmt.setString(2, stitle);
+			pstmt.setString(3, scontent);
+			pstmt.setString(4, spurl);
+			pstmt.setString(5, flag);
 			//写进数据库
 			result=pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -495,7 +486,7 @@ public class OptionDB {
 			return result!=0?true :false;
 		}
 	}
-	public boolean selectShare(Share share) {
+	public boolean selectShare_single(Share share) {
 		Connection conn=ConDataBase.getConn();
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
@@ -521,6 +512,33 @@ public class OptionDB {
 		}finally {
 			ConDataBase.closeConn(rs, pstmt, conn);
 			return flag1;
+		}
+	}
+	
+	@SuppressWarnings("finally")
+	public List<Share> selectShare_user(User user) {
+		Connection conn=ConDataBase.getConn();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		List<Share> list=new ArrayList<>();
+		boolean flag1=false;
+		try {
+			String uid=user.getU_id();
+			pstmt=(PreparedStatement) conn.prepareStatement
+					("select * from share where u_id=? order by date desc");
+			pstmt.setString(1, uid);			
+			//写进数据库
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+				String[] date=rs.getString(9).split(" ");
+				Share share =new Share(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8), date[0]);
+				list.add(share);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConDataBase.closeConn(rs, pstmt, conn);
+			return list;
 		}
 	}
 	

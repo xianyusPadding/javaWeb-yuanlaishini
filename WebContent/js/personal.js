@@ -111,7 +111,31 @@ $(function() {
 	        }
 	    });
 	})
-
+	$("#share_submit").click(function(){
+		var shareContent=$("#share_content");
+		
+		$.ajax({
+	        type:'POST',
+	        url:'ajaxShareServlet',
+	        data:{
+	        	content:$("#s_content").val(),
+	        	s_p_url:$("#s_p_url").val(),
+	        	flag:$("#flag").val()
+	        },
+	        success:function(response){
+	        	if(response=="0"){
+	        		alert("动态内容不能为空");
+	        	}else if(response=="1"){
+	        		alert("未知错误");
+	        	}else{
+	        		shareContent.html(response);
+	        	}
+	        	$("#s_content").val("");
+	        	$("#s_p_url").val("");
+	        	$("#flag").val("");
+	        }
+	    });
+	})
 	$(".fl-showPriphoto").dialog({
 		width:1263,
 		autoOpen:false,

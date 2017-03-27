@@ -86,4 +86,24 @@
     <servlet-name>AjaxPhotoServlet</servlet-name>
     <url-pattern>/ajaxPhotoServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShareServlet</display-name>
+    <servlet-name>ShareServlet</servlet-name>
+    <servlet-class>servlet.ShareServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShareServlet</servlet-name>
+    <url-pattern>/shareServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxShareServlet</display-name>
+    <servlet-name>AjaxShareServlet</servlet-name>
+    <servlet-class>servlet.AjaxShareServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxShareServlet</servlet-name>
+    <url-pattern>/ajaxShareServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
