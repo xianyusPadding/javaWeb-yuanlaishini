@@ -23,6 +23,9 @@ a{
 a:hover{
 	text-decoration: none;
 }
+.fl-center{
+	text-align: center;
+]}
 #fl-background-img{
 	width: 100%;
 	height: 100%;

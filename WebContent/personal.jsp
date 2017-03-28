@@ -13,6 +13,7 @@
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script type="text/javascript" src="js/base.js"></script>
 	<script type="text/javascript" src="js/personal.js"></script>
+	<script type="text/javascript" src="js/area.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/jquery-ui.css">
 	<link rel="stylesheet" href="css/base.css">
@@ -220,7 +221,150 @@
 			<div id='showImage'><img src='' id='show'></div>
 			<input class="fl-btn-closeBulidUpload btn btn-default btn-group-justified " type="submit" value="上传"/>
 		</form>
-		<div id="fl-tab3">tab3-content</div>
+		
+		
+		<div id='fl-tab3'>
+			<div class='container'>
+				<div class='row' style='position: relative;background: ;'>
+					<div class='col-md-3 fl-tab3-left'>
+						<div class='fl-center' style='margin-top:50px;border-bottom: 1px solid #ddd;'>
+							<img src='images/photoalbum1.jpg' alt='' />
+							<p>myID</p>	
+						</div>
+						<ul class='nav navbar fl-center fl-tab3-navbar' style=''>
+							<li><a href='#fl-tab3-1'>基本资料<span class='glyphicon  glyphicon-chevron-right' ></span></a></li>
+							<li><a href='#fl-tab3-2'>详细资料<span class='glyphicon  glyphicon-chevron-right'></span></a></li>
+							<li><a href='#fl-tab3-3'>工作生活<span class='glyphicon  glyphicon-chevron-right'></span></a></li>
+							<li><a href='#fl-tab3-4'>趣爱好<span class='glyphicon  glyphicon-chevron-right'></span></a></li>
+							<li><a href='#fl-tab3-5'>姻观<span class='glyphicon  glyphicon-chevron-right'></span></a></li>
+							<li><a href='#fl-tab3-6'>我的认证<span class='glyphicon  glyphicon-chevron-right'></span></a></li>
+							<li><a href='#fl-tab3-7'>好友管理<span class='glyphicon  glyphicon-chevron-right'></span></a></li>
+							<li><a href='#fl-tab3-8'>系统设置<span class='glyphicon  glyphicon-chevron-right'></span></a></li>
+						</ul>
+					</div>
+					<div class='col-md-9 fl-tab3-right'>
+						<div class='fl-tab3-1 fl-tab3-base' >
+							<ul>
+								<li class='form-inline'><label for=''>昵称：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>{username}</li>
+								<li class='form-inline'><label for=''>账号：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>{u_id}</li>
+								<li class='form-inline'><label for=''>性别：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>{sex}</li>
+								<li class='form-inline'><label for=''>邮箱：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>{email}</li>
+								<li class='form-inline'><label for=''>身高：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<select name='' class='form-control' id='fl-tab3-height'>
+										<option value=''>请选择</option>
+									</select>
+									<label for=''>cm</label>
+								</li>
+								<li class='form-inline'><label for='' style='color:red'>年龄：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<select name='' class='form-control' id='fl-tab3-age'>
+										<option value=''>请选择</option>
+									</select>
+								</li>								
+								<li class='form-inline'><label for='' style='color:red'>工作地区：</label>
+									<select id='s_province' name='s_province' class='form-control'></select>  
+								    <select id='s_city' name='s_city' class='form-control'></select>  
+								    <select id='s_county' name='s_county' class='form-control'></select>
+								     <script type='text/javascript'>_init_area();</script>
+								</li>	
+								<li class='form-inline'>
+									<label for=''>月收入：&nbsp;&nbsp;&nbsp;</label>
+										<select name='' class='form-control'>
+											<option value=''>请选择</option>
+											<option value=''>3000以下</option>
+											<option value=''>3001-5000元</option>
+											<option value=''>5001-8000元</option>
+											<option value=''>8001-12000元</option>
+											<option value=''>12000以上</option>
+										</select>								
+								</li>
+								
+								<li class='form-inline'><label for=''>加入时间：&nbsp;</label>2016.1.1</li>
+							</ul>
+							
+	
+						</div>
+						<div class='fl-tab3-1 fl-tab3-details' style='display:none'>
+							<ul>
+								<li class='form-inline'><label for='' style='color:red'>真实姓名：</label><input type='text' class='form-control'/></li>
+								<li class='form-inline'><label for='' style='color:red'>籍贯：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<select id='a_province' name='a_province' class='form-control'></select>  
+								    <select id='a_city' name='a_city' class='form-control'></select>  
+								    <select id='a_county' name='a_county' class='form-control'></select>
+								     <script type='text/javascript'>_init_Area();</script>
+								</li>
+								
+								<li class='form-inline'><label for='' >体重：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<select name='' class='form-control'  id='fl-tab3-weight'>
+										<option value=''>请选择</option>
+									</select>
+									<label for=''>kg</label>
+								</li>
+								
+								<li class='form-inline'><label for=''>血型：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<select name='' class='form-control'>
+										<option value=''>请选择</option>
+										<option value=''>A型</option>
+										<option value=''>B型</option>
+										<option value=''>AB型</option>
+										<option value=''>C型</option>
+										<option value=''>O型</option>
+									</select>
+								</li>
+								<li class='form-inline'><label for=''>民族：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<select name='' class='form-control'>
+										<option value=''>请选择</option>
+										<option value=''>汉族</option>
+										<option value=''>藏族族</option>
+										<option value=''>蒙古族族</option>
+										<option value=''>满族</option>
+										<option value=''>壮族</option>
+										<option value=''>其他</option>
+									</select>
+								</li>
+								
+								<li class='form-inline'>
+									<label for=''>住房条件：</label>
+											<select name='' class='form-control'>
+													<option value=''>请选择</option>
+													<option value=''>和家人同住</option>
+													<option value=''>已购房</option>
+													<option value=''>租房</option>
+													<option value=''>打算婚后购房</option>
+													<option value=''>单位宿舍</option>
+											</select>
+								</li>
+								<li class='form-inline'>
+									<label for=''>有无孩子：</label>
+										<select name='' class='form-control'>
+												<option value=''>请选择</option>
+												<option value=''>有</option>
+												<option value=''>没有</option>
+										</select>
+								</li>
+								<li class='form-inline'><label for=''>毕业院校：</label>
+									<select name='' class='form-control'>
+										<option value=''>请选择</option>
+										<option value=''>1</option>
+										<option value=''>1</option>
+									</select>
+									<select name='' class='form-control'>
+										<option value=''>请选择</option>
+										<option value=''>1</option>
+										<option value=''>1</option>
+									</select>
+								</li>
+							</ul>
+						</div>
+						<div class='fl-tab3-1' style='display:none'>fl-tab3-3</div>
+						<div class='fl-tab3-1' style='display:none'>fl-tab3-4</div>
+						<div class='fl-tab3-1' style='display:none'>fl-tab3-5</div>
+						<div class='fl-tab3-1' style='display:none'>fl-tab3-6</div>
+						<div class='fl-tab3-1' style='display:none'>fl-tab3-7</div>
+						<div class='fl-tab3-1' style='display:none'>fl-tab3-8</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 			
 </div>
@@ -235,6 +379,22 @@
 <div id="fl-background-img"></div>
 </body>
 <script type="text/javascript">
+	
+	var Gid  = document.getElementById ;
+	var showArea = function(){
+		Gid('show').innerHTML = '<h3>省' + Gid('s_province').value + ' - 市' + 	
+		Gid('s_city').value + ' - 县/区' + 
+		Gid('s_county').value + '</h3>'
+								}
+	Gid('s_county').setAttribute('onchange','showArea()');
+	
+	var Areashow = function(){
+		Gid('show').innerHTML = '<h3>省' + Gid('a_province').value + ' - 市' + 	
+		Gid('a_city').value + ' - 县/区' + 
+		Gid('a_county').value + '</h3>'
+								}
+	Gid('a_county').setAttribute('onchange','Areashow()');
+	
 	function show_image() {
 		var file_img = document.getElementById("show");
 		iptfileupload = document.getElementById('img');

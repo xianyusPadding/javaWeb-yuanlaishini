@@ -223,7 +223,29 @@ $(function() {
 	    });
 	})
 	
-	//显示image的方法
+	//管理中心的选项卡
+	$.each($('.fl-tab3-navbar li'),function(index,value){
+		$('.fl-tab3-navbar li').eq(index).click(function(){
+			var i;
+			for(i=0;i<8;i++){
+				if(i==index)
+					$('.fl-tab3-navbar li').eq(index).parent().parent().next().find('.fl-tab3-1').eq(i).css('display','');
+				else
+					$('.fl-tab3-navbar li').eq(index).parent().parent().next().find('.fl-tab3-1').eq(i).css('display','none');
+				}
+		})
+	})
+	
+	//身高 体重 年龄的option
+	var i;
+	for(i=140;i<=210;i++)
+		$('#fl-tab3-height').append('<option>'+i+'</option>');
+	
+	for(i=30;i<=130;i++)
+		$('#fl-tab3-weight').append('<option>'+i+'</option>');
+		
+	for(i=18;i<=45;i++)
+		$('#fl-tab3-age').append('<option>'+i+'</option>');
 	
 
 })
