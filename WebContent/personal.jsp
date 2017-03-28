@@ -64,13 +64,48 @@
 		<div class="fl-cover-img">
 			<img src="images/personalCover.png" alt="">
 		</div>
-		<div class="fl-cover-float">
+		<div class="fl-cover-float" style="text-align: center;">
 			<img src="images/photoalbum1.jpg" class="fl-cover-icon" alt="">
 			<p class="fl-cover-id"><c:out value="${user.username}"></c:out></p> 
 			<p class="fl-cover-signature">人没有了梦想，就和飞龙一样...</p>
+			<button class="btn btn-default fl-addFriend-btn">加为好友</button>
+			<div class="dropdown fl-hadAddfriend" style="display: none;">
+				<button class="btn btn-default fl-hadAddfriend-btn"  data-toggle="dropdown">
+					已加好友
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li id="fl-deleteFriend"><a href="#">删除好友</a></li>
+					<li id="fl-openGroup"><a href="#">设置分组</a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
+
+<!--分组对话框-->
+<form id="fl-friendGroup">
+	<h4>为myID 选择分组</h4>
+	<div class="fl-friendGroup-checkbox">
+		
+		<div class="checkbox" style="margin-left:25px">
+			<label ><input type="checkbox" />我的好友</label>
+			<label ><input type="checkbox" />有好感的人</label>
+		</div>
+		<div class="checkbox" style="margin-left:25px">
+			<label ><input type="checkbox" />特别收藏</label>
+			<label ><input type="checkbox" />初中同学</label>
+		</div>
+		<div class="checkbox" style="margin-left:25px">
+			<label ><input type="checkbox" />大学同学</label>
+			<!--<label ><input type="checkbox" /></label>-->
+		</div>
+		
+	</div>
+	<input type="submit" class="btn btn-success fl-fgSuccess-btn" value="保存" style="margin:15px 0 0 150px;"/ >
+	<input type="button" class="btn btn-default " id="fl-fgClose-btn" value="取消"  style="margin-top:15px"/>
+</form>
+
 <div id="fl-tabs">
 	<div class="container" style="background: #eee">
 		<ul>
@@ -271,8 +306,8 @@
 											<option value=''>12000以上</option>
 										</select>								
 								</li>
-								
 								<li class='form-inline'><label for=''>加入时间：&nbsp;</label>2016.1.1</li>
+								<button class="btn btn-default fl-keep-btn">保存</button>
 							</ul>
 							
 	
@@ -280,12 +315,6 @@
 						<div class='fl-tab3-1 fl-tab3-details' style='display:none'>
 							<ul>
 								<li class='form-inline'><label for='' style='color:red'>真实姓名：</label><input type='text' class='form-control'/></li>
-								<li class='form-inline'><label for='' style='color:red'>籍贯：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<select id='a_province' name='a_province' class='form-control'></select>  
-								    <select id='a_city' name='a_city' class='form-control'></select>  
-								    <select id='a_county' name='a_county' class='form-control'></select>
-								     <script type='text/javascript'>_init_Area();</script>
-								</li>
 								<li class='form-inline'><label for=''>身高：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 									<select name='' class='form-control' id='fl-tab3-height'>
 										<option value=''>请选择</option>
@@ -352,6 +381,7 @@
 										<option value=''>1</option>
 									</select>
 								</li>
+								<button class="btn btn-default fl-keep-btn" >保存</button>
 							</ul>
 						</div>
 						<div class='fl-tab3-1' style='display:none'>fl-tab3-3</div>

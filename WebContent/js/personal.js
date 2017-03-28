@@ -29,7 +29,7 @@ $(function() {
 
 	//个人中心的选项卡
 	$("#fl-tabs").tabs({
-		active: 0,
+		active: 2,
 	});
 
 	//创建相册的dialog
@@ -247,5 +247,43 @@ $(function() {
 	for(i=18;i<=45;i++)
 		$('#fl-tab3-age').append('<option>'+i+'</option>');
 	
-
+	//分组设置的dialog
+	$('#fl-friendGroup').dialog({
+		title:'设置分组',
+		width:300,
+		autoOpen:false,
+	})
+	
+	//加为好友的按钮
+	$('.fl-cover-float').on('click','.fl-addFriend-btn',function(){
+		$('#fl-friendGroup').dialog("open");
+		
+	})
+	
+	//提交成功时修改按钮为已加好友
+	$('#fl-friendGroup').submit(function(){
+		$('.fl-addFriend-btn').css('display','none');
+		$('.fl-hadAddfriend').css('display','');
+		return false;
+	})
+	
+	$('#fl-friendGroup').on('click','#fl-fgClose-btn',function(){
+		$('#fl-friendGroup').dialog("close");
+	})
+	
+	//
+	$('.dropdown-menu').on('click','#fl-deleteFriend',function(){
+		$('.fl-addFriend-btn').css('display','');
+		$('.fl-hadAddfriend').css('display','none');
+	})
+	
+	//修改分组
+	$('.dropdown-menu').on('click','#fl-openGroup',function(){
+		$('#fl-friendGroup').dialog("open");
+	})
+	
+	
+	//给分组dialog加css
+	$('#fl-friendGroup').prev().css("border","none").css("background","#fff");
+	$('#fl-friendGroup').parent().css("border-top","3px solid #5CB85C");
 })
