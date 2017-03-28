@@ -96,7 +96,6 @@
 				<div id="share_content">
 					<c:choose>
 						<c:when test="${shareSize==0 }">
-						
 						</c:when>
 						<c:otherwise>
 							<c:forEach var="s" items="${shareList}" varStatus="s_status">
@@ -115,13 +114,13 @@
 									<ul class="nav nav-tabs nav-justified" style="">
 										<li style=""><a href="">阅读(${s.readNum})</a></li>
 										<li><a href="">转发</a></li>
-										<li class="fl-href-comment"><a href="#1">评论</a></li>
+										<li class="fl-href-comment"><input type='text' value='${s.s_id }' hidden='hidden'><a href="#1">评论</a></li>
 										<li><a href="">赞(${s.startNum})</a></li>
 									</ul>
 								</div>
 							</div>
 								<!--评论区-->
-								<div class='fl-comment' class='row' style='display: none;background: #B66F58;'>
+								<div class='fl-comment row' style='display: none;background: #B66F58;'>
 									<div class='row' >
 										<div class='col-md-1'>
 											<img class='' src='images/photoalbum1.jpg' style='width:60px;height:60px;border-radius: 50px;'alt=''/>

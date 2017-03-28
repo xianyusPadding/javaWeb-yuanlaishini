@@ -35,29 +35,31 @@ public class ComSelectServlet extends HttpServlet {
 			//设置编码，不然会出现乱码 
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter writer=response.getWriter();
+			if(commentList.size()>0){
+				  writer.append("<div class='row' >")
+						.append("<div class='col-md-1'>")
+						.append("<img class='' src='images/photoalbum1.jpg' style='width:60px;height:60px;border-radius: 50px;'alt=''/>")
+						.append("</div>")
+						.append("<textarea class='col-md-11 fl-commentText ' name='comment' cols='30' rows='3'  wrap='hard'></textarea>")
+						.append("<input type='text' value='"+s_id+"' hidden='hidden'>")
+						.append("</div>")
+						.append("<div class='row fl-commentSubmit'>")
+						.append("<input type='submit' class='btn btn-default comment_submit' name='comment' value='评论' /></div>");
+			}
 			for(int i=0;i<commentList.size();i++){
 				Comment c =commentList.get(i);
 				User u =uAction.selectUser_single(c.getUid());
-				 writer.append("<div class='row fl-personal-dynamic' style='margin-top: 10px;padding-top:10px;background:#B97A57'>");
-	/*			.append("<div class='row'>")
-				.append("<div class='col-md-1' style='float:left'>")
-				.append("<img src='images/photoalbum1.jpg' style='width:60px;height:60px;border-radius: 50px;' alt=''>")
-				.append("</div>")
-				.append("<div class='col-md-11' style='float:left'>")
-				.append("<h4>"+user.getUsername()+"</h4>")
-				.append("<p style='font-size: 12px'>"+s.getDate()+"</p>")
-				.append("<p style='font-size: 15px'>"+s.getS_content()+"</p>")
-				.append("</div>")
-				.append("</div>")
-				.append("<div class='row'>")
-				.append("<ul class='nav nav-tabs nav-justified' style=''>")
-				.append("<li style=''><a href=''>阅读("+s.getReadNum()+")</a></li>")
-				.append("<li><a href=''>转发</a></li>")
-				.append("<li><a href=''>评论</a></li>")
-				.append("<li><a href=''>赞("+s.getStartNum()+")</a></li>")
-				.append("</ul>")
-				.append("</div>")
-				.append("</div>");*/
+				 writer.append("<div class='row' >")
+				 .append("<div class='col-md-1 fl-commentHead'>")
+				 .append("<img  src='images/photoalbum3.jpg' style='width:60px;height:60px;border-radius: 50px;' alt='' />")
+				 .append("</div>")
+				 .append("<div class='col-md-11 '>")
+				 .append("<p>"+u.getUsername()+":"+c.getcContent()+"</p>")
+				 .append("<p style='float:left;'>"+c.getDate()+"</p>")
+				 .append("<a href='#1' style='float:right;'>&nbsp;&nbsp;赞+15</a><a href='#1' class='fl-reply' style='float:right;'>回复&nbsp;&nbsp;|</a>")
+				 .append("<div class='row fl-replyArea' style='display: none;'>")
+		 	     .append("<textarea class='col-md-12' name='comment'  cols='30' rows='1'  wrap='hard'></textarea>")
+		 	     .append("<input type='submit' class='btn btn-default btn-sm' value='回复'/></div></div></div>");	
 			}
 		}else{
 			response.getWriter().append("0");

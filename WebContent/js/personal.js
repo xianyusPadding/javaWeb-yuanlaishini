@@ -143,22 +143,46 @@ $(function() {
 		width:1263,
 		autoOpen:false,
 	})
-	
+
 	$(".fl-btn-closeBulidUpload").attr("disabled", true);
 	
+	/**
+	 * 支持给动态元素和属性绑定事件的是live和on，
+	 * 其中live在JQUERY 1.7之后就不推荐使用了。
+	 * 现在主要用on，使用on的时候也要注意，on前面的元素也必须在页面加载的时候就存在于dom里面。
+	 * 动态的元素或者样式等，可以放在on的第二个参数里面。
+	 * */
 	//显示评论
-	$(".fl-href-comment").click(function(){
+	$("#share_content").on('click', '.fl-href-comment', function() {
 		var div=$(this).parent().parent().parent().next();
+		var s_id=$(this).find('input').val();
 		//清除上一次评论和回复的内容
 		div.find('Textarea').val("");
 		if(div.css("display")=="none"){
 				$(".fl-comment").css("display","none");
-				div.css("display","");
+				$.ajax({
+			        type:'POST',
+			        url:'comSelectServlet',
+			        data:{
+			        	s_id:s_id
+			        },
+			        success:function(response){
+			        	if(response=="0"){
+			        		alert("请先登录!");
+			        		location.href="index.jsp";
+			        	}else if(response!=""){
+			        		div.html(response);
+			        	}
+			        	div.css("display","");
+			        }
+			    });
+
 		}else
 			div.css("display","none");
-	})
+		}); 
+
 	//显示回复
-	$(".fl-reply").click(function(){
+	$("#share_content").on('click', '.fl-reply', function() {
 		var div1=$(this).next();
 		if(div1.css("display")=="none"){
 			$(".fl-replyArea").css("display","none");
@@ -168,7 +192,7 @@ $(function() {
 	})
 
 	//评论异步提交ajax
-	$(".comment_submit").click(function(){
+	$("#share_content").on('click', '.comment_submit', function() {
 		var commentDiv=$(this).parent().next();
 		var comment_content=$(this).parent().prev().find('Textarea');
 		var s_id=comment_content.next().val();

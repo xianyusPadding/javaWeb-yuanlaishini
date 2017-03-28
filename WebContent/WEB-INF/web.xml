@@ -124,6 +124,6 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ComSelectServlet</servlet-name>
-    <url-pattern>/ComSelectServlet</url-pattern>
+    <url-pattern>/comSelectServlet</url-pattern>
   </servlet-mapping>
 </web-app>
