@@ -249,12 +249,6 @@
 								<li class='form-inline'><label for=''>账号：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>{u_id}</li>
 								<li class='form-inline'><label for=''>性别：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>{sex}</li>
 								<li class='form-inline'><label for=''>邮箱：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>{email}</li>
-								<li class='form-inline'><label for=''>身高：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<select name='' class='form-control' id='fl-tab3-height'>
-										<option value=''>请选择</option>
-									</select>
-									<label for=''>cm</label>
-								</li>
 								<li class='form-inline'><label for='' style='color:red'>年龄：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 									<select name='' class='form-control' id='fl-tab3-age'>
 										<option value=''>请选择</option>
@@ -292,7 +286,12 @@
 								    <select id='a_county' name='a_county' class='form-control'></select>
 								     <script type='text/javascript'>_init_Area();</script>
 								</li>
-								
+								<li class='form-inline'><label for=''>身高：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<select name='' class='form-control' id='fl-tab3-height'>
+										<option value=''>请选择</option>
+									</select>
+									<label for=''>cm</label>
+								</li>
 								<li class='form-inline'><label for='' >体重：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 									<select name='' class='form-control'  id='fl-tab3-weight'>
 										<option value=''>请选择</option>
