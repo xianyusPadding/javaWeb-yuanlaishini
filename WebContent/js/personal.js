@@ -50,6 +50,7 @@ $(function() {
 	$(".fl-uploadPhoto-btn").click(function() {
 		$("#fl-upload-photo").dialog("open");
 		$("#fl-bulid-photoalbum").dialog("close");
+		$('#show').attr('src','');
 	})
 
 	$("#fl-upload-photo").dialog({
@@ -312,6 +313,7 @@ $(function() {
 	
 	$('.fl-cover-float').on('click','.fl-cover-icon',function(){
 		$('#fl-upload-headphoto').dialog("open");
+		$('#show-headphoto').attr("src","");
 	})
 	
 	
