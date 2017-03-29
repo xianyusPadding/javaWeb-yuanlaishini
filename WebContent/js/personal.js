@@ -298,7 +298,7 @@ $(function() {
 	
 	//上传头像dialog
 	$('#fl-upload-headphoto').dialog({
-		title: "上传头像",
+		title: "修改头像",
 		width: 500,
 		height: 400,
 		autoOpen: false,
