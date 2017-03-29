@@ -417,12 +417,7 @@
 								}
 	Gid('s_county').setAttribute('onchange','showArea()');
 	
-	var Areashow = function(){
-		Gid('show').innerHTML = '<h3>省' + Gid('a_province').value + ' - 市' + 	
-		Gid('a_city').value + ' - 县/区' + 
-		Gid('a_county').value + '</h3>'
-								}
-	Gid('a_county').setAttribute('onchange','Areashow()');
+
 	
 	function show_image() {
 		var file_img = document.getElementById("show");

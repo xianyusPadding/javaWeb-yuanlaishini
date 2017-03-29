@@ -420,13 +420,3 @@ function _init_area(){  //初始化函数
 	}
 	change(0);
 }
-
-var a=["a_province","a_city","a_county"];//三个select的name
-var opt0 = ["省份","地级市","市、县级市"];//初始值
-function _init_Area(){  //初始化函数
-	for(i=0;i<a.length-1;i++){
-	  document.getElementById(a[i]).onchange=new Function("change("+(i+1)+")");
-	}
-	change(0);
-}
-/* 代码整理：懒人之家 www.lanrenzhijia.com */
