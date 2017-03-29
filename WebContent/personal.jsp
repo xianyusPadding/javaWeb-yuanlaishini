@@ -84,6 +84,12 @@
 	</div>
 </div>
 
+<form id="fl-upload-headphoto" >
+	<label for='img-headphoto'><a   class="fl-browsePhoto btn btn-default">选择图片<input type='file' id='img-headphoto' name='photoalbum' onChange='show_image1()'/></a></label>
+	<div id='showImage-headphoto'><img src='' id='show-headphoto'></div>
+	<input class="fl-btn-closeHeadphoto btn btn-default btn-group-justified " type="submit" value="上传"/>
+</form>
+
 <!--分组对话框-->
 <form id="fl-friendGroup">
 	<h4>为myID 选择分组</h4>
@@ -427,6 +433,15 @@
 		getPath(file_img, iptfileupload, file_img);
 		 if($("#fl-upload-photo").find("option").length !=0 && $("#showImage").find("img").length !=0 )		
 				$(".fl-btn-closeBulidUpload").attr("disabled", false);
+	}
+	
+	function show_image1() {
+		var file_img = document.getElementById("show-headphoto");
+		iptfileupload = document.getElementById('img-headphoto');
+		//以下即为完整客户端路径
+		getPath(file_img, iptfileupload, file_img);
+		 if($("#showImage-headphoto").find("img").length !=0 )		
+				$(".fl-btn-closeHeadphoto").attr("disabled", false);
 	}
 
 	function getPath(obj, fileQuery, transImg) {

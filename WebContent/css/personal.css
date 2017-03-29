@@ -42,7 +42,12 @@
 	cursor: pointer;
 	font-size: 13px;
 }
-
+.fl-btn-closeHeadphoto{
+	/*padding: 0 10px;*/
+	position: absolute;
+	left:0;
+	bottom: 5px;	
+}
 .fl-signature-input{
 	display: none;
 	height: 27px;
@@ -305,6 +310,10 @@
 	#fl-section-cover .fl-cover-float .fl-cover-icon{
 		width:90px;
 		height: 90px;
+		cursor: pointer;
+	}
+	#fl-section-cover .fl-cover-float .fl-cover-icon:hover{
+		border: 2px solid #ADADAD;
 	}
 	/*#fl-section-cover .fl-cover-button{
 		width:70px;

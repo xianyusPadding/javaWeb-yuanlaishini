@@ -294,4 +294,25 @@ $(function() {
 			else if(key_code==13 && signature=="")
 				alert("签名不得为空！");
 	})
+	
+	//上传头像dialog
+	$('#fl-upload-headphoto').dialog({
+		title: "上传头像",
+		width: 500,
+		height: 400,
+		autoOpen: false,
+	})
+	
+	$('.fl-btn-closeHeadphoto').attr("disabled",true).click(function(){
+		$('#fl-upload-headphoto').dialog("close");
+//		$('#fl-upload-headphoto').submit(function(){
+//			return false;
+//		})
+	});
+	
+	$('.fl-cover-float').on('click','.fl-cover-icon',function(){
+		$('#fl-upload-headphoto').dialog("open");
+	})
+	
+	
 })
