@@ -68,6 +68,7 @@
 			<img src="images/photoalbum1.jpg" class="fl-cover-icon" alt="">
 			<p class="fl-cover-id"><c:out value="${user.username}"></c:out></p> 
 			<p class="fl-cover-signature">人没有了梦想，就和飞龙一样...</p>
+			<input type="text" class="form-control fl-signature-input"/>
 			<button class="btn btn-default fl-addFriend-btn">加为好友</button>
 			<div class="dropdown fl-hadAddfriend" style="display: none;">
 				<button class="btn btn-default fl-hadAddfriend-btn"  data-toggle="dropdown">

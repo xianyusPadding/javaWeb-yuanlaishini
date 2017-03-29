@@ -39,7 +39,13 @@
 	font-size: 18px;
 }
 #fl-section-cover .fl-cover-float .fl-cover-signature{
+	cursor: pointer;
 	font-size: 13px;
+}
+
+.fl-signature-input{
+	display: none;
+	height: 27px;
 }
 
 .fl-addFriend-btn,.fl-hadAddfriend-btn{
@@ -293,6 +299,7 @@
 		font-size: 20px;
 	}
 	#fl-section-cover .fl-cover-float .fl-cover-signature{
+		cursor: pointer;
 		font-size: 14px;
 	}
 	#fl-section-cover .fl-cover-float .fl-cover-icon{
@@ -319,6 +326,7 @@
 		font-size: 22px;
 	}
 	#fl-section-cover .fl-cover-float .fl-cover-signature{
+		cursor: pointer;
 		font-size: 15px;
 	}
 	#fl-section-cover .fl-cover-float .fl-cover-icon{
@@ -337,6 +345,7 @@
 		font-size: 24px;
 	}
 	#fl-section-cover .fl-cover-float .fl-cover-signature{
+		cursor: pointer;
 		font-size: 16px;
 	}
 	#fl-section-cover .fl-cover-float .fl-cover-icon{

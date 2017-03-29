@@ -45,18 +45,6 @@ $(function() {
 		autoOpen: false,
 	})
 
-//$("#fl-bulid-photoalbum").validate({
-//	rules:{
-//		title:{
-//			required:true,
-//		},
-//	},
-//	messages:{
-//		title:{
-//			required:"相册名称不得为空"
-//		},
-//	},
-//})
 
 	//上传图片的dialog
 	$(".fl-uploadPhoto-btn").click(function() {
@@ -286,4 +274,24 @@ $(function() {
 	//给分组dialog加css
 	$('#fl-friendGroup').prev().css("border","none").css("background","#fff");
 	$('#fl-friendGroup').parent().css("border-top","3px solid #5CB85C");
+	
+	//个性签名的修改	
+	$('.fl-cover-float').on('click','.fl-cover-signature',function(){
+		$('.fl-cover-signature').hide();
+		$('.fl-signature-input').show();
+	})
+	
+	$('.fl-signature-input').keydown(function(event){
+			var key_code=	event.keyCode;
+			var signature=$('.fl-signature-input').val();
+
+			if(key_code==13 && signature!=""){
+				$('.fl-cover-signature').html($('.fl-signature-input').val());
+				$('.fl-signature-input').hide();
+				$('.fl-cover-signature').show();
+				$('.fl-signature-input').val("");
+			}
+			else if(key_code==13 && signature=="")
+				alert("签名不得为空！");
+	})
 })
