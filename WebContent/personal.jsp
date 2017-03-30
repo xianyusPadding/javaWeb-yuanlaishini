@@ -408,6 +408,9 @@
 			
 </div>
 
+<div id="fl-bigPhotoshow">
+	<img src="" alt="" class="fl-bigPhotoshow-img"/>
+</div>
 
 <div id="fl-footer">
 	<div class="container text-muted" style="background:#EF95A8;height:50px;color:#000">
@@ -415,6 +418,7 @@
 		<p style="text-align: center">©2016-2017 缘来是你官方网站All Right Reserved</p>
 </div>
 </div>
+
 <div id="fl-background-img"></div>
 </body>
 <script type="text/javascript">

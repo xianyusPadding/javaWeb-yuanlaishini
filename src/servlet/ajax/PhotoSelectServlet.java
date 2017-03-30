@@ -37,7 +37,7 @@ public class PhotoSelectServlet extends HttpServlet {
 			List<Photo> palist=personal.selectImg_album(photo);
 			for(int i=0;i<palist.size();i++){
 				Photo p =palist.get(i);
-				response.getWriter().append("<li><img src="+p.getA_p_url()+" alt="+p.getA_id()+" ><div></div></li>");
+				response.getWriter().append("<li><img class='fl-showPhoto' src="+p.getA_p_url()+" alt="+p.getA_id()+" ><div></div></li>");
 			}
 		}
 	}

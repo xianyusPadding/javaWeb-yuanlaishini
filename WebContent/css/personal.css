@@ -296,6 +296,19 @@
 	line-height: 60px;
 	height:60px;
 }
+.fl-bigPhotoshow-img{
+	border:7px solid #eee;
+}
+#fl-bigPhotoshow{
+	background: #000;
+	position: fixed;
+	top: 0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index: 1000;
+	display: none;
+}
 @media (min-width: 768px){
 	#fl-section-cover .fl-cover-img img{
 		height: 330px;

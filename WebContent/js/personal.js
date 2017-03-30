@@ -316,5 +316,22 @@ $(function() {
 		$('#show-headphoto').attr("src","");
 	})
 	
+	//相册图片原图显示
+	$('#thumbs').on('click','.fl-showPhoto',function() {
+		
+			var photoshow_src = $(this).attr('src');
+			$("#fl-bigPhotoshow img").attr("src", photoshow_src);
+			
+			$("#fl-bigPhotoshow").show();
+			
+			var body_width = $(window).width();
+			var body_height = $(window).height();
+			var img_width=$("#fl-bigPhotoshow img").width();
+			var img_height=$("#fl-bigPhotoshow img").height();
+			
+			$("#fl-bigPhotoshow img").css("margin-left",(body_width-img_width)/2+"px");
+			$("#fl-bigPhotoshow img").css("margin-top",(body_height-img_height)/2+"px");
+		
+	})
 	
 })
