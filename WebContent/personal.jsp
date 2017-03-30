@@ -290,10 +290,10 @@
 					<div class='col-md-9 fl-tab3-right'>
 						<div class='fl-tab3-1 fl-tab3-base' >
 							<ul>
-								<li class='form-inline'><label for=''>昵称：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>{username}</li>
+								<li class='form-inline'><label for='' style='color:red'>昵称：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" class="form-control"/></li>
 								<li class='form-inline'><label for=''>账号：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>{u_id}</li>
-								<li class='form-inline'><label for=''>性别：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>{sex}</li>
-								<li class='form-inline'><label for=''>邮箱：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>{email}</li>
+								<li class='form-inline'><label for='' style='color:red'>性别：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" class="form-control"/></li>
+								<li class='form-inline'><label for=''>邮箱：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" class="form-control"/></li>
 								<li class='form-inline'><label for='' style='color:red'>年龄：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 									<select name='' class='form-control' id='fl-tab3-age'>
 										<option value=''>请选择</option>
@@ -306,15 +306,8 @@
 								     <script type='text/javascript'>_init_area();</script>
 								</li>	
 								<li class='form-inline'>
-									<label for=''>月收入：&nbsp;&nbsp;&nbsp;</label>
-										<select name='' class='form-control'>
-											<option value=''>请选择</option>
-											<option value=''>3000以下</option>
-											<option value=''>3001-5000元</option>
-											<option value=''>5001-8000元</option>
-											<option value=''>8001-12000元</option>
-											<option value=''>12000以上</option>
-										</select>								
+									<label for=''>月收入：&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<input type="text" class="form-control"/>								
 								</li>
 								<li class='form-inline'><label for=''>加入时间：&nbsp;</label>2016.1.1</li>
 								<button class="btn btn-default fl-keep-btn">保存</button>
@@ -380,16 +373,7 @@
 										</select>
 								</li>
 								<li class='form-inline'><label for=''>毕业院校：</label>
-									<select name='' class='form-control'>
-										<option value=''>请选择</option>
-										<option value=''>1</option>
-										<option value=''>1</option>
-									</select>
-									<select name='' class='form-control'>
-										<option value=''>请选择</option>
-										<option value=''>1</option>
-										<option value=''>1</option>
-									</select>
+									<input type="text" class="form-control"/>
 								</li>
 								<button class="btn btn-default fl-keep-btn" >保存</button>
 							</ul>
