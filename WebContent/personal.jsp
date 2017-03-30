@@ -65,7 +65,7 @@
 			<img src="images/personalCover.png" alt="">
 		</div>
 		<div class="fl-cover-float" style="text-align: center;">
-			<img src="images/photoalbum1.jpg" class="fl-cover-icon" alt="">
+			<img src='<c:out value="${user.i_p_url}"></c:out>' class="fl-cover-icon" alt='' />
 			<p class="fl-cover-id"><c:out value="${user.username}"></c:out></p> 
 			<p class="fl-cover-signature">人没有了梦想，就和飞龙一样...</p>
 			<input type="text" class="form-control fl-signature-input" placeholder="请输入你的个性签名："/>
@@ -95,7 +95,7 @@
 
 <!--分组对话框-->
 <form id="fl-friendGroup">
-	<h4>为myID 选择分组</h4>
+	<h4>为<c:out value="${user.username}"></c:out> 选择分组</h4>
 	<div class="fl-friendGroup-checkbox">
 		
 		<div class="checkbox" style="margin-left:25px">
@@ -273,8 +273,8 @@
 				<div class='row' style='position: relative;background: ;'>
 					<div class='col-md-3 fl-tab3-left'>
 						<div class='fl-center' style='margin-top:50px;border-bottom: 1px solid #ddd;'>
-							<img src='images/photoalbum1.jpg' alt='' />
-							<p>myID</p>	
+							<img src='<c:out value="${user.i_p_url}"></c:out>' alt='' />
+							<p><c:out value="${user.username }"></c:out></p>
 						</div>
 						<ul class='nav navbar fl-center fl-tab3-navbar' style=''>
 							<li><a href='#fl-tab3-1'>基本资料<span class='glyphicon  glyphicon-chevron-right' ></span></a></li>
@@ -290,20 +290,23 @@
 					<div class='col-md-9 fl-tab3-right'>
 						<div class='fl-tab3-1 fl-tab3-base' >
 							<ul>
-								<li class='form-inline'><label for='' style='color:red'>昵称：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" class="form-control"/></li>
-								<li class='form-inline'><label for=''>账号：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>{u_id}</li>
-								<li class='form-inline'><label for='' style='color:red'>性别：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" class="form-control"/></li>
-								<li class='form-inline'><label for=''>邮箱：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" class="form-control"/></li>
+								<li class='form-inline'><label for='' style='color:red'>昵称：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" class="form-control" value="<c:out value="${user.username }"></c:out>"/></li>
+								<li class='form-inline'><label for=''>账号：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><c:out value="${user.u_id }"></c:out></li>
+								<li class='form-inline'><label for='' style='color:red'>性别：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" class="form-control" value="<c:out value="${user.sex }"></c:out>"/></li>
+								<li class='form-inline'><label for=''>邮箱：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" class="form-control" value="<c:out value="${user.email }"></c:out>"/></li>
 								<li class='form-inline'><label for='' style='color:red'>年龄：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 									<select name='' class='form-control' id='fl-tab3-age'>
-										<option value=''>请选择</option>
+										<c:choose>
+											<c:when test="${user.age==0}"><option value=''>请选择</option></c:when>
+											<c:otherwise><option value='<c:out value="${user.age }"></c:out>' selected="selected"><c:out value="${user.age }"></c:out></option></c:otherwise>
+										</c:choose>
 									</select>
 								</li>								
 								<li class='form-inline'><label for='' style='color:red'>工作地区：</label>
 									<select id='s_province' name='s_province' class='form-control'></select>  
 								    <select id='s_city' name='s_city' class='form-control'></select>  
 								    <select id='s_county' name='s_county' class='form-control'></select>
-								     <script type='text/javascript'>_init_area();</script>
+								    <script type='text/javascript'>_init_area('<c:out value="${user.province }"></c:out>','<c:out value="${user.city }"></c:out>','<c:out value="${user.country }"></c:out>');</script>
 								</li>	
 								<li class='form-inline'>
 									<label for=''>月收入：&nbsp;&nbsp;&nbsp;&nbsp;</label>

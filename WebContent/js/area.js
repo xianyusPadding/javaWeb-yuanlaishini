@@ -414,7 +414,9 @@ dsy.add("0",["北京市","天津市","上海市","重庆市","河北省","山西
 
 var s=["s_province","s_city","s_county"];//三个select的name
 var opt0 = ["省份","地级市","市、县级市"];//初始值
-function _init_area(){  //初始化函数
+function _init_area(province,city,country){  //初始化函数 
+	if(province!="")
+		opt0=[province,city,country];
 	for(i=0;i<s.length-1;i++){
 	  document.getElementById(s[i]).onchange=new Function("change("+(i+1)+")");
 	}
