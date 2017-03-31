@@ -253,6 +253,7 @@ $(function() {
 	$('#fl-friendGroup').submit(function(){
 		$('.fl-addFriend-btn').css('display','none');
 		$('.fl-hadAddfriend').css('display','');
+		$('#fl-friendGroup').dialog("close");
 		return false;
 	})
 	
@@ -317,21 +318,60 @@ $(function() {
 	})
 	
 	//相册图片原图显示
-	$('#thumbs').on('click','.fl-showPhoto',function() {
-		
-			var photoshow_src = $(this).attr('src');
-			$("#fl-bigPhotoshow img").attr("src", photoshow_src);
-			
-			$("#fl-bigPhotoshow").show();
-			
-			var body_width = $(window).width();
-			var body_height = $(window).height();
-			var img_width=$("#fl-bigPhotoshow img").width();
-			var img_height=$("#fl-bigPhotoshow img").height();
-			
+	$('#thumbs').on('click','.fl-showPhoto',function() {	
+		var photoshow_src = $(this).attr('src');
+		$("#fl-bigPhotoshow img").attr("src", photoshow_src);
+		$("#fl-bigPhotoshow").show();
+		var body_width = $(window).width();
+		var body_height = $(window).height();
+		var img_width=$("#fl-bigPhotoshow img").width()+14;
+		var img_height=$("#fl-bigPhotoshow img").height()+14;
+		var ratio_width=img_width/body_width;
+		var ratio_height=img_height/body_height;
+		if(img_width>body_width || img_height>body_height){
+			if(ratio_width>ratio_height){
+				$("#fl-bigPhotoshow img").css('width',img_width/ratio_width+'px');
+				$("#fl-bigPhotoshow img").css('height',img_height/ratio_width+'px');
+			}
+			else{
+				$("#fl-bigPhotoshow img").css('width',img_width/ratio_height+'px');
+				$("#fl-bigPhotoshow img").css('height',img_height/ratio_height+'px');
+			}
+		}
+		var img_width=$("#fl-bigPhotoshow img").width()+14;
+		var img_height=$("#fl-bigPhotoshow img").height()+14;
+		if(img_width<=body_width && img_height<=body_height){
 			$("#fl-bigPhotoshow img").css("margin-left",(body_width-img_width)/2+"px");
 			$("#fl-bigPhotoshow img").css("margin-top",(body_height-img_height)/2+"px");
-		
-	})
+		}
+
+		$(window).resize(function(){
+			var photoshow_src = $(this).attr('src');
+			$("#fl-bigPhotoshow img").attr("src", photoshow_src);
+			$("#fl-bigPhotoshow").show();
+			var body_width = $(window).width();
+			var body_height = $(window).height();
+			var img_width=$("#fl-bigPhotoshow img").width()+14;
+			var img_height=$("#fl-bigPhotoshow img").height()+14;
+			var ratio_width=img_width/body_width;
+			var ratio_height=img_height/body_height;
+			if(img_width>body_width || img_height>body_height){
+				if(ratio_width>ratio_height){
+					$("#fl-bigPhotoshow img").css('width',img_width/ratio_width+'px');
+					$("#fl-bigPhotoshow img").css('height',img_height/ratio_width+'px');
+				}
+				else{
+					$("#fl-bigPhotoshow img").css('width',img_width/ratio_height+'px');
+					$("#fl-bigPhotoshow img").css('height',img_height/ratio_height+'px');
+				}
+			}
+			var img_width=$("#fl-bigPhotoshow img").width()+14;
+			var img_height=$("#fl-bigPhotoshow img").height()+14;
+			if(img_width<=body_width && img_height<=body_height){
+				$("#fl-bigPhotoshow img").css("margin-left",(body_width-img_width)/2+"px");
+				$("#fl-bigPhotoshow img").css("margin-top",(body_height-img_height)/2+"px");
+			}
+			
+		})
 	
 })
