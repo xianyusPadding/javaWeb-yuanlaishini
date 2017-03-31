@@ -289,15 +289,16 @@
 					</div>
 					<div class='col-md-9 fl-tab3-right'>
 						<div class='fl-tab3-1 fl-tab3-base' >
+						<form action="?" method="get">
 							<ul>
-								<li class='form-inline'><label for='' style='color:red'>昵称：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" class="form-control" value="<c:out value="${user.username }"></c:out>"/></li>
+								<li class='form-inline'><label for='' style='color:red'>昵称：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input name='usernmae' type="text" class="form-control" value="<c:out value="${user.username }"></c:out>"/></li>
 								<li class='form-inline'><label for=''>账号：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><c:out value="${user.u_id }"></c:out></li>
-								<li class='form-inline'><label for='' style='color:red'>性别：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" class="form-control" value="<c:out value="${user.sex }"></c:out>"/></li>
-								<li class='form-inline'><label for=''>邮箱：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" class="form-control" value="<c:out value="${user.email }"></c:out>"/></li>
+								<li class='form-inline'><label for='' style='color:red'>性别：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" name='sex' class="form-control" value="<c:out value="${user.sex }"></c:out>"/></li>
+								<li class='form-inline'><label for=''>邮箱：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" name='email' class="form-control" value="<c:out value="${user.email }"></c:out>"/></li>
 								<li class='form-inline'><label for='' style='color:red'>年龄：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<select name='' class='form-control' id='fl-tab3-age'>
+									<select name='age' class='form-control' id='fl-tab3-age'>
 										<c:choose>
-											<c:when test="${user.age==0}"><option value=''>请选择</option></c:when>
+											<c:when test="${user.age==0}"><option value='0'>请选择</option></c:when>
 											<c:otherwise><option value='<c:out value="${user.age }"></c:out>' selected="selected"><c:out value="${user.age }"></c:out></option></c:otherwise>
 										</c:choose>
 									</select>
@@ -309,78 +310,80 @@
 								    <script type='text/javascript'>_init_area('<c:out value="${user.province }"></c:out>','<c:out value="${user.city }"></c:out>','<c:out value="${user.country }"></c:out>');</script>
 								</li>	
 								<li class='form-inline'>
-									<label for=''>月收入：&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input type="text" class="form-control"/>								
+									<label for='salary'>月收入：&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<input type="text" name='salary' class="form-control" value='<c:out value="${user.salary}"></c:out>' />								
 								</li>
 								<li class='form-inline'><label for=''>加入时间：&nbsp;</label>2016.1.1</li>
-								<button class="btn btn-default fl-keep-btn">保存</button>
+								<input type="submit" value="保存" class="btn btn-default fl-keep-btn">
 							</ul>
-							
+							</form>
 	
 						</div>
+						<form action="?" method="get">
 						<div class='fl-tab3-1 fl-tab3-details' style='display:none'>
 							<ul>
-								<li class='form-inline'><label for='' style='color:red'>真实姓名：</label><input type='text' class='form-control'/></li>
+								<li class='form-inline'><label for='' style='color:red'>真实姓名：</label><input name="name" type='text' class='form-control'/></li>
 								<li class='form-inline'><label for=''>身高：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<select name='' class='form-control' id='fl-tab3-height'>
+									<select name='tall' class='form-control' id='fl-tab3-height'>
 										<option value=''>请选择</option>
 									</select>
 									<label for=''>cm</label>
 								</li>
 								<li class='form-inline'><label for='' >体重：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<select name='' class='form-control'  id='fl-tab3-weight'>
+									<select name='weight' class='form-control'  id='fl-tab3-weight'>
 										<option value=''>请选择</option>
 									</select>
 									<label for=''>kg</label>
 								</li>
 								
 								<li class='form-inline'><label for=''>血型：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<select name='' class='form-control'>
+									<select name='blood_type' class='form-control'>
 										<option value=''>请选择</option>
-										<option value=''>A型</option>
-										<option value=''>B型</option>
-										<option value=''>AB型</option>
-										<option value=''>C型</option>
-										<option value=''>O型</option>
+										<option value='A型'>A型</option>
+										<option value='B型'>B型</option>
+										<option value='AB型'>AB型</option>
+										<option value='c型'>C型</option>
+										<option value='O型'>O型</option>
 									</select>
 								</li>
 								<li class='form-inline'><label for=''>民族：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<select name='' class='form-control'>
+									<select name='nation' class='form-control'>
 										<option value=''>请选择</option>
-										<option value=''>汉族</option>
-										<option value=''>藏族族</option>
-										<option value=''>蒙古族族</option>
-										<option value=''>满族</option>
-										<option value=''>壮族</option>
-										<option value=''>其他</option>
+										<option value='汉族'>汉族</option>
+										<option value='藏族族'>藏族族</option>
+										<option value='蒙古族族'>蒙古族族</option>
+										<option value='满族'>满族</option>
+										<option value='壮族'>壮族</option>
+										<option value='其他'>其他</option>
 									</select>
 								</li>
 								
 								<li class='form-inline'>
 									<label for=''>住房条件：</label>
-											<select name='' class='form-control'>
+											<select name='house' class='form-control'>
 													<option value=''>请选择</option>
-													<option value=''>和家人同住</option>
-													<option value=''>已购房</option>
-													<option value=''>租房</option>
-													<option value=''>打算婚后购房</option>
-													<option value=''>单位宿舍</option>
+													<option value='和家人同住'>和家人同住</option>
+													<option value='已购房'>已购房</option>
+													<option value='租房'>租房</option>
+													<option value='打算婚后购房'>打算婚后购房</option>
+													<option value='单位宿舍'>单位宿舍</option>
 											</select>
 								</li>
 								<li class='form-inline'>
 									<label for=''>有无孩子：</label>
-										<select name='' class='form-control'>
+										<select name='hava_child_not' class='form-control'>
 												<option value=''>请选择</option>
-												<option value=''>有</option>
-												<option value=''>没有</option>
+												<option value='有'>有</option>
+												<option value='没有'>没有</option>
 										</select>
 								</li>
 								<li class='form-inline'><label for=''>毕业院校：</label>
-									<input type="text" class="form-control"/>
+									<input name="graduate_school" type="text" class="form-control"/>
 								</li>
-								<button class="btn btn-default fl-keep-btn" >保存</button>
+								<input type="submit" value ="保存" class="btn btn-default fl-keep-btn" >
 							</ul>
 						</div>
+						</form>
 						<div class='fl-tab3-1' style='display:none'>fl-tab3-3</div>
 						<div class='fl-tab3-1' style='display:none'>fl-tab3-4</div>
 						<div class='fl-tab3-1' style='display:none'>fl-tab3-5</div>
@@ -409,14 +412,6 @@
 <div id="fl-background-img"></div>
 </body>
 <script type="text/javascript">
-	
-	var Gid  = document.getElementById ;
-	var showArea = function(){
-		Gid('show').innerHTML = '<h3>省' + Gid('s_province').value + ' - 市' + 	
-		Gid('s_city').value + ' - 县/区' + 
-		Gid('s_county').value + '</h3>'
-								}
-	Gid('s_county').setAttribute('onchange','showArea()');
 	
 
 	

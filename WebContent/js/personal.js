@@ -94,7 +94,6 @@ $(function() {
 	        	u_id:u_id
 	        },
 	        success:function(response){
-	        	console.log(response);
 	        	thumbs.html(response);
 	        	$("#fl-photoShow").dialog("option","title", a_title).dialog("open");
 	        }
@@ -228,13 +227,13 @@ $(function() {
 	//身高 体重 年龄的option
 	var i;
 	for(i=140;i<=210;i++)
-		$('#fl-tab3-height').append('<option>'+i+'</option>');
+		$('#fl-tab3-height').append('<option value='+i+'>'+i+'</option>');
 	
 	for(i=30;i<=130;i++)
-		$('#fl-tab3-weight').append('<option>'+i+'</option>');
+		$('#fl-tab3-weight').append('<option value='+i+'>'+i+'</option>');
 		
 	for(i=18;i<=45;i++)
-		$('#fl-tab3-age').append('<option>'+i+'</option>');
+		$('#fl-tab3-age').append('<option value='+i+'>'+i+'</option>');
 	
 	//分组设置的dialog
 	$('#fl-friendGroup').dialog({

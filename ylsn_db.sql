@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50051
 File Encoding         : 65001
 
-Date: 2017-03-27 13:37:43
+Date: 2017-04-01 01:02:33
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -57,10 +57,38 @@ CREATE TABLE `comment` (
   PRIMARY KEY  (`c_id`),
   KEY `u_id` (`u_id`),
   KEY `s_id` (`s_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of comment
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `information`
+-- ----------------------------
+DROP TABLE IF EXISTS `information`;
+CREATE TABLE `information` (
+  `name` varchar(10) default NULL,
+  `u_id` varchar(10) NOT NULL,
+  `hobby` varchar(50) default NULL,
+  `motto` varchar(50) default NULL,
+  `start` int(5) default NULL,
+  `friend` text,
+  `f_feeling` text,
+  `f_collection` text,
+  `where` varchar(20) default NULL,
+  `weight` int(3) default NULL,
+  `blood_type` varchar(10) default NULL,
+  `nation` varchar(10) default NULL,
+  `house` varchar(100) default NULL,
+  `hava_child_not` varchar(2) default NULL,
+  `graduate_school` varchar(20) default NULL,
+  `height` int(2) default NULL,
+  PRIMARY KEY  (`u_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of information
 -- ----------------------------
 
 -- ----------------------------
@@ -79,7 +107,7 @@ CREATE TABLE `share` (
   `date` datetime NOT NULL,
   PRIMARY KEY  (`s_id`),
   KEY `u_id` (`u_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of share
@@ -134,7 +162,7 @@ CREATE TABLE `user` (
   `password` varchar(50) NOT NULL,
   `sex` varchar(2) NOT NULL,
   `email` varchar(20) NOT NULL,
-  `i_p_url` varchar(20) default NULL,
+  `i_p_url` varchar(100) default NULL,
   `age` int(3) default NULL,
   `tall` int(3) default NULL,
   `salary` int(5) default NULL,
@@ -148,5 +176,5 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('Miss', 'admin', '123123123', '女', 'xianyu@qq.com', null, '0', '0', '0', null, null, null, '2017-03-22 12:43:11');
-INSERT INTO `user` VALUES ('飞龙', 'feilong', '123123123', '男', 'feilong@qq.com', null, '0', '0', '0', null, null, null, '2017-03-22 15:29:45');
+INSERT INTO `user` VALUES ('Miss', 'admin', '123123123', '女', 'Miss@qq.com', './upload/photoalbum1.jpg', '25', '175', '12000', '广东省', '茂名市', '化州市', '2017-03-22 12:43:11');
+INSERT INTO `user` VALUES ('飞龙', 'feilong', '123123123', '男', 'feilong@qq.com', './upload/guys.jpg', '0', '0', '0', null, null, null, '2017-03-22 15:29:45');
