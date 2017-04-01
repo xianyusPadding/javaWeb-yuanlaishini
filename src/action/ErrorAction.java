@@ -54,6 +54,10 @@ public class ErrorAction {
 				message="分享失败！";
 				link="personal.jsp";
 				break ;
+			case MyConstant.STATUS_USER_UPDATE:
+				message="保存失败！";
+				link="personal.jsp";
+				break ;
 		}
 		return this;
 	}

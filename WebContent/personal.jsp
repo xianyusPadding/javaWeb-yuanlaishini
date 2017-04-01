@@ -289,7 +289,7 @@
 					</div>
 					<div class='col-md-9 fl-tab3-right'>
 						<div class='fl-tab3-1 fl-tab3-base' >
-						<form action="?" method="get">
+						<form action="userServlet" method="post">
 							<ul>
 								<li class='form-inline'><label for='' style='color:red'>昵称：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input name='usernmae' type="text" class="form-control" value="<c:out value="${user.username }"></c:out>"/></li>
 								<li class='form-inline'><label for=''>账号：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><c:out value="${user.u_id }"></c:out></li>
@@ -342,7 +342,7 @@
 										<option value='A型'>A型</option>
 										<option value='B型'>B型</option>
 										<option value='AB型'>AB型</option>
-										<option value='c型'>C型</option>
+										<option value='C型'>C型</option>
 										<option value='O型'>O型</option>
 									</select>
 								</li>

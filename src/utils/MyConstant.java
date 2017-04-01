@@ -10,4 +10,6 @@ public class MyConstant {
 	public final static int STATUS_UPLOAD_INSERTPHOTO=6;
 	public final static int STATUS_SHARE_INSERT=7;
 	public final static int STATUS_SHARE_CONTENT_EMPTY=8;
+	//更新用户信息
+	public final static int STATUS_USER_UPDATE=9;
 }
