@@ -374,7 +374,7 @@ $(function() {
 		})
 	
 	})
-	//圆图显示的关闭按钮
+	//相片显示的关闭按钮
 	$('#fl-bigPhotoshow').on('click','.fl-bigPhotoshow-closebtn',function(){
 		$('#fl-bigPhotoshow').hide();
 	})

@@ -320,6 +320,13 @@
 	z-index: 9999;
 	display: none;
 }
+.fl-bigPhotoshow-closebtn{
+	float:right;
+	margin:10px;
+	background-color:#fff;
+	cursor:pointer;
+	color:#000;
+}
 @media (min-width: 768px){
 	#fl-section-cover .fl-cover-img img{
 		height: 330px;
