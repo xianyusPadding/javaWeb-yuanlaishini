@@ -399,6 +399,7 @@
 </div>
 
 <div id="fl-bigPhotoshow">
+	<span class="glyphicon glyphicon-remove fl-bigPhotoshow-closebtn" ></span>
 	<img src="" alt="" class="fl-bigPhotoshow-img"/>
 </div>
 

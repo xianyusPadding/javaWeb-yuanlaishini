@@ -174,6 +174,16 @@
 	border:7px solid #fff;
 	cursor:pointer;
 	box-shadow:1px 1px 1px #aaa;
+	margin-bottom: 20px;
+}
+#fl-photoalbum-style div:nth-of-type(odd) img{
+	transform: rotate(-15deg);
+}
+#fl-photoalbum-style div:nth-of-type(even) img{
+	transform: rotate(15deg);
+}
+#fl-photoalbum-style div img:hover{
+	transform: rotate(0deg);
 }
 #fl-tab2 .fl-photoAlbum:hover{
 	box-shadow:1px 1px 7px #777;
@@ -200,12 +210,6 @@
 	float: left;
 	margin:5px;
 }
-/*#fl-photoShow ul li div{
-	position: absolute;
-	top:5px;
-	width:180px;
-	padding:0 10px; 
-}*/
 #fl-photoShow ul li:nth-child(1){
 	margin-left: 10px;
 }
@@ -215,13 +219,20 @@
 #fl-photoShow ul li:nth-child(3n){
 	margin-left: 20px;
 }
+#fl-photoShow ul li{
+	background: #555555;
+}
 #fl-photoShow  ul li img{
 	border:7px solid #fff;
 	cursor:pointer;
 	box-shadow:1px 1px 1px #aaa;
+	/*background: #fff;*/
+	transition: all  0.3s;
+	opacity:1;
 }
-#fl-photoShow ul li img:hover{
+#fl-photoShow  ul li img:hover{
 	box-shadow:1px 1px 7px #777;
+	opacity: 0.9;
 }
 
 #fl-photoShow ul li:nth-child(even) img{
