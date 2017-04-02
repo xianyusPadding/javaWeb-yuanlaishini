@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50051
 File Encoding         : 65001
 
-Date: 2017-04-01 01:02:33
+Date: 2017-04-03 01:25:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -57,7 +57,7 @@ CREATE TABLE `comment` (
   PRIMARY KEY  (`c_id`),
   KEY `u_id` (`u_id`),
   KEY `s_id` (`s_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of comment
@@ -70,7 +70,7 @@ DROP TABLE IF EXISTS `information`;
 CREATE TABLE `information` (
   `name` varchar(10) default NULL,
   `u_id` varchar(10) NOT NULL,
-  `hobby` varchar(50) default NULL,
+  `hobby` varchar(100) default NULL,
   `motto` varchar(50) default NULL,
   `start` int(5) default NULL,
   `friend` text,
@@ -80,7 +80,7 @@ CREATE TABLE `information` (
   `weight` int(3) default NULL,
   `blood_type` varchar(10) default NULL,
   `nation` varchar(10) default NULL,
-  `house` varchar(100) default NULL,
+  `house` varchar(20) default NULL,
   `hava_child_not` varchar(2) default NULL,
   `graduate_school` varchar(20) default NULL,
   `height` int(2) default NULL,
@@ -107,7 +107,7 @@ CREATE TABLE `share` (
   `date` datetime NOT NULL,
   PRIMARY KEY  (`s_id`),
   KEY `u_id` (`u_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of share
@@ -128,12 +128,12 @@ CREATE TABLE `unloadphotoalbum` (
   `u_p_id` int(5) NOT NULL auto_increment,
   `u_id` varchar(10) NOT NULL,
   `a_id` int(5) NOT NULL,
-  `a_p_url` varchar(50) NOT NULL,
+  `a_p_url` text NOT NULL,
   `date` datetime NOT NULL,
   PRIMARY KEY  (`u_p_id`),
   KEY `u_id` (`u_id`),
   KEY `a_id` (`a_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of unloadphotoalbum
@@ -151,6 +151,8 @@ INSERT INTO `unloadphotoalbum` VALUES ('20', 'admin', '17', './upload/slide1.png
 INSERT INTO `unloadphotoalbum` VALUES ('21', 'feilong', '18', './upload/photoalbum4.jpg', '2017-03-26 18:33:53');
 INSERT INTO `unloadphotoalbum` VALUES ('22', 'admin', '20', './upload/blackMatte.png', '2017-03-27 08:20:27');
 INSERT INTO `unloadphotoalbum` VALUES ('25', 'admin', '21', './upload/1.png', '2017-03-27 13:11:33');
+INSERT INTO `unloadphotoalbum` VALUES ('27', 'feilong', '19', './upload/psb .jpg', '2017-04-03 01:04:50');
+INSERT INTO `unloadphotoalbum` VALUES ('28', 'feilong', '19', './upload/1.jpg', '2017-04-03 01:24:06');
 
 -- ----------------------------
 -- Table structure for `user`
@@ -162,7 +164,7 @@ CREATE TABLE `user` (
   `password` varchar(50) NOT NULL,
   `sex` varchar(2) NOT NULL,
   `email` varchar(20) NOT NULL,
-  `i_p_url` varchar(100) default NULL,
+  `i_p_url` text,
   `age` int(3) default NULL,
   `tall` int(3) default NULL,
   `salary` int(5) default NULL,
@@ -176,5 +178,5 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('Miss', 'admin', '123123123', '女', 'Miss@qq.com', './upload/photoalbum1.jpg', '25', '175', '12000', '广东省', '茂名市', '化州市', '2017-03-22 12:43:11');
-INSERT INTO `user` VALUES ('飞龙', 'feilong', '123123123', '男', 'feilong@qq.com', './upload/guys.jpg', '0', '0', '0', null, null, null, '2017-03-22 15:29:45');
+INSERT INTO `user` VALUES ('Miss', 'admin', '123123123', '女', 'Miss@qq.com', './upload/photoalbum1.jpg', '30', '175', '12000', '广东省', '茂名市', '化州市', '2017-04-01 13:16:52');
+INSERT INTO `user` VALUES ('飞龙', 'feilong', '123123123', '男', 'feilong@qq.com', './upload/test.jpg', '0', '0', '0', null, null, null, '2017-04-03 01:24:53');
