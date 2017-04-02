@@ -78,6 +78,10 @@
 
 .fl-dynamic{
 	background: #B97A57;
+	margin-bottom: 6px;
+}
+.fl-dynamic .nav-justified li a{
+	border:none;
 }
 .fl-dynamic .fl-dynamic-img{
 	margin-top: 20px;

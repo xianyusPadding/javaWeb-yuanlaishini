@@ -54,17 +54,17 @@
 </nav>
 
 
-
+<!--
 <div style="margin-top:31px;background:#ccc;width:100%;height:40px;">
 	 <div class="container">
 		<div style="background:#ccc;width:100%;height:40px;">
 		</div>	
 	</div> 
-</div>
+</div>-->
 
 
 
-<div id="fl-main" style="height:1500px;margin-top:-6px;">
+<div id="fl-main" style="height:1500px;margin-top:40px;">
 	<div class="container" style="">
 		<div class="row">
 			<div class="fl-navbar-left" style="position: fixed;">			
@@ -104,74 +104,94 @@
 				
 			</div>
 			
-			<div class="col-md-7 col-md-offset-2" class="fl-center">				
+			<div class="col-md-7 col-md-offset-2 col-sm-8 col-sm-offset-4  " class="fl-center fl-main-middle">				
 				<div class="row fl-dynamic" style="margin-top:0">
-					<div class="col-md-1" style="float:left">
-						<img class="fl-dynamic-img" src="images/photoalbum5.jpg" alt=""  />
+					<div class="row">
+						<div class="col-md-1" style="float:left">
+							<img class="fl-dynamic-img" src="images/photoalbum5.jpg" alt=""  />
+						</div>
+						<div class="col-md-11" style="float:left">
+							<h4>myId</h4>
+								<p style="font-size: 12px">2016-1-1</p>
+								<p style="font-size: 15px">执子之手，与子偕老！</p>
+						</div>
 					</div>
-					<div class="col-md-11" style="float:left">
-						<h4>myId</h4>
-							<p style="font-size: 12px">2016-1-1</p>
-							<p style="font-size: 15px">执子之手，与子偕老！</p>
+					
+					<div class="row">
+						<ul class="nav nav-tabs nav-justified" style="">
+							<li style=""><a href="" style="border:none;">阅读121</a></li>
+							<li><a href="">转发</a></li>
+							<li><a href="">评论</a></li>
+							<li><a href="">赞</a></li>
+						</ul>
 					</div>
-					<ul class="nav nav-tabs nav-justified" style="">
-						<li style=""><a href="">阅读121</a></li>
-						<li><a href="">转发</a></li>
-						<li><a href="">评论</a></li>
-						<li><a href="">赞</a></li>
-					</ul>
 				</div>
-				<div class="row fl-dynamic" style="">
-					<div class="col-md-1" style="float:left">
-						<img class="fl-dynamic-img" src="images/photoalbum5.jpg" alt=""  />
+				<div class="row fl-dynamic" style="margin-top:0">
+					<div class="row">
+						<div class="col-md-1" style="float:left">
+							<img class="fl-dynamic-img" src="images/photoalbum5.jpg" alt=""  />
+						</div>
+						<div class="col-md-11" style="float:left">
+							<h4>myId</h4>
+								<p style="font-size: 12px">2016-1-1</p>
+								<p style="font-size: 15px">执子之手，与子偕老！</p>
+						</div>
 					</div>
-					<div class="col-md-11" style="float:left">
-						<h4>myId</h4>
-							<p style="font-size: 12px">2016-1-1</p>
-							<p style="font-size: 15px">执子之手，与子偕老！</p>
+					
+					<div class="row">
+						<ul class="nav nav-tabs nav-justified" style="">
+							<li style=""><a href="">阅读121</a></li>
+							<li><a href="">转发</a></li>
+							<li><a href="">评论</a></li>
+							<li><a href="">赞</a></li>
+						</ul>
 					</div>
-					<ul class="nav nav-tabs nav-justified" style="">
-						<li style=""><a href="">阅读121</a></li>
-						<li><a href="">转发</a></li>
-						<li><a href="">评论</a></li>
-						<li><a href="">赞</a></li>
-					</ul>
 				</div>
-				<div class="row fl-dynamic" style="">
-					<div class="col-md-1" style="float:left">
-						<img class="fl-dynamic-img" src="images/photoalbum5.jpg" alt=""  />
+				<div class="row fl-dynamic" style="margin-top:0">
+					<div class="row">
+						<div class="col-md-1" style="float:left">
+							<img class="fl-dynamic-img" src="images/photoalbum5.jpg" alt=""  />
+						</div>
+						<div class="col-md-11" style="float:left">
+							<h4>myId</h4>
+								<p style="font-size: 12px">2016-1-1</p>
+								<p style="font-size: 15px">执子之手，与子偕老！</p>
+						</div>
 					</div>
-					<div class="col-md-11" style="float:left">
-						<h4>myId</h4>
-							<p style="font-size: 12px">2016-1-1</p>
-							<p style="font-size: 15px">执子之手，与子偕老！</p>
+					
+					<div class="row">
+						<ul class="nav nav-tabs nav-justified" style="">
+							<li style=""><a href="">阅读121</a></li>
+							<li><a href="">转发</a></li>
+							<li><a href="">评论</a></li>
+							<li><a href="">赞</a></li>
+						</ul>
 					</div>
-					<ul class="nav nav-tabs nav-justified" style="">
-						<li style=""><a href="">阅读121</a></li>
-						<li><a href="">转发</a></li>
-						<li><a href="">评论</a></li>
-						<li><a href="">赞</a></li>
-					</ul>
 				</div>
-				<div class="row fl-dynamic" style="">
-					<div class="col-md-1" style="float:left">
-						<img class="fl-dynamic-img" src="images/photoalbum5.jpg" alt=""  />
+				<div class="row fl-dynamic" style="margin-top:0">
+					<div class="row">
+						<div class="col-md-1" style="float:left">
+							<img class="fl-dynamic-img" src="images/photoalbum5.jpg" alt=""  />
+						</div>
+						<div class="col-md-11" style="float:left">
+							<h4>myId</h4>
+								<p style="font-size: 12px">2016-1-1</p>
+								<p style="font-size: 15px">执子之手，与子偕老！</p>
+						</div>
 					</div>
-					<div class="col-md-11" style="float:left">
-						<h4>myId</h4>
-							<p style="font-size: 12px">2016-1-1</p>
-							<p style="font-size: 15px">执子之手，与子偕老！</p>
+					
+					<div class="row">
+						<ul class="nav nav-tabs nav-justified" style="">
+							<li style=""><a href="">阅读121</a></li>
+							<li><a href="">转发</a></li>
+							<li><a href="">评论</a></li>
+							<li><a href="">赞</a></li>
+						</ul>
 					</div>
-					<ul class="nav nav-tabs nav-justified" style="">
-						<li style=""><a href="">阅读121</a></li>
-						<li><a href="">转发</a></li>
-						<li><a href="">评论</a></li>
-						<li><a href="">赞</a></li>
-					</ul>
-				</div>			
+				</div>	
 			</div>
 			
-			<div class="col-md-3">
+			<div class="col-md-3 col-sm-4 hidden-xs">
 				<div class="row" style="background:url(images/blackMatte.png);margin:0">
 					<div class="fl-easy-introduction">
 						<img src="images/photoalbum5.jpg" alt="" />
