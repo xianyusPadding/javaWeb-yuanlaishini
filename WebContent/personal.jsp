@@ -87,8 +87,9 @@
 	</div>
 </div>
 
-<form id="fl-upload-headphoto" >
+<form id="fl-upload-headphoto" action="uploadServlet" method="post" enctype="multipart/form-data">
 	<label for='img-headphoto'><a   class="fl-browsePhoto btn btn-default">选择图片<input type='file' id='img-headphoto' name='photoalbum' onChange='show_image1()'/></a></label>
+	<input name='type' type="text" value="alterHeadPhoto" hidden="hidden">
 	<div id='showImage-headphoto'><img src='' id='show-headphoto'></div>
 	<input class="fl-btn-closeHeadphoto btn btn-default btn-group-justified " type="submit" value="上传"/>
 </form>

@@ -42,7 +42,9 @@ public class UploadServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request,HttpServletResponse response)
     		throws ServletException, IOException {
     	String picPath = null;
-    	String a_id = null;
+    	//存储传过来的数据
+    	String date="";
+
     	HttpSession session = request.getSession();
     	
     	User user =(User) session.getAttribute("user");
@@ -92,7 +94,7 @@ public class UploadServlet extends HttpServlet {
 	            	//非文件流  拿表单参数
 	            	String value=item1.getString();
 	            	value = new String(value.getBytes("ISO-8859-1"),"UTF-8");
-	            	a_id=value;
+	            	date=value;
 	            }
             }
             //文件流
@@ -100,27 +102,34 @@ public class UploadServlet extends HttpServlet {
                 // 迭代表单数据
                 for (FileItem item : formItems) {
                     // 处理不在表单中的字段
-                    if (!item.isFormField()) {
-                        String fileName = new File(item.getName()).getName();
-                        String filePath = uploadPath + '/'+ fileName;
-                        picPath = "./upload/" + fileName;
-                        File storeFile = new File(filePath);
-                        // 保存文件到硬盘
-                        item.write(storeFile);
-                        Photo photo=new Photo(0, user.getU_id(), Integer.parseInt(a_id), picPath, null);
-                        System.out.println(filePath);
-                        // 在控制台输出文件的上传路径
-                        //写入数据库
-                        UploadAction uAction =new UploadAction();
-                        if(uAction.uploadImg(photo)){
-                        	response.sendRedirect(request.getContextPath()+"/personalServlet");
-                        }else{
-                        	session.setAttribute("status",MyConstant.STATUS_UPLOAD_INSERTPHOTO);
-                			response.sendRedirect(request.getContextPath()+"/errorServlet");
-                        }
-                    }
-                 }
-             }
+                	 if (!item.isFormField()) {
+                         String fileName = new File(item.getName()).getName();
+                         String filePath = uploadPath + '/'+ fileName;
+                         picPath = "./upload/" + fileName;
+                         File storeFile = new File(filePath);
+                         // 保存文件到硬盘
+                         item.write(storeFile);
+                         boolean rs =false;
+                         UploadAction uAction =new UploadAction();
+                         //修改头像
+                         if(date.equals("alterHeadPhoto")){
+                         	user.setI_p_url(picPath);
+                         	rs=uAction.alterHeadImg(user);
+                         }else{
+                         	 //上传相片到相册
+                         	 Photo photo=new Photo(0, user.getU_id(), Integer.parseInt(date), picPath, null);
+ 	                         //写入数据库
+ 	                         rs=uAction.uploadImg(photo);
+                         }
+                         if(rs){
+                          	response.sendRedirect(request.getContextPath()+"/personalServlet");
+                          }else{
+                          	session.setAttribute("status",MyConstant.STATUS_UPLOAD_INSERTPHOTO);
+                          	response.sendRedirect(request.getContextPath()+"/errorServlet");
+                          }
+                     }
+                  }
+              }
         } catch (Exception ex) {
         	session.setAttribute("status",MyConstant.STATUS_UPLOAD_PHOTO);
 			response.sendRedirect(request.getContextPath()+"/errorServlet");
