@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="css/jquery-ui.css">
 	<link rel="stylesheet" href="css/base.css">
 	<link rel="stylesheet" href="css/makeFriend.css">
+	<link href='http://cdn.webfont.youziku.com/webfonts/nomal/100824/46908/58e1f727f629d81290e4c7b4.css' rel='stylesheet' type='text/css' />
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" id="fl-nav">
@@ -67,7 +68,10 @@
 <div id="fl-main" style="height:1500px;margin-top:40px;">
 	<div class="container" style="">
 		<div class="row">
-			<div class="fl-navbar-left" style="position: fixed;">			
+			<div class="fl-navbar-left" style="position: fixed;">	
+				<p style="font-size: 45px;font-family:'GoodVibrationsR9d7d6b9c3189d8';">
+					 romantic page
+				</p>
 					<div class="input-group fl-navbarLeft-search" style="margin:5px">
 						<!-- <span class="input-group-addon glyphicon glyphicon-search"></span> -->
 						<input type="text" class="form-control" placeholder="搜索">
@@ -104,7 +108,7 @@
 				
 			</div>
 			
-			<div class="col-md-7 col-md-offset-2 col-sm-8 col-sm-offset-4  " class="fl-center fl-main-middle">				
+			<div  class="col-md-7 col-md-offset-2 col-sm-10 col-sm-offset-4  col-xs-" class="fl-center fl-main-middle">				
 				<div class="row fl-dynamic" style="margin-top:0">
 					<div class="row">
 						<div class="col-md-1" style="float:left">
@@ -200,10 +204,13 @@
 						<p>喜欢打篮球，游泳</p>
 					</div>
 				</div>
-				<div class="row fl-desireTree" style="background: #DEDDD8;height:500px;margin:5px 0 0 0">
-					<a href=""><img src="images/wishingTree.jpg" alt="" style="width: 100%;height: 250px;"/></a>
+				<div class="row fl-desireTree" >
+					<a href=""><img src="images/wishingTree.jpg" alt=""/></a>
+					<div class="">
+						<textarea class="form-control fl-desire-textarea" name="" rows="5" cols="30" placeholder="许愿树留言："></textarea>
+						<input type="submit" class="btn btn-default fl-desire-submit" style="" value="留言"/>
+					</div>	
 				</div>
-				<div class="row"></div>
 			</div>
 		</div>		
 	</div>

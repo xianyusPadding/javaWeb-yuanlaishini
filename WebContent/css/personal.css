@@ -327,6 +327,17 @@
 	cursor:pointer;
 	color:#000;
 }
+
+/*textarea加鲜花 */
+.fl-tab1-publish img{
+	position: absolute;
+	top:23px;
+	right:0;
+	width:200px;
+	height:190px;
+	opacity: 0.3;
+}
+
 @media (min-width: 768px){
 	#fl-section-cover .fl-cover-img img{
 		height: 330px;

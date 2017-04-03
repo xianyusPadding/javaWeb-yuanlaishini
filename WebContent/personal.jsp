@@ -127,9 +127,10 @@
 		 <div id="fl-tab1">
 			<div id="container">
 			<!-- <form action="ajaxShareServlet" method="post"> -->
-				<div class="row fl-tab1-publish">
+				<div class="row fl-tab1-publish" style="position: relative;">
 					<h5>有什么新鲜或者记忆深刻的事想告诉大家？</h5>
 					<textarea id="s_content" name="content" class="fl-tab1-publishMain" cols="30" rows="10"></textarea>
+					<img src="images/rose.png" alt=""/>
 					<input id="s_p_url" type="text" name="s_p_url" hidden="hidden" value="null">
 					<input id="flag" type="text" name="flag" hidden="hidden" value="0">
 					<ul class="nav nav-pills" style="float:left">
