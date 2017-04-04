@@ -18,6 +18,8 @@ public class Information {
 	private String graduate_school;
 	private int height;
 	
+	public Information() {
+	}
 	public String getWhere() {
 		return where;
 	}

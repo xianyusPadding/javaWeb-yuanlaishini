@@ -321,7 +321,7 @@
 							</form>
 	
 						</div>
-						<form action="?" method="get">
+						<form action="informationServlet" method="post">
 						<div class='fl-tab3-1 fl-tab3-details' style='display:none'>
 							<ul>
 								<li class='form-inline'><label for='' style='color:red'>真实姓名：</label><input name="name" type='text' class='form-control'/></li>

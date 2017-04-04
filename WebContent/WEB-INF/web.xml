@@ -136,4 +136,14 @@
     <servlet-name>UserServlet</servlet-name>
     <url-pattern>/userServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InformationServlet</display-name>
+    <servlet-name>InformationServlet</servlet-name>
+    <servlet-class>servlet.InformationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InformationServlet</servlet-name>
+    <url-pattern>/informationServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import action.InformationAction;
 import action.RegisterAction;
+import javaBean.Information;
 import javaBean.User;
 import utils.MyConstant;
 public class RegisiterServlet extends HttpServlet {
@@ -30,6 +32,10 @@ public class RegisiterServlet extends HttpServlet {
 		RegisterAction registerAction=new RegisterAction();
 		HttpSession session =req.getSession();
 		boolean result=registerAction.register(user);
+		InformationAction iAction =new InformationAction();
+		Information information =new Information();
+		information.setUid(u_id);
+		iAction.insert(information);
 		if(result){
 			session.setAttribute("user", user);
 			resp.sendRedirect(req.getContextPath()+"/index.jsp");
