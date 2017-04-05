@@ -105,20 +105,11 @@
 <form id="fl-friendGroup" action="personal.jsp" method="get">
 	<h4>为<c:out value="${user.username}"></c:out> 选择分组</h4>
 	<div class="fl-friendGroup-checkbox">
-		
 		<div class="checkbox" name='friendbx' style="margin-left:25px">
 			<label ><input type="checkbox"  name='friend'/>我的好友</label>
 			<label ><input type="checkbox"  name='f_feeling' />有好感的人</label>
-		</div>
-		<div class="checkbox" style="margin-left:25px"  name='collection'>
 			<label ><input type="checkbox" name='f_collection' />特别收藏</label>
-			<label ><input type="checkbox"  name='middleClass'/>初中同学</label>
 		</div>
-		<div class="checkbox" style="margin-left:25px">
-			<label ><input type="checkbox" />大学同学</label>
-			<!--<label ><input type="checkbox" /></label>-->
-		</div>
-		
 	</div>
 	<input type="submit" class="btn btn-success fl-fgSuccess-btn" value="保存" style="margin:15px 0 0 150px;"/ >
 	<input type="button" class="btn btn-default " id="fl-fgClose-btn" value="取消"  style="margin-top:15px"/>

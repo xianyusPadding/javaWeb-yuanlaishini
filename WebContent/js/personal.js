@@ -253,7 +253,7 @@ $(function() {
 		$('.fl-addFriend-btn').css('display','none');
 		$('.fl-hadAddfriend').css('display','');
 		$('#fl-friendGroup').dialog("close");
-		return false;
+		return true;
 	})
 	
 	$('#fl-friendGroup').on('click','#fl-fgClose-btn',function(){
