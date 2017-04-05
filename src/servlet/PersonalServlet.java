@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import action.PersonalAction;
 import javaBean.Album;
+import javaBean.Information;
 import javaBean.Photo;
 import javaBean.Share;
 import javaBean.User;
@@ -38,6 +39,7 @@ public class PersonalServlet extends HttpServlet {
 			List<Photo> pulist=personal.selectImg_user(photo);
 			List<Photo> pslist=personal.selectImg_single(photo);
 			List<Share>shareList =personal.selectShare_user(user);
+			Information information=personal.select(user.getU_id());
 			
 			session.setAttribute("shareList",shareList );
 			session.setAttribute("shareSize", shareList.size());
@@ -47,6 +49,8 @@ public class PersonalServlet extends HttpServlet {
 			
 			session.setAttribute("p_s_list",pslist );
 			session.setAttribute("p_s_size", pslist.size());
+			
+			session.setAttribute("information", information);
 			response.sendRedirect(request.getContextPath()+"/personal.jsp");
 		}else{
 			session.setAttribute("status",MyConstant.STATUS_AUTHOR);

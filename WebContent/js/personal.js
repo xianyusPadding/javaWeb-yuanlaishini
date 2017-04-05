@@ -284,16 +284,31 @@ $(function() {
 	
 	$('.fl-signature-input').keydown(function(event){
 			var key_code=	event.keyCode;
-			var signature=$('.fl-signature-input').val();
-
-			if(key_code==13 && signature!=""){
-				$('.fl-cover-signature').html($('.fl-signature-input').val());
-				$('.fl-signature-input').hide();
-				$('.fl-cover-signature').show();
-				$('.fl-signature-input').val("");
+			var signature=$('.fl-signature-input');
+			var cover_signature=$('.fl-cover-signature');
+			if(key_code==13){
+				if(signature.val()=="")
+					alert("签名不得为空！");
+				else{
+					$.ajax({
+				        type:'POST',
+				        url:'inforSignatureServlet',
+				        data:{
+				        	motto:signature.val()
+				        },
+				        success:function(response){
+				        	if(response=="0"){
+				        		alert("未知错误");
+				        	}else{
+				        		cover_signature.html(response);
+				        	}
+				        	signature.val("");
+				        	signature.hide();
+				        	cover_signature.show();
+				        }
+				    });
+				}
 			}
-			else if(key_code==13 && signature=="")
-				alert("签名不得为空！");
 	})
 	
 	//上传头像dialog

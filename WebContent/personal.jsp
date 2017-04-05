@@ -67,7 +67,14 @@
 		<div class="fl-cover-float" style="text-align: center;">
 			<img src='<c:out value="${user.i_p_url}"></c:out>' class="fl-cover-icon" alt='' />
 			<p class="fl-cover-id"><c:out value="${user.username}"></c:out></p> 
-			<p class="fl-cover-signature">人没有了梦想，就和飞龙一样...</p>
+			<c:choose>
+				<c:when test="${information.motto ==null }">
+					<p class="fl-cover-signature" >个性签名</p>
+				</c:when>
+				<c:otherwise>
+					<p class="fl-cover-signature" ><c:out value="${information.motto }"></c:out></p>
+				</c:otherwise>
+			</c:choose>
 			<input type="text" class="form-control fl-signature-input" placeholder="请输入你的个性签名："/>
 			
 			
@@ -95,17 +102,17 @@
 </form>
 
 <!--分组对话框-->
-<form id="fl-friendGroup">
+<form id="fl-friendGroup" action="personal.jsp" method="get">
 	<h4>为<c:out value="${user.username}"></c:out> 选择分组</h4>
 	<div class="fl-friendGroup-checkbox">
 		
-		<div class="checkbox" style="margin-left:25px">
-			<label ><input type="checkbox" />我的好友</label>
-			<label ><input type="checkbox" />有好感的人</label>
+		<div class="checkbox" name='friendbx' style="margin-left:25px">
+			<label ><input type="checkbox"  name='friend'/>我的好友</label>
+			<label ><input type="checkbox"  name='f_feeling' />有好感的人</label>
 		</div>
-		<div class="checkbox" style="margin-left:25px">
-			<label ><input type="checkbox" />特别收藏</label>
-			<label ><input type="checkbox" />初中同学</label>
+		<div class="checkbox" style="margin-left:25px"  name='collection'>
+			<label ><input type="checkbox" name='f_collection' />特别收藏</label>
+			<label ><input type="checkbox"  name='middleClass'/>初中同学</label>
 		</div>
 		<div class="checkbox" style="margin-left:25px">
 			<label ><input type="checkbox" />大学同学</label>
@@ -150,7 +157,7 @@
 							<div class="row fl-personal-dynamic" style="margin-top: 10px;padding-top:10px;background:#B97A57">
 								<div class="row">
 									<div class="col-md-1" style="float:left">
-										<img src="images/photoalbum1.jpg" style="width:60px;height:60px;border-radius: 50px;" alt="">
+										<img src="${user.i_p_url }" style="width:60px;height:60px;border-radius: 50px;" alt="">
 									</div>
 									<div class="col-md-11" style="float:left">
 										<h4>${user.username }</h4>
@@ -171,7 +178,7 @@
 								<div class='fl-comment row' style='display: none;background: #B66F58;'>
 									<div class='row' >
 										<div class='col-md-1'>
-											<img class='' src='images/photoalbum1.jpg' style='width:60px;height:60px;border-radius: 50px;'alt=''/>
+											<img class='' src='${user.i_p_url }' style='width:60px;height:60px;border-radius: 50px;'alt=''/>
 										</div>
 										<textarea class='col-md-11 fl-commentText ' name='comment' cols='30' rows='3'  wrap='hard'></textarea>
 										<input type='text' value='${s.s_id }' hidden='hidden'>
@@ -293,7 +300,7 @@
 						<div class='fl-tab3-1 fl-tab3-base' >
 						<form action="userServlet" method="post">
 							<ul>
-								<li class='form-inline'><label for='' style='color:red'>昵称：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input name='usernmae' type="text" class="form-control" value="<c:out value="${user.username }"></c:out>"/></li>
+								<li class='form-inline'><label for='' style='color:red'>昵称：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input name='username' type="text" class="form-control" value="<c:out value="${user.username }"></c:out>"/></li>
 								<li class='form-inline'><label for=''>账号：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><c:out value="${user.u_id }"></c:out></li>
 								<li class='form-inline'><label for='' style='color:red'>性别：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" name='sex' class="form-control" value="<c:out value="${user.sex }"></c:out>"/></li>
 								<li class='form-inline'><label for=''>邮箱：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" name='email' class="form-control" value="<c:out value="${user.email }"></c:out>"/></li>
@@ -324,23 +331,44 @@
 						<form action="informationServlet" method="post">
 						<div class='fl-tab3-1 fl-tab3-details' style='display:none'>
 							<ul>
-								<li class='form-inline'><label for='' style='color:red'>真实姓名：</label><input name="name" type='text' class='form-control'/></li>
+								<li class='form-inline'><label for='' style='color:red'>真实姓名：</label><input name="name" type='text' class='form-control' value='<c:out value="${information.name }"></c:out>'/></li>
 								<li class='form-inline'><label for=''>身高：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 									<select name='tall' class='form-control' id='fl-tab3-height'>
-										<option value=''>请选择</option>
+										<c:choose>
+											<c:when test="${information.height ==0}">
+												<option value=''>请选择</option>
+											</c:when>
+											<c:otherwise>
+												<option value='<c:out value="${information.height }"></c:out>'><c:out value="${information.height }"></c:out></option>
+											</c:otherwise>
+										</c:choose>
 									</select>
 									<label for=''>cm</label>
 								</li>
 								<li class='form-inline'><label for='' >体重：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 									<select name='weight' class='form-control'  id='fl-tab3-weight'>
-										<option value=''>请选择</option>
+										<c:choose>
+											<c:when test="${information.weight ==0}">
+												<option value=''>请选择</option>
+											</c:when>
+											<c:otherwise>
+												<option value='<c:out value="${information.weight }"></c:out>'><c:out value="${information.weight }"></c:out></option>
+											</c:otherwise>
+										</c:choose>
 									</select>
 									<label for=''>kg</label>
 								</li>
 								
 								<li class='form-inline'><label for=''>血型：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 									<select name='blood_type' class='form-control'>
-										<option value=''>请选择</option>
+										<c:choose>
+											<c:when test="${information.bloodtype ==null}">
+												<option value=''>请选择</option>
+											</c:when>
+											<c:otherwise>
+												<option value='<c:out value="${information.bloodtype }"></c:out>'><c:out value="${information.bloodtype }"></c:out></option>
+											</c:otherwise>
+										</c:choose>
 										<option value='A型'>A型</option>
 										<option value='B型'>B型</option>
 										<option value='AB型'>AB型</option>
@@ -350,7 +378,14 @@
 								</li>
 								<li class='form-inline'><label for=''>民族：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 									<select name='nation' class='form-control'>
-										<option value=''>请选择</option>
+										<c:choose>
+											<c:when test="${information.nation ==null}">
+												<option value=''>请选择</option>
+											</c:when>
+											<c:otherwise>
+												<option value='<c:out value="${information.nation }"></c:out>'><c:out value="${information.nation }"></c:out></option>
+											</c:otherwise>
+										</c:choose>
 										<option value='汉族'>汉族</option>
 										<option value='藏族族'>藏族族</option>
 										<option value='蒙古族族'>蒙古族族</option>
@@ -363,7 +398,14 @@
 								<li class='form-inline'>
 									<label for=''>住房条件：</label>
 											<select name='house' class='form-control'>
-													<option value=''>请选择</option>
+													<c:choose>
+														<c:when test="${information.house ==null}">
+															<option value=''>请选择</option>
+														</c:when>
+														<c:otherwise>
+															<option value='<c:out value="${information.house }"></c:out>'><c:out value="${information.house }"></c:out></option>
+														</c:otherwise>
+													</c:choose>
 													<option value='和家人同住'>和家人同住</option>
 													<option value='已购房'>已购房</option>
 													<option value='租房'>租房</option>
@@ -374,13 +416,20 @@
 								<li class='form-inline'>
 									<label for=''>有无孩子：</label>
 										<select name='hava_child_not' class='form-control'>
-												<option value=''>请选择</option>
+												<c:choose>
+														<c:when test="${information.have_child_not ==null}">
+															<option value=''>请选择</option>
+														</c:when>
+														<c:otherwise>
+															<option value='<c:out value="${information.have_child_not }"></c:out>'><c:out value="${information.have_child_not }"></c:out></option>
+														</c:otherwise>
+													</c:choose>
 												<option value='有'>有</option>
 												<option value='没有'>没有</option>
 										</select>
 								</li>
 								<li class='form-inline'><label for=''>毕业院校：</label>
-									<input name="graduate_school" type="text" class="form-control"/>
+									<input name="graduate_school" type="text" class="form-control" value='<c:out value="${information.graduate_school }"></c:out>'/>
 								</li>
 								<input type="submit" value ="保存" class="btn btn-default fl-keep-btn" >
 							</ul>

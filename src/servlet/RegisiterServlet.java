@@ -14,6 +14,8 @@ import javaBean.User;
 import utils.MyConstant;
 public class RegisiterServlet extends HttpServlet {
 	
+	private static final long serialVersionUID = 1L;
+
 	public void init()throws ServletException{
 		
 	}
@@ -29,6 +31,8 @@ public class RegisiterServlet extends HttpServlet {
 		String email=req.getParameter("email");
 		String sex =req.getParameter("sex");
 		User user=new User(username, u_id, password, sex, email, null, 0, 0, 0, null, null, null, null);
+		//默认头像
+		user.setI_p_url("./upload/guys.jpg");
 		RegisterAction registerAction=new RegisterAction();
 		HttpSession session =req.getSession();
 		boolean result=registerAction.register(user);

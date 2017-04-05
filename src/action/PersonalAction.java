@@ -3,6 +3,7 @@ package action;
 import java.util.List;
 
 import javaBean.Album;
+import javaBean.Information;
 import javaBean.Photo;
 import javaBean.Share;
 import javaBean.User;
@@ -28,5 +29,12 @@ public class PersonalAction {
 	public List<Share> selectShare_user(User user){
 		ShareAction sAction=new ShareAction();
 		return sAction.selectShare_user(user);
+	}
+	
+	public Information select(String uid){
+		InformationAction iAction=new InformationAction();
+		Information information=new Information();
+		information.setUid(uid);
+		return iAction.select(information);
 	}
 }

@@ -9,6 +9,7 @@ import com.mysql.jdbc.PreparedStatement;
 
 import javaBean.Album;
 import javaBean.Comment;
+import javaBean.Information;
 import javaBean.Photo;
 import javaBean.Share;
 import javaBean.User;
@@ -736,6 +737,159 @@ public class OptionDB {
 			pstmt.setInt(2,aid);
 			pstmt.setString(3, apurl);
 			pstmt.setInt(4, upid);
+			//写进数据库
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConDataBase.closeConn(rs, pstmt, conn);
+			return result!=0?true :false;
+		}
+	}
+	
+	//information表
+	@SuppressWarnings("finally")
+	public boolean insertInformation(Information information) {
+		Connection conn=ConDataBase.getConn();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		int result=0;
+		try {
+			String name=information.getName();
+			String uid=information.getUid();
+			String hobby=information.getHobby();
+			String motto = information.getMotto();
+			int start=information.getStart();
+			String friend=information.getFriend();
+			String f_feeling=information.getF_feeling();
+			String f_collection=information.getF_collection();
+			int height=information.getHeight();
+			int weight=information.getWeight();
+			String bloodtype=information.getBloodtype();
+			String nation=information.getNation();
+			String house=information.getHouse();
+			String have_child_not=information.getHave_child_not();
+			String graduate_school=information.getGraduate_school();
+			String location =information.getLocation();
+			pstmt=(PreparedStatement) conn.prepareStatement
+	("insert into information values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			pstmt.setString(1, name);
+			pstmt.setString(2, uid);
+			pstmt.setString(3, hobby);
+			pstmt.setString(4, motto);
+			pstmt.setInt(5, start);
+			pstmt.setString(6 , friend);
+			pstmt.setString(7, f_feeling);
+			pstmt.setString(8, f_collection);
+			pstmt.setString(9, location);
+			pstmt.setInt(10, weight);
+			pstmt.setString(11, bloodtype);
+			pstmt.setString(12,nation);
+			pstmt.setString(13, house);
+			pstmt.setString(14, have_child_not);
+			pstmt.setString(15,graduate_school);
+			pstmt.setInt(16,height);
+			//写进数据库
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConDataBase.closeConn(rs, pstmt, conn);
+			return result!=0?true :false;
+		}
+	} 
+	
+	public boolean deleteInformation(Information information) {
+		Connection conn=ConDataBase.getConn();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		int result=0;
+		try {
+			String uid=information.getUid();
+			pstmt=(PreparedStatement) conn.prepareStatement
+					("delete  from information where u_id=?");
+			pstmt.setString(1, uid);
+			//写进数据库
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConDataBase.closeConn(rs, pstmt, conn);
+			return result!=0?true :false;
+		}
+	}
+	
+	@SuppressWarnings("finally")
+	public Information select(Information information) {
+		Connection conn=ConDataBase.getConn();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		try {
+			String uid=information.getUid();
+			pstmt=(PreparedStatement) conn.prepareStatement
+					("select * from information where u_id=?");
+			pstmt.setString(1, uid);	
+			//写进数据库
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+				information=new Information(rs.getString(2),rs.getString(1),
+				rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),
+				rs.getString(7),rs.getString(8),rs.getString(9),rs.getInt(10),
+				rs.getString(11),rs.getString(12),rs.getString(13),
+				rs.getString(14),rs.getString(15),rs.getInt(16));			
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConDataBase.closeConn(rs, pstmt, conn);
+			return information;
+		}
+	}
+	
+	@SuppressWarnings("finally")
+	public boolean alterInformation(Information information) {
+		Connection conn=ConDataBase.getConn();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		int result=0;
+		try {
+			String name=information.getName();
+			String uid=information.getUid();
+			String hobby=information.getHobby();
+			String motto = information.getMotto();
+			int start=information.getStart();
+			String friend=information.getFriend();
+			String f_feeling=information.getF_feeling();
+			String f_collection=information.getF_collection();			
+			String location =information.getLocation();
+			int weight=information.getWeight();
+			String bloodtype=information.getBloodtype();
+			String nation=information.getNation();
+			String house=information.getHouse();
+			String have_child_not=information.getHave_child_not();
+			String graduate_school=information.getGraduate_school();
+			int height=information.getHeight();
+			pstmt=(PreparedStatement) conn.prepareStatement
+	("update information set name=?, hobby=?, motto=?, start=?, "
+	+ "friend=?, f_feeling=?,f_collection=?, location=?, weight=?, "
+	+ "blood_type=?, nation=?,house=?,have_child_not=?,  "
+	+ "graduate_school=?, height=?  where u_id=?;");
+			pstmt.setString(1, name);
+			pstmt.setString(2, hobby);
+			pstmt.setString(3, motto);
+			pstmt.setInt(4 , start);
+			pstmt.setString(5, friend);
+			pstmt.setString(6, f_feeling);
+			pstmt.setString(7, f_collection);
+			pstmt.setString(8, location);
+			pstmt.setInt(9, weight);
+			pstmt.setString(10, bloodtype);
+			pstmt.setString(11, nation);
+			pstmt.setString(12, house);
+			pstmt.setString(13, have_child_not);
+			pstmt.setString(14, graduate_school);
+			pstmt.setInt(15, height);
+			pstmt.setString(16, uid);
 			//写进数据库
 			result=pstmt.executeUpdate();
 		} catch (SQLException e) {

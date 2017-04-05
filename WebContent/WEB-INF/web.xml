@@ -146,4 +146,14 @@
     <servlet-name>InformationServlet</servlet-name>
     <url-pattern>/informationServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InforSignatureServlet</display-name>
+    <servlet-name>InforSignatureServlet</servlet-name>
+    <servlet-class>servlet.ajax.InforSignatureServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InforSignatureServlet</servlet-name>
+    <url-pattern>/inforSignatureServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

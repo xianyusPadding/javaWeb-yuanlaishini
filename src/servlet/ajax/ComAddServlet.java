@@ -50,7 +50,7 @@ public class ComAddServlet extends HttpServlet {
 						User u =uAction.selectUser_single(c.getUid());
 						   writer.append("<div class='row' >")
 								 .append("<div class='col-md-1 fl-commentHead'>")
-								 .append("<img  src='images/photoalbum3.jpg' style='width:60px;height:60px;border-radius: 50px;' alt='' />")
+								 .append("<img  src='"+user.getI_p_url()+"' style='width:60px;height:60px;border-radius: 50px;' alt='' />")
 								 .append("</div>")
 								 .append("<div class='col-md-11 '>")
 								 .append("<p>"+u.getUsername()+":"+c.getcContent()+"</p>")

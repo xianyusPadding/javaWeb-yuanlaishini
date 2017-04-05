@@ -25,7 +25,7 @@ public class UserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session =request.getSession();
 		User user =(User) session.getAttribute("user");
-		String usernmae =request.getParameter("usernmae");
+		String usernmae =request.getParameter("username");
 		String sex =request.getParameter("sex");
 		String email =request.getParameter("email");
 		String age =request.getParameter("age");

@@ -1,13 +1,14 @@
 package servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import action.UserAction;
+import action.InformationAction;
 import javaBean.Information;
 import javaBean.User;
 import utils.MyConstant;
@@ -41,13 +42,12 @@ public class InformationServlet extends HttpServlet {
 		information.setHouse(house);
 		information.setHave_child_not(have_child_not);
 		information.setGraduate_school(graduate_school);
-		
-		UserAction uAction =new UserAction();
-		if(uAction.update(user)){
-			session.setAttribute("user", user);
+		InformationAction iAction=new InformationAction();
+		if(iAction.update(information)){
+			session.setAttribute("information", information);
 			response.sendRedirect(request.getContextPath()+"/personalServlet");
 		}else{
-			session.setAttribute("status",MyConstant.STATUS_USER_UPDATE);
+			session.setAttribute("status",MyConstant.STATUS_USER_INFOR_UPDATE);
 			response.sendRedirect(request.getContextPath()+"/errorServlet");
 		}	
 	}

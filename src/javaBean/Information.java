@@ -9,7 +9,7 @@ public class Information {
 	private String friend;
 	private String f_feeling;
 	private String f_collection;
-	private String where;
+	private String location;
 	private int weight;
 	private String bloodtype;
 	private String nation;
@@ -20,11 +20,11 @@ public class Information {
 	
 	public Information() {
 	}
-	public String getWhere() {
-		return where;
+	public String getLocation() {
+		return location;
 	}
-	public void setWhere(String where) {
-		this.where = where;
+	public void setLocation(String location) {
+		this.location = location;
 	}
 	public String getUid() {
 		return uid;
@@ -118,7 +118,7 @@ public class Information {
 	}
 	
 	public Information(String uid, String name, String hobby, String motto, int start, String friend, String f_feeling,
-			String f_collection, String where, int weight, String bloodtype, String nation, String house,
+			String f_collection, String location, int weight, String bloodtype, String nation, String house,
 			String have_child_not, String graduate_school, int height) {
 		this.uid = uid;
 		this.name = name;
@@ -128,7 +128,7 @@ public class Information {
 		this.friend = friend;
 		this.f_feeling = f_feeling;
 		this.f_collection = f_collection;
-		this.where = where;
+		this.location = location;
 		this.weight = weight;
 		this.bloodtype = bloodtype;
 		this.nation = nation;
@@ -143,6 +143,6 @@ public class Information {
 				+ start + ", friend=" + friend + ", f_feeling=" + f_feeling + ", f_collection=" + f_collection
 				+ ", height=" + height + ", weight=" + weight + ", bloodtype=" + bloodtype + ", nation=" + nation
 				+ ", house=" + house + ", have_child_not=" + have_child_not + ", graduate_school=" + graduate_school
-				+ ", where=" + where + "]";
+				+ ", where=" + location + "]";
 	}
 }
