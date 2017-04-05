@@ -113,7 +113,6 @@
 .fl-easy-introduction p{
 	color:#fff;
 }
-/*留言板*/
 .fl-desireTree{
 	height:500px;
 	margin:5px 0 0 0
@@ -132,6 +131,34 @@
 }
 .fl-desireTree .fl-desire-submit{
 	float:right;margin:5px 0;border:2px solid #9D9D9D;
+}
+.fl-comment .col-md-1 img{
+	width:37px;
+	height:37px;
+	margin-top: 12px;
+}
+.fl-comment .fl-commentText{
+	margin-top: 10px;
+	border:2px solid #B97A57;
+}
+.fl-commentSubmit{
+	border-bottom:2px solid #9D6452;
+}
+.fl-commentSubmit input{
+	float: right;
+	margin-bottom:10px;
+}
+.fl-comment .fl-replyArea textarea{
+	margin-top: 10px;
+	border:2px solid #B97A57;
+}
+.fl-comment .fl-replyArea input{
+	float:right;margin: 5px 0;
+	font-size: 13px;
+}
+.fl-comment .fl-commentHead img{
+	width:35px;
+	height:35px;
 }
 /*@media (min-width: 992px){
 	.fl-main-right{

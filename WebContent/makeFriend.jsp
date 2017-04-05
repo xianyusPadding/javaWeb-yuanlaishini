@@ -65,7 +65,7 @@
 
 
 
-<div id="fl-main" style="height:1500px;margin-top:40px;">
+<div id="fl-main" style="margin-top:47px;">
 	<div class="container" style="">
 		<div class="row">
 			<div class="fl-navbar-left" style="position: fixed;">	
@@ -147,19 +147,12 @@
 				</div>
 				
 			</c:forEach> --%>
-			<div  class="col-md-7 col-md-offset-2 col-sm-10 col-sm-offset-4  col-xs-" class="fl-center fl-main-middle">		
+			<div  class="col-md-7 col-md-offset-2 col-sm-10 col-sm-offset-4" class="fl-center fl-main-middle">		
 				<c:forEach var="s" items="${shareList}" varStatus="s_status">
 					<div class="row fl-dynamic" style="margin-top:0">
 						<div class="row">
 							<div class="col-md-1" style="float:left">
-								<c:choose>
-									<c:when test="${s.user.u_id ==user.u_id}">
-										<a href="personalServlet"><img src="${s.user.i_p_url }" class="fl-dynamic-img" alt=""></a>
-									</c:when>
-									<c:otherwise>
-									<a href="otherPersonalServlet?uid=${s.user.u_id }"><img src="${s.user.i_p_url }" class="fl-dynamic-img" alt=""></a>
-									</c:otherwise>
-								</c:choose>
+								<img src="${s.user.i_p_url }" class="fl-dynamic-img" alt="">
 							</div>
 							<div class="col-md-11" style="float:left">
 								<h4>${s.user.username }</h4>
@@ -168,12 +161,41 @@
 							</div>
 						</div>
 						<div class="row">
-								<ul class="nav nav-tabs nav-justified" style="">
+							<ul class="nav nav-tabs nav-justified fl-comment-parent" style="">
 								<li style=""><a href="" style="border:none;">阅读(${s.readNum})</a></li>
 								<li><a href="">转发</a></li>
 								<li class="fl-href-comment"><input type='text' value='${s.s_id }' hidden='hidden'><a href="#1">评论</a></li>
 								<li><a href="">赞(${s.startNum})</a></li>
 							</ul>
+							<div class='fl-comment row' style='display: none;background: #B66F58;'>
+								<div class='row' >
+									<div class='col-md-1'>
+										<img class=''  src='${user.i_p_url }'alt=''/>
+									</div>
+									<textarea class='col-md-11 fl-commentText ' name='comment' cols='30' rows='3'  wrap='hard'></textarea>
+									<input type='text' value='${s.s_id }' hidden='hidden'>
+								</div>
+								<div class='row fl-commentSubmit'>
+									<input type='submit' class='btn btn-default comment_submit' name='comment' value='评论' />
+								</div>
+								<div class='row' >
+									<div class='col-md-1 fl-commentHead'>
+										<img  src='images/photoalbum3.jpg' alt='' />
+									</div>
+									<div class='col-md-11 fl-reply-parent'>
+										<p>游客1:这就是我当年为什么不选择清华的原因了</p>
+										<p style='float:left;'>刚刚</p>
+										<a href='#1' style='float:right;'>&nbsp;&nbsp;赞+15</a><a href='#1' class='fl-reply' style='float:right;'>回复&nbsp;&nbsp;|</a>
+										<div class='row fl-replyArea' style='display: none;'>
+											<textarea class='col-md-11'  name='comment'  cols='30' rows='1'  wrap='hard'></textarea>
+											<input type='submit' class='btn btn-default btn-sm' value='回复'/>
+										</div>
+									</div>
+								</div>
+								<div class='row' >
+									<!-- 每一条评论 -->
+								</div>
+							</div>
 						</div>
 					</div>
 				</c:forEach>

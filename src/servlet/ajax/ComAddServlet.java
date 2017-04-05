@@ -50,9 +50,9 @@ public class ComAddServlet extends HttpServlet {
 						User u =uAction.selectUser_single(c.getUid());
 						   writer.append("<div class='row' >")
 								 .append("<div class='col-md-1 fl-commentHead'>")
-								 .append("<img  src='"+u.getI_p_url()+"' style='width:60px;height:60px;border-radius: 50px;' alt='' />")
+								 .append("<img  src='"+u.getI_p_url()+"'  alt='' />")
 								 .append("</div>")
-								 .append("<div class='col-md-11 '>")
+								 .append("<div class='col-md-11 fl-reply-parent'>")
 								 .append("<p>"+u.getUsername()+":"+c.getcContent()+"</p>")
 								 .append("<p style='float:left;'>"+c.getDate()+"</p>")
 								 .append("<a href='#1' style='float:right;'>&nbsp;&nbsp;赞+15</a><a href='#1' class='fl-reply' style='float:right;'>回复&nbsp;&nbsp;|</a>")
