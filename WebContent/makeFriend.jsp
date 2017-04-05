@@ -152,7 +152,14 @@
 					<div class="row fl-dynamic" style="margin-top:0">
 						<div class="row">
 							<div class="col-md-1" style="float:left">
-								<img src="${s.user.i_p_url }" class="fl-dynamic-img" alt="">
+								<c:choose>
+									<c:when test="${s.user.u_id ==user.u_id}">
+										<a href="personalServlet"><img src="${s.user.i_p_url }" class="fl-dynamic-img" alt=""></a>
+									</c:when>
+									<c:otherwise>
+									<a href="otherPersonalServlet?uid=${s.user.u_id }"><img src="${s.user.i_p_url }" class="fl-dynamic-img" alt=""></a>
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<div class="col-md-11" style="float:left">
 								<h4>${s.user.username }</h4>
