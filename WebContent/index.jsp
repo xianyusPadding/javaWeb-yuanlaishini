@@ -73,7 +73,7 @@
 	</p>
 	<p>
 		<label for="fl-pass">密码：</label>
-		<input type=password name="pass" class="text" id="fl-pass" placeholder="请输入密码，不少于8位：">
+		<input id='fl-pass-keydown'  type="password" name="pass" class="text" id="fl-pass" placeholder="请输入密码，不少于8位：">
 		<span class="star">*</span>
 		<p class="myerror"></p>
 	</p>

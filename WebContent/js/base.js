@@ -194,4 +194,12 @@ $(function(){
 			response(result);
 		}
 	})
+	
+	//登陆回车submit
+	$('#fl-pass-keydown').keydown(function(event){
+		var pass_keyCode=event.keyCode;
+		if(pass_keyCode==13){
+			$('#fl-loginreg').submit();
+		}
+	})
 })
