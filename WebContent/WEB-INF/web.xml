@@ -166,4 +166,14 @@
     <servlet-name>MakeFriendServlet</servlet-name>
     <url-pattern>/makeFriendServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OtherPersonalServlet</display-name>
+    <servlet-name>OtherPersonalServlet</servlet-name>
+    <servlet-class>servlet.OtherPersonalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OtherPersonalServlet</servlet-name>
+    <url-pattern>/otherPersonalServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

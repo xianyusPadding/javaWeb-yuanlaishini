@@ -1,5 +1,7 @@
 package javaBean;
 
+import java.util.List;
+
 public class Share {
 	private int s_id;
 	private String u_id;
@@ -11,7 +13,15 @@ public class Share {
 	private String flag;
 	private String date;
 	private User user;
+	private List<Comment> listComment;
 	
+	
+	public List<Comment> getListComment() {
+		return listComment;
+	}
+	public void setListComment(List<Comment> listComment) {
+		this.listComment = listComment;
+	}
 	public User getUser() {
 		return user;
 	}

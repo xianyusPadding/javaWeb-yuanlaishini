@@ -529,6 +529,10 @@ public class OptionDB {
 			while(rs.next()){
 				String[] date=rs.getString(9).split(" ");
 				Share share =new Share(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8), date[0]);
+				User u  =selectUser(rs.getString(2));
+				share.setUser(u);;
+//				List<Comment> comment=selectComment_share(share);
+//				share.setListComment(comment);;
 				list.add(share);
 			}
 		} catch (SQLException e) {
@@ -559,6 +563,8 @@ public class OptionDB {
 				Share share =new Share(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8), date[0]);
 				User user =selectUser(rs.getString(2));
 				share.setUser(user);
+//				List<Comment> comment=selectComment_share(share);
+//				share.setListComment(comment);;
 				list.add(share);
 			}
 		} catch (SQLException e) {

@@ -31,10 +31,14 @@ public class PersonalAction {
 		return sAction.selectShare_user(user);
 	}
 	
-	public Information select(String uid){
+	public Information selectInformation(String uid){
 		InformationAction iAction=new InformationAction();
 		Information information=new Information();
 		information.setUid(uid);
 		return iAction.select(information);
+	}
+	public User selectUser(String uid){
+		UserAction userAction =new UserAction();
+		return userAction.selectUser_single(uid);
 	}
 }
