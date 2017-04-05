@@ -508,7 +508,11 @@ public class OptionDB {
 			return flag1;
 		}
 	}
-	
+	/**
+	 * 查询一个用户的所有动态
+	 * @param user
+	 * @return
+	 */
 	@SuppressWarnings("finally")
 	public List<Share> selectShare_user(User user) {
 		Connection conn=ConDataBase.getConn();
@@ -525,6 +529,36 @@ public class OptionDB {
 			while(rs.next()){
 				String[] date=rs.getString(9).split(" ");
 				Share share =new Share(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8), date[0]);
+				list.add(share);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConDataBase.closeConn(rs, pstmt, conn);
+			return list;
+		}
+	}
+	/**
+	 * 查询所有动态
+	 * @param user
+	 * @return
+	 */
+	@SuppressWarnings("finally")
+	public List<Share> selectShare_all() {
+		Connection conn=ConDataBase.getConn();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		List<Share> list=new ArrayList<>();
+		try {
+			pstmt=(PreparedStatement) conn.prepareStatement
+					("select * from share  order by date desc");
+			//写进数据库
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+				String[] date=rs.getString(9).split(" ");
+				Share share =new Share(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8), date[0]);
+				User user =selectUser(rs.getString(2));
+				share.setUser(user);
 				list.add(share);
 			}
 		} catch (SQLException e) {

@@ -46,7 +46,7 @@
 			<ul class="nav navbar-nav" style="margin: 0px">
 				<li class="active b"><a href="index.jsp" class="fl-navbar-link"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
 				<li><a href="personalServlet" class="fl-navbar-link"><span class="glyphicon glyphicon-user"></span> 个人中心</a></li>
-				<li><a href="makeFriend.jsp" class="fl-navbar-link"><span class="glyphicon glyphicon-list"></span> 交友广场</a></li>
+				<li><a href="makeFriendServlet" class="fl-navbar-link"><span class="glyphicon glyphicon-list"></span> 交友广场</a></li>
 				<li><a href="matching.jsp" class="fl-navbar-link"><span class="glyphicon glyphicon-fire"></span> 完美匹配</a></li>
 				<li><a href="briefIntro.jsp" class="fl-navbar-link"><span class="glyphicon glyphicon-question-sign"></span> 公司简介</a></li>
 			</ul>
@@ -107,100 +107,76 @@
 					<button class="fl-group-closeBtn btn btn-default" style="margin:20px 0 10px 60px;display:none">收起</button>
 				
 			</div>
-			
-			<div  class="col-md-7 col-md-offset-2 col-sm-10 col-sm-offset-4  col-xs-" class="fl-center fl-main-middle">				
-				<div class="row fl-dynamic" style="margin-top:0">
-					<div class="row">
-						<div class="col-md-1" style="float:left">
-							<img class="fl-dynamic-img" src="images/photoalbum5.jpg" alt=""  />
-						</div>
-						<div class="col-md-11" style="float:left">
-							<h4>myId</h4>
-								<p style="font-size: 12px">2016-1-1</p>
-								<p style="font-size: 15px">执子之手，与子偕老！</p>
-						</div>
+<%-- 	<c:forEach var="s" items="${shareList}" varStatus="s_status">
+			<div class="row fl-personal-dynamic" style="margin-top: 10px;padding-top:10px;background:#B97A57">
+				<div class="row">
+					<div class="col-md-1" style="float:left">
+						<img src="${user.i_p_url }" style="width:60px;height:60px;border-radius: 50px;" alt="">
 					</div>
-					
-					<div class="row">
-						<ul class="nav nav-tabs nav-justified" style="">
-							<li style=""><a href="" style="border:none;">阅读121</a></li>
-							<li><a href="">转发</a></li>
-							<li><a href="">评论</a></li>
-							<li><a href="">赞</a></li>
-						</ul>
+					<div class="col-md-11" style="float:left">
+						<h4>${user.username }</h4>
+						<p style="font-size: 12px">${s.date}</p>
+						<p style="font-size: 15px">${s.s_content}</p>
 					</div>
 				</div>
-				<div class="row fl-dynamic" style="margin-top:0">
-					<div class="row">
-						<div class="col-md-1" style="float:left">
-							<img class="fl-dynamic-img" src="images/photoalbum5.jpg" alt=""  />
-						</div>
-						<div class="col-md-11" style="float:left">
-							<h4>myId</h4>
-								<p style="font-size: 12px">2016-1-1</p>
-								<p style="font-size: 15px">执子之手，与子偕老！</p>
-						</div>
-					</div>
-					
-					<div class="row">
-						<ul class="nav nav-tabs nav-justified" style="">
-							<li style=""><a href="">阅读121</a></li>
-							<li><a href="">转发</a></li>
-							<li><a href="">评论</a></li>
-							<li><a href="">赞</a></li>
-						</ul>
-					</div>
+				<div class="row">
+					<ul class="nav nav-tabs nav-justified" style="">
+						<li style=""><a href="">阅读(${s.readNum})</a></li>
+						<li><a href="">转发</a></li>
+						<li class="fl-href-comment"><input type='text' value='${s.s_id }' hidden='hidden'><a href="#1">评论</a></li>
+						<li><a href="">赞(${s.startNum})</a></li>
+					</ul>
 				</div>
-				<div class="row fl-dynamic" style="margin-top:0">
-					<div class="row">
-						<div class="col-md-1" style="float:left">
-							<img class="fl-dynamic-img" src="images/photoalbum5.jpg" alt=""  />
-						</div>
-						<div class="col-md-11" style="float:left">
-							<h4>myId</h4>
-								<p style="font-size: 12px">2016-1-1</p>
-								<p style="font-size: 15px">执子之手，与子偕老！</p>
-						</div>
-					</div>
-					
-					<div class="row">
-						<ul class="nav nav-tabs nav-justified" style="">
-							<li style=""><a href="">阅读121</a></li>
-							<li><a href="">转发</a></li>
-							<li><a href="">评论</a></li>
-							<li><a href="">赞</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="row fl-dynamic" style="margin-top:0">
-					<div class="row">
-						<div class="col-md-1" style="float:left">
-							<img class="fl-dynamic-img" src="images/photoalbum5.jpg" alt=""  />
-						</div>
-						<div class="col-md-11" style="float:left">
-							<h4>myId</h4>
-								<p style="font-size: 12px">2016-1-1</p>
-								<p style="font-size: 15px">执子之手，与子偕老！</p>
-						</div>
-					</div>
-					
-					<div class="row">
-						<ul class="nav nav-tabs nav-justified" style="">
-							<li style=""><a href="">阅读121</a></li>
-							<li><a href="">转发</a></li>
-							<li><a href="">评论</a></li>
-							<li><a href="">赞</a></li>
-						</ul>
-					</div>
-				</div>	
 			</div>
-			
+				<!--评论区-->
+				<div class='fl-comment row' style='display: none;background: #B66F58;'>
+					<div class='row' >
+						<div class='col-md-1'>
+							<img class='' src='${user.i_p_url }' style='width:60px;height:60px;border-radius: 50px;'alt=''/>
+						</div>
+						<textarea class='col-md-11 fl-commentText ' name='comment' cols='30' rows='3'  wrap='hard'></textarea>
+						<input type='text' value='${s.s_id }' hidden='hidden'>
+					</div>
+					<div class='row fl-commentSubmit'>
+						<input type='submit' class='btn btn-default comment_submit' name='comment' value='评论' />
+					</div>
+					
+					<div class='row' >
+						<!-- 每一条评论 -->
+					</div>
+				</div>
+				
+			</c:forEach> --%>
+			<div  class="col-md-7 col-md-offset-2 col-sm-10 col-sm-offset-4  col-xs-" class="fl-center fl-main-middle">		
+				<c:forEach var="s" items="${shareList}" varStatus="s_status">
+					<div class="row fl-dynamic" style="margin-top:0">
+						<div class="row">
+							<div class="col-md-1" style="float:left">
+								<img src="${s.user.i_p_url }" class="fl-dynamic-img" alt="">
+							</div>
+							<div class="col-md-11" style="float:left">
+								<h4>${s.user.username }</h4>
+								<p style="font-size: 12px">${s.date}</p>
+								<p style="font-size: 15px">${s.s_content}</p>
+							</div>
+						</div>
+						<div class="row">
+								<ul class="nav nav-tabs nav-justified" style="">
+								<li style=""><a href="" style="border:none;">阅读(${s.readNum})</a></li>
+								<li><a href="">转发</a></li>
+								<li class="fl-href-comment"><input type='text' value='${s.s_id }' hidden='hidden'><a href="#1">评论</a></li>
+								<li><a href="">赞(${s.startNum})</a></li>
+							</ul>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
 			<div class="col-md-3 col-sm-4 hidden-xs">
 				<div class="row" style="background:url(images/blackMatte.png);margin:0">
 					<div class="fl-easy-introduction">
-						<img src="images/photoalbum5.jpg" alt="" />
-						<h4>myId</h4>
-						<p>来自广东茂名化州</p>
+						<img src="${user.i_p_url }" alt="" />
+						<h4>${user.username }</h4>
+						<p>来自:${user.province }-${user.city }-${user.country }</p>
 						<p>喜欢打篮球，游泳</p>
 					</div>
 				</div>

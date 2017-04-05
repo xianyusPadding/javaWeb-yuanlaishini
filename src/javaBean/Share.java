@@ -10,7 +10,14 @@ public class Share {
 	private int readNum;
 	private String flag;
 	private String date;
+	private User user;
 	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public int getS_id() {
 		return s_id;
 	}

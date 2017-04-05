@@ -14,4 +14,8 @@ public class ShareAction {
 	public List<Share>selectShare_user(User user){
 		return db.selectShare_user(user);
 	}
+	
+	public List<Share>selectShare_all(){
+		return db.selectShare_all();
+	}
 }

@@ -156,4 +156,14 @@
     <servlet-name>InforSignatureServlet</servlet-name>
     <url-pattern>/inforSignatureServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MakeFriendServlet</display-name>
+    <servlet-name>MakeFriendServlet</servlet-name>
+    <servlet-class>servlet.MakeFriendServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MakeFriendServlet</servlet-name>
+    <url-pattern>/makeFriendServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
