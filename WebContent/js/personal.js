@@ -29,7 +29,7 @@ $(function() {
 
 	//个人中心的选项卡
 	$("#fl-tabs").tabs({
-		active: 2,
+		active: 0,
 	});
 
 	//创建相册的dialog
