@@ -30,6 +30,7 @@ public class ComAddServlet extends HttpServlet {
 		HttpSession session =request.getSession();
 		User user =(User) session.getAttribute("user");
 		if(user!=null) {
+			String type=request.getParameter("type");
 			String u_id=user.getU_id();
 			String s_id=request.getParameter("s_id");
 			String c_content=request.getParameter("c_content");
@@ -48,17 +49,31 @@ public class ComAddServlet extends HttpServlet {
 					for(int i=0;i<commentList.size();i++){
 						Comment c =commentList.get(i);
 						User u =uAction.selectUser_single(c.getUid());
-						   writer.append("<div class='row' >")
-								 .append("<div class='col-md-1 fl-commentHead'>")
-								 .append("<img  src='"+u.getI_p_url()+"' style='width:60px;height:60px;border-radius: 50px;' alt='' />")
-								 .append("</div>")
-								 .append("<div class='col-md-11 fl-reply-parent'>")
-								 .append("<p>"+u.getUsername()+":"+c.getcContent()+"</p>")
-								 .append("<p style='float:left;'>"+c.getDate()+"</p>")
-								 .append("<a href='#1' style='float:right;'>&nbsp;&nbsp;赞+15</a><a href='#1' class='fl-reply' style='float:right;'>回复&nbsp;&nbsp;|</a>")
-								 .append("<div class='row fl-replyArea' style='display: none;'>")
-						 	     .append("<textarea class='col-md-12' name='comment'  cols='30' rows='1'  wrap='hard'></textarea>")
-						 	     .append("<input type='submit' class='btn btn-default btn-sm' value='回复'/></div></div></div>");						
+						if(type.equals("personal")){
+							writer.append("<div class='row' >")
+							 .append("<div class='col-md-1 fl-commentHead'>")
+							 .append("<img  src='"+u.getI_p_url()+"' style='width:60px;height:60px;border-radius: 50px;' alt='' />")
+							 .append("</div>")
+							 .append("<div class='col-md-11 '>")
+							 .append("<p>"+u.getUsername()+":"+c.getcContent()+"</p>")
+							 .append("<p style='float:left;'>"+c.getDate()+"</p>")
+							 .append("<a href='#1' style='float:right;'>&nbsp;&nbsp;赞+15</a><a href='#1' class='fl-reply' style='float:right;'>回复&nbsp;&nbsp;|</a>")
+							 .append("<div class='row fl-replyArea' style='display: none;'>")
+					 	     .append("<textarea class='col-md-12' name='comment'  cols='30' rows='1'  wrap='hard'></textarea>")
+					 	     .append("<input type='submit' class='btn btn-default btn-sm' value='回复'/></div></div></div>");	
+						}else if(type.equals("makeFriend")){
+							writer.append("<div class='row' >")
+							 .append("<div class='col-md-1 fl-commentHead'>")
+							 .append("<img  src='"+u.getI_p_url()+"' style='border-radius: 50px;' alt='' />")
+							 .append("</div>")
+							 .append("<div class='col-md-11 fl-reply-parent'>")
+							 .append("<p>"+u.getUsername()+":"+c.getcContent()+"</p>")
+							 .append("<p style='float:left;'>"+c.getDate()+"</p>")
+							 .append("<a href='#1' style='float:right;'>&nbsp;&nbsp;赞+15</a><a href='#1' class='fl-reply' style='float:right;'>回复&nbsp;&nbsp;|</a>")
+							 .append("<div class='row fl-replyArea' style='display: none;'>")
+					 	     .append("<textarea class='col-md-12' name='comment'  cols='30' rows='1'  wrap='hard'></textarea>")
+					 	     .append("<input type='submit' class='btn btn-default btn-sm' value='回复'/></div></div></div>");	
+						}			
 					}
 				}else{
 					response.getWriter().append("2");

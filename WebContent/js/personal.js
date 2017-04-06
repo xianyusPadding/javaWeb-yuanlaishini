@@ -152,6 +152,7 @@ $(function() {
 			        type:'POST',
 			        url:'comSelectServlet',
 			        data:{
+			        	type:"personal",
 			        	s_id:s_id
 			        },
 			        success:function(response){
@@ -192,6 +193,7 @@ $(function() {
 	        type:'POST',
 	        url:'comAddServlet',
 	        data:{
+	        	type:"personal",
 	        	s_id:s_id,
 	        	c_content:comment_content.val()
 	        },
@@ -250,10 +252,36 @@ $(function() {
 	
 	//提交成功时修改按钮为已加好友
 	$('#fl-friendGroup').submit(function(){
-		$('.fl-addFriend-btn').css('display','none');
-		$('.fl-hadAddfriend').css('display','');
-		$('#fl-friendGroup').dialog("close");
-		return true;
+		var friend =$('input:checkbox[name="friend"]:checked');
+		var f_feeling =$('input:checkbox[name="f_feeling"]:checked');
+		var f_collection =$('input:checkbox[name="f_collection"]:checked');
+		var uid=$('input:text[name="uid"]').val();
+		var fid=$('input:text[name="fid"]').val();
+		if(friend.val()!=1&&f_feeling.val()!=1&&f_collection.val()!=1){
+			alert("请选择");
+			return false;
+		}
+		$.ajax({
+	        type:'POST',
+	        url:'friendAddServlet',
+	        data:{
+	        	uid:uid,
+	        	fid:fid,
+	        	friend:friend.val(),
+	        	f_feeling:f_feeling.val(),
+	        	f_collection:f_collection.val()
+	        },
+	        success:function(response){
+	        	if(response=="0"){
+	        		alert("未知错误");
+	        	}else{
+	        		$('.fl-addFriend-btn').css('display','none');
+	        		$('.fl-hadAddfriend').css('display','');
+	        		$('#fl-friendGroup').dialog("close");
+	        	}
+	        }
+	    });
+		return false;
 	})
 	
 	$('#fl-friendGroup').on('click','#fl-fgClose-btn',function(){

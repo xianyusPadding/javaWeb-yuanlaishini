@@ -14,6 +14,22 @@ public class User {
 	private String city;
 	private String country;
 	private String date;
+	private Information information;
+	private Friend friend;
+	
+	
+	public Friend getFriend() {
+		return friend;
+	}
+	public void setFriend(Friend friend) {
+		this.friend = friend;
+	}
+	public Information getInformation() {
+		return information;
+	}
+	public void setInformation(Information information) {
+		this.information = information;
+	}
 	public String getUsername() {
 		return username;
 	}

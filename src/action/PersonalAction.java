@@ -3,6 +3,7 @@ package action;
 import java.util.List;
 
 import javaBean.Album;
+import javaBean.Friend;
 import javaBean.Information;
 import javaBean.Photo;
 import javaBean.Share;
@@ -33,12 +34,17 @@ public class PersonalAction {
 	
 	public Information selectInformation(String uid){
 		InformationAction iAction=new InformationAction();
-		Information information=new Information();
-		information.setUid(uid);
-		return iAction.select(information);
+		User user =new User();
+		user.setU_id(uid);
+		return iAction.select(user);
 	}
 	public User selectUser(String uid){
 		UserAction userAction =new UserAction();
 		return userAction.selectUser_single(uid);
+	}
+	
+	public Friend selectFriend(Friend friend){
+		FriendAction fAction =new FriendAction();
+		return fAction.select_single(friend);
 	}
 }

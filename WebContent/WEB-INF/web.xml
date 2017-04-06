@@ -176,4 +176,14 @@
     <servlet-name>OtherPersonalServlet</servlet-name>
     <url-pattern>/otherPersonalServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FriendAddServlet</display-name>
+    <servlet-name>FriendAddServlet</servlet-name>
+    <servlet-class>servlet.ajax.FriendAddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FriendAddServlet</servlet-name>
+    <url-pattern>/friendAddServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

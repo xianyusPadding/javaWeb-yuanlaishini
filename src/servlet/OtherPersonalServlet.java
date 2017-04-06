@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import action.PersonalAction;
 import javaBean.Album;
+import javaBean.Friend;
 import javaBean.Information;
 import javaBean.Photo;
 import javaBean.Share;
@@ -40,9 +41,12 @@ public class OtherPersonalServlet extends HttpServlet {
 			List<Photo> pslist=personal.selectImg_single(photo);
 			List<Share>shareList =personal.selectShare_user(other);
 			Information information=personal.selectInformation(other.getU_id());
-			
+			Friend friend=new Friend();
+			friend.setUid(user.getU_id());
+			friend.setFid(other.getU_id());
+			friend =personal.selectFriend(friend);
 			session.setAttribute("other",other );
-			
+			session.setAttribute("friend", friend);
 			session.setAttribute("shareList",shareList );
 			session.setAttribute("shareSize", shareList.size());
 			

@@ -40,6 +40,7 @@ $(function(){
 			        type:'POST',
 			        url:'comSelectServlet',
 			        data:{
+			        	type:"makeFriend",
 			        	s_id:s_id
 			        },
 			        success:function(response){
@@ -80,6 +81,7 @@ $(function(){
 	        type:'POST',
 	        url:'comAddServlet',
 	        data:{
+	        	type:"makeFriend",
 	        	s_id:s_id,
 	        	c_content:comment_content.val()
 	        },

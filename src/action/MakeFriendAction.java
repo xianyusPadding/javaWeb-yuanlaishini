@@ -4,6 +4,7 @@ import java.util.List;
 
 import javaBean.Information;
 import javaBean.Share;
+import javaBean.User;
 import utils.OptionDB;
 
 public class MakeFriendAction {
@@ -13,8 +14,11 @@ public class MakeFriendAction {
 	}
 	public Information selectInformation_user(String uid){
 		InformationAction iAction=new InformationAction();
-		Information information=new Information();
-		information.setUid(uid);
-		return iAction.select(information);
+		User user =new User();
+		user.setU_id(uid);
+		return iAction.select(user);
+	}
+	public List<User> selectFriend_user(User user){
+		return db.selectFriend_user(user);
 	}
 }

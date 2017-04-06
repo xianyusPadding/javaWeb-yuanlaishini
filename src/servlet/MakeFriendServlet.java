@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -30,6 +31,24 @@ public class MakeFriendServlet extends HttpServlet {
 			MakeFriendAction mAction =new MakeFriendAction();
 			List<Share>shareList =mAction.selectShare_all();
 			Information information=mAction.selectInformation_user(user.getU_id());
+			//当前用户的好友列表
+			List<User> userList =mAction.selectFriend_user(user);
+			List<User> userFriend=new ArrayList<>();
+			List<User> userFeel=new ArrayList<>();
+			List<User> userFcollect=new ArrayList<>();
+			for (int i = 0; i < userList.size(); i++) {
+				User u =userList.get(i);
+				if(u.getFriend().getFriend()==1)
+					userFriend.add(u);
+				if(u.getFriend().getF_feeling()==1)
+					userFeel.add(u);
+				if(u.getFriend().getF_collection()==1)
+					userFcollect.add(u);
+			}
+			
+			session.setAttribute("userFriend",userFriend );
+			session.setAttribute("userFeel",userFeel );
+			session.setAttribute("userFcollect",userFcollect );
 			
 			session.setAttribute("shareList",shareList );
 			session.setAttribute("shareSize", shareList.size());

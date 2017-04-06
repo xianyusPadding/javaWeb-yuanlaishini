@@ -78,8 +78,6 @@
 			<input type="text" class="form-control fl-signature-input" placeholder="请输入你的个性签名："/>
 			
 			
-		<!--	<button class=" btn btn-default btn-sm" >确定</button>-->
-			<!--<button class="btn btn-default fl-addFriend-btn">加为好友</button>-->
 			<div class="dropdown fl-hadAddfriend" style="display: none;">
 				<button class="btn btn-default fl-hadAddfriend-btn"  data-toggle="dropdown">
 					已加好友
@@ -102,7 +100,7 @@
 </form>
 
 <!--分组对话框-->
-<form id="fl-friendGroup" action="personal.jsp" method="get">
+<form id="fl-friendGroup">
 	<h4>为<c:out value="${user.username}"></c:out> 选择分组</h4>
 	<div class="fl-friendGroup-checkbox">
 		<div class="checkbox" name='friendbx' style="margin-left:25px">

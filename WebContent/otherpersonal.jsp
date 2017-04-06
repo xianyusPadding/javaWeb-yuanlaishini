@@ -59,27 +59,16 @@
 
 <div id="fl-section-cover">
 	<div class="container">
-		<!-- <button class="fl-cover-button btn"><span class="glyphicon glyphicon-open"></span>上传封面</button> -->
-		<!-- <input type="button" value="button"> -->
 		<div class="fl-cover-img">
 			<img src="images/personalCover.png" alt="">
 		</div>
 		<div class="fl-cover-float" style="text-align: center;">
 			<img src='<c:out value="${other.i_p_url}"></c:out>' class="fl-cover-icon" alt='' />
 			<p class="fl-cover-id"><c:out value="${other.username}"></c:out></p> 
-	<%-- 		<c:choose>
-				<c:when test="${information.motto ==null }">
-					<p class="fl-cover-signature" >个性签名</p>
-				</c:when>
-				<c:otherwise>
-				</c:otherwise>
-			</c:choose>
-			<input type="text" class="form-control fl-signature-input" placeholder="请输入你的个性签名："/> --%>
 			<p><c:out value="${information.motto }"></c:out></p>
-			
-		<!--	<button class=" btn btn-default btn-sm" >确定</button>-->
 			<button class="btn btn-default fl-addFriend-btn">加为好友</button>
 			<button class="btn btn-default fl-praise-btn">赞+1</button>
+			
 			<div class="dropdown fl-hadAddfriend" style="display: none;">
 				<button class="btn btn-default fl-hadAddfriend-btn"  data-toggle="dropdown">
 					已加好友
@@ -90,25 +79,32 @@
 					<li id="fl-openGroup"><a href="#">设置分组</a></li>
 				</ul>
 			</div>
+			
+			<c:choose>
+				<c:when test="${friend.user.date==null}">
+				</c:when>
+				<c:otherwise>
+					<script type="text/javascript">
+						$('.fl-addFriend-btn').css('display','none');
+		        		$('.fl-hadAddfriend').css('display','');
+		        		$('#fl-friendGroup').dialog("close");
+					</script>
+				</c:otherwise>
+			</c:choose>
 		</div>
 	</div>
 </div>
 
-<!-- <form id="fl-upload-headphoto" action="uploadServlet" method="post" enctype="multipart/form-data">
-	<label for='img-headphoto'><a   class="fl-browsePhoto btn btn-default">选择图片<input type='file' id='img-headphoto' name='photoalbum' onChange='show_image1()'/></a></label>
-	<input name='type' type="text" value="alterHeadPhoto" hidden="hidden">
-	<div id='showImage-headphoto'><img src='' id='show-headphoto'></div>
-	<input class="fl-btn-closeHeadphoto btn btn-default btn-group-justified " type="submit" value="上传"/>
-</form> -->
-
 <!--分组对话框-->
-<form id="fl-friendGroup" action="personal.jsp" method="get">
+<form id="fl-friendGroup">
 	<h4>为<c:out value="${other.username}"></c:out> 选择分组</h4>
 	<div class="fl-friendGroup-checkbox">
 		<div class="checkbox" name='friendbx' style="margin-left:25px">
-			<label ><input type="checkbox"  name='friend'/>我的好友</label>
-			<label ><input type="checkbox"  name='f_feeling' />有好感的人</label>
-			<label ><input type="checkbox" name='f_collection' />特别收藏</label>
+			<label ><input type="checkbox"  name='friend' value ='1'/>我的好友</label>
+			<label ><input type="checkbox"  name='f_feeling' value ='1'/>有好感的人</label>
+			<label ><input type="checkbox" name='f_collection' value ='1'/>特别收藏</label>
+			<input type="text" name="uid" hidden="hidden" value='<c:out value="${user.u_id}"></c:out>'>
+			<input type="text" name="fid" hidden="hidden" value='<c:out value="${other.u_id}"></c:out>'>
 		</div>
 	</div>
 	<input type="submit" class="btn btn-success fl-fgSuccess-btn" value="保存" style="margin:15px 0 0 150px;"/ >
@@ -132,21 +128,7 @@
 		</ul>
 		 <div id="fl-tab1">
 			<div id="container">
-			<!-- <form action="ajaxShareServlet" method="post"> -->
-	<!-- 			<div class="row fl-tab1-publish" style="position: relative;">
-					<h5>有什么新鲜或者记忆深刻的事想告诉大家？</h5>
-					<textarea id="s_content" name="content" class="fl-tab1-publishMain" cols="30" rows="10"></textarea>
-					<img src="images/rose.png" alt=""/>
-					<input id="s_p_url" type="text" name="s_p_url" hidden="hidden" value="null">
-					<input id="flag" type="text" name="flag" hidden="hidden" value="0">
-					<ul class="nav nav-pills" style="float:left">
-						<li><a href="#"><span class="glyphicon glyphicon-th-large"></span> 表情</a></li>
-						<li><a href="#"><span class="glyphicon glyphicon-picture"></span> 图片</a></li>
-						<li><a href="#"><span class="glyphicon glyphicon-fire"></span> 话题</a></li>
-					</ul>
-					<button id="share_submit" style="float:right" class="btn btn-default">发表</button>
-				</div> -->
-			<!-- </form> -->
+
 				<div id="share_content">
 					<c:choose>
 						<c:when test="${shareSize==0 }">
@@ -199,11 +181,7 @@
 		</div>
 		<div id="fl-tab2" style="padding:0 0 60px 0">
 			<div class="container" >
-				<!-- 				
-				<div class="row" style="margin-left:10px">
-					<button class="btn btn-default fl-photoalbum-btn" style="margin-bottom:20px"><a href="#">创建相册</a></button>
-					<button class="btn btn-default fl-uploadPhoto-btn" style="margin-bottom:20px"><a href="#">上传相片</a></button>
-				</div> -->
+
 				<div class="row">
 				<!-- 相册封面 -->
 				<c:if test="${a_size==0 }">
@@ -261,32 +239,6 @@
 			</div>
 		</form>
 				
-<!-- 		<form id="fl-bulid-photoalbum"  action="albumServlet" method="post">
-			<input class="form-control fl-phototitle" type="text" name="title" placeholder="相册名称" style="margin:10px 0"/>
-			<input class="fl-photoalbum-flag" type="radio" name="flag" id="flag" value="0" checked="checked"/><label for="flag">公开</label>
-			<input class="fl-photoalbum-flag"  type="radio" name="flag" id="flaga" value="1"/><label for="flaga">私密</label>
-			<input class="fl-btn-closeBulidAlbum btn btn-default btn-group-justified" type="submit" value="确定" style="margin:10px 0"/>
-		</form> -->
-		
-<%-- 		<form id="fl-upload-photo" action="uploadServlet" method="post" enctype="multipart/form-data">
-			<label for='img'><a   class="fl-browsePhoto btn btn-default">选择图片<input type='file' id='img' name='photoalbum' onChange='show_image()'/></a></label>
-			<c:choose>
-				<c:when test="${a_size==0}">
-				你还没有相册哦，先创建一个相册吧。
-				</c:when>
-				<c:otherwise>
-					<select name="album" class="btn btn-default">
-						<c:forEach var="a" items="${a_list}">
-							<option value="${a.a_id }">${a.a_title }</option>
-						</c:forEach>
-					</select>
-				</c:otherwise>
-			</c:choose>
-			<div id='showImage'><img src='' id='show'></div>
-			<input class="fl-btn-closeBulidUpload btn btn-default btn-group-justified " type="submit" value="上传"/>
-		</form> --%>
-		
-		
 		<div id='fl-tab3'>
 			<div class='container'>
 				<div class='row' style='position: relative;background: ;'>
@@ -301,9 +253,15 @@
 							<li><a href='#fl-tab3-3'>工作生活<span class='glyphicon  glyphicon-chevron-right'></span></a></li>
 							<li><a href='#fl-tab3-4'>兴趣爱好<span class='glyphicon  glyphicon-chevron-right'></span></a></li>
 							<li><a href='#fl-tab3-5'>婚姻观<span class='glyphicon  glyphicon-chevron-right'></span></a></li>
-							<li><a href='#fl-tab3-6'>他的认证<span class='glyphicon  glyphicon-chevron-right'></span></a></li>
-							<%--<li><a href='#fl-tab3-7'>好友管理<span class='glyphicon  glyphicon-chevron-right'></span></a></li>
-							<li><a href='#fl-tab3-8'>系统设置<span class='glyphicon  glyphicon-chevron-right'></span></a></li>--%>
+							
+							<c:choose>
+								<c:when test="${other.sex=='男'}">
+										<li><a href='#fl-tab3-6'>他的认证<span class='glyphicon  glyphicon-chevron-right'></span></a></li>
+								</c:when>
+								<c:otherwise>
+										<li><a href='#fl-tab3-6'>她的认证<span class='glyphicon  glyphicon-chevron-right'></span></a></li>
+								</c:otherwise>
+							</c:choose>
 						</ul>
 					</div>
 					<div class='col-md-9 fl-tab3-right'>
@@ -370,77 +328,4 @@
 
 <div id="fl-background-img"></div>
 </body>
-<script type="text/javascript">
-	
-
-	
-	function show_image() {
-		var file_img = document.getElementById("show");
-		iptfileupload = document.getElementById('img');
-		//以下即为完整客户端路径
-		getPath(file_img, iptfileupload, file_img);
-		 if($("#fl-upload-photo").find("option").length !=0 && $("#showImage").find("img").length !=0 )		
-				$(".fl-btn-closeBulidUpload").attr("disabled", false);
-	}
-	
-	function show_image1() {
-		var file_img = document.getElementById("show-headphoto");
-		iptfileupload = document.getElementById('img-headphoto');
-		//以下即为完整客户端路径
-		getPath(file_img, iptfileupload, file_img);
-		 if($("#showImage-headphoto").find("img").length !=0 )		
-				$(".fl-btn-closeHeadphoto").attr("disabled", false);
-	}
-
-	function getPath(obj, fileQuery, transImg) {
-		var imgSrc = '',
-			imgArr = [],
-			strSrc = '';
-		// IE浏览器判断
-		if(window.navigator.userAgent.indexOf("MSIE") >= 1) {
-			if(obj.select) {
-				obj.select();
-				var path = document.selection.createRange().text;
-				obj.removeAttribute("src");
-				imgSrc = fileQuery.value;
-				imgArr = imgSrc.split('.');
-				strSrc = imgArr[imgArr.length - 1].toLowerCase();
-				if(strSrc.localeCompare('jpg') === 0 || strSrc.localeCompare('jpeg') === 0 || strSrc.localeCompare('gif') === 0 || strSrc.localeCompare('png') === 0) {
-					obj.setAttribute("src", transImg);
-					obj.style.filter =
-						"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + path + "', sizingMethod='scale');"; // IE通过滤镜的方式实现图片显示
-				} else {
-					throw new Error('File type Error! please image file upload..');
-				}
-			} else {
-				imgSrc = fileQuery.value;
-				imgArr = imgSrc.split('.');
-				strSrc = imgArr[imgArr.length - 1].toLowerCase();
-				if(strSrc.localeCompare('jpg') === 0 || strSrc.localeCompare('jpeg') === 0 || strSrc.localeCompare('gif') === 0 || strSrc.localeCompare('png') === 0) {
-					obj.src = fileQuery.value;
-				} else {
-					throw new Error('File type Error! please image file upload..');
-				}
-
-			}
-		} else {
-			// 支持360浏览器 支持谷歌浏览器 支持火狐浏览器
-			var file = fileQuery.files[0];
-			var reader = new FileReader();
-			reader.onload = function(e) {
-
-				imgSrc = fileQuery.value;
-				imgArr = imgSrc.split('.');
-				strSrc = imgArr[imgArr.length - 1].toLowerCase();
-				if(strSrc.localeCompare('jpg') === 0 || strSrc.localeCompare('jpeg') === 0 || strSrc.localeCompare('gif') === 0 || strSrc.localeCompare('png') === 0) {
-					obj.setAttribute("src", e.target.result);
-				} else {
-					throw new Error('File type Error! please image file upload..');
-				}
-
-			}
-			reader.readAsDataURL(file);
-		}
-	}
-</script>
 </html>

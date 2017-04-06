@@ -9,6 +9,7 @@ import com.mysql.jdbc.PreparedStatement;
 
 import javaBean.Album;
 import javaBean.Comment;
+import javaBean.Friend;
 import javaBean.Information;
 import javaBean.Photo;
 import javaBean.Share;
@@ -188,6 +189,162 @@ public class OptionDB {
 			pstmt.setString(10, city);
 			pstmt.setString(11, country);
 			pstmt.setString(12, u_id);
+			//写进数据库
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConDataBase.closeConn(rs, pstmt, conn);
+			return result!=0?true :false;
+		}
+	}
+	
+	
+	@SuppressWarnings("finally")
+	public boolean insertFriend(Friend friend) {
+		Connection conn=ConDataBase.getConn();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		int result=0;
+		try {
+			String u_id=friend.getUid();
+			String f_id=friend.getFid();
+			int fri =friend.getFriend();
+			int f_feel=friend.getF_feeling();
+			int f_coll=friend.getF_collection();
+			pstmt=(PreparedStatement) conn.prepareStatement("insert into friend values("
+					+ "?,"
+					+ "?,"
+					+ "?,"
+					+ "?,"
+					+ "?,"
+					+ "now()"
+					+")");
+			pstmt.setString(1, u_id);
+			pstmt.setString(2, f_id);
+			pstmt.setInt(3, fri);
+			pstmt.setInt(4, f_feel);
+			pstmt.setInt(5, f_coll);
+			//写进数据库
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConDataBase.closeConn(rs, pstmt, conn);
+			return result!=0?true :false;
+		}
+	}
+	
+	@SuppressWarnings("finally")
+	public boolean deleteFriend(Friend friend) {
+		Connection conn=ConDataBase.getConn();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		int result=1;
+		try {
+			conn.setAutoCommit(false);
+			pstmt=(PreparedStatement)conn.prepareStatement
+		               ("delete from friend where u_id=? and f_id=?");
+			pstmt.setString(1, friend.getUid());
+			pstmt.setString(1, friend.getFid());
+			pstmt.addBatch();
+			pstmt.executeBatch();	
+			pstmt.clearBatch();
+			conn.commit();
+		} catch (SQLException e) {
+			try {
+				result=0;
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+		}finally {
+			try {
+				conn.setAutoCommit(true);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				ConDataBase.closeConn(rs, pstmt, conn);
+				return result!=0?true :false;
+			}
+		}
+	}
+	
+	@SuppressWarnings("finally")
+	public Friend selectFriend_single(Friend friend) {
+		Connection conn=ConDataBase.getConn();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		try {
+			pstmt=(PreparedStatement) conn.prepareStatement
+					("select * from friend where u_id=? and f_id=?");
+			pstmt.setString(1, friend.getUid());	
+			pstmt.setString(2, friend.getFid());	
+			//写进数据库
+			rs=pstmt.executeQuery();			
+			while(rs.next()){
+				friend=new Friend(rs.getString(1),rs.getString(2),
+				  rs.getInt(3),rs.getInt(4),rs.getInt(5));
+				User user =selectUser(friend.getFid());
+				friend.setUser(user);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConDataBase.closeConn(rs, pstmt, conn);
+			return friend;
+		}
+	}
+	
+	@SuppressWarnings("finally")
+	public List<User> selectFriend_user(User user) {
+		Connection conn=ConDataBase.getConn();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		List<User> list=new ArrayList<>();
+		try {
+			pstmt=(PreparedStatement) conn.prepareStatement
+					("select * from friend where u_id=? order by data");
+			pstmt.setString(1, user.getU_id());	
+			//写进数据库
+			rs=pstmt.executeQuery();			
+			while(rs.next()){
+				Friend friend=new Friend(rs.getString(1),rs.getString(2),
+				  rs.getInt(3),rs.getInt(4),rs.getInt(5));
+				User u =selectUser(friend.getFid());
+				Information information =select(u);
+				u.setInformation(information);
+				u.setFriend(friend);
+				list.add(u);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConDataBase.closeConn(rs, pstmt, conn);
+			return list;
+		}
+	}
+	@SuppressWarnings("finally")
+	public boolean alterFriend(Friend friend) {
+		Connection conn=ConDataBase.getConn();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		int result=0;
+		try {
+			String u_id=friend.getUid();
+			String f_id=friend.getFid();
+			int fri =friend.getFriend();
+			int f_feel=friend.getF_feeling();
+			int f_coll=friend.getF_collection();
+			
+			pstmt=(PreparedStatement) conn.prepareStatement
+					("update friend set friend=?,f_feeling=?,f_collection=? where u_id=? and f_id=?");
+			pstmt.setInt(1, fri);
+			pstmt.setInt(2, f_feel);
+			pstmt.setInt(3, f_coll);
+			pstmt.setString(4, u_id);
+			pstmt.setString(5, f_id);
 			//写进数据库
 			result=pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -860,12 +1017,13 @@ public class OptionDB {
 	}
 	
 	@SuppressWarnings("finally")
-	public Information select(Information information) {
+	public Information select(User user) {
 		Connection conn=ConDataBase.getConn();
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
+		Information information=null;
 		try {
-			String uid=information.getUid();
+			String uid=user.getU_id();
 			pstmt=(PreparedStatement) conn.prepareStatement
 					("select * from information where u_id=?");
 			pstmt.setString(1, uid);	

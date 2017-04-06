@@ -55,14 +55,6 @@
 </nav>
 
 
-<!--
-<div style="margin-top:31px;background:#ccc;width:100%;height:40px;">
-	 <div class="container">
-		<div style="background:#ccc;width:100%;height:40px;">
-		</div>	
-	</div> 
-</div>-->
-
 
 
 <div id="fl-main" style="margin-top:47px;">
@@ -85,21 +77,26 @@
 					<ul class="fl-navbar-group nav nav-pills nav-stacked">
 						<li class="dropdown"><a href="#" data-toggle="dropdown">1.  我的好友 <span class="glyphicon glyphicon-chevron-down"></span></a>
 							<ul class="dropdown-menu" style="background: #DEDDD8;">
-								<li><a href="">1</a></li>
-								<li><a href="">2</a></li>
-								<li><a href="">3</a></li>
-								<li><a href="">4</a></li>
+								<c:forEach var="fri" items="${userFriend}" >
+									<li><a href="otherPersonalServlet?uid=${fri.u_id}">${fri.username }</a></li>
+								</c:forEach>
 							</ul>
 						</li>
 						<li class="dropdown"><a href="#" data-toggle="dropdown">2.  有好感的人 <span class="glyphicon glyphicon-chevron-down"></span></a>
 							<ul class="dropdown-menu" style="background: #DEDDD8;">
-								<li><a href="">1</a></li>
-								<li><a href="">2</a></li>
-								<li><a href="">3</a></li>
-								<li><a href="">4</a></li>
+								<c:forEach var="f_feel" items="${userFeel}" >
+									<li><a href="otherPersonalServlet?uid=${f_feel.u_id}">${f_feel.username }</a></li>
+								</c:forEach>
 							</ul>
 						</li>
-						<li><a href="#">3.  特别收藏<span class="glyphicon glyphicon-chevron-down"></span></a></li>
+						<li class="dropdown"><a href="#" data-toggle="dropdown">3.  特别收藏 <span class="glyphicon glyphicon-chevron-down"></span></a>
+							<ul class="dropdown-menu" style="background: #DEDDD8;">
+								<c:forEach var="f_fcollect" items="${userFcollect}" >
+									<li><a href="otherPersonalServlet?uid=${f_fcollect.u_id}">${f_fcollect.username }</a></li>
+								</c:forEach>
+
+							</ul>
+						</li>
 						<li><a href="#">4.  初中同学<span class="glyphicon glyphicon-chevron-down"></span></a></li>
 						<li><a href="#">5.  大学同学<span class="glyphicon glyphicon-chevron-down"></span></a></li>
 					</ul>
@@ -107,46 +104,6 @@
 					<button class="fl-group-closeBtn btn btn-default" style="margin:20px 0 10px 60px;display:none">收起</button>
 				
 			</div>
-<%-- 	<c:forEach var="s" items="${shareList}" varStatus="s_status">
-			<div class="row fl-personal-dynamic" style="margin-top: 10px;padding-top:10px;background:#B97A57">
-				<div class="row">
-					<div class="col-md-1" style="float:left">
-						<img src="${user.i_p_url }" style="width:60px;height:60px;border-radius: 50px;" alt="">
-					</div>
-					<div class="col-md-11" style="float:left">
-						<h4>${user.username }</h4>
-						<p style="font-size: 12px">${s.date}</p>
-						<p style="font-size: 15px">${s.s_content}</p>
-					</div>
-				</div>
-				<div class="row">
-					<ul class="nav nav-tabs nav-justified" style="">
-						<li style=""><a href="">阅读(${s.readNum})</a></li>
-						<li><a href="">转发</a></li>
-						<li class="fl-href-comment"><input type='text' value='${s.s_id }' hidden='hidden'><a href="#1">评论</a></li>
-						<li><a href="">赞(${s.startNum})</a></li>
-					</ul>
-				</div>
-			</div>
-				<!--评论区-->
-				<div class='fl-comment row' style='display: none;background: #B66F58;'>
-					<div class='row' >
-						<div class='col-md-1'>
-							<img class='' src='${user.i_p_url }' style='width:60px;height:60px;border-radius: 50px;'alt=''/>
-						</div>
-						<textarea class='col-md-11 fl-commentText ' name='comment' cols='30' rows='3'  wrap='hard'></textarea>
-						<input type='text' value='${s.s_id }' hidden='hidden'>
-					</div>
-					<div class='row fl-commentSubmit'>
-						<input type='submit' class='btn btn-default comment_submit' name='comment' value='评论' />
-					</div>
-					
-					<div class='row' >
-						<!-- 每一条评论 -->
-					</div>
-				</div>
-				
-			</c:forEach> --%>
 			<div  class="col-md-7 col-md-offset-2 col-sm-10 col-sm-offset-4" class="fl-center fl-main-middle">		
 				<c:forEach var="s" items="${shareList}" varStatus="s_status">
 					<div class="row fl-dynamic" style="margin-top:0">
@@ -177,27 +134,13 @@
 							<div class='fl-comment row' style='display: none;background: #B66F58;'>
 								<div class='row' >
 									<div class='col-md-1'>
-										<img class=''  src='${user.i_p_url }'alt=''/>
+										<img class=''  src='${user.i_p_url }' style='border-radius: 50px;' alt=''/>
 									</div>
 									<textarea class='col-md-11 fl-commentText ' name='comment' cols='30' rows='3'  wrap='hard'></textarea>
 									<input type='text' value='${s.s_id }' hidden='hidden'>
 								</div>
 								<div class='row fl-commentSubmit'>
 									<input type='submit' class='btn btn-default comment_submit' name='comment' value='评论' />
-								</div>
-								<div class='row' >
-									<div class='col-md-1 fl-commentHead'>
-										<img  src='images/photoalbum3.jpg' alt='' />
-									</div>
-									<div class='col-md-11 fl-reply-parent'>
-										<p>游客1:这就是我当年为什么不选择清华的原因了</p>
-										<p style='float:left;'>刚刚</p>
-										<a href='#1' style='float:right;'>&nbsp;&nbsp;赞+15</a><a href='#1' class='fl-reply' style='float:right;'>回复&nbsp;&nbsp;|</a>
-										<div class='row fl-replyArea' style='display: none;'>
-											<textarea class='col-md-11'  name='comment'  cols='30' rows='1'  wrap='hard'></textarea>
-											<input type='submit' class='btn btn-default btn-sm' value='回复'/>
-										</div>
-									</div>
 								</div>
 								<div class='row' >
 									<!-- 每一条评论 -->
