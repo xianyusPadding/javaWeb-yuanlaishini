@@ -79,7 +79,7 @@
 			
 		<!--	<button class=" btn btn-default btn-sm" >确定</button>-->
 			<button class="btn btn-default fl-addFriend-btn">加为好友</button>
-			<button class="btn btn-default fl-addFriend-btn">赞+1</button>
+			<button class="btn btn-default fl-praise-btn">赞+1</button>
 			<div class="dropdown fl-hadAddfriend" style="display: none;">
 				<button class="btn btn-default fl-hadAddfriend-btn"  data-toggle="dropdown">
 					已加好友
