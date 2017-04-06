@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2017-04-06 19:04:31
+Date: 2017-04-06 23:21:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -80,6 +80,9 @@ CREATE TABLE `friend` (
 -- ----------------------------
 -- Records of friend
 -- ----------------------------
+INSERT INTO `friend` VALUES ('admin', 'feilong', '1', '1', '1', '2017-04-06 22:46:11');
+INSERT INTO `friend` VALUES ('feilong', 'admin', '1', '0', '1', '2017-04-06 22:48:16');
+INSERT INTO `friend` VALUES ('xianyu', 'feilong', '1', '0', '1', '2017-04-06 23:16:50');
 
 -- ----------------------------
 -- Table structure for `information`
@@ -109,7 +112,7 @@ CREATE TABLE `information` (
 -- Records of information
 -- ----------------------------
 INSERT INTO `information` VALUES ('白萍', 'admin', null, '柔情似水的世界，看似简单，却如此复杂…', '0', null, null, null, null, '55', 'B型', '汉族', '和家人同住', '没有', '岭南', '175');
-INSERT INTO `information` VALUES ('飞龙', 'feilong', null, '人没有梦想，就和飞龙一样...', '0', null, null, null, null, '60', 'AB型', '汉族', '和家人同住', '没有', '岭南', '175');
+INSERT INTO `information` VALUES ('飞龙', 'feilong', null, null, '0', null, null, null, null, '60', 'AB型', '汉族', '和家人同住', '没有', '岭南', '175');
 INSERT INTO `information` VALUES ('龙', 'xianyu', null, null, '0', null, null, null, null, '62', 'AB型', '汉族', '已购房', '没有', '北鸟', '184');
 
 -- ----------------------------
