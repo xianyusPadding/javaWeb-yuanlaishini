@@ -1,3 +1,96 @@
+#fl-main-top {
+}
+#fl-main-top .fl-main-select{
+	background: #fff;
+	border:3px solid #DDDDDD;
+}
+#fl-main-top .fl-selectNavber2{
+	position: absolute;
+}
+
+.fl-Select-navbar>li{
+	margin-left:10px;
+	float:left;
+	display: inline-block;
+}
+.fl-Select-navbar>li ul{
+	display: none;
+	padding: 5px;
+	border:1px solid #9D9D9D;
+	border-radius:5px;
+}
+.fl-Select-navbar>li ul li{
+	line-height: 30px;
+}
+.fl-salary-input{
+	width:150px;
+}
+.fl-navbarLeft-search{
+	float:right;
+}
+.fl-navbarLeft-search input{
+	color:#9D9D9D;
+}
+#fl-main-middle{
+	margin-top:20px;
+}
+#fl-main-middle .container{
+/*	background: #eee;*/
+}
+#fl-main-middle .col-md-2{
+	padding:5px 10px;
+}
+#fl-main-middle .wrapper{
+	column-width: 174px;
+}
+#fl-main-middle figure{
+	width:174px;
+	padding:10px;
+	margin-bottom:10px;
+	display: inline-block;
+	background: #fff;
+	text-align: center;
+	border:2px solid #ddd;
+}
+#fl-main-middle figure:hover{
+	border:2px solid #D9534F;
+}
+#fl-main-middle figure img{
+	width:150px;
+	cursor: pointer;
+	/*border:7px solid #ddd;*/
+}
+#fl-main-middle figure figcaption{
+	
+}
+#fl-main-middle figure figcaption p{
+	text-align:left;
+	display: block;
+	margin:0;
+	color:#9D9D9D;
+	font-size:13px;
+	line-height: 15px;
+	word-wrap:break-word;
+	word-break:normal;
+}
+#fl-main-middle figure figcaption p:hover{
+	cursor: pointer;
+	text-decoration: underline;
+	color:red;
+}
+#fl-main-middle figure figcaption p:nth-child(1){
+	color:#000;
+	font-size:15px;
+	font-weight: bold;
+	padding:5px 0;
+}
+#fl-main-middle figure figcaption p:nth-child(2){
+	padding-bottom:10px;
+}
+.fl-select-btn{
+	width:20%;
+	margin:67px 0 14px 0;
+}
 #fl-footer{
 	margin-top:50px;
 }
