@@ -290,8 +290,23 @@ $(function() {
 	
 	//
 	$('.dropdown-menu').on('click','#fl-deleteFriend',function(){
-		$('.fl-addFriend-btn').css('display','');
-		$('.fl-hadAddfriend').css('display','none');
+		var uid=$('input:text[name="uid"]').val();
+		var fid=$('input:text[name="fid"]').val();
+		$.ajax({
+	        type:'POST',
+	        url:'friendDelServlet',
+	        data:{
+	        	uid:uid,
+	        	fid:fid
+	        },
+	        success:function(response){
+	        	if(response=="0"){
+	        		alert("未知错误");
+	        	}
+				$('.fl-addFriend-btn').css('display','');
+				$('.fl-hadAddfriend').css('display','none');
+	        }
+	    });
 	})
 	
 	//修改分组

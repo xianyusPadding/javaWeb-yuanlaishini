@@ -186,4 +186,34 @@
     <servlet-name>FriendAddServlet</servlet-name>
     <url-pattern>/friendAddServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FriendDelServlet</display-name>
+    <servlet-name>FriendDelServlet</servlet-name>
+    <servlet-class>servlet.ajax.FriendDelServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FriendDelServlet</servlet-name>
+    <url-pattern>/friendDelServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MatchingServlet</display-name>
+    <servlet-name>MatchingServlet</servlet-name>
+    <servlet-class>servlet.MatchingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MatchingServlet</servlet-name>
+    <url-pattern>/matchingServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MatchingSearcHServlet</display-name>
+    <servlet-name>MatchingSearcHServlet</servlet-name>
+    <servlet-class>servlet.MatchingSearcHServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MatchingSearcHServlet</servlet-name>
+    <url-pattern>/matchingSearcHServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

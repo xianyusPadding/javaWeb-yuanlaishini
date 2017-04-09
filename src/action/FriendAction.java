@@ -19,4 +19,8 @@ public class FriendAction {
 		return db.selectFriend_user(user);
 	}
 	
+	public boolean delFriend(Friend friend){
+		return db.deleteFriend(friend);
+	}
+	
 }
