@@ -132,7 +132,7 @@
 					<p>${user.username}</p>
 					<p>${user.age}岁&nbsp;&nbsp;</p>
 					<p>${user.province }&nbsp;${user.city }&nbsp;${user.country }&nbsp;&nbsp;</p>
-					<p>${user.tall}cm</p>
+					<p>${user.information.height}cm</p>
 					<p>${user.information.motto}</p>
 				</figcaption>
 				
@@ -146,138 +146,13 @@
 					<p>${user.username}</p>
 					<p>${user.age}岁&nbsp;&nbsp;</p>
 					<p>${user.province }&nbsp;${user.city }&nbsp;${user.country }&nbsp;&nbsp;</p>
-					<p>${user.tall}cm</p>
+					<p>${user.information.height}cm</p>
 					<p>${user.information.motto}</p>
 				</figcaption>
 				
 			</figure>
 		
 		</c:forEach>
-		
-			<figure>
-				<img src="images/photoalbum1.jpg" alt="" />
-				<figcaption>
-					<p>Tom</p>
-					<p>18岁&nbsp;&nbsp;湛江赤坎&nbsp;&nbsp;180cm</p>
-					<p>想找一个活泼开朗的女孩~</p>
-				</figcaption>
-			</figure>
-			<figure>
-				<img src="images/photoalbum2.jpg" alt="" />
-				<figcaption>
-					<p>{information.name}</p>
-					<p>{usre.age}&nbsp;&nbsp;{usre.city}{usre.country}&nbsp;&nbsp;{usre.tall}</p>
-					<p>{information.motto}</p>
-				</figcaption>
-			</figure>
-			<figure>
-				<img src="images/photoalbum4.jpg" alt="" />
-				<figcaption>
-					<p>{information.name}</p>
-					<p>{usre.age}&nbsp;&nbsp;{usre.city}{usre.country}&nbsp;&nbsp;{usre.tall}</p>
-					<p>{information.motto}</p>
-				</figcaption>
-			</figure>
-			<figure>
-				<img src="images/photoalbum3.jpg" alt="" />
-				<figcaption>
-					<p>{information.name}</p>
-					<p>{usre.age}&nbsp;&nbsp;{usre.city}{usre.country}&nbsp;&nbsp;{usre.tall}</p>
-					<p>{information.motto}</p>
-				</figcaption>
-			</figure>
-			<figure>
-				<img src="images/photoalbum5.jpg" alt="" />
-				<figcaption>
-					<p>{information.name}</p>
-					<p>{usre.age}&nbsp;&nbsp;{usre.city}{usre.country}&nbsp;&nbsp;{usre.tall}</p>
-					<p>{information.motto}</p>
-				</figcaption>
-			</figure>
-			<figure>
-				<img src="images/photoalbum6.jpg" alt="" />
-				<figcaption>
-					<p>{information.name}</p>
-					<p>{usre.age}&nbsp;&nbsp;{usre.city}{usre.country}&nbsp;&nbsp;{usre.tall}</p>
-					<p>{information.motto}</p>
-				</figcaption>
-			</figure>
-			<figure>
-				<img src="images/photoalbum7.jpg" alt="" />
-				<figcaption>
-					<p>{information.name}</p>
-					<p>{usre.age}&nbsp;&nbsp;{usre.city}{usre.country}&nbsp;&nbsp;{usre.tall}</p>
-					<p>{information.motto}</p>
-				</figcaption>
-			</figure>
-			<figure>
-				<img src="images/photoalbum8.jpg" alt="" />
-				<figcaption>
-					<p>{information.name}</p>
-					<p>{usre.age}&nbsp;&nbsp;{usre.city}{usre.country}&nbsp;&nbsp;{usre.tall}</p>
-					<p>{information.motto}</p>
-				</figcaption>
-			</figure>
-			<!--<figure>
-				<img src="images/1.png" alt="" />
-				<figcaption>
-					<p>{information.name}</p>
-					<p>{usre.age}&nbsp;&nbsp;{usre.city}{usre.country}&nbsp;&nbsp;{usre.tall}</p>
-					<p>{information.motto}</p>
-				</figcaption>
-			</figure>
-			<figure>
-				<img src="images/1.png" alt="" />
-				<figcaption>
-					<p>{information.name}</p>
-					<p>{usre.age}&nbsp;&nbsp;{usre.city}{usre.country}&nbsp;&nbsp;{usre.tall}</p>
-					<p>{information.motto}</p>
-				</figcaption>
-			</figure>
-			<figure>
-				<img src="images/1.png" alt="" />
-				<figcaption>
-					<p>{information.name}</p>
-					<p>{usre.age}&nbsp;&nbsp;{usre.city}{usre.country}&nbsp;&nbsp;{usre.tall}</p>
-					<p>{information.motto}</p>
-				</figcaption>
-			</figure>
-			<figure>
-				<img src="images/1.png" alt="" />
-				<figcaption>
-					<p>{information.name}</p>
-					<p>{usre.age}&nbsp;&nbsp;{usre.city}{usre.country}&nbsp;&nbsp;{usre.tall}</p>
-					<p>{information.motto}</p>
-				</figcaption>
-			</figure>
-			<figure>
-				<img src="images/1.png" alt="" />
-				<figcaption>
-					<p>{information.name}</p>
-					<p>{usre.age}&nbsp;&nbsp;{usre.city}{usre.country}&nbsp;&nbsp;{usre.tall}</p>
-					<p>{information.motto}</p>
-				</figcaption>
-			</figure>
-			<figure>
-				<img src="images/1.png" alt="" />
-				<figcaption>
-					<p>{information.name}</p>
-					<p>{usre.age}&nbsp;&nbsp;{usre.city}{usre.country}&nbsp;&nbsp;{usre.tall}</p>
-					<p>{information.motto}</p>
-				</figcaption>
-			</figure>
-			<figure>
-				<img src="images/1.png" alt="" />
-				<figcaption>
-					<p>{information.name}</p>
-					<p>{usre.age}&nbsp;&nbsp;{usre.city}{usre.country}&nbsp;&nbsp;{usre.tall}</p>
-					<p>{information.motto}</p>
-				</figcaption>
-			</figure>-->
-			
-			
-			
-				
 		</div>
 	</div>
 </div>

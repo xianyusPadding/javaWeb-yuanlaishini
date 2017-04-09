@@ -745,7 +745,7 @@ public class OptionDB {
 		List<Share> list=new ArrayList<>();
 		try {
 			pstmt=(PreparedStatement) conn.prepareStatement
-					("select * from share  order by date desc");
+					("select * from share ");
 			//写进数据库
 			rs=pstmt.executeQuery();
 			while(rs.next()){
