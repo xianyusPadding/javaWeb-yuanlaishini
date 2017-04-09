@@ -1131,6 +1131,7 @@ public class OptionDB {
 		}
 	}
 	
+	@SuppressWarnings("finally")
 	public List<User> matching(User user){
 		Connection conn=ConDataBase.getConn();
 		ResultSet rs = null;
@@ -1151,7 +1152,7 @@ public class OptionDB {
 	    String house=information.getHouse();
 	    String child=information.getHave_child_not();
 	    String graduate_school=information.getGraduate_school();
-		String str1="select * from user natural join information where";
+		String str1="select * from user natural join information where ";
 		String str2="sex = ? and ";
 		String str3="province = ? and ";
 		String str4="city = ? and ";
@@ -1163,6 +1164,8 @@ public class OptionDB {
 		String str10="house = ? and ";
 		String str11="have_child_not = ? and ";
 		String str12="graduate_school = ? and ";
+		System.out.println(user.toString());
+		System.out.println(user.getInformation().toString());
 		HashMap<Integer, Integer> hash=new HashMap<Integer ,Integer>();
 		HashMap<Integer, Object> hash1=new HashMap<Integer,Object>();
 		int index=0;
@@ -1173,21 +1176,21 @@ public class OptionDB {
 			hash1.put(index, sex);
 		}
 		
-		if(!(province==null)){
+		if(!(province=="")){
 			index++;
 			str1=str1+str3;
 			hash.put(index, 1);
 			hash1.put(index, province);
 		}
 			
-		if(!(city==null)){
+		if(!(city=="")){
 			index++;
 			str1=str1+str4;
 			hash.put(index, 1);
 			hash1.put(index, city);
 		}
 			
-		if(!(country==null)){
+		if(!(country=="")){
 			index++;
 			str1=str1+str5;
 			hash.put(index, 1);
@@ -1251,26 +1254,26 @@ public class OptionDB {
 		}		
 		try {
 			pstmt=(PreparedStatement) conn.prepareStatement(str1);
-			for (int i = 1; i < hash.size(); i++) {
+			for (int i = 1; i <=hash.size(); i++) {
 				if(hash.get(i)==1){
 					pstmt.setString(i, (String)hash1.get(i));
 				}else{
 					pstmt.setInt(i, (int)hash1.get(i));
 				}
 			}
+			System.out.println(pstmt.asSql());
 			//写进数据库
 			rs=pstmt.executeQuery();
 			while(rs.next()){
-
-			   user1=new User(rs.getString(1),rs.getString(2),rs.getString(3),
+			   user1=new User(rs.getString(2),rs.getString(1),rs.getString(3),
 		    rs.getString(4),rs.getString(5),rs.getString(6),
 			rs.getInt(7),rs.getInt(8),rs.getInt(9),rs.getString(10),
 		    rs.getString(11),rs.getString(12),rs.getString(13));
-		   information=new Information(rs.getString(14),rs.getString(15),
-		    rs.getString(16),rs.getString(17),rs.getInt(18),rs.getString(19),
-			rs.getString(20),rs.getString(21),rs.getString(22),rs.getInt(23),
-			rs.getString(24),rs.getString(25),rs.getString(26),
-			rs.getString(27),rs.getString(28),rs.getInt(29));
+		   information=new Information(rs.getString(1),rs.getString(14),rs.getString(15),
+		    rs.getString(16),rs.getInt(17),rs.getString(18),
+			rs.getString(19),rs.getString(20),rs.getString(21),rs.getInt(22),
+			rs.getString(23),rs.getString(24),rs.getString(25),
+			rs.getString(26),rs.getString(27),rs.getInt(28));
 			   user1.setInformation(information);	
 			   list.add(user1);
 			}			

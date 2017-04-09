@@ -51,15 +51,16 @@
 
 <div id="fl-main-top" style="margin-top: 58px;">
 	<div class="fl-main-select container">
+	<form action="matchingSearcHServlet" method="post">
 		<div class="row" >	
 			<ul class="fl-Select-navbar">
 				<li><a href="#" class="btn btn-default">女士</a>
 					<ul class="fl-selectNavber2">
 						<li>请选择性别：</li>
 						<li>
-							<select name="" id="">
-								<option value="" selected="selected">女士</option>
-								<option value="">男士</option>
+							<select name="sex" id="">
+								<option value="女" selected="selected">女士</option>
+								<option value="男">男士</option>
 							</select>
 						</li>
 					</ul>
@@ -68,11 +69,11 @@
 					<ul class="fl-selectNavber2">
 						<li>请选择年龄：</li>
 						<li>
-							<select name="" id="" class=" fl-select-age" >
-								<option>不限</option>
+							<select name="age" id="" class=" fl-select-age" >
+								<option value="">不限</option>
 							</select>&nbsp;-
-							<select name="" id="" class=" fl-select-age">
-								<option>不限</option>
+							<select name="ageEnd" id="" class=" fl-select-age">
+								<option value="">不限</option>
 							</select>
 						</li>
 					</ul>
@@ -81,9 +82,9 @@
 					<ul class="fl-selectNavber2">
 						<li>请选择地区：</li>
 						<li>
-							<select id='s_province' name='s_province' ></select>  
-						    <select id='s_city' name='s_city' ></select>  
-						    <select id='s_county' name='s_county' ></select>
+							<select id='s_province' name='province' ></select>  
+						    <select id='s_city' name='city' ></select>  
+						    <select id='s_county' name='county' ></select>
 						     <script type='text/javascript'>_init_area();</script>
 						</li>
 					</ul>
@@ -92,11 +93,11 @@
 					<ul class="fl-selectNavber2">
 						<li>请选择身高：</li>
 						<li>
-							<select name="" id="" class=" fl-select-height">
-								<option>不限</option>
+							<select name="height" id="" class=" fl-select-height">
+								<option value="">不限</option>
 							</select>&nbsp;-
-							<select name="" id="" class=" fl-select-height">
-								<option>不限</option>
+							<select name="heightEnd" id="" class=" fl-select-height">
+								<option value="">不限</option>
 							</select>
 						</li>
 					</ul>
@@ -104,24 +105,40 @@
 				<li><a href="#" class="btn btn-default">薪水</a>
 					<ul class="fl-selectNavber2">
 						<li>请选择薪水：</li>
-						<li><input type="text" class="form-control" name="salary" style="width:75px;display: inline;"/>-<input type="text" name="salary" class="form-control" style="width:75px;display: inline;"/></li>
+						<li><input type="text" class="form-control" name="salary" style="width:75px;display: inline;"/>-<input type="text" name="salaryEnd" class="form-control" style="width:75px;display: inline;"/></li>
 						<li><button class="btn btn-default" style='margin:5px 0 5px 102px;'>确定</button></li>
 					</ul>
 				</li>
 			</ul>
 			<div class="input-group fl-navbarLeft-search" style="margin-right:10px">
-				<input type="text" class="form-control" placeholder="ID昵称搜索：">
+				<input type="text" name="uid" class="form-control" placeholder="ID昵称搜索：">
 			</div>
 		</div>
 		<div class="row" style="text-align: center;">
-			<button class="btn btn-danger fl-select-btn">搜索</button>
+			<!-- <button class="btn btn-danger fl-select-btn">搜索</button> -->
+			<input class="btn btn-danger fl-select-btn" type="submit" value="搜索">
 		</div>
+	</form>
 	</div>	
 </div>
 
 <div id="fl-main-middle">
 	<div class="container">
 		<div class="wrapper">
+		<c:forEach var="user" items="${matchingList}" >
+			<figure>
+			<a href="otherPersonalServlet?uid=${user.u_id }"><img src="${user.i_p_url }" alt="" /></a>
+				<figcaption>
+					<p>${user.username}</p>
+					<p>${user.age}岁&nbsp;&nbsp;</p>
+					<p>${user.province }&nbsp;${user.city }&nbsp;${user.country }&nbsp;&nbsp;</p>
+					<p>${user.tall}cm</p>
+					<p>${user.information.motto}</p>
+				</figcaption>
+				
+			</figure>
+		
+		</c:forEach>
 		<c:forEach var="user" items="${userList}" >
 			<figure>
 			<a href="otherPersonalServlet?uid=${user.u_id }"><img src="${user.i_p_url }" alt="" /></a>

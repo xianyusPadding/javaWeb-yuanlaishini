@@ -25,27 +25,35 @@ public class MatchingSearcHServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
 		List<User> list;
+	    User user=new User();
+	    Information information=new Information();
+	    
+		String height = request.getParameter("height");
+		String age = request.getParameter("age");
 		String sex=request.getParameter("sex");
-		int height=Integer.parseInt(request.getParameter("height"));
-		int age=Integer.parseInt(request.getParameter("age"));
+		if(height!=""){
+			information.setHeight(Integer.parseInt(height));
+		}
+		if(age!=""){
+			user.setAge(Integer.parseInt(age));
+		}
 		String salary=request.getParameter("salary");
 		String province=request.getParameter("province");
 		String city=request.getParameter("city");
-		String country=request.getParameter("country");
+		String country=request.getParameter("county");
 	    String hobby=request.getParameter("hobby");
 	    String blood_type=request.getParameter("bloodtype");
 	    String nation=request.getParameter("nation");
 	    String house=request.getParameter("house");
 	    String child=request.getParameter("child");
 	    String graduate_school=request.getParameter("graduate_school");
-	    User user=new User();
 	    user.setSex(sex);	    
-	    user.setAge(age);
 	    user.setProvince(province);
 	    user.setCity(city);
 	    user.setCountry(country);
-	    Information information=new Information();
-	    information.setHeight(height);
+	    if(salary!="")
+	    	user.setSalary(Integer.parseInt(salary));
+
 	    information.setHobby(hobby);
 	    information.setBloodtype(blood_type);
 	    information.setNation(nation);
@@ -56,8 +64,9 @@ public class MatchingSearcHServlet extends HttpServlet {
 	    MatchingAction match=new MatchingAction();
 	    list=match.matching(user);
 	    if(!(list==null)){
-			session.setAttribute("matchingList", list);
-			session.setAttribute("matchingList_length", list.size());
+			session.setAttribute("userList", list);
+			session.setAttribute("userSize", list.size());
+			response.sendRedirect(request.getContextPath()+"/matching.jsp");
 		}else{
 			session.setAttribute("status",MyConstant.STATUS_MATCHING_SELECT );
 			response.sendRedirect(request.getContextPath()+"/ErrorServlet");

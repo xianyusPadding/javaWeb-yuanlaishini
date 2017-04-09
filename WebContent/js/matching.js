@@ -19,13 +19,13 @@ $(function(){
 	//身高 体重 年龄的option
 	var i;
 	for(i = 140; i <= 210; i++)
-		$('.fl-select-height').append('<option>' + i + '</option>');
+		$('.fl-select-height').append('<option value='+i+'>' + i + '</option>');
 
 	for(i = 30; i <= 130; i++)
-		$('.fl-select-weight').append('<option>' + i + '</option>');
+		$('.fl-select-weight').append('<option  value='+i+'>' + i + '</option>');
 
 	for(i = 18; i <= 45; i++)
-		$('.fl-select-age').append('<option>' + i + '</option>');
+		$('.fl-select-age').append('<option  value='+i+'>' + i + '</option>');
 	
 	//点击改变下啦列表第一个ul的值	
 	//性别
