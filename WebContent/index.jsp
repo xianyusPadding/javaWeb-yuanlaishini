@@ -264,27 +264,136 @@
 			
 
 		</div> -->
-		<div class="row" style="background: #eee;">
-			<div class="col-md-6" style="height: 500px">
+		<div class="row" style="background: #fff;">
+			<div class="col-md-6" >
 				<div>
 					<p style="border-bottom:2px solid #EF95A8;margin-top:20px">会员日记</p>
-					<div class="fl-diary-main">内容
+					<div class="fl-diary-main">
+						<div class="row">
+							<div class="col-md-6" style="position: relative;">
+								<h5>Kingle</h5>
+								<p>有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</p>
+							</div>
+							<div class="col-md-6 ">
+								<h5>等待漫长岁月</h5>
+								<p>缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</p>
+							</div>
+						</div>
 						
+						<div class="row">
+							<div class="col-md-6">
+								<h5>hikky<h5>
+								<p>却不知道后悔还是悲伤，连和你说话都懒得费劲了。婚姻就像是钟钱书先...</p>
+							</div>
+							<div class="col-md-6">
+								<h5>婷婷</h5>
+								<p>对的时间遇到对的人真系好难</p>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-6">
+								<h5>Kingle</h5>
+								<p>有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难</p>
+							</div>
+							<div class="col-md-6">
+								<h5>等待漫长岁月</h5>
+								<p>缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</p>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-6">
+								<h5>hikky<h5>
+								<p>却不知道后悔还是悲伤，连和你说话都懒得费劲了。婚姻就像是钟钱书先...</p>
+							</div>
+							<div class="col-md-6">
+								<h5>婷婷</h5>
+								<p>对的时间遇到对的人真系好难</p>
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</div>
-			<div class="col-md-6" style="height: 500px">
+			<div class="col-md-6" >
 				<div>
 					<p style="border-bottom:2px solid #EF95A8;margin-top:20px">型事追击</p>
-					<div class="fl-followUp-main">内容</div>
+					<div class="fl-followUp-main">
+						<ul>
+							<li>回头可以测测你的女朋友！女生真爱你都有这些表现！</li>
+							<li>男生看准了！男人收复女人的绝招有这些！</li>
+							<li>如何判断一个TA的不仅走肾，而且还走心？</li>
+							<li>追女生失败？一定是你的追求方式不对！</li>
+							<li>如何判断一个男生是真心还是套路？准爆！</li>
+							<li>你们知道吗？女生们往往都喜欢找这样的男生结</li>
+							<li>婚前真的适合同居吗？</li>
+							<li>看完大写的服！女人收服男人的绝招有这些！</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="fl-activity" style="height:300px;">			
-			<p style="border-bottom:2px solid #EF95A8;margin-top:20px">线下活动</p>
+		<div class="fl-activity">
+			<p class="fl-activity-title">线下活动</p>
 			<div class="fl-activity-main">
-				<!-- <input type="button" id="fl-button" value="123"> -->
-			</div>			
+				<ul class="row">
+					<li class="col-md-6">
+						<figure>
+							<img src="images/activity1.jpg" alt="" />
+							<figcaption>
+								<h5>vo1.林尘街道宵夜，唱k一条龙</h5>
+								<p>时间：2016年3月</p>
+							</figcaption>
+						</figure>
+					</li>
+					<li class="col-md-6">
+						<figure>
+							<img src="images/activity2.jpg" alt="" />
+							<figcaption>
+								<h5>vo2.相识愚人前</h5>
+								<p>时间：2016年4月</p>
+							</figcaption>
+						</figure>
+					</li>
+					<li class="col-md-6">
+						<figure>
+							<img src="images/activity3.jpg" alt="" />
+							<figcaption>
+								<h5>vo3.环保男女沙滩派对</h5>
+								<p>时间：2016年7月</p>
+							</figcaption>
+						</figure>						
+					</li>
+					<li class="col-md-6">
+						<figure>
+							<img src="images/activity4.png" alt="" />
+							<figcaption>
+								<h5>vo4.脱光送温暖</h5>
+								<p>时间：2016年7月</p>
+							</figcaption>
+						</figure>
+					</li>
+					<li class="col-md-6">
+						<figure>
+							<img src="images/activity5.jpg" alt="" />
+							<figcaption>
+								<h5>vo4.圣诞party</h5>
+								<p>时间：2016年12月</p>
+							</figcaption>
+						</figure>					
+					</li>
+					<li class="col-md-6">
+						<figure>
+							<img src="images/activity5.jpg" alt="" />
+							<figcaption>
+								<h5>vo4.圣诞party</h5>
+								<p>时间：2016年12月</p>
+							</figcaption>
+						</figure>
+					</li>
+				</ul>
+			</div>		
 		</div>
 	</div>
 </div>

@@ -12,12 +12,6 @@
 	color:#000;
 	float:right;
 }
-#fl-main .fl-diary-main{
-	height: 400px;
-}
-#fl-main .fl-followUp-main{
-	height: 400px;
-}
 #fl-main .fl-thumbnail{
 
 }
@@ -28,6 +22,7 @@
 #fl-main .fl-activity{
 	margin-bottom: 30px;
 	background:#eee;
+	
 }
 #username-error,#fl-user-error,#fl-email-error,#fl-pass-error,#fl-password-error{
 	color:red;
@@ -40,7 +35,103 @@
 #fl-registerreg  label,#fl-loginreg label{
 	font-weight: normal;
 }
+/* diary 样式*/
+.fl-diary-main{
+	margin-bottom: 20px;
+}
+.fl-diary-main h5{
+	cursor: pointer;
+	font-size: 15px;
+	margin-bottom: 5px;
+}
+.fl-diary-main p{
+	cursor: pointer;
+	font-size: 14px;
+	line-height: 1.2;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	margin-bottom:15px ;
+}
+.fl-diary-main .col-md-6{
+	color:#424243;
+	transition: all  0.35s;
+	padding-left:0;
+}
 
+/*日记导航的动画*/
+.fl-diary-float{
+	position: absolute;
+	top:0;
+	left:0;
+	background: #9D9D9D;
+	display:none;
+	text-align: center;
+	line-height: 57.5px;
+	font-size: 20px;
+	cursor: pointer;
+	box-shadow: 2px 2px 5px #9D9D9D;
+}
+.fl-diary-main .col-md-6:hover .fl-diary-float{
+	display:block;
+}
+
+.fl-diary-main p:hover{
+	color:#E34C6C;
+}
+/*型事追击*/
+.fl-followUp-main ul{
+	padding-left:15px;
+}
+.fl-followUp-main li{
+	text-indent: 0px;
+	line-height:2;
+	list-style-type: disc;
+}
+.fl-followUp-main li:hover{
+	color:#E34C6C;
+	cursor: pointer;
+}
+
+/*线下活动*/
+.fl-activity-title{
+	padding:8px 0 3px 8px;
+	border-bottom:2px solid #EF95A8;
+	margin-top:20px;
+}
+.fl-activity ul{
+	padding-left:0;
+}
+.fl-activity figure{
+	margin-bottom: 15px;
+}
+.fl-activity img{
+	border:5px solid #fff;
+	width:150px;
+	height:90px;
+	display: inline-block;
+}
+.fl-activity img:hover{
+	cursor:pointer;
+	border:5px solid #F9F8F8;
+	opacity:0.9;
+}
+.fl-activity figcaption{
+	display: inline-block;
+}
+.fl-activity figcaption h5{
+	font-size:15px;
+	letter-spacing: 1px;
+	padding-bottom:4px;
+	list-style-type: disc;
+}
+.fl-activity figcaption h5:hover{
+	cursor:pointer;
+	color:#E34C6C;
+}
+.fl-activity figcaption p{
+	color:#8C8C8C;
+}
 
 @media (max-width: 768px) {
 	
