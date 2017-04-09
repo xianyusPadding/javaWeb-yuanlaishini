@@ -42,17 +42,10 @@
 	cursor: pointer;
 	font-size: 13px;
 }
-.fl-btn-closeHeadphoto{
-	/*padding: 0 10px;*/
-	position: absolute;
-	left:0;
-	bottom: 5px;	
-}
 .fl-signature-input{
 	display: none;
 	height: 27px;
 }
-
 .fl-addFriend-btn,.fl-hadAddfriend-btn{
 	background: #5A5F68;
 	border:none;
@@ -60,16 +53,6 @@
 	color:#fff;
 }
 .fl-addFriend-btn:hover,.fl-addFriend-btn:focus,.fl-addFriend-btn:active{
-	background: #44464A;
-	color:#fff;
-}
-.fl-praise-btn{
-	background: #5A5F68;
-	border:none;
-	margin-top:10px;
-	color:#fff;
-}
-.fl-praise-btn:hover,.fl-praise-btn:focus,.fl-praise-btn:active{
 	background: #44464A;
 	color:#fff;
 }
@@ -81,20 +64,13 @@
 	width:100px;
 	line-height: 20px;
 }
-#fl-friendGroup h4{
-	line-height: 30px;
-	border-bottom:1px solid #9D9D9D;
-	font-size: 16px;
-}
-.fl-keep-btn{
-	margin:20px 0 20px 70px;
-	width:150px;
-}
 .fl-friendGroup-checkbox{
 	height:150px;
 	background: #eee;
 }
-
+/*.nav > li:hover .dropdown-menu {
+  	display: block;
+ }*/
 #fl-tabs{
 	/*text-align: center;*/
 	background: none;
@@ -117,10 +93,13 @@
 	font-size: 20px;
 	font-family:'CTXingKaiSJ9f7206dff189d8';
 }
+.fl-tab1-publish li a{
+	padding:8px 10px 8px 8px;
+}
 #fl-tabs .fl-tab1-publishMain{
 	line-height: 20px;
 	border:2px solid #ccc;
-	height: 300px;
+/*	height: 300px;*/
 	font-size: 18px;
 }
 #fl-tab1 .fl-personal-dynamic{
@@ -128,9 +107,18 @@
 	padding-top:10px;
 	background:#B97A57;
 }
+#fl-tab1 .fl-personal-dynamic li{
+	display: inline-block;
+	width:23%;
+}
+#fl-tab1 .fl-personal-dynamic li a{
+	padding:2px;
+	font-size: 12px;
+}
 #fl-tab1 .fl-dynamic-img{
-	width:60px;
-	height:60px;
+	width:40px;
+	height:40px;
+	margin-top: 12px;
 	border-radius: 50px;
 }
 #fl-tab1 ul li a{
@@ -143,6 +131,7 @@
 	border:none;
 	background: #B97A57;
 }
+
 .fl-comment .col-md-1 img{
 	width:60px;
 	height:60px;
@@ -171,10 +160,6 @@
 	width:40px;
 	height:40px;
 }
-
-#fl-tab2 h4{
-	
-}
 #fl-tab2 h4 p{
 	font-size: 14px;
 }
@@ -195,17 +180,13 @@
 #fl-photoalbum-style div img:hover{
 	transform: rotate(0deg);
 }
+#fl-photoalbum-style h4{
+	font-size:13px;
+}
+#fl-photoalbum-style p{
+	font-size:13px;
+}
 #fl-tab2 .fl-photoAlbum:hover{
-	box-shadow:1px 1px 7px #777;
-}
-#fl-tab2 .fl-photoAlbum-none{
-	width:90px;
-	height:130px;
-	border:7px solid #fff;
-	cursor:pointer;
-	box-shadow:1px 1px 1px #aaa;
-}
-#fl-tab2 .fl-photoAlbum-none:hover{
 	box-shadow:1px 1px 7px #777;
 }
 .fl-textcenter{
@@ -237,8 +218,10 @@
 	cursor:pointer;
 	box-shadow:1px 1px 1px #aaa;
 	/*background: #fff;*/
-	transition: all  0.3s;
 	opacity:1;
+}
+#fl-photoShow  ul li img{
+	transition: all  0.3s
 }
 #fl-photoShow  ul li img:hover{
 	box-shadow:1px 1px 7px #777;
@@ -341,13 +324,23 @@
 /*textarea加鲜花 */
 .fl-tab1-publish img{
 	position: absolute;
-	top:23px;
+	top:46px;
 	right:0;
 	width:200px;
 	height:190px;
 	opacity: 0.3;
 }
-
+@media (min-width: 425px){
+	.fl-tab1-publish img{
+		top:23px;
+	}
+	#fl-tab1 .fl-dynamic-img{
+		width:45px;
+		height:45px;
+		margin-top: 12px;
+		border-radius: 50px;
+	}
+}
 @media (min-width: 768px){
 	#fl-section-cover .fl-cover-img img{
 		height: 330px;
@@ -362,22 +355,28 @@
 	#fl-section-cover .fl-cover-float .fl-cover-icon{
 		width:90px;
 		height: 90px;
-		cursor: pointer;
 	}
-	#fl-section-cover .fl-cover-float .fl-cover-icon:hover{
-		border: 2px solid #ADADAD;
-	}
-	/*#fl-section-cover .fl-cover-button{
-		width:70px;
-		height:20px;
-		font-size: 12px;
-	}*/
 	#fl-tabs h5{
 		font-size:19px;
 	}
-	/*#fl-tab1 ul li a{
-		font-size: 12px;
-	}*/
+	.fl-tab1-publish img{
+		top:23px;
+	}
+	#fl-tab1 .fl-dynamic-img{
+		width:50px;
+		height:50px;
+		margin-top: 12px;
+	}
+	#fl-tab1 .fl-personal-dynamic li a{
+		padding:5px;
+		font-size: 14px;
+	}
+	#fl-photoalbum-style h4{
+	font-size:14px;
+	}
+	#fl-photoalbum-style p{
+		font-size:14px;
+	}
 }
 @media (min-width: 992px){
 	#fl-section-cover .fl-cover-img img{
@@ -397,6 +396,17 @@
 	#fl-tabs h5{
 		font-size:20px;
 	}
+	.fl-tab1-publish img{
+		top:23px;
+	}
+	#fl-tab1 .fl-dynamic-img{
+		width:60px;
+		height:60px;
+	}
+	#fl-tab1 .fl-personal-dynamic li a{
+		padding:10px;
+		font-size: 15px;
+	}
 }
 @media (min-width: 1200px){
 	#fl-section-cover .fl-cover-img img{
@@ -415,5 +425,14 @@
 	}
 	#fl-tabs h5{
 		font-size:21px;
+	}
+	.fl-tab1-publish img{
+		top:23px;
+	}
+	#fl-photoalbum-style h4{
+		font-size:15px;
+	}
+	#fl-photoalbum-style p{
+		font-size:15px;
 	}
 }

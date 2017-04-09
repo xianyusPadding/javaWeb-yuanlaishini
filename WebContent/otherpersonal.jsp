@@ -135,12 +135,12 @@
 						</c:when>
 						<c:otherwise>
 							<c:forEach var="s" items="${shareList}" varStatus="s_status">
-							<div class="row fl-personal-dynamic" style="margin-top: 10px;padding-top:10px;background:#B97A57">
+							<div class="row fl-personal-dynamic" >
 								<div class="row">
-									<div class="col-md-1" style="float:left">
-										<img src="${other.i_p_url }" style="width:60px;height:60px;border-radius: 50px;" alt="">
+									<div class='col-md-1 col-sm-1 col-xs-2' style='float:left'>
+										<img src="${other.i_p_url }" class="fl-dynamic-img" alt="">
 									</div>
-									<div class="col-md-11" style="float:left">
+									<div class='col-md-11 col-sm-11 col-xs-10' style='float:left'>
 										<h4>${other.username }</h4>
 										<p style="font-size: 12px">${s.date}</p>
 										<p style="font-size: 15px">${s.s_content}</p>

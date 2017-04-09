@@ -144,12 +144,12 @@
 						</c:when>
 						<c:otherwise>
 							<c:forEach var="s" items="${shareList}" varStatus="s_status">
-							<div class="row fl-personal-dynamic" style="margin-top: 10px;padding-top:10px;background:#B97A57">
+							<div class="row fl-personal-dynamic">
 								<div class="row">
-									<div class="col-md-1" style="float:left">
-										<img src="${user.i_p_url }" style="width:60px;height:60px;border-radius: 50px;" alt="">
+									<div class='col-md-1 col-sm-1 col-xs-2' style='float:left'>
+										<img class="fl-dynamic-img" src="${user.i_p_url }">
 									</div>
-									<div class="col-md-11" style="float:left">
+									<div class='col-md-11 col-sm-11 col-xs-10' style='float:left'>
 										<h4>${user.username }</h4>
 										<p style="font-size: 12px">${s.date}</p>
 										<p style="font-size: 15px">${s.s_content}</p>
@@ -167,10 +167,10 @@
 								<!--评论区-->
 								<div class='fl-comment row' style='display: none;background: #B66F58;'>
 									<div class='row' >
-										<div class='col-md-1'>
+										<div class='col-md-1 col-sm-1 col-xs-2'>
 											<img class='' src='${user.i_p_url }' style='width:60px;height:60px;border-radius: 50px;'alt=''/>
 										</div>
-										<textarea class='col-md-11 fl-commentText ' name='comment' cols='30' rows='3'  wrap='hard'></textarea>
+										<textarea class='col-md-11 col-sm-11 col-xs-10 fl-commentText ' name='comment' cols='30' rows='3'  wrap='hard'></textarea>
 										<input type='text' value='${s.s_id }' hidden='hidden'>
 									</div>
 									<div class='row fl-commentSubmit'>
@@ -197,7 +197,7 @@
 				<div class="row">
 				<!-- 相册封面 -->
 				<c:if test="${a_size==0 }">
-								<div class="col-md-3 fl-textcenter" style="display:inline-block">
+								<div class="col-md-3 col-sm-3 col-xs-3 fl-textcenter" style="display:inline-block">
 									<p>创建你的相册</p><img src="images/4.png" alt="" class="fl-photoAlbum-none">
 								</div>
 				</c:if>
@@ -205,14 +205,14 @@
 					<c:forEach var="a" items="${a_list}" varStatus="a_status">
 							<c:choose>
 									<c:when test="${p_s_size==0 }">
-											<div class="col-md-3 fl-textcenter" style="display:inline-block">
+											<div class="col-md-3 col-sm-3 col-xs-3 fl-textcenter" style="display:inline-block">
 													<h4>${a.a_title } </h4><p>${a.date }(${a.flag })</p>
 													<img src="images/4.png" alt="" class="fl-photoAlbum">
 											</div>	
 									</c:when>
 									<c:otherwise>
 												<%   i=0; %>
-											 	<div class="col-md-3 fl-textcenter" style="display:inline-block">
+											 	<div class="col-md-3 col-sm-3 col-xs-3 fl-textcenter" style="display:inline-block">
 													<h4 >${a.a_title } </h4><p>${a.date }(${a.flag })</p>
 													<c:forEach var="ps" items="${p_s_list}" varStatus="p_status">
 															<c:choose>

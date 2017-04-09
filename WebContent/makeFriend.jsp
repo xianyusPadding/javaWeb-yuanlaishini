@@ -60,7 +60,7 @@
 <div id="fl-main" style="margin-top:47px;">
 	<div class="container" style="">
 		<div class="row">
-			<div class="fl-navbar-left" style="position: fixed;">	
+			<div class="fl-navbar-left">	
 				<p style="font-size: 45px;font-family:'GoodVibrationsR9d7d6b9c3189d8';">
 					 romantic page
 				</p>
@@ -104,7 +104,7 @@
 					<button class="fl-group-closeBtn btn btn-default" style="margin:20px 0 10px 60px;display:none">收起</button>
 				
 			</div>
-			<div  class="col-md-7 col-md-offset-2 col-sm-10 col-sm-offset-4" class="fl-center fl-main-middle">		
+			<div  class="col-md-7 col-md-offset-2 col-sm-9 col-sm-offset-3 col-xs-12" class="fl-center fl-main-middle">		
 				<c:forEach var="s" items="${shareList}" varStatus="s_status">
 					<div class="row fl-dynamic" style="margin-top:0">
 						<div class="row">
@@ -150,7 +150,7 @@
 					</div>
 				</c:forEach>
 			</div>
-			<div class="col-md-3 col-sm-4 hidden-xs">
+			<div class="col-md-3 hidden-sm hidden-xs">
 				<div class="row" style="background:url(images/blackMatte.png);margin:0">
 					<div class="fl-easy-introduction">
 						<img src="${user.i_p_url }" alt="" />

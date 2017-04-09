@@ -32,9 +32,14 @@
 	color:#000;
 }
 .fl-navbar-left{
+	margin:0 auto 10px auto;
+	width:220px;
 	background: #DEDDD8;
-	border-bottom-right-radius:10px;
-	border-bottom-left-radius:10px;
+	border-radius:10px;
+}
+.fl-navbar-left .fl-page-title{
+	font-size: 48px;
+	font-family:'GoodVibrationsR9d7d6b9c3189d8';
 }
 .fl-navbar-left .fl-navbarLeft-search .glyphicon-search{
 	border-top-left-radius:20px;
@@ -69,6 +74,9 @@
 	line-height: 35px;
 	float:right;
 	padding-right:10px;
+}
+.fl-navbar-group .dropdown-menu{
+	width:220px;
 }
 .dropdown-menu{
 	position: inherit;
@@ -160,8 +168,48 @@
 	width:35px;
 	height:35px;
 }
-/*@media (min-width: 992px){
-	.fl-main-right{
-		display:none;
+@media (min-width: 321px){
+	
+}
+@media (min-width: 768px){
+	.fl-navbar-left{
+		width: 160px;
+		position:fixed;
+		border-bottom-right-radius:10px;
+		border-bottom-left-radius:10px;
 	}
-}*/
+	.fl-navbar-left .fl-page-title{
+		font-size: 35px;
+	}
+	.fl-navbar-group .dropdown-menu{
+		width:160px;
+	}
+}
+@media (min-width: 992px){
+	.fl-navbar-left{
+		width: 180px;
+		position:fixed;
+		border-bottom-right-radius:10px;
+		border-bottom-left-radius:10px;
+	}
+	.fl-navbar-left .fl-page-title{
+		font-size: 40px;
+	}
+	.fl-navbar-group .dropdown-menu{
+		width:180px;
+	}
+}
+@media (min-width:1200px) {
+	.fl-navbar-left{
+		width: 190px;
+		position:fixed;
+		border-bottom-right-radius:10px;
+		border-bottom-left-radius:10px;
+	}
+	.fl-navbar-left .fl-page-title{
+		font-size: 45px;
+	}
+	.fl-navbar-group .dropdown-menu{
+		width:190px;
+	}
+}

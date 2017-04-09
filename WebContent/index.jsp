@@ -379,7 +379,7 @@
 						<figure>
 							<img src="images/activity5.jpg" alt="" />
 							<figcaption>
-								<h5>vo4.圣诞party</h5>
+								<h5>vo5.圣诞party</h5>
 								<p>时间：2016年12月</p>
 							</figcaption>
 						</figure>					
@@ -388,8 +388,8 @@
 						<figure>
 							<img src="images/activity5.jpg" alt="" />
 							<figcaption>
-								<h5>vo4.圣诞party</h5>
-								<p>时间：2016年12月</p>
+								<h5>vo6.圣诞party</h5>
+								<p>时间：2017年12月</p>
 							</figcaption>
 						</figure>
 					</li>
