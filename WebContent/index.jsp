@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="css/jquery-ui.css">
 	<link rel="stylesheet" href="css/base.css">
 	<link rel="stylesheet" href="css/index.css">
+	<link href='http://cdn.webfont.youziku.com/webfonts/nomal/100824/47019/58e9f355f629d811b8f741b8.css' rel='stylesheet' type='text/css' />
 </head>
 <body>
 
@@ -136,7 +137,7 @@
 <div id="fl-main">
 	<div class="container">
 		<div class="photoalbum">
-			<p style="margin:20px 15px 0 15px">会员相册ALBUL<a href="">MORE</a></p>
+			<p class="font1" style="margin:20px 15px 0 15px">会员相册ALBUL<a href="">MORE</a></p>
 		</div>
 		<div class="row" style="background: #fff">
 			<div class="col-md-1 col-sm-2 col-xs-3">
@@ -267,7 +268,7 @@
 		<div class="row" style="background: #fff;">
 			<div class="col-md-6" >
 				<div>
-					<p style="border-bottom:2px solid #EF95A8;margin-top:20px">会员日记</p>
+					<p class="font1" style="border-bottom:2px solid #EF95A8;margin-top:20px">会员日记&nbsp;DIARY</p>
 					<div class="fl-diary-main">
 						<div class="row">
 							<div class="col-md-6" style="position: relative;">
@@ -318,7 +319,7 @@
 			</div>
 			<div class="col-md-6" >
 				<div>
-					<p style="border-bottom:2px solid #EF95A8;margin-top:20px">型事追击</p>
+					<p class="font1" style="border-bottom:2px solid #EF95A8;margin-top:20px">型事追击&nbsp;FASHION INFO</p>
 					<div class="fl-followUp-main">
 						<ul>
 							<li>回头可以测测你的女朋友！女生真爱你都有这些表现！</li>
@@ -335,7 +336,7 @@
 			</div>
 		</div>
 		<div class="fl-activity">
-			<p class="fl-activity-title">线下活动</p>
+			<p class="fl-activity-title font1">线下活动&nbsp;OFF-LINE ACTIVITY</p>
 			<div class="fl-activity-main">
 				<ul class="row">
 					<li class="col-md-6">

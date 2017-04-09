@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="css/jquery-ui.css">
 	<link rel="stylesheet" href="css/base.css">
 	<link rel="stylesheet" href="css/personal.css">
+	<link href='http://cdn.webfont.youziku.com/webfonts/nomal/100824/47383/58e9f9a3f629d811b8f741c4.css' rel='stylesheet' type='text/css' />
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" id="fl-nav">

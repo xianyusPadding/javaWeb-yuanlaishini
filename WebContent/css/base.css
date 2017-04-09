@@ -23,6 +23,9 @@ a{
 a:hover{
 	text-decoration: none;
 }
+.font1{
+	font-family:'VisbyRoundCF-Bo9f707cc45189d8';
+}
 .fl-center{
 	text-align: center;
 ]}

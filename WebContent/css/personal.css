@@ -113,9 +113,9 @@
 #fl-tabs .fl-tabs-link a{
 	color:#000;
 }
-#fl-tabs h5{
-	font-size: 18px;
-	font-family: "DroidSansFallback";
+.fl-tab1-publish h5{
+	font-size: 20px;
+	font-family:'CTXingKaiSJ9f7206dff189d8';
 }
 #fl-tabs .fl-tab1-publishMain{
 	line-height: 20px;

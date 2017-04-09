@@ -133,8 +133,14 @@
 	color:#8C8C8C;
 }
 
-@media (max-width: 768px) {
-	
+@media (max-width: 321px) {
+	.fl-activity img{
+		width:285px;
+		height:180px;
+	}
+	.fl-activity figcaption{
+		display: block;
+	}
 }
 
 
