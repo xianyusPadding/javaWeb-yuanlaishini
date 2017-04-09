@@ -62,6 +62,10 @@ public class ErrorAction {
 				message="保存失败！";
 				link="personal.jsp";
 				break ;
+			case MyConstant.STATUS_MATCHING_SELECT:
+				message="匹配失败！";
+				link="matching.jsp";
+				break ;
 		}
 		return this;
 	}

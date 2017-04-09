@@ -14,4 +14,5 @@ public class MyConstant {
 	public final static int STATUS_USER_UPDATE=9;
 	//更新用户详细信息
 	public final static int STATUS_USER_INFOR_UPDATE=10;
+	public final static int STATUS_MATCHING_SELECT=11;
 }

@@ -2,6 +2,7 @@ package utils;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.mysql.jdbc.Connection;
@@ -154,6 +155,38 @@ public class OptionDB {
 			return user;
 		}
 	}
+	
+	@SuppressWarnings("finally")
+	public List<User> selectUser_all(String u_id) {
+		Connection conn=ConDataBase.getConn();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		List<User> list=new ArrayList<>();
+		try {
+
+			pstmt=(PreparedStatement) conn.prepareStatement
+					("select * from user where u_id != ?  order by date DESC");
+			pstmt.setString(1, u_id);
+			//写进数据库
+			rs=pstmt.executeQuery();			
+			while(rs.next()){
+			User  user=new User(rs.getString(1),rs.getString(2),
+				    rs.getString(3),rs.getString(4),rs.getString(5),
+				    rs.getString(6),rs.getInt(7),rs.getInt(8),
+				    rs.getInt(9),rs.getString(10),rs.getString(11),
+				    rs.getString(12),rs.getString(13));
+			    Information information =select(user);
+			    user.setInformation(information);
+			    list.add(user);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConDataBase.closeConn(rs, pstmt, conn);
+			return list;
+		}
+	}
+	
 	@SuppressWarnings("finally")
 	public boolean alterUser(User user) {
 		Connection conn=ConDataBase.getConn();
@@ -246,7 +279,7 @@ public class OptionDB {
 			pstmt=(PreparedStatement)conn.prepareStatement
 		               ("delete from friend where u_id=? and f_id=?");
 			pstmt.setString(1, friend.getUid());
-			pstmt.setString(1, friend.getFid());
+			pstmt.setString(2, friend.getFid());
 			pstmt.addBatch();
 			pstmt.executeBatch();	
 			pstmt.clearBatch();
@@ -1098,6 +1131,156 @@ public class OptionDB {
 		}
 	}
 	
+	public List<User> matching(User user){
+		Connection conn=ConDataBase.getConn();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		List<User> list=new ArrayList<User>();
+		User user1=null;
+		String sex=user.getSex();
+		String province=user.getProvince();
+		String city=user.getCity();
+		String country=user.getCountry();
+		int age=user.getAge();
+		int salary=user.getSalary();
+		Information information=user.getInformation();
+	    int height=information.getHeight();
+	    String hobby=information.getHobby();
+	    String motto=information.getMotto();
+	    String blood_type=information.getBloodtype();
+	    String house=information.getHouse();
+	    String child=information.getHave_child_not();
+	    String graduate_school=information.getGraduate_school();
+		String str1="select * from user natural join information where";
+		String str2="sex = ? and ";
+		String str3="province = ? and ";
+		String str4="city = ? and ";
+		String str5="country = ? and ";
+		String str6="age = ? and ";
+		String str7="salary = ? and ";
+		String str8="height = ? and ";		
+		String str9="blood_type = ? and ";
+		String str10="house = ? and ";
+		String str11="have_child_not = ? and ";
+		String str12="graduate_school = ? and ";
+		HashMap<Integer, Integer> hash=new HashMap<Integer ,Integer>();
+		HashMap<Integer, Object> hash1=new HashMap<Integer,Object>();
+		int index=0;
+		if(!(sex==null)){
+			index++;
+			str1=str1+str2;
+			hash.put(index, 1);
+			hash1.put(index, sex);
+		}
+		
+		if(!(province==null)){
+			index++;
+			str1=str1+str3;
+			hash.put(index, 1);
+			hash1.put(index, province);
+		}
+			
+		if(!(city==null)){
+			index++;
+			str1=str1+str4;
+			hash.put(index, 1);
+			hash1.put(index, city);
+		}
+			
+		if(!(country==null)){
+			index++;
+			str1=str1+str5;
+			hash.put(index, 1);
+		    hash1.put(index, country);	
+		}
+		if(!(age==0)){
+			index++;
+			str1=str1+str6;
+			hash.put(index, 2);
+			hash1.put(index, age);
+		}
+	
+		if(!(salary==0)){
+			index++;
+			str1=str1+str7;
+			hash.put(index, 2);
+			hash1.put(index, salary);
+		}
+			
+		if(!(height==0)){
+			index++;
+			str1=str1+str8;
+			hash.put(index, 2);
+			hash1.put(index, height);
+		}
+			
+		if(!(blood_type==null)){
+			index++;
+			str1=str1+str9;
+			hash.put(index, 1);
+			hash1.put(index, blood_type);
+		}
+						
+		if(!(house==null)){
+			index++;
+			str1=str1+str10;
+			hash.put(index, 1);
+			hash1.put(index, house);
+		}
+			
+		if(!(child==null)){
+			index++;
+			str1=str1+str11;
+			hash.put(index, 1);
+			hash1.put(index, child);
+		}
+			
+		if(!(graduate_school==null)){
+			index++;
+			str1=str1+str12;
+			hash.put(index,1);
+			hash1.put(index, graduate_school);
+		}
+			
+		if(str1=="select * from user natural join information where")
+			{str1="select * from user natural join information order by date DESC;";
+		}else{
+			int i=str1.lastIndexOf("and");
+			str1=str1.substring(0,i);
+			str1=str1+" order by date DESC";
+		}		
+		try {
+			pstmt=(PreparedStatement) conn.prepareStatement(str1);
+			for (int i = 1; i < hash.size(); i++) {
+				if(hash.get(i)==1){
+					pstmt.setString(i, (String)hash1.get(i));
+				}else{
+					pstmt.setInt(i, (int)hash1.get(i));
+				}
+			}
+			//写进数据库
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+
+			   user1=new User(rs.getString(1),rs.getString(2),rs.getString(3),
+		    rs.getString(4),rs.getString(5),rs.getString(6),
+			rs.getInt(7),rs.getInt(8),rs.getInt(9),rs.getString(10),
+		    rs.getString(11),rs.getString(12),rs.getString(13));
+		   information=new Information(rs.getString(14),rs.getString(15),
+		    rs.getString(16),rs.getString(17),rs.getInt(18),rs.getString(19),
+			rs.getString(20),rs.getString(21),rs.getString(22),rs.getInt(23),
+			rs.getString(24),rs.getString(25),rs.getString(26),
+			rs.getString(27),rs.getString(28),rs.getInt(29));
+			   user1.setInformation(information);	
+			   list.add(user1);
+			}			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConDataBase.closeConn(rs, pstmt, conn);
+			return list;
+		}
+	}
 	
 	public User login(String username,String password){
 		Connection conn=ConDataBase.getConn();

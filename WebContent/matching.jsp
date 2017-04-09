@@ -25,16 +25,25 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
+			<c:choose>
+				<c:when test="${user==null }">
+					<c:out value="<script type='text/javascript'>alert('请先登录!');location.href='index.jsp';</script>" escapeXml="false"></c:out>
+				</c:when>
+				<c:otherwise>
+					<p class="navbar-text navbar-right fl-login"><a href="logoutServlet" class="navbar-link fl-login" >注销</a></p>
+					<p class="navbar-text navbar-right fl-login"><a href="personal.jsp" class="navbar-link fl-login" >${user.username}</a></p>
+				</c:otherwise>
+			</c:choose>
 		</div>
 		
 		
 		<div class="collapse navbar-collapse" id="navbar-collapse" style="margin-top:-5px">
 			<ul class="nav navbar-nav" style="margin: 0px">
-				<li class="active b"><a href="index.html" class="fl-navbar-link"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
-				<li><a href="personal.html" class="fl-navbar-link"><span class="glyphicon glyphicon-user"></span> 个人中心</a></li>
-				<li><a href="makeFriend.html" class="fl-navbar-link"><span class="glyphicon glyphicon-list"></span> 交友广场</a></li>
-				<li><a href="matching.html" class="fl-navbar-link"><span class="glyphicon glyphicon-fire"></span> 完美匹配</a></li>
-				<li><a href="briefIntro.html" class="fl-navbar-link"><span class="glyphicon glyphicon-question-sign"></span> 公司简介</a></li>
+				<li class="active b"><a href="index.jsp" class="fl-navbar-link"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+				<li><a href="personalServlet" class="fl-navbar-link"><span class="glyphicon glyphicon-user"></span> 个人中心</a></li>
+				<li><a href="makeFriendServlet" class="fl-navbar-link"><span class="glyphicon glyphicon-list"></span> 交友广场</a></li>
+				<li><a href="matchingServlet" class="fl-navbar-link"><span class="glyphicon glyphicon-fire"></span> 完美匹配</a></li>
+				<li><a href="briefIntro.jsp" class="fl-navbar-link"><span class="glyphicon glyphicon-question-sign"></span> 公司简介</a></li>
 			</ul>
 		</div>
 	</div>
@@ -113,6 +122,21 @@
 <div id="fl-main-middle">
 	<div class="container">
 		<div class="wrapper">
+		<c:forEach var="user" items="${userList}" >
+			<figure>
+			<a href="otherPersonalServlet?uid=${user.u_id }"><img src="${user.i_p_url }" alt="" /></a>
+				<figcaption>
+					<p>${user.username}</p>
+					<p>${user.age}岁&nbsp;&nbsp;</p>
+					<p>${user.province }&nbsp;${user.city }&nbsp;${user.country }&nbsp;&nbsp;</p>
+					<p>${user.tall}cm</p>
+					<p>${user.information.motto}</p>
+				</figcaption>
+				
+			</figure>
+		
+		</c:forEach>
+		
 			<figure>
 				<img src="images/photoalbum1.jpg" alt="" />
 				<figcaption>
@@ -249,15 +273,7 @@
 </div>
 <div id="fl-background-img"></div>
 </body>
-<script type="text/javascript">
-	var Gid  = document.getElementById ;
-	var showArea = function(){
-		Gid('show').innerHTML = '<h3>省' + Gid('s_province').value + ' - 市' + 	
-		Gid('s_city').value + ' - 县/区' + 
-		Gid('s_county').value + '</h3>'
-								}
-	Gid('s_county').setAttribute('onchange','showArea()');
-</script>
+
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery-ui.js"></script>
 <script type="text/javascript" src="js/jquery-validate.js"></script>
