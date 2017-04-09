@@ -291,7 +291,7 @@
 						<form action="userServlet" method="post">
 							<ul>
 								<li class='form-inline'><label for='' style='color:red'>昵称：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input name='username' type="text" class="form-control" value="<c:out value="${user.username }"></c:out>"/></li>
-								<li class='form-inline'><label for=''>账号：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><c:out value="${user.u_id }"></c:out></li>
+								<li class='form-inline'><label for=''>I D ：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><c:out value="${user.u_id }"></c:out></li>
 								<li class='form-inline'><label for='' style='color:red'>性别：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" name='sex' class="form-control" value="<c:out value="${user.sex }"></c:out>"/></li>
 								<li class='form-inline'><label for=''>邮箱：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" name='email' class="form-control" value="<c:out value="${user.email }"></c:out>"/></li>
 								<li class='form-inline'><label for='' style='color:red'>年龄：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>

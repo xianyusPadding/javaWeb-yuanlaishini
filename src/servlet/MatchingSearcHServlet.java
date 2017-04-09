@@ -46,7 +46,9 @@ public class MatchingSearcHServlet extends HttpServlet {
 	    String nation=request.getParameter("nation");
 	    String house=request.getParameter("house");
 	    String child=request.getParameter("child");
+	    String uid=request.getParameter("uid");
 	    String graduate_school=request.getParameter("graduate_school");
+	    user.setU_id(uid);
 	    user.setSex(sex);	    
 	    user.setProvince(province);
 	    user.setCity(city);

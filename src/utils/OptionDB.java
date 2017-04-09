@@ -1142,6 +1142,7 @@ public class OptionDB {
 		String province=user.getProvince();
 		String city=user.getCity();
 		String country=user.getCountry();
+		String uid =user.getU_id();
 		int age=user.getAge();
 		int salary=user.getSalary();
 		Information information=user.getInformation();
@@ -1157,19 +1158,18 @@ public class OptionDB {
 		String str3="province = ? and ";
 		String str4="city = ? and ";
 		String str5="country = ? and ";
-		String str6="age = ? and ";
-		String str7="salary = ? and ";
-		String str8="height = ? and ";		
+		String str6="age >= ? and ";
+		String str7="salary >= ? and ";
+		String str8="height >= ? and ";		
 		String str9="blood_type = ? and ";
 		String str10="house = ? and ";
 		String str11="have_child_not = ? and ";
 		String str12="graduate_school = ? and ";
-		System.out.println(user.toString());
-		System.out.println(user.getInformation().toString());
+		String str13="u_id= ? and ";
 		HashMap<Integer, Integer> hash=new HashMap<Integer ,Integer>();
 		HashMap<Integer, Object> hash1=new HashMap<Integer,Object>();
 		int index=0;
-		if(!(sex==null)){
+		if(!(sex=="")){
 			index++;
 			str1=str1+str2;
 			hash.put(index, 1);
@@ -1244,8 +1244,13 @@ public class OptionDB {
 			hash.put(index,1);
 			hash1.put(index, graduate_school);
 		}
-			
-		if(str1=="select * from user natural join information where")
+		if(!(uid=="")){
+			index++;
+			str1=str1+str13;
+			hash.put(index,1);
+			hash1.put(index, uid);
+		}
+		if(str1=="select * from user natural join information where ")
 			{str1="select * from user natural join information order by date DESC;";
 		}else{
 			int i=str1.lastIndexOf("and");
