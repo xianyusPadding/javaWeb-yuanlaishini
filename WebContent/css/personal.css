@@ -171,11 +171,11 @@
 	box-shadow:1px 1px 1px #aaa;
 	margin-bottom: 20px;
 }
-#fl-photoalbum-style div:nth-of-type(odd) img{
-	transform: rotate(-15deg);
-}
 #fl-photoalbum-style div:nth-of-type(even) img{
 	transform: rotate(15deg);
+}
+#fl-photoalbum-style div:nth-of-type(odd) img{
+	transform: rotate(-15deg);
 }
 #fl-photoalbum-style div img:hover{
 	transform: rotate(0deg);
@@ -321,7 +321,6 @@
 	color:#000;
 }
 
-/*textarea加鲜花 */
 .fl-tab1-publish img{
 	position: absolute;
 	top:46px;
@@ -407,6 +406,10 @@
 		padding:10px;
 		font-size: 15px;
 	}
+	#fl-tab2 .fl-photoAlbum{
+		width:120px;
+		height:160px;
+	}
 }
 @media (min-width: 1200px){
 	#fl-section-cover .fl-cover-img img{
@@ -434,5 +437,9 @@
 	}
 	#fl-photoalbum-style p{
 		font-size:15px;
+	}
+	#fl-tab2 .fl-photoAlbum{
+		width:130px;
+		height:175px;
 	}
 }

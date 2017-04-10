@@ -189,7 +189,7 @@
 			</div>
 		</div>
 		<div id="fl-tab2" style="padding:0 0 60px 0">
-			<div class="container" >
+			<div class="container" id="fl-photoalbum-style" >
 				<div class="row" style="margin-left:10px">
 					<button class="btn btn-default fl-photoalbum-btn" style="margin-bottom:20px"><a href="#">创建相册</a></button>
 					<button class="btn btn-default fl-uploadPhoto-btn" style="margin-bottom:20px"><a href="#">上传相片</a></button>
@@ -206,14 +206,13 @@
 							<c:choose>
 									<c:when test="${p_s_size==0 }">
 											<div class="col-md-3 col-sm-3 col-xs-3 fl-textcenter" style="display:inline-block">
-													<h4>${a.a_title } </h4><p>${a.date }(${a.flag })</p>
 													<img src="images/4.png" alt="" class="fl-photoAlbum">
+													<h4>${a.a_title } </h4><p>${a.date }(${a.flag })</p>
 											</div>	
 									</c:when>
 									<c:otherwise>
 												<%   i=0; %>
 											 	<div class="col-md-3 col-sm-3 col-xs-3 fl-textcenter" style="display:inline-block">
-													<h4 >${a.a_title } </h4><p>${a.date }(${a.flag })</p>
 													<c:forEach var="ps" items="${p_s_list}" varStatus="p_status">
 															<c:choose>
 																<c:when test="${ps.a_id==a.a_id }">
@@ -227,6 +226,7 @@
 																</c:otherwise>
 															</c:choose>
 													</c:forEach>
+													<h4 >${a.a_title } </h4><p>${a.date }(${a.flag })</p>
 												</div>
 									</c:otherwise>
 							</c:choose>				
