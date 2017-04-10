@@ -74,7 +74,7 @@
 				<h2 class="fl-about-title font3">关于公司</h2>
 				<ul>
 					<li><a href="#">1、工作邮箱：820728252@qq.com</a></li>
-					<li><a href="#">2、工作室：</a></li>
+					<li><a href="#">2、工作室：缘来是你</a></li>
 					<li><a href="#">3、情感FAQ</a></li>
 					<li><a href="#">4、合作伙伴：腾讯qq、一些事一些情、珍爱网、新浪微博</a></li>
 				</ul>
