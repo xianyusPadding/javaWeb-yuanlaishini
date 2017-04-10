@@ -68,12 +68,12 @@
 			<p><c:out value="${information.motto }"></c:out></p>
 			<button class="btn btn-default fl-addFriend-btn">加为好友</button>
 			<button class="btn btn-default fl-praise-btn">赞+1</button>
-			<button class="btn btn-default fl-chat-btn">聊天</button>
 			<div class="dropdown fl-hadAddfriend" style="display: none;">
 				<button class="btn btn-default fl-hadAddfriend-btn"  data-toggle="dropdown">
 					已加好友
 					<span class="caret"></span>
 				</button>
+				<button class="btn btn-default fl-chat-btn"><a href="tencent://Message/?Uin=978624366websiteName=qzone.qq.com&Menu=yes" style="color:#fff; text-decoration:none">聊天</a></button>
 				<ul class="dropdown-menu">
 					<li id="fl-deleteFriend"><a href="#">删除好友</a></li>
 					<li id="fl-openGroup"><a href="#">设置分组</a></li>

@@ -110,8 +110,11 @@ $(function(){
 
 	
 	$('#matchForm').submit(function(){
+		$('#matchForm').animate({height:'+=150px'},"slow");
 		$('#MatchSubmit').css("display","none");
-		$('#MatchLink').css("display","");
+//		$('#MatchLink').css("display","");
+//		$('#MatchSubmit').fadeOut();
+		$('#MatchLink').fadeIn(1000);
 		var d = {};
 	    var t = $('#matchForm').serializeArray();
 	    $.each(t, function() {
@@ -134,8 +137,11 @@ $(function(){
 	        	uid:d.uid
 	        },
 	        success:function(response){
-	    		$('#MatchSubmit').css("display","");
+//	    		$('#MatchSubmit').css("display","");
 	    		$('#MatchLink').css("display","none");
+	        	$('#MatchSubmit').fadeIn(1000);
+//	    		$('#MatchLink').fadeOut();
+	        	$('#matchForm').animate({height:'-=150px'},"slow");
 	        	$('.wrapper').html(response);
 	        }
 	    });

@@ -92,8 +92,8 @@
 	</p>
 	<p>
 		<label>性别：</label>
-		<input type="radio" value="fl-male" name="sex" id="fl-male" checked="checked"><label for="fl-male">男</label>
-		<input type="radio" value="fl-female" name="sex" id="fl-female"><label for="fl-female">女</label>
+		<input type="radio" value="男" name="sex" id="fl-male" checked="checked"><label for="fl-male">男</label>
+		<input type="radio" value="女" name="sex" id="fl-female"><label for="fl-female">女</label>
 	</p>
 	<!-- <p>
 		<label for="fl-birthday">生日：</label>
@@ -149,7 +149,6 @@
 		</c:forEach>
 			
 		</div>
-		<!-- <a href="tencent://Message/?Uin=9232342366websiteName=qzone.qq.com&Menu=yes">QQ</a> -->
 		<div class="row" style="background: #fff;">
 			<div class="col-md-6" >
 				<div>

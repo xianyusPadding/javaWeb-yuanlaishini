@@ -35,7 +35,6 @@ public class OptionDB {
 			String u_id=user.getU_id();
 			String password=user.getPassword();
 			String sex=user.getSex();
-			if(sex.equals("fl-male"))sex="男";else sex="女";
 			String email=user.getEmail();
 			String i_p_url=user.getI_p_url();
 			int age=user.getAge();
