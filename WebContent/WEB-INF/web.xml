@@ -216,4 +216,15 @@
     <servlet-name>MatchingSearcHServlet</servlet-name>
     <url-pattern>/matchingSearcHServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>IndexServlet</display-name>
+    <servlet-name>IndexServlet</servlet-name>
+    <servlet-class>servlet.IndexServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IndexServlet</servlet-name>
+    <url-pattern>/indexServlet</url-pattern>
+    <url-pattern>/index</url-pattern>
+  </servlet-mapping>
 </web-app>

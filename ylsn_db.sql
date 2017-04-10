@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50051
 File Encoding         : 65001
 
-Date: 2017-04-10 00:58:16
+Date: 2017-04-10 12:25:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -86,6 +86,7 @@ CREATE TABLE `friend` (
 -- Records of friend
 -- ----------------------------
 INSERT INTO `friend` VALUES ('2014354130', '2014354130', '0', '1', '0', '2017-04-10 00:27:11');
+INSERT INTO `friend` VALUES ('admin', '2014354130', '1', '0', '0', '2017-04-10 09:54:15');
 INSERT INTO `friend` VALUES ('admin', 'feilong', '1', '0', '0', '2017-04-09 21:21:49');
 INSERT INTO `friend` VALUES ('admin', 'xianyu', '1', '0', '0', '2017-04-09 22:45:47');
 INSERT INTO `friend` VALUES ('feilong', 'admin', '1', '0', '1', '2017-04-06 22:48:16');
@@ -119,6 +120,18 @@ CREATE TABLE `information` (
 -- ----------------------------
 -- Records of information
 -- ----------------------------
+INSERT INTO `information` VALUES (null, '1231', null, '你说过，你要和我一起去看日落。', '0', null, null, null, null, '0', null, null, null, null, null, '0');
+INSERT INTO `information` VALUES ('', '12310', null, null, '0', null, null, null, null, '47', '', '', '', '', '', '160');
+INSERT INTO `information` VALUES ('', '12312', null, null, '0', null, null, null, null, '58', '', '', '', '', '', '176');
+INSERT INTO `information` VALUES ('', '12313', null, null, '0', null, null, null, null, '59', '', '', '', '', '', '180');
+INSERT INTO `information` VALUES (null, '1232', null, '我不知道说什么，我只是突然在这一刻很想你。', '0', null, null, null, null, '0', null, null, null, null, null, '0');
+INSERT INTO `information` VALUES (null, '1233', null, '永远那么理智就永远不会懂得爱情了。', '0', null, null, null, null, '0', null, null, null, null, null, '0');
+INSERT INTO `information` VALUES (null, '1234', null, '梦惊醒，我寻找你的背影。', '0', null, null, null, null, '0', null, null, null, null, null, '0');
+INSERT INTO `information` VALUES (null, '1235', null, '我只是不小心爱上你，可为何你迟迟不肯从我心中谢幕。', '0', null, null, null, null, '0', null, null, null, null, null, '0');
+INSERT INTO `information` VALUES ('', '1236', null, null, '0', null, null, null, null, '44', '', '', '', '', '', '165');
+INSERT INTO `information` VALUES ('', '1237', null, null, '0', null, null, null, null, '40', '', '', '', '', '', '156');
+INSERT INTO `information` VALUES ('', '1238', null, null, '0', null, null, null, null, '41', '', '', '', '', '', '164');
+INSERT INTO `information` VALUES ('', '1239', null, null, '0', null, null, null, null, '38', '', '', '', '', '', '156');
 INSERT INTO `information` VALUES (null, '2014354124', null, '唱一半的歌、剩下的一半由你来唱。', '0', null, null, null, null, '65', null, null, null, null, null, '170');
 INSERT INTO `information` VALUES (null, '2014354130', null, '想找个温柔，顾家的女孩...', '0', null, null, null, null, '62', null, null, null, null, null, '168');
 INSERT INTO `information` VALUES (null, '2014354131', null, '想把我唱给你听...', null, null, null, null, null, '55', null, null, null, null, null, '172');
@@ -129,7 +142,8 @@ INSERT INTO `information` VALUES (null, 'daji123456', null, '  ', '0', null, nul
 INSERT INTO `information` VALUES ('飞龙', 'feilong', null, '其实莪一直都在，看着妳不变旳动态。', '0', null, null, null, null, '60', 'AB型', '汉族', '和家人同住', '没有', '岭南', '175');
 INSERT INTO `information` VALUES ('赵敏', 'minmin', null, '学会做个彪悍的姑娘 不矫揉不造作不发嗲不懦弱 怎么骄傲怎么活.', '0', null, null, null, null, '45', 'AB型', '汉族', '已购房', '没有', '政大', '155');
 INSERT INTO `information` VALUES ('龙', 'xianyu', null, '如果我只是个单纯的过客，为何要让我闯入你的生活？', '0', null, null, null, null, '62', 'AB型', '汉族', '已购房', '没有', '北鸟', '184');
-INSERT INTO `information` VALUES ('林雪儿', 'xueer', null, '想找个稳重，成熟的男生...', '0', null, null, null, null, '55', 'A型', '汉族', '和家人同住', '没有', '青鸟', '166');
+INSERT INTO `information` VALUES ('林雪儿', 'xueer', null, '想找个稳重，成熟的男生...', '0', null, null, null, null, '55', 'A型', '汉族', '和家人同住', '没有', '青鸟', '168');
+INSERT INTO `information` VALUES ('', 'zzy110', null, '我很帅，真的不骗你', '0', null, null, null, null, '60', '', '', '', '', '岭南师范学院', '182');
 
 -- ----------------------------
 -- Table structure for `share`
@@ -147,7 +161,7 @@ CREATE TABLE `share` (
   `date` datetime NOT NULL,
   PRIMARY KEY  (`s_id`),
   KEY `u_id` (`u_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of share
@@ -172,8 +186,21 @@ INSERT INTO `share` VALUES ('34', 'minmin', null, '你是天上人画中仙遥�
 INSERT INTO `share` VALUES ('35', '2014354130', null, '今天是我的第一天注册哦！！', 'null', '0', '0', '动态', '2017-04-09 23:37:24');
 INSERT INTO `share` VALUES ('38', '2014354124', null, '受尽苦难而不厌，此乃修罗之道。', 'null', '0', '0', '动态', '2017-04-10 00:14:01');
 INSERT INTO `share` VALUES ('39', '2014354131', null, '有个网站交友真心不错，这个网站蛮推荐的。', 'null', '0', '0', '动态', '2017-04-10 00:20:37');
-INSERT INTO `share` VALUES ('40', '2014354132', null, '悄悄告诉你，我是他舍友', '', '0', '0', '愿望', '2017-04-10 00:21:09');
-INSERT INTO `share` VALUES ('41', '2014354133', null, '你猜一猜，牛大还是马大', '', '0', '0', '愿望', '2017-04-10 00:21:33');
+INSERT INTO `share` VALUES ('40', '2014354131', null, '悄悄告诉你，我是他舍友', '', '0', '0', '愿望', '2017-04-10 00:21:09');
+INSERT INTO `share` VALUES ('41', '2014354130', null, '你猜一猜，牛大还是马大', '', '0', '0', '愿望', '2017-04-10 00:21:33');
+INSERT INTO `share` VALUES ('42', '1231', null, '你说过，你要和我一起去看日落。', 'null', '0', '0', '动态', '2017-04-10 10:10:31');
+INSERT INTO `share` VALUES ('43', '1232', null, '我不知道说什么，我只是突然在这一刻很想你。', 'null', '0', '0', '动态', '2017-04-10 10:12:26');
+INSERT INTO `share` VALUES ('44', '1233', null, '永远那么理智就永远不会懂得爱情了。', 'null', '0', '0', '动态', '2017-04-10 10:14:56');
+INSERT INTO `share` VALUES ('45', '1234', null, '梦惊醒，我寻找你的背影。', 'null', '0', '0', '动态', '2017-04-10 10:18:16');
+INSERT INTO `share` VALUES ('46', '1235', null, '我只是不小心爱上你，可为何你迟迟不肯从我心中谢幕。', 'null', '0', '0', '动态', '2017-04-10 10:21:38');
+INSERT INTO `share` VALUES ('47', '1236', null, '没有过不去的事情，只有过不去的心情。', 'null', '0', '0', '动态', '2017-04-10 10:24:31');
+INSERT INTO `share` VALUES ('48', '1237', null, '我们不是输在起跑线上，我们是爬在起跑线上了。', 'null', '0', '0', '动态', '2017-04-10 10:28:10');
+INSERT INTO `share` VALUES ('49', '1238', null, '等到空中的星星都跟着月亮殉情了。我来做你的灯。', 'null', '0', '0', '动态', '2017-04-10 10:32:54');
+INSERT INTO `share` VALUES ('50', '1239', null, '你为了一个美丽的未来，放弃了我们温暖的现在。', 'null', '0', '0', '动态', '2017-04-10 10:34:18');
+INSERT INTO `share` VALUES ('51', '12310', null, '爱不是彼此凝视，而是一起注视同一个方向。', 'null', '0', '0', '动态', '2017-04-10 10:36:06');
+INSERT INTO `share` VALUES ('52', '12312', null, '人的一生，都有一些说不出的秘密，挽不回的遗憾，触不到的梦想，忘不了的爱', 'null', '0', '0', '动态', '2017-04-10 10:46:49');
+INSERT INTO `share` VALUES ('53', '12313', null, '倘若你愿意陪我一起许愿。你是否会许下不分离的诺言。', 'null', '0', '0', '动态', '2017-04-10 10:48:19');
+INSERT INTO `share` VALUES ('54', 'zzy110', null, '我很帅，真的不骗你', 'null', '0', '0', '动态', '2017-04-10 10:52:43');
 
 -- ----------------------------
 -- Table structure for `unloadphotoalbum`
@@ -218,7 +245,7 @@ CREATE TABLE `user` (
   `username` varchar(15) NOT NULL,
   `u_id` varchar(10) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `sex` varchar(2) NOT NULL,
+  `sex` varchar(10) NOT NULL,
   `email` varchar(20) NOT NULL,
   `i_p_url` text,
   `age` int(3) default NULL,
@@ -245,3 +272,16 @@ INSERT INTO `user` VALUES ('敏敏', 'minmin', '123123123', '女', 'minmin@qq.co
 INSERT INTO `user` VALUES ('夜夜笙歌', '2014354130', '978624366', '男', '978624366@qq.com', './upload/b2.png', '25', '0', '5000', '广东省', '茂名市', '信宜市', '2017-04-09 23:38:44');
 INSERT INTO `user` VALUES ('鲁班', '2014354124', '2014354124', '男', '2014354124@qq.com', './upload/b1.png', '24', '0', '8000', '广东省', '茂名市', '信宜市', '2017-04-10 00:09:26');
 INSERT INTO `user` VALUES ('一缕春风', '2014354131', '978624366', '女', '978624366@qq.com', './upload/g3.png', '27', '0', '12000', '广东省', '阳江市', '阳东县', '2017-04-10 00:25:48');
+INSERT INTO `user` VALUES ('kitty', '1231', 'long1019', 'fl-female', '1@163.com', './upload/fl-2.png', '20', '0', '80000', '广东省', '湛江市', '赤坎区', '2017-04-10 10:09:35');
+INSERT INTO `user` VALUES ('tom', '1232', 'long1019', 'male', '2@163.com', './upload/fl1.png', '23', '0', '9000', '广东省', '湛江市', '遂溪县', '2017-04-10 10:12:13');
+INSERT INTO `user` VALUES ('南国旧梦', '1233', 'long1019', 'fl-female', '3@163.com', './upload/fl-3.png', '27', '0', '10000', '广东省', '汕头市', '金平区', '2017-04-10 10:16:03');
+INSERT INTO `user` VALUES ('君心今何在°', '1234', 'long1019', '女', '4@163.com', './upload/fl-4.png', '26', '0', '5000', '湖南省', '长沙市', '长沙市', '2017-04-10 10:18:49');
+INSERT INTO `user` VALUES ('绕遍你心', '1235', 'long1019', '男', '5@163.com', './upload/fl-6.png', '25', '0', '10000', '湖北省', '武汉市', '江汉区', '2017-04-10 10:23:02');
+INSERT INTO `user` VALUES ('余悸心澈', '1236', 'long1019', '女', '6@163.com', './upload/fl-5.png', '23', '0', '6000', '湖北省', '武汉市', '江汉区', '2017-04-10 10:25:01');
+INSERT INTO `user` VALUES ('轰轰烈烈不如平静', '1237', 'long1019', '女', '7@163.com', './upload/fl-7.png', '27', '0', '5600', '湖南省', '张家界市', '永定区', '2017-04-10 10:28:35');
+INSERT INTO `user` VALUES ('小小琳° 大大笑°', '1238', 'long1019', '女', '8@163.com', './upload/fl-9.png', '19', '0', '6900', '湖北省', '荆门市', '沙洋县', '2017-04-10 10:33:13');
+INSERT INTO `user` VALUES ('古道印残灯', '1239', 'long1019', '女', '9@163.com', './upload/fl-11.png', '24', '0', '3600', '湖南省', '常德市', '津市市', '2017-04-10 10:34:41');
+INSERT INTO `user` VALUES ('暮年', '12310', 'long1019', '女', '10@163.com', './upload/fl-13.png', '26', '0', '4900', '广东省', '汕头市', '金平区', '2017-04-10 10:36:25');
+INSERT INTO `user` VALUES ('汉纸°', '12312', 'long1019', '男', '12@qq.com', './upload/fl-8.png', '23', '0', '5000', '湖南省', '常德市', '津市市', '2017-04-10 10:47:09');
+INSERT INTO `user` VALUES ('juny', '12313', 'long1019', '男', '13@163.com', './upload/fl-10.png', '29', '0', '12000', '广东省', '汕头市', '金平区', '2017-04-10 10:48:45');
+INSERT INTO `user` VALUES ('郑仲寅', 'zzy110', 'zzy110.......', '男', 'zzy@qq.com', './upload/fl-12.png', '24', '0', '20000', '广东省', '汕头市', '金平区', '2017-04-10 10:53:16');

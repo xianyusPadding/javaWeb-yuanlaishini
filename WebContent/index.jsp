@@ -48,7 +48,7 @@
 		
 		<div class="collapse navbar-collapse" id="navbar-collapse" style="margin-top:-5px">
 			<ul class="nav navbar-nav" style="margin: 0px">
-				<li class="active b"><a href="index.jsp" class="fl-navbar-link"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+				<li class="active b"><a href="indexServlet" class="fl-navbar-link"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
 				<li><a href="personalServlet" class="fl-navbar-link"><span class="glyphicon glyphicon-user"></span> 个人中心</a></li>
 				<li><a href="makeFriendServlet" class="fl-navbar-link"><span class="glyphicon glyphicon-list"></span> 交友广场</a></li>
 				<li><a href="matchingServlet" class="fl-navbar-link"><span class="glyphicon glyphicon-fire"></span> 完美匹配</a></li>
@@ -140,131 +140,16 @@
 			<p class="font1" style="margin:20px 15px 0 15px">会员相册ALBUL<a href="">MORE</a></p>
 		</div>
 		<div class="row" style="background: #fff">
-			<div class="col-md-1 col-sm-2 col-xs-3">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
+		<c:forEach var="Iuser" items="${indexUserList}" varStatus="s_status">
+				<div class="col-md-1 col-sm-2 col-xs-3">
+					<div class="thumbnail fl-thumbnail" >
+						<a href="otherPersonalServlet?uid=${Iuser.u_id }"><img src="${Iuser.i_p_url }" alt="" style="height: 60px;"></a>
+					</div>
 				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3 hidden-xs  hidden-sm">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3 hidden-xs  hidden-sm">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3 hidden-xs  hidden-sm">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3 hidden-xs  hidden-sm">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3 hidden-xs  hidden-sm">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3 hidden-xs  hidden-sm">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3 hidden-xs  hidden-sm">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3 hidden-xs  hidden-sm">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3 hidden-xs  hidden-sm">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3 hidden-xs  hidden-sm">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3 hidden-xs  hidden-sm">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3 hidden-xs  hidden-sm">
-				<div class="thumbnail fl-thumbnail">
-					<a href=""><img src="images/photoalbum1.jpg" alt=""></a>
-				</div>
-			</div>
-		</div>
-		<!-- <div class="row" style="background: #fff;">
+		</c:forEach>
 			
-
-		</div> -->
+		</div>
+		<!-- <a href="tencent://Message/?Uin=9232342366websiteName=qzone.qq.com&Menu=yes">QQ</a> -->
 		<div class="row" style="background: #fff;">
 			<div class="col-md-6" >
 				<div>

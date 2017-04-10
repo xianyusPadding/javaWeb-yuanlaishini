@@ -42,7 +42,7 @@ public class RegisiterServlet extends HttpServlet {
 		iAction.insert(information);
 		if(result){
 			session.setAttribute("user", user);
-			resp.sendRedirect(req.getContextPath()+"/index.jsp");
+			resp.sendRedirect(req.getContextPath()+"/indexServlet");
 		}else{
 			session.setAttribute("status",MyConstant.STATUS_REGISTER_ERROR);
 			resp.sendRedirect(req.getContextPath()+"/errorServlet");

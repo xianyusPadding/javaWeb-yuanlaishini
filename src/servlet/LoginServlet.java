@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
 		User user =loginAction.login(username,password);
 		if(user!=null){
 			session.setAttribute("user", user);
-			resp.sendRedirect(req.getContextPath()+"/index.jsp");
+			resp.sendRedirect(req.getContextPath()+"/indexServlet");
 		}else{
 			session.setAttribute("status",MyConstant.STATUS_LOGIN_ERROR);
 			resp.sendRedirect(req.getContextPath()+"/errorServlet");

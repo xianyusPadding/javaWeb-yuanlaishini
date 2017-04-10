@@ -165,7 +165,7 @@ public class OptionDB {
 		try {
 
 			pstmt=(PreparedStatement) conn.prepareStatement
-					("select * from user where u_id != ?  order by date DESC");
+					("select * from user where u_id != ?  order by date DESC limit 24");
 			pstmt.setString(1, u_id);
 			//写进数据库
 			rs=pstmt.executeQuery();			
@@ -186,7 +186,35 @@ public class OptionDB {
 			return list;
 		}
 	}
-	
+	@SuppressWarnings("finally")
+	public List<User> selectUser_none( ) {
+		Connection conn=ConDataBase.getConn();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		List<User> list=new ArrayList<>();
+		try {
+
+			pstmt=(PreparedStatement) conn.prepareStatement
+					("select * from user  order by date DESC limit 24");
+			//写进数据库
+			rs=pstmt.executeQuery();			
+			while(rs.next()){
+			User  user=new User(rs.getString(1),rs.getString(2),
+				    rs.getString(3),rs.getString(4),rs.getString(5),
+				    rs.getString(6),rs.getInt(7),rs.getInt(8),
+				    rs.getInt(9),rs.getString(10),rs.getString(11),
+				    rs.getString(12),rs.getString(13));
+			    Information information =select(user);
+			    user.setInformation(information);
+			    list.add(user);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConDataBase.closeConn(rs, pstmt, conn);
+			return list;
+		}
+	}
 	@SuppressWarnings("finally")
 	public boolean alterUser(User user) {
 		Connection conn=ConDataBase.getConn();
@@ -745,7 +773,7 @@ public class OptionDB {
 		List<Share> list=new ArrayList<>();
 		try {
 			pstmt=(PreparedStatement) conn.prepareStatement
-					("select * from share ");
+					("select * from share order by date DESC");
 			//写进数据库
 			rs=pstmt.executeQuery();
 			while(rs.next()){
