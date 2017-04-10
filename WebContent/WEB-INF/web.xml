@@ -227,4 +227,13 @@
     <url-pattern>/indexServlet</url-pattern>
     <url-pattern>/index</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <display-name>SearchServlet</display-name>
+    <servlet-name>SearchServlet</servlet-name>
+    <servlet-class>servlet.ajax.SearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchServlet</servlet-name>
+    <url-pattern>/searchServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

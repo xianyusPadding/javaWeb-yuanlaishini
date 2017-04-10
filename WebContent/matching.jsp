@@ -51,7 +51,8 @@
 
 <div id="fl-main-top" style="margin-top: 58px;">
 	<div class="fl-main-select container">
-	<form action="matchingSearcHServlet" method="post">
+	<!-- <form id="matchForm" action="matchingSearcHServlet" method="post"> -->
+	<form id="matchForm">
 		<div class="row" >	
 			<ul class="fl-Select-navbar">
 				<li><a href="#" class="btn btn-default">全部</a>
@@ -115,9 +116,20 @@
 				<input type="text" name="uid" class="form-control" placeholder="ID昵称搜索：">
 			</div>
 		</div>
-		<div class="row" style="text-align: center;">
-			<!-- <button class="btn btn-danger fl-select-btn">搜索</button> -->
+		<div id="MatchSubmit" class="row" style="text-align: center;">
 			<input class="btn btn-danger fl-select-btn" type="submit" value="搜索">
+		</div>
+		
+		<div id="MatchLink" class="row" style="text-align: center;display:none;" >
+			<a  href="#" class="demo">
+				<div class="img" style="background-image:url(./images/match.jpg)"></div>
+					<div class="mask">
+						<div class="info">
+							<h3>Matching...</h3>
+						</div>
+					</div>
+				<div class="border"></div>
+			</a>
 		</div>
 	</form>
 	</div>	
@@ -140,134 +152,7 @@
 			</figure>
 		
 		</c:forEach>
-				<!-- <figure>
-			<a href="otherPersonalServlet?uid=2014354131"><img src="./upload/g3.png" alt="" /></a>
-				<figcaption>
-					<p>一缕春风</p>
-					<p>27岁&nbsp;&nbsp;</p>
-					<p>广东省&nbsp;阳江市&nbsp;阳东县&nbsp;&nbsp;</p>
-					<p>172cm</p>
-					<p>想把我唱给你听...</p>
-				</figcaption>
-				
-			</figure>
-		
-		
-			<figure>
-			<a href="otherPersonalServlet?uid=2014354124"><img src="./upload/b1.png" alt="" /></a>
-				<figcaption>
-					<p>鲁班</p>
-					<p>24岁&nbsp;&nbsp;</p>
-					<p>广东省&nbsp;茂名市&nbsp;信宜市&nbsp;&nbsp;</p>
-					<p>170cm</p>
-					<p>唱一半的歌、剩下的一半由你来唱。</p>
-				</figcaption>
-				
-			</figure>
-		
-		
-			<figure>
-			<a href="otherPersonalServlet?uid=841583911"><img src="./upload/g1.png" alt="" /></a>
-				<figcaption>
-					<p>阿智</p>
-					<p>22岁&nbsp;&nbsp;</p>
-					<p>广东省&nbsp;阳江市&nbsp;阳东县&nbsp;&nbsp;</p>
-					<p>165cm</p>
-					<p>茉莉花香...</p>
-				</figcaption>
-				
-			</figure>
-		
-		
-			<figure>
-			<a href="otherPersonalServlet?uid=2014354130"><img src="./upload/b2.png" alt="" /></a>
-				<figcaption>
-					<p>夜夜笙歌</p>
-					<p>25岁&nbsp;&nbsp;</p>
-					<p>广东省&nbsp;茂名市&nbsp;信宜市&nbsp;&nbsp;</p>
-					<p>168cm</p>
-					<p>想找个温柔，顾家的女孩...</p>
-				</figcaption>
-				
-			</figure>
-		
-		
-			<figure>
-			<a href="otherPersonalServlet?uid=daji123456"><img src="./upload/g2.png" alt="" /></a>
-				<figcaption>
-					<p>妲己</p>
-					<p>24岁&nbsp;&nbsp;</p>
-					<p>广东省&nbsp;阳江市&nbsp;阳东县&nbsp;&nbsp;</p>
-					<p>165cm</p>
-					<p>  </p>
-				</figcaption>
-				
-			</figure>
-		
-		
-			<figure>
-			<a href="otherPersonalServlet?uid=xueer"><img src="./upload/photoalbum4.jpg" alt="" /></a>
-				<figcaption>
-					<p>雪儿</p>
-					<p>24岁&nbsp;&nbsp;</p>
-					<p>广东省&nbsp;广州市&nbsp;越秀区&nbsp;&nbsp;</p>
-					<p>166cm</p>
-					<p>想找个稳重，成熟的男生...</p>
-				</figcaption>
-				
-			</figure>
-		
-		
-			<figure>
-			<a href="otherPersonalServlet?uid=841583918"><img src="./upload/photoalbum3.jpg" alt="" /></a>
-				<figcaption>
-					<p>鹹魚_一車事一車情 </p>
-					<p>0岁&nbsp;&nbsp;</p>
-					<p>广东省&nbsp;茂名市&nbsp;信宜市&nbsp;&nbsp;</p>
-					<p>175cm</p>
-					<p>ideal  一些事一些情、樂觀自信愛</p>
-				</figcaption>
-				
-			</figure>
-		
-		
-			<figure>
-			<a href="otherPersonalServlet?uid=xianyu"><img src="./upload/photoalbum7.jpg" alt="" /></a>
-				<figcaption>
-					<p>咸鱼</p>
-					<p>19岁&nbsp;&nbsp;</p>
-					<p>广东省&nbsp;广州市&nbsp;越秀区&nbsp;&nbsp;</p>
-					<p>184cm</p>
-					<p>如果我只是个单纯的过客，为何要让我闯入你的生活？</p>
-				</figcaption>
-				
-			</figure>
-		
-		
-			<figure>
-			<a href="otherPersonalServlet?uid=feilong"><img src="./upload/photoalbum8.jpg" alt="" /></a>
-				<figcaption>
-					<p>飞龙</p>
-					<p>22岁&nbsp;&nbsp;</p>
-					<p>广东省&nbsp;茂名市&nbsp;信宜市&nbsp;&nbsp;</p>
-					<p>175cm</p>
-					<p>其实莪一直都在，看着妳不变旳动态。</p>
-				</figcaption>
-				
-			</figure>
-		
-		
-			<figure>
-			<a href="otherPersonalServlet?uid=minmin"><img src="./upload/photoalbum2.jpg" alt="" /></a>
-				<figcaption>
-					<p>敏敏</p>
-					<p>23岁&nbsp;&nbsp;</p>
-					<p>广东省&nbsp;茂名市&nbsp;化州市&nbsp;&nbsp;</p>
-					<p>155cm</p>
-					<p>学会做个彪悍的姑娘 不矫揉不造作不发嗲不懦弱 怎么骄傲怎么活.</p>
-				</figcaption>
-				
-			</figure> -->
+			
 		</div>
 	</div>
 </div>

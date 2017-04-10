@@ -108,8 +108,37 @@ $(function(){
 	if($('body').height()<800)
 		$("#fl-footer").css('margin-top','315px');
 
-//	$(window).resize(function(){
-//		$('#fl-main-middle figure img').width($('#fl-main-middle figure').width() - 14 + 'px');
-//	})
 	
+	$('#matchForm').submit(function(){
+		$('#MatchSubmit').css("display","none");
+		$('#MatchLink').css("display","");
+		var d = {};
+	    var t = $('#matchForm').serializeArray();
+	    $.each(t, function() {
+	      d[this.name] = this.value;
+	    });
+		$.ajax({
+	        type:'POST',
+	        url:'searchServlet',
+	        data:{
+	        	age:d.age,
+	        	ageEnd:d.ageEnd,
+	        	city:d.city,
+	        	county:d.county,
+	        	province:d.province,
+	        	height:d.height,
+	        	heightEnd:d.heightEnd,
+	        	salary:d.salary,
+	        	salaryEnd:d.salaryEnd,
+	        	sex:d.sex,
+	        	uid:d.uid
+	        },
+	        success:function(response){
+	    		$('#MatchSubmit').css("display","");
+	    		$('#MatchLink').css("display","none");
+	        	$('.wrapper').html(response);
+	        }
+	    });
+		return false;
+	})
 })
