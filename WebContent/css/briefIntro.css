@@ -1,3 +1,70 @@
+.font1{
+	font-family:'Impact9f6febc44189d8'; 
+}
+.font2{
+	font-family:'VisbyRoundCF-Bo9f707cc45189d8'; /*VisbyRoundCF-Bold 英语精致综艺*/
+}
+.font3{
+	font-family:'YouYuan9fc2c2021189d8';
+}
+#fl-main{
+	margin-top:50px;
+}
+.fl-title{
+	font-size: 60px;
+}
+.fl-serve-title,.fl-future-title,.fl-about-title{
+	font-size: 26px;
+}
+.fl-serve{
+	height:270px;
+	background: linear-gradient(to right,rgb(44,138,101),rgb(153,199,181));
+	color:#fff;
+	box-shadow: 5px 5px 3px #2C8A65;
+}
+.fl-future{
+	height:310px;
+	background: linear-gradient(to right bottom,rgb(219,170,156),rgb(238,175,157));
+	/*background: #E9C3B8;*/
+	box-shadow: 5px 5px 3px #E9C3B8;
+	margin-bottom: 10px;
+}
+.fl-about{
+	height:310px;
+	background: linear-gradient(to right bottom,rgb(153,143,168),rgb(162,126,216));
+	/*background: #998FA8;*/
+	color:#fff;
+	box-shadow: 5px 5px 3px #998FA8;
+}
+.fl-serve h2,.fl-future h2,.fl-about h2{
+	margin-bottom: 100px;
+}
+.fl-serve li a,.fl-about li a{
+	color: #fff;
+}
+.fl-about li a:hover,.fl-serve li a:hover{
+	color:#ccc;
+}
+.fl-serve-main,.fl-future-main,.fl-about-main{
+	margin-left:80px;
+}
+.fl-smallPerson-icon{
+	width:80px;
+	position: absolute;
+	bottom:-20%;
+	right:5%;
+}
+
 #fl-footer{
-	margin-top: 50px;
+	margin-top: 75px;
+}
+
+@media (min-width: 768) {
+	
+}
+@media (min-width: 992) {
+	
+}
+@media (min-width: 1200) {
+	
 }
