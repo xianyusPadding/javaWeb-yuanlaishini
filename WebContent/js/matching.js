@@ -18,14 +18,20 @@ $(function(){
 	
 	//身高 体重 年龄的option
 	var i;
-	for(i = 140; i <= 210; i++)
+	for(i = 140; i <= 180; i++)
 		$('.fl-select-height').append('<option value='+i+'>' + i + '</option>');
+	for(i = 181; i <= 210; i++)
+		$('.fl-select-heightEnd').append('<option value='+i+'>' + i + '</option>');
 
-	for(i = 30; i <= 130; i++)
+	for(i = 30; i <= 60; i++)
 		$('.fl-select-weight').append('<option  value='+i+'>' + i + '</option>');
-
-	for(i = 18; i <= 45; i++)
+	for(i = 61; i <= 130; i++)
+		$('.fl-select-weightEnd').append('<option  value='+i+'>' + i + '</option>');
+	for(i = 18; i <= 30; i++)
 		$('.fl-select-age').append('<option  value='+i+'>' + i + '</option>');
+	
+	for(i =31 ; i <= 45; i++)
+		$('.fl-select-ageEnd').append('<option  value='+i+'>' + i + '</option>');
 	
 	//点击改变下啦列表第一个ul的值	
 	//性别
@@ -99,7 +105,8 @@ $(function(){
 			
 		
 	})
-	
+	if($('body').height()<800)
+		$("#fl-footer").css('margin-top','315px');
 
 //	$(window).resize(function(){
 //		$('#fl-main-middle figure img').width($('#fl-main-middle figure').width() - 14 + 'px');

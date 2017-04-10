@@ -8,8 +8,10 @@ public class User {
 	private String email;
 	private String i_p_url;
 	private int age;
+	private int ageEnd;
 	private int tall;
 	private int salary;
+	private int salaryEnd;
 	private String province;
 	private String city;
 	private String country;
@@ -18,6 +20,18 @@ public class User {
 	private Friend friend;
 	
 	
+	public int getAgeEnd() {
+		return ageEnd;
+	}
+	public void setAgeEnd(int ageEnd) {
+		this.ageEnd = ageEnd;
+	}
+	public int getSalaryEnd() {
+		return salaryEnd;
+	}
+	public void setSalaryEnd(int salaryEnd) {
+		this.salaryEnd = salaryEnd;
+	}
 	public Friend getFriend() {
 		return friend;
 	}
@@ -125,11 +139,14 @@ public class User {
 		this.country = country;
 		this.date = date;
 	}
+
 	@Override
 	public String toString() {
 		return "User [username=" + username + ", u_id=" + u_id + ", password=" + password + ", sex=" + sex + ", email="
-				+ email + ", i_p_url=" + i_p_url + ", age=" + age + ", tall=" + tall + ", salary=" + salary
-				+ ", province=" + province + ", city=" + city + ", country=" + country + ", date=" + date + "]";
+				+ email + ", i_p_url=" + i_p_url + ", age=" + age + ", ageEnd=" + ageEnd + ", tall=" + tall
+				+ ", salary=" + salary + ", salaryEnd=" + salaryEnd + ", province=" + province + ", city=" + city
+				+ ", country=" + country + ", date=" + date + ", information=" + information + ", friend=" + friend
+				+ "]";
 	}
 	public User() {
 		

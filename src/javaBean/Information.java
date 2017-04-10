@@ -17,7 +17,14 @@ public class Information {
 	private String have_child_not;
 	private String graduate_school;
 	private int height;
+	private int heightEnd;
 	
+	public int getHeightEnd() {
+		return heightEnd;
+	}
+	public void setHeightEnd(int heightEnd) {
+		this.heightEnd = heightEnd;
+	}
 	public Information() {
 	}
 	public String getLocation() {
@@ -141,8 +148,9 @@ public class Information {
 	public String toString() {
 		return "Information [uid=" + uid + ", name=" + name + ", hobby=" + hobby + ", motto=" + motto + ", start="
 				+ start + ", friend=" + friend + ", f_feeling=" + f_feeling + ", f_collection=" + f_collection
-				+ ", height=" + height + ", weight=" + weight + ", bloodtype=" + bloodtype + ", nation=" + nation
+				+ ", location=" + location + ", weight=" + weight + ", bloodtype=" + bloodtype + ", nation=" + nation
 				+ ", house=" + house + ", have_child_not=" + have_child_not + ", graduate_school=" + graduate_school
-				+ ", where=" + location + "]";
+				+ ", height=" + height + ", heightEnd=" + heightEnd + "]";
 	}
+	
 }

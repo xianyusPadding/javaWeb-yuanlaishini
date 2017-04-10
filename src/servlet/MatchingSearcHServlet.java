@@ -24,20 +24,34 @@ public class MatchingSearcHServlet extends HttpServlet {
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
+		User u =(User) session.getAttribute("user");
 		List<User> list;
 	    User user=new User();
 	    Information information=new Information();
-	    
+	    information.setUid(u.getU_id());
 		String height = request.getParameter("height");
+		String heightEnd= request.getParameter("heightEnd");
 		String age = request.getParameter("age");
+		String ageEnd=request.getParameter("ageEnd");
 		String sex=request.getParameter("sex");
 		if(height!=""){
 			information.setHeight(Integer.parseInt(height));
 		}
+		if(heightEnd!=""){
+			information.setHeightEnd(Integer.parseInt(heightEnd));
+		}
 		if(age!=""){
 			user.setAge(Integer.parseInt(age));
 		}
+		if(ageEnd!=""){
+			user.setAgeEnd(Integer.parseInt(ageEnd));
+		}
 		String salary=request.getParameter("salary");
+		String salaryEnd =request.getParameter("salaryEnd");
+	    if(salary!="")
+	    	user.setSalary(Integer.parseInt(salary));
+	    if(salaryEnd!="")
+	    	user.setSalaryEnd(Integer.parseInt(salaryEnd));
 		String province=request.getParameter("province");
 		String city=request.getParameter("city");
 		String country=request.getParameter("county");
@@ -53,9 +67,7 @@ public class MatchingSearcHServlet extends HttpServlet {
 	    user.setProvince(province);
 	    user.setCity(city);
 	    user.setCountry(country);
-	    if(salary!="")
-	    	user.setSalary(Integer.parseInt(salary));
-
+	    
 	    information.setHobby(hobby);
 	    information.setBloodtype(blood_type);
 	    information.setNation(nation);

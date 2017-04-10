@@ -73,7 +73,7 @@
 							<select name="age" id="" class=" fl-select-age" >
 								<option value="">不限</option>
 							</select>&nbsp;-
-							<select name="ageEnd" id="" class=" fl-select-age">
+							<select name="ageEnd" id="" class=" fl-select-ageEnd">
 								<option value="">不限</option>
 							</select>
 						</li>
@@ -97,7 +97,7 @@
 							<select name="height" id="" class=" fl-select-height">
 								<option value="">不限</option>
 							</select>&nbsp;-
-							<select name="heightEnd" id="" class=" fl-select-height">
+							<select name="heightEnd" id="" class=" fl-select-heightEnd">
 								<option value="">不限</option>
 							</select>
 						</li>
@@ -126,20 +126,6 @@
 <div id="fl-main-middle">
 	<div class="container">
 		<div class="wrapper">
-		<c:forEach var="user" items="${matchingList}" >
-			<figure>
-			<a href="otherPersonalServlet?uid=${user.u_id }"><img src="${user.i_p_url }" alt="" /></a>
-				<figcaption>
-					<p>${user.username}</p>
-					<p>${user.age}岁&nbsp;&nbsp;</p>
-					<p>${user.province }&nbsp;${user.city }&nbsp;${user.country }&nbsp;&nbsp;</p>
-					<p>${user.information.height}cm</p>
-					<p>${user.information.motto}</p>
-				</figcaption>
-				
-			</figure>
-		
-		</c:forEach>
 		<c:forEach var="user" items="${userList}" >
 			<figure>
 			<a href="otherPersonalServlet?uid=${user.u_id }"><img src="${user.i_p_url }" alt="" /></a>
@@ -154,7 +140,7 @@
 			</figure>
 		
 		</c:forEach>
-				<figure>
+				<!-- <figure>
 			<a href="otherPersonalServlet?uid=2014354131"><img src="./upload/g3.png" alt="" /></a>
 				<figcaption>
 					<p>一缕春风</p>
@@ -281,7 +267,7 @@
 					<p>学会做个彪悍的姑娘 不矫揉不造作不发嗲不懦弱 怎么骄傲怎么活.</p>
 				</figcaption>
 				
-			</figure>
+			</figure> -->
 		</div>
 	</div>
 </div>

@@ -1144,9 +1144,13 @@ public class OptionDB {
 		String country=user.getCountry();
 		String uid =user.getU_id();
 		int age=user.getAge();
+		int ageEnd=user.getAgeEnd();
 		int salary=user.getSalary();
+		int salaryEnd=user.getSalaryEnd();
 		Information information=user.getInformation();
 	    int height=information.getHeight();
+	    int heightEnd=information.getHeightEnd();
+	    String mUid=information.getUid();
 	    String hobby=information.getHobby();
 	    String motto=information.getMotto();
 	    String blood_type=information.getBloodtype();
@@ -1159,13 +1163,17 @@ public class OptionDB {
 		String str4="city = ? and ";
 		String str5="country = ? and ";
 		String str6="age >= ? and ";
-		String str7="salary >= ? and ";
-		String str8="height >= ? and ";		
-		String str9="blood_type = ? and ";
-		String str10="house = ? and ";
-		String str11="have_child_not = ? and ";
-		String str12="graduate_school = ? and ";
-		String str13="u_id= ? and ";
+		String str7="age <= ? and ";
+		String str8="salary >= ? and ";
+		String str9="salary <= ? and ";
+		String str10="height >= ? and ";		
+		String str11="height <= ? and ";	
+		String str12="blood_type = ? and ";
+		String str13="house = ? and ";
+		String str14="have_child_not = ? and ";
+		String str15="graduate_school = ? and ";
+		String str16="(u_id like ? or username like ? ) and ";
+		String str17="u_id !=?  and ";
 		HashMap<Integer, Integer> hash=new HashMap<Integer ,Integer>();
 		HashMap<Integer, Object> hash1=new HashMap<Integer,Object>();
 		int index=0;
@@ -1202,53 +1210,82 @@ public class OptionDB {
 			hash.put(index, 2);
 			hash1.put(index, age);
 		}
-	
-		if(!(salary==0)){
+		if(!(ageEnd==0)){
 			index++;
 			str1=str1+str7;
 			hash.put(index, 2);
-			hash1.put(index, salary);
+			hash1.put(index, ageEnd);
 		}
-			
-		if(!(height==0)){
+	
+		if(!(salary==0)){
 			index++;
 			str1=str1+str8;
 			hash.put(index, 2);
-			hash1.put(index, height);
+			hash1.put(index, salary);
 		}
-			
-		if(!(blood_type==null)){
+		if(!(salaryEnd==0)){
 			index++;
 			str1=str1+str9;
+			hash.put(index, 2);
+			hash1.put(index, salaryEnd);
+		}	
+		
+		if(!(height==0)){
+			index++;
+			str1=str1+str10;
+			hash.put(index, 2);
+			hash1.put(index, height);
+		}
+		if(!(heightEnd==0)){
+			index++;
+			str1=str1+str11;
+			hash.put(index, 2);
+			hash1.put(index, heightEnd);
+		}
+		if(!(blood_type==null)){
+			index++;
+			str1=str1+str12;
 			hash.put(index, 1);
 			hash1.put(index, blood_type);
 		}
 						
 		if(!(house==null)){
 			index++;
-			str1=str1+str10;
+			str1=str1+str13;
 			hash.put(index, 1);
 			hash1.put(index, house);
 		}
 			
 		if(!(child==null)){
 			index++;
-			str1=str1+str11;
+			str1=str1+str14;
 			hash.put(index, 1);
 			hash1.put(index, child);
 		}
 			
 		if(!(graduate_school==null)){
 			index++;
-			str1=str1+str12;
+			str1=str1+str15;
 			hash.put(index,1);
 			hash1.put(index, graduate_school);
 		}
 		if(!(uid=="")){
 			index++;
-			str1=str1+str13;
+			str1=str1+str16;
 			hash.put(index,1);
-			hash1.put(index, uid);
+			hash1.put(index, "%"+uid+"%");
+		}
+		if(!(uid=="")){
+			index++;
+			hash.put(index,1);
+			hash1.put(index, "%"+uid+"%");
+		}
+		
+		if(!(mUid=="")){
+			index++;
+			str1=str1+str17;
+			hash.put(index,1);
+			hash1.put(index, mUid);
 		}
 		if(str1=="select * from user natural join information where ")
 			{str1="select * from user natural join information order by date DESC;";
@@ -1266,7 +1303,6 @@ public class OptionDB {
 					pstmt.setInt(i, (int)hash1.get(i));
 				}
 			}
-			System.out.println(pstmt.asSql());
 			//写进数据库
 			rs=pstmt.executeQuery();
 			while(rs.next()){
@@ -1311,456 +1347,4 @@ public class OptionDB {
 		}
 		return user;
 	}
-	/*public static void main(String[] args) {
-		OptionDB o=new OptionDB();
-	    o.alterPhoto();
-	}*/
-	/*@SuppressWarnings("finally")
-	@Override
-	public boolean softDeletePlayer(Connection conn, Player player) {
-		ResultSet rs = null;
-		PreparedStatement pstmt = null;
-		int result=0;
-		try {
-			String pid =player.getPid();
-			conn.setAutoCommit(false);
-			pstmt=(PreparedStatement) conn.prepareStatement("select * from player where pid =? and type=1");
-			pstmt.setString(1, pid);
-			rs =pstmt.executeQuery();
-			if(rs.next()){
-				do{
-					pstmt=(PreparedStatement) conn.prepareStatement("update trade set type =0 where pid =? and type=1");
-					pstmt.setString(1, rs.getString("pid"));
-					pstmt.addBatch();
-				}while(rs.next());
-				pstmt.executeBatch();	
-				pstmt.clearBatch();
-			}
-			pstmt=(PreparedStatement) conn.prepareStatement("update player set type =0 where pid =? and type=1");
-			pstmt.setString(1, pid);
-			result=pstmt.executeUpdate();
-			conn.commit();
-		} catch (SQLException e) {
-			try {
-				conn.rollback();
-			} catch (SQLException e1) {
-				e1.printStackTrace();
-			}
-			e.printStackTrace();
-		}finally {
-			try {
-				conn.setAutoCommit(true);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}finally {
-				ConDataBase.closeConn(rs, pstmt, conn);
-				return result!=0?true :false;
-			}
-		}
-	}
-	@SuppressWarnings("finally")
-	@Override
-	public boolean updatePlayer(Connection conn,Player player) {
-		ResultSet rs = null;
-		PreparedStatement pstmt = null;
-		int result=0;
-		try {
-			String pid =player.getPid();
-			String pname=player.getPname();
-			String url =player.getPpic();
-			if(pname!=null){
-				if(url!=null){
-					pstmt=(PreparedStatement) conn.prepareStatement("update player set pname=?,ppic =? where pid =? and type=1");
-					pstmt.setString(1, pname);
-					File f =new File(url);
-					FileInputStream fis =getFISFromFile(f);
-					if(fis!=null){
-						 byte[] buf=new byte[fis.available()];   
-			                //将文件读入到byte[]中   
-						 	fis.read(buf);   
-						 	pstmt.setBytes(2, buf);  
-					}else{
-						return false;
-					}
-					pstmt.setString(3, pid);
-					result=pstmt.executeUpdate();
-				}else{
-					pstmt=(PreparedStatement) conn.prepareStatement("update player set pname= ? where pid=? and type=1");
-					pstmt.setString(1, pname);
-					pstmt.setString(2, pid);
-					result=pstmt.executeUpdate();	
-				}
-				
-			}else if(url!=null){
-				pstmt=(PreparedStatement) conn.prepareStatement("update player set ppic=? where pid =? and type=1");
-				File f =new File(url);
-				FileInputStream fis =getFISFromFile(f);
-				if(fis!=null){
-					 byte[] buf=new byte[fis.available()];   
-		                //将文件读入到byte[]中   
-					 	fis.read(buf);   
-					 	pstmt.setBytes(1, buf);  
-				}else{
-					return false;
-				}
-				pstmt.setString(2, pid);
-				result=pstmt.executeUpdate();
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			ConDataBase.closeConn(rs, pstmt, conn);
-			return result!=0?true :false;
-		}
-	}
-	
-	@SuppressWarnings("finally")
-	@Override
-	public boolean hardDeletePlayer(Connection conn, Player player) {
-		ResultSet rs = null;
-		PreparedStatement pstmt = null;
-		int result=0;
-		try {
-			String pid =player.getPid();
-			conn.setAutoCommit(false);
-			pstmt=(PreparedStatement) conn.prepareStatement("select * from trade where pid =?");
-			pstmt.setString(1, pid);
-			rs =pstmt.executeQuery();
-			if(rs.next()){
-				do{
-					pstmt=(PreparedStatement) conn.prepareStatement("delete from trade where pid=?");
-					pstmt.setString(1, rs.getString("pid"));
-					pstmt.addBatch();
-				}while(rs.next());
-				pstmt.executeBatch();	
-				pstmt.clearBatch();
-			}
-			pstmt=(PreparedStatement) conn.prepareStatement("delete from player where pid =?");
-			pstmt.setString(1, pid);
-			result=pstmt.executeUpdate();
-			conn.commit();
-		} catch (SQLException e) {
-			try {
-				conn.rollback();
-			} catch (SQLException e1) {
-				e1.printStackTrace();
-			}
-			e.printStackTrace();
-		}finally {
-			try {
-				conn.setAutoCommit(true);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}finally {
-				ConDataBase.closeConn(rs, pstmt, conn);
-				return result!=0?true :false;
-			}
-		}
-	}
-	
-	*//***
-	 * Team
-	 * @param conn
-	 * @param contentValues
-	 * @return
-	 *//*
-	@SuppressWarnings("finally")
-	public boolean insertTeam(Connection conn, Team team) {
-		ResultSet rs = null;
-		PreparedStatement pstmt = null;
-		int result=0;
-		try {
-			String tid =team.getTid();
-			String tname=team.getTname();
-			String url =team.getTpic();
-			pstmt=(PreparedStatement) conn.prepareStatement("insert into team values(?,?,?,1)");
-			pstmt.setString(1, tid);
-			pstmt.setString(2, tname);
-			if(url!=null){
-				File f =new File(url);
-				FileInputStream fis =getFISFromFile(f);
-				if(fis!=null){
-					 byte[] buf=new byte[fis.available()];   
-		                //将文件读入到byte[]中   
-					 	fis.read(buf);   
-					 	pstmt.setBytes(3, buf);  
-				}else{
-					return false;
-				}
-			}else{
-				Blob pic =null;
-				pstmt.setBlob(3, pic);	
-			}
-			result=pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			ConDataBase.closeConn(rs, pstmt, conn);
-			return result!=0?true :false;
-		}
-	}
-	@SuppressWarnings("finally")
-	@Override
-	public boolean softDeleteTeam(Connection conn, Team team) {
-		ResultSet rs = null;
-		PreparedStatement pstmt = null;
-		int result=0;
-		try {
-			String tid =team.getTid();
-			conn.setAutoCommit(false);
-			pstmt=(PreparedStatement) conn.prepareStatement("select * from trade where tid =? and type=1");
-			pstmt.setString(1, tid);
-			rs =pstmt.executeQuery();
-			if(rs.next()){
-				do{
-					pstmt=(PreparedStatement) conn.prepareStatement("update trade set type =0 where tid =? and type=1");
-					pstmt.setString(1, rs.getString("tid"));
-					pstmt.addBatch();
-				}while(rs.next());
-				pstmt.executeBatch();	
-				pstmt.clearBatch();
-			}
-			pstmt=(PreparedStatement) conn.prepareStatement("update team set type =0 where tid =? and type=1");
-			pstmt.setString(1, tid);
-			result=pstmt.executeUpdate();
-			conn.commit();
-		} catch (SQLException e) {
-			try {
-				conn.rollback();
-			} catch (SQLException e1) {
-				e1.printStackTrace();
-			}
-			e.printStackTrace();
-		}finally {
-			try {
-				conn.setAutoCommit(true);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}finally {
-				ConDataBase.closeConn(rs, pstmt, conn);
-				return result!=0?true :false;
-			}
-		}
-	}
-	@SuppressWarnings("finally")
-	@Override
-	public boolean updateTeam(Connection conn, Team team) {
-		ResultSet rs = null;
-		PreparedStatement pstmt = null;
-		int result=0;
-		try {
-			String tid =team.getTid();
-			String tname=team.getTname();
-			String url =team.getTpic();
-			if(tname!=null){
-				if(url!=null){
-					pstmt=(PreparedStatement) conn.prepareStatement("update team set tname=?,tpic =? where tid =? and type=1");
-					pstmt.setString(1, tname);
-					File f =new File(url);
-					FileInputStream fis =getFISFromFile(f);
-					if(fis!=null){
-						 byte[] buf=new byte[fis.available()];   
-			                //将文件读入到byte[]中   
-						 	fis.read(buf);   
-						 	pstmt.setBytes(2, buf);  
-					}else{
-						return false;
-					}
-					pstmt.setString(3, tid);
-					result=pstmt.executeUpdate();
-				}else{
-					pstmt=(PreparedStatement) conn.prepareStatement("update team set tname= ? where tid=? and type=1");
-					pstmt.setString(1, tname);
-					pstmt.setString(2, tid);
-					result=pstmt.executeUpdate();	
-				}
-				
-			}else if(url!=null){
-				pstmt=(PreparedStatement) conn.prepareStatement("update team set tpic=? where tid =? and type=1");
-				File f =new File(url);
-				FileInputStream fis =getFISFromFile(f);
-				if(fis!=null){
-					 byte[] buf=new byte[fis.available()];   
-		                //将文件读入到byte[]中   
-					 	fis.read(buf);   
-					 	pstmt.setBytes(1, buf);  
-				}else{
-					return false;
-				}
-				pstmt.setString(2, tid);
-				result=pstmt.executeUpdate();
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			ConDataBase.closeConn(rs, pstmt, conn);
-			return result!=0?true :false;
-		}
-	}
-	
-	@SuppressWarnings("finally")
-	@Override
-	public boolean hardDeleteTeam(Connection conn, Team team) {
-		ResultSet rs = null;
-		PreparedStatement pstmt = null;
-		int result=0;
-		try {
-			String tid =team.getTid();
-			conn.setAutoCommit(false);
-			pstmt=(PreparedStatement) conn.prepareStatement("select * from trade where tid =?");
-			pstmt.setString(1, tid);
-			rs =pstmt.executeQuery();
-			if(rs.next()){
-				do{
-					pstmt=(PreparedStatement) conn.prepareStatement("delete from trade where tid=?");
-					pstmt.setString(1, rs.getString("tid"));
-					pstmt.addBatch();
-				}while(rs.next());
-				pstmt.executeBatch();	
-				pstmt.clearBatch();
-			}
-			pstmt=(PreparedStatement) conn.prepareStatement("delete from team where tid =?");
-			pstmt.setString(1, tid);
-			result=pstmt.executeUpdate();
-			conn.commit();
-		} catch (SQLException e) {
-			try {
-				conn.rollback();
-			} catch (SQLException e1) {
-				e1.printStackTrace();
-			}
-			e.printStackTrace();
-		}finally {
-			try {
-				conn.setAutoCommit(true);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}finally {
-				ConDataBase.closeConn(rs, pstmt, conn);
-				return result!=0?true :false;
-			}
-		}
-	}
-	*//***
-	 * Trade
-	 * @param conn
-	 * @param contentValues
-	 * @return
-	 *//*
-	@SuppressWarnings({ "resource", "finally" })
-	@Override
-	public boolean insertTrade(Connection conn, Trade trade) {
-		ResultSet rs = null;
-		PreparedStatement pstmt = null;
-		int result=0;
-		try {
-			String pid =trade.getPid();
-			pstmt=(PreparedStatement) conn.prepareStatement("select * from player where pid=? and type =1");
-			pstmt.setString(1, pid);
-			rs =pstmt.executeQuery();
-			if(!rs.next()){
-				System.out.println("请确认该球员存在");
-				return false;
-			}
-			String tid =trade.getTid();
-			pstmt=(PreparedStatement) conn.prepareStatement("select * from team where tid=? and type =1");
-			pstmt.setString(1, tid);
-			rs =pstmt.executeQuery();
-			if(!rs.next()){
-				System.out.println("请确认该球队存在");
-				return false;
-			}
-			int salary=trade.getSalary();
-			pstmt=(PreparedStatement) conn.prepareStatement("insert into trade values(?,?,?,now(),1)");
-			pstmt.setString(1, pid);
-			pstmt.setString(2, tid);
-			pstmt.setInt(3, salary);
-			result=pstmt.executeUpdate();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			ConDataBase.closeConn(rs, pstmt, conn);
-			return result!=0?true :false;
-		}
-	}
-	@SuppressWarnings("finally")
-	@Override
-	public boolean softDeleteTrade(Connection conn, Trade trade) {
-		ResultSet rs = null;
-		PreparedStatement pstmt = null;
-		int result=0;
-		try {
-			String pid =trade.getPid();
-			String tid =trade.getTid();
-			pstmt=(PreparedStatement) conn.prepareStatement("update trade set type =0 where pid =? and tid =? and type=1");
-			pstmt.setString(1, pid);
-			pstmt.setString(2, tid);
-			result=pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			ConDataBase.closeConn(rs, pstmt, conn);
-			return result!=0?true :false;
-		}
-	}
-	@SuppressWarnings("finally")
-	@Override
-	public boolean updateTrade(Connection conn, Trade trade) {
-		ResultSet rs = null;
-		PreparedStatement pstmt = null;
-		int result=0;
-		try {
-			String pid =trade.getPid();
-			String tid =trade.getTid();
-			int salary=trade.getSalary();
-			pstmt=(PreparedStatement) conn.prepareStatement("update trade set salary=? where pid=? and tid =? and type=1");
-			pstmt.setInt(1, salary);
-			pstmt.setString(2, pid);
-			pstmt.setString(3, tid);
-			result=pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			ConDataBase.closeConn(rs, pstmt, conn);
-			return result!=0?true :false;
-		}
-	}
-	
-	@SuppressWarnings("finally")
-	@Override
-	public boolean hardDeleteTrade(Connection conn, Trade trade) {
-		ResultSet rs = null;
-		PreparedStatement pstmt = null;
-		int result=0;
-		try {
-			String pid =trade.getPid();
-			String tid =trade.getTid();
-			pstmt=(PreparedStatement) conn.prepareStatement("delete from trade where pid=? and tid =?");
-			pstmt.setString(1, pid);
-			pstmt.setString(2, tid);
-			result=pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			ConDataBase.closeConn(rs, pstmt, conn);
-			return result!=0?true :false;
-		}
-	}
-	
-	public FileInputStream getFISFromFile(File file) {
-		FileInputStream fis=null;
-//		System.out.println(pic.getAbsolutePath());
-		if(file.isFile()){
-			try {
-				fis =new FileInputStream(file);
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}
-		}else{
-			System.out.println("图片不存在!");
-		}
-		return fis;
-	}
-	*/
 }
