@@ -52,11 +52,25 @@
 	margin-top:10px;
 	color:#fff;
 }
+.fl-praise-btn,.fl-chat-btn{
+	background: #5A5F68;
+	border:none;
+	margin-top:10px;
+	color:#fff;
+}
 .fl-addFriend-btn:hover,.fl-addFriend-btn:focus,.fl-addFriend-btn:active{
 	background: #44464A;
 	color:#fff;
 }
 .fl-hadAddfriend-btn:hover,.fl-hadAddfriend-btn:focus,.fl-hadAddfriend-btn:active{
+	background: #44464A;
+	color:#fff;
+}
+.fl-praise-btn:hover,.fl-praise-btn:focus,.fl-praise-btn:active{
+	background: #44464A;
+	color:#fff;
+}
+.fl-chat-btn:hover,.fl-chat-btn:focus,.fl-chat-btn:active{
 	background: #44464A;
 	color:#fff;
 }
