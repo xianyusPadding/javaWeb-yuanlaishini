@@ -6,6 +6,8 @@
 }
 #fl-main-top .fl-selectNavber2{
 	position: absolute;
+	background: #ff;
+	z-index:3;
 }
 
 .fl-Select-navbar>li{
@@ -22,10 +24,14 @@
 .fl-Select-navbar>li ul li{
 	line-height: 30px;
 }
+.fl-Select-navbar .btn{
+	padding:3px 6px; 
+}
 .fl-salary-input{
 	width:150px;
 }
 .fl-navbarLeft-search{
+	margin-top:15px;
 	float:right;
 }
 .fl-navbarLeft-search input{
@@ -41,10 +47,10 @@
 	padding:5px 10px;
 }
 #fl-main-middle .wrapper{
-	column-width: 174px;
+	column-width: 150px;
 }
 #fl-main-middle figure{
-	width:174px;
+	width:150px;
 	padding:10px;
 	margin-bottom:10px;
 	display: inline-block;
@@ -56,7 +62,7 @@
 	border:2px solid #D9534F;
 }
 #fl-main-middle figure img{
-	width:150px;
+	width:126px;
 	cursor: pointer;
 	/*border:7px solid #ddd;*/
 }
@@ -143,6 +149,7 @@
 	font-size:10px;
 	-webkit-transform:translateY(-50%);
 }
+
 @keyframes Rotate
 {
 	0%,100%{
@@ -164,6 +171,24 @@
 	0%{
 		-webkit-transform:rotate(0deg);
 		transform:rotate(0deg);
+	}
+}
+
+@media (min-width: 400px){
+	#fl-main-middle .wrapper{
+		column-width: 174px;
+	}
+	#fl-main-middle figure{
+		width:174px;
+	}
+	#fl-main-middle figure img{
+		width:150px;
+	}
+	.fl-Select-navbar .btn{
+		padding:6px 12px; 
+	}
+	.fl-navbarLeft-search{
+		margin-top:0px;
 	}
 }
 

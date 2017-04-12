@@ -1,6 +1,9 @@
 $(function(){
 	//让分组里的下拉列表和父元素的li等宽
 	$(".dropdown-menu").css("width",$(".dropdown").width()+"px");
+	$(window).resize(function(){
+		$(".dropdown-menu").css("width",$(".dropdown").width()+"px");
+	})
 	
 	//index大于2的分组隐藏
 	$.each($(".fl-navbar-group>li"),function(index,value){
@@ -26,6 +29,13 @@ $(function(){
 		})
 		$(".fl-group-closeBtn").css("display","none");
 		$(".fl-group-openBtn").css("display","");
+	})
+	
+	//展开按钮左边距
+	$(".fl-group-openBtn").css('margin-left',$('.fl-navbar-left').width()*0.4+'px');
+	
+	$(window).resize(function(){
+		$(".fl-group-openBtn").css('margin-left',$('.fl-navbar-left').width()*0.4+'px');
 	})
 
 	//显示评论

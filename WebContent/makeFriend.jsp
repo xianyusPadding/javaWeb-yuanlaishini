@@ -61,7 +61,7 @@
 	<div class="container" style="">
 		<div class="row">
 			<div class="fl-navbar-left">	
-				<p style="font-size: 45px;font-family:'GoodVibrationsR9d7d6b9c3189d8';">
+				<p class="fl-page-title">
 					 romantic page
 				</p>
 					<div class="input-group fl-navbarLeft-search" style="margin:5px">
@@ -108,7 +108,7 @@
 				<c:forEach var="s" items="${shareList}" varStatus="s_status">
 					<div class="row fl-dynamic" style="margin-top:0">
 						<div class="row">
-							<div class="col-md-1" style="float:left">
+							<div class="col-md-1 col-xs-2" style="float:left">
 								<c:choose>
 									<c:when test="${s.user.u_id ==user.u_id}">
 										<a href="personalServlet"><img src="${s.user.i_p_url }" class="fl-dynamic-img" alt=""></a>
@@ -118,15 +118,15 @@
 									</c:otherwise>
 								</c:choose>
 							</div>
-							<div class="col-md-11" style="float:left">
-								<h4>${s.user.username }</h4>
-								<p style="font-size: 12px">${s.date}</p>
-								<p style="font-size: 15px">${s.s_content}</p>
+							<div class="col-md-10 col-xs-9" style="float:left;margin-left:5px;">
+								<h4 class="fl-id">${s.user.username }</h4>
+								<p class="fl-time">${s.date}</p>
+								<p class="fl-Content">${s.s_content}</p>
 							</div>
 						</div>
 						<div class="row">
 							<ul class="nav nav-tabs nav-justified fl-comment-parent" style="">
-								<li style=""><a href="" style="border:none;">阅读(${s.readNum})</a></li>
+								<li><a href="" style="border:none;">阅读(${s.readNum})</a></li>
 								<li><a href="">转发</a></li>
 								<li class="fl-href-comment"><input type='text' value='${s.s_id }' hidden='hidden'><a href="#1">评论</a></li>
 								<li><a href="">赞(${s.startNum})</a></li>
@@ -136,7 +136,7 @@
 									<div class='col-md-1'>
 										<img class=''  src='${user.i_p_url }' style='border-radius: 50px;' alt=''/>
 									</div>
-									<textarea class='col-md-11 fl-commentText ' name='comment' cols='30' rows='3'  wrap='hard'></textarea>
+									<textarea class='col-md-10 fl-commentText ' name='comment' cols='30' rows='3'  wrap='hard'></textarea>
 									<input type='text' value='${s.s_id }' hidden='hidden'>
 								</div>
 								<div class='row fl-commentSubmit'>
