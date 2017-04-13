@@ -1211,21 +1211,21 @@ public class OptionDB {
 			hash1.put(index, sex);
 		}
 		
-		if(!(province=="")){
+		if(!(province==""||province.equals("undefined"))){
 			index++;
 			str1=str1+str3;
 			hash.put(index, 1);
 			hash1.put(index, province);
 		}
 			
-		if(!(city=="")){
+		if(!(city==""||city.equals("undefined"))){
 			index++;
 			str1=str1+str4;
 			hash.put(index, 1);
 			hash1.put(index, city);
 		}
 			
-		if(!(country=="")){
+		if(!(country==""||country.equals("undefined"))){
 			index++;
 			str1=str1+str5;
 			hash.put(index, 1);

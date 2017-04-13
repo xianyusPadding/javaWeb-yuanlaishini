@@ -31,6 +31,7 @@ public class UploadServlet extends HttpServlet {
 	// 上传文件存储目录
     //private static final String UPLOAD_DIRECTORY = "F:/javaworkspace/Itweb/WebContent/upload";
 	private static final String UPLOAD_DIRECTORY = "D:/web/Itweb/WebContent/upload";
+	private static boolean flag=false;
 	// 上传配置
     private static final int MEMORY_THRESHOLD   = 1024 * 1024 * 3;  // 3MB
     private static final int MAX_FILE_SIZE      = 1024 * 1024 * 40; // 40MB
@@ -106,6 +107,11 @@ public class UploadServlet extends HttpServlet {
                          String fileName = new File(item.getName()).getName();
                          String filePath = uploadPath + '/'+ fileName;
                          picPath = "./upload/" + fileName;
+                         String[] data=fileName.split("\\.");
+                         if(!(data[1].equals("jpg")||data[1].equals("jpeg")||data[1].equals("png"))){
+                        	 flag=true;
+                        	 throw new Exception("NOT a photo");
+                         }
                          File storeFile = new File(filePath);
                          // 保存文件到硬盘
                          item.write(storeFile);
@@ -131,8 +137,14 @@ public class UploadServlet extends HttpServlet {
                   }
               }
         } catch (Exception ex) {
-        	session.setAttribute("status",MyConstant.STATUS_UPLOAD_PHOTO);
-			response.sendRedirect(request.getContextPath()+"/errorServlet");
+        	if(flag){
+        		flag=false;
+        		session.setAttribute("status",MyConstant.STATUS_UPLOAD_IMG_TYPE);
+        		response.sendRedirect(request.getContextPath()+"/errorServlet"); 
+        	}else{
+            	session.setAttribute("status",MyConstant.STATUS_UPLOAD_PHOTO);
+    			response.sendRedirect(request.getContextPath()+"/errorServlet");
+        	}
         }
     }
 }

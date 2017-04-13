@@ -66,6 +66,10 @@ public class ErrorAction {
 				message="匹配失败！";
 				link="matching.jsp";
 				break ;
+			case MyConstant.STATUS_UPLOAD_IMG_TYPE:
+				message="请上传图片！";
+				link="personal.jsp";
+				break ;
 		}
 		return this;
 	}

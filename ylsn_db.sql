@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : wamp
-Source Server Version : 50617
+Source Server Version : 50051
 Source Host           : localhost:3306
 Source Database       : ylsn_db
 
 Target Server Type    : MYSQL
-Target Server Version : 50617
+Target Server Version : 50051
 File Encoding         : 65001
 
-Date: 2017-04-10 20:57:37
+Date: 2017-04-14 01:24:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,14 +20,14 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `album`;
 CREATE TABLE `album` (
-  `a_id` int(5) NOT NULL AUTO_INCREMENT,
+  `a_id` int(5) NOT NULL auto_increment,
   `u_id` varchar(10) NOT NULL,
   `a_title` varchar(50) NOT NULL,
-  `flag` varchar(5) NOT NULL DEFAULT '公开',
+  `flag` varchar(5) NOT NULL default '公开',
   `date` datetime NOT NULL,
-  PRIMARY KEY (`a_id`),
+  PRIMARY KEY  (`a_id`),
   KEY `u_id` (`u_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of album
@@ -54,19 +54,21 @@ INSERT INTO `album` VALUES ('26', '2014354124', '狄仁杰', '公开', '2017-04-
 -- ----------------------------
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
-  `c_id` int(5) NOT NULL AUTO_INCREMENT,
+  `c_id` int(5) NOT NULL auto_increment,
   `u_id` varchar(10) NOT NULL,
   `s_id` int(5) NOT NULL,
   `c_content` text NOT NULL,
   `date` datetime NOT NULL,
-  PRIMARY KEY (`c_id`),
+  PRIMARY KEY  (`c_id`),
   KEY `u_id` (`u_id`),
   KEY `s_id` (`s_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of comment
 -- ----------------------------
+INSERT INTO `comment` VALUES ('20', 'admin', '8', '心情不好', '2017-04-12 09:21:01');
+INSERT INTO `comment` VALUES ('21', 'admin', '6', '哈哈', '2017-04-12 16:41:46');
 
 -- ----------------------------
 -- Table structure for `friend`
@@ -75,22 +77,24 @@ DROP TABLE IF EXISTS `friend`;
 CREATE TABLE `friend` (
   `u_id` varchar(10) NOT NULL,
   `f_id` varchar(10) NOT NULL,
-  `friend` int(1) DEFAULT NULL,
-  `f_feeling` int(1) DEFAULT NULL,
-  `f_collection` int(1) DEFAULT NULL,
-  `data` datetime DEFAULT NULL,
-  PRIMARY KEY (`u_id`,`f_id`)
+  `friend` int(1) default NULL,
+  `f_feeling` int(1) default NULL,
+  `f_collection` int(1) default NULL,
+  `data` datetime default NULL,
+  PRIMARY KEY  (`u_id`,`f_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of friend
 -- ----------------------------
+INSERT INTO `friend` VALUES ('12345621', 'zzy110', '0', '0', '1', '2017-04-12 21:15:58');
 INSERT INTO `friend` VALUES ('2014354130', '2014354130', '0', '1', '0', '2017-04-10 00:27:11');
 INSERT INTO `friend` VALUES ('admin', '1231', '1', '0', '0', '2017-04-10 18:24:16');
 INSERT INTO `friend` VALUES ('admin', '12313', '1', '0', '0', '2017-04-10 19:09:19');
 INSERT INTO `friend` VALUES ('admin', '2014354130', '1', '0', '0', '2017-04-10 09:54:15');
 INSERT INTO `friend` VALUES ('admin', 'feilong', '1', '0', '0', '2017-04-09 21:21:49');
 INSERT INTO `friend` VALUES ('admin', 'xianyu', '1', '0', '0', '2017-04-09 22:45:47');
+INSERT INTO `friend` VALUES ('admin', 'zzy110', '1', '0', '0', '2017-04-12 17:06:31');
 INSERT INTO `friend` VALUES ('feilong', 'admin', '1', '0', '1', '2017-04-06 22:48:16');
 INSERT INTO `friend` VALUES ('minmin', 'xianyu', '1', '0', '0', '2017-04-09 23:21:52');
 INSERT INTO `friend` VALUES ('xianyu', 'feilong', '1', '0', '1', '2017-04-06 23:16:50');
@@ -100,23 +104,23 @@ INSERT INTO `friend` VALUES ('xianyu', 'feilong', '1', '0', '1', '2017-04-06 23:
 -- ----------------------------
 DROP TABLE IF EXISTS `information`;
 CREATE TABLE `information` (
-  `name` varchar(10) DEFAULT NULL,
+  `name` varchar(10) default NULL,
   `u_id` varchar(10) NOT NULL,
-  `hobby` varchar(100) DEFAULT NULL,
+  `hobby` varchar(100) default NULL,
   `motto` text,
-  `start` int(5) DEFAULT NULL,
+  `start` int(5) default NULL,
   `friend` text,
   `f_feeling` text,
   `f_collection` text,
-  `location` varchar(20) DEFAULT NULL,
-  `weight` int(3) DEFAULT NULL,
-  `blood_type` varchar(10) DEFAULT NULL,
-  `nation` varchar(10) DEFAULT NULL,
-  `house` varchar(20) DEFAULT NULL,
-  `have_child_not` varchar(5) DEFAULT NULL,
-  `graduate_school` varchar(50) DEFAULT NULL,
-  `height` int(2) DEFAULT NULL,
-  PRIMARY KEY (`u_id`)
+  `location` varchar(20) default NULL,
+  `weight` int(3) default NULL,
+  `blood_type` varchar(10) default NULL,
+  `nation` varchar(10) default NULL,
+  `house` varchar(20) default NULL,
+  `have_child_not` varchar(5) default NULL,
+  `graduate_school` varchar(50) default NULL,
+  `height` int(2) default NULL,
+  PRIMARY KEY  (`u_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -146,24 +150,25 @@ INSERT INTO `information` VALUES ('赵敏', 'minmin', null, '学会做个彪悍�
 INSERT INTO `information` VALUES ('龙', 'xianyu', null, '如果我只是个单纯的过客，为何要让我闯入你的生活？', '0', null, null, null, null, '62', 'AB型', '汉族', '已购房', '没有', '北鸟', '184');
 INSERT INTO `information` VALUES ('林雪儿', 'xueer', null, '想找个稳重，成熟的男生...', '0', null, null, null, null, '55', 'A型', '汉族', '和家人同住', '没有', '青鸟', '168');
 INSERT INTO `information` VALUES ('', 'zzy110', null, '我很帅，真的不骗你', '0', null, null, null, null, '60', '', '', '', '', '岭南师范学院', '182');
+INSERT INTO `information` VALUES (null, '易烊千玺我爱你', null, null, '0', null, null, null, null, '0', null, null, null, null, null, '170');
 
 -- ----------------------------
 -- Table structure for `share`
 -- ----------------------------
 DROP TABLE IF EXISTS `share`;
 CREATE TABLE `share` (
-  `s_id` int(5) NOT NULL AUTO_INCREMENT,
+  `s_id` int(5) NOT NULL auto_increment,
   `u_id` varchar(10) NOT NULL,
-  `s_title` varchar(50) DEFAULT NULL,
+  `s_title` varchar(50) default NULL,
   `s_content` text NOT NULL,
-  `s_p_url` varchar(20) DEFAULT NULL,
-  `startNum` int(5) DEFAULT '0',
-  `readNum` int(5) DEFAULT '0',
-  `flag` varchar(6) NOT NULL DEFAULT '动态',
+  `s_p_url` varchar(20) default NULL,
+  `startNum` int(5) default '0',
+  `readNum` int(5) default '0',
+  `flag` varchar(6) NOT NULL default '动态',
   `date` datetime NOT NULL,
-  PRIMARY KEY (`s_id`),
+  PRIMARY KEY  (`s_id`),
   KEY `u_id` (`u_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of share
@@ -203,21 +208,22 @@ INSERT INTO `share` VALUES ('51', '12310', null, '爱不是彼此凝视，而是
 INSERT INTO `share` VALUES ('52', '12312', null, '人的一生，都有一些说不出的秘密，挽不回的遗憾，触不到的梦想，忘不了的爱', 'null', '0', '0', '动态', '2017-04-10 10:46:49');
 INSERT INTO `share` VALUES ('53', '12313', null, '倘若你愿意陪我一起许愿。你是否会许下不分离的诺言。', 'null', '0', '0', '动态', '2017-04-10 10:48:19');
 INSERT INTO `share` VALUES ('54', 'zzy110', null, '我很帅，真的不骗你', 'null', '0', '0', '动态', '2017-04-10 10:52:43');
+INSERT INTO `share` VALUES ('55', 'admin', null, 'Hello', 'null', '0', '0', '动态', '2017-04-12 12:43:17');
 
 -- ----------------------------
 -- Table structure for `unloadphotoalbum`
 -- ----------------------------
 DROP TABLE IF EXISTS `unloadphotoalbum`;
 CREATE TABLE `unloadphotoalbum` (
-  `u_p_id` int(5) NOT NULL AUTO_INCREMENT,
+  `u_p_id` int(5) NOT NULL auto_increment,
   `u_id` varchar(10) NOT NULL,
   `a_id` int(5) NOT NULL,
   `a_p_url` text NOT NULL,
   `date` datetime NOT NULL,
-  PRIMARY KEY (`u_p_id`),
+  PRIMARY KEY  (`u_p_id`),
   KEY `u_id` (`u_id`),
   KEY `a_id` (`a_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of unloadphotoalbum
@@ -250,20 +256,20 @@ CREATE TABLE `user` (
   `sex` varchar(10) NOT NULL,
   `email` varchar(20) NOT NULL,
   `i_p_url` text,
-  `age` int(3) DEFAULT NULL,
-  `tall` int(3) DEFAULT NULL,
-  `salary` int(5) DEFAULT NULL,
-  `province` varchar(20) DEFAULT NULL,
-  `city` varchar(20) DEFAULT NULL,
-  `country` varchar(20) DEFAULT NULL,
+  `age` int(3) default NULL,
+  `tall` int(3) default NULL,
+  `salary` int(5) default NULL,
+  `province` varchar(20) default NULL,
+  `city` varchar(20) default NULL,
+  `country` varchar(20) default NULL,
   `date` datetime NOT NULL,
-  PRIMARY KEY (`u_id`)
+  PRIMARY KEY  (`u_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('Miss', 'admin', '123123123', '女', 'Miss@qq.com', './upload/photoalbum1.jpg', '30', '175', '12000', '广东省', '茂名市', '化州市', '2017-04-06 17:20:11');
+INSERT INTO `user` VALUES ('Miss', 'admin', '123123123', '女', 'Miss@qq.com', './upload/photoalbum1.jpg', '30', '175', '12000', '广东省', '茂名市', '化州市', '2017-04-14 01:23:38');
 INSERT INTO `user` VALUES ('飞龙', 'feilong', '123123123', '男', 'feilong@qq.com', './upload/photoalbum8.jpg', '22', '0', '5000', '广东省', '茂名市', '信宜市', '2017-04-09 23:00:41');
 INSERT INTO `user` VALUES ('咸鱼', 'xianyu', '123123123', '男', 'xianyu@qq.com', './upload/photoalbum7.jpg', '19', '0', '8000', '广东省', '广州市', '越秀区', '2017-04-09 23:01:14');
 INSERT INTO `user` VALUES ('鹹魚_一車事一車情 ', '841583918', 'long1019647822', '男', '841583918@qq.com', './upload/photoalbum3.jpg', '0', '0', '1000', '广东省', '茂名市', '信宜市', '2017-04-09 23:06:22');
@@ -287,3 +293,4 @@ INSERT INTO `user` VALUES ('暮年', '12310', 'long1019', '女', '10@163.com', '
 INSERT INTO `user` VALUES ('汉纸°', '12312', 'long1019', '男', '12@qq.com', './upload/fl-8.png', '23', '0', '5000', '湖南省', '常德市', '津市市', '2017-04-10 10:47:09');
 INSERT INTO `user` VALUES ('juny', '12313', 'long1019', '男', '13@163.com', './upload/fl-10.png', '29', '0', '12000', '广东省', '汕头市', '金平区', '2017-04-10 10:48:45');
 INSERT INTO `user` VALUES ('郑仲寅', 'zzy110', 'zzy110.......', '男', 'zzy@qq.com', './upload/fl-12.png', '24', '0', '20000', '广东省', '汕头市', '金平区', '2017-04-10 10:53:16');
+INSERT INTO `user` VALUES ('易烊千玺我爱你', '易烊千玺我爱你', '1234567890', '女', '1586454371@qq.com', './upload/head.png', '22', '0', '0', '广东省', '汕头市', '金平区', '2017-04-13 19:32:37');

@@ -15,4 +15,6 @@ public class MyConstant {
 	//更新用户详细信息
 	public final static int STATUS_USER_INFOR_UPDATE=10;
 	public final static int STATUS_MATCHING_SELECT=11;
+	
+	public final static int STATUS_UPLOAD_IMG_TYPE=12;
 }
