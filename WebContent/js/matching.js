@@ -147,4 +147,7 @@ $(function(){
 	    });
 		return false;
 	})
+	
+	alert($('body').width);
+	$('#fl-footer').css('margin-top')
 })

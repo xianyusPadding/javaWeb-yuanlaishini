@@ -6,10 +6,13 @@
 }
 #fl-main-top .fl-selectNavber2{
 	position: absolute;
-	background: #ff;
+	background: #fff;
 	z-index:3;
 }
-
+.fl-Select-navbar{
+	padding-left:0px;
+	margin-bottom:0px;
+}
 .fl-Select-navbar>li{
 	margin-left:10px;
 	float:left;

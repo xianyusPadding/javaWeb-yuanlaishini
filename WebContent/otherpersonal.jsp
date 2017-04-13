@@ -158,10 +158,10 @@
 								<!--评论区-->
 								<div class='fl-comment row' style='display: none;background: #B66F58;'>
 									<div class='row' >
-										<div class='col-md-1'>
-											<img class='' src='${user.i_p_url }' style='width:60px;height:60px;border-radius: 50px;'alt=''/>
+										<div class='col-md-1 col-xs-2'>
+											<img class='fl-dynamic-img' src='${user.i_p_url }' alt=''/>
 										</div>
-										<textarea class='col-md-11 fl-commentText ' name='comment' cols='30' rows='3'  wrap='hard'></textarea>
+										<textarea class='col-md-11 col-xs-10 fl-commentText ' name='comment' cols='30' rows='3'  wrap='hard'></textarea>
 										<input type='text' value='${s.s_id }' hidden='hidden'>
 									</div>
 									<div class='row fl-commentSubmit'>

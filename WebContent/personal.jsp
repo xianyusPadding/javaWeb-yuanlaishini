@@ -168,7 +168,7 @@
 								<div class='fl-comment row' style='display: none;background: #B66F58;'>
 									<div class='row' >
 										<div class='col-md-1 col-sm-1 col-xs-2'>
-											<img class='' src='${user.i_p_url }' style='width:60px;height:60px;border-radius: 50px;'alt=''/>
+											<img class='fl-dynamic-img' src='${user.i_p_url }' style='border-radius: 50px;'alt=''/>
 										</div>
 										<textarea class='col-md-11 col-sm-11 col-xs-10 fl-commentText ' name='comment' cols='30' rows='3'  wrap='hard'></textarea>
 										<input type='text' value='${s.s_id }' hidden='hidden'>
