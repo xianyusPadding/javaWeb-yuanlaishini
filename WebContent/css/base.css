@@ -108,7 +108,9 @@ a:hover{
 	background: #fff;
 
 }
-
+#fl-nav{
+	border:none;
+}
 
 #fl-footer{
 	/*width:100%;
@@ -124,7 +126,7 @@ a:hover{
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 	nav .container{
 		height: 50px;
 	}
@@ -150,10 +152,19 @@ a:hover{
 	#fl-footer{
 		font-size: 13px;
 	}
+	#navbar-collapse a{
+		color:#777;
+	}
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
+		background: #ddd;
+	}
+	.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
+		background: #EA6678;
+	}
 }
 @media (min-width: 769px) and (max-width: 992px){
 	#fl-nav .navbar-header{
-		width:140px;
+		width:135px;
 		/*background: red;*/
 	}
 }
