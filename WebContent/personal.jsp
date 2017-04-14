@@ -510,6 +510,8 @@
 			// 支持360浏览器 支持谷歌浏览器 支持火狐浏览器
 			var file = fileQuery.files[0];
 			var reader = new FileReader();
+			var show_img = $('#show');
+			var show_headphoto = $('#show-headphoto');
 			reader.onload = function(e) {
 
 				imgSrc = fileQuery.value;
@@ -517,6 +519,14 @@
 				strSrc = imgArr[imgArr.length - 1].toLowerCase();
 				if(strSrc.localeCompare('jpg') === 0 || strSrc.localeCompare('jpeg') === 0 || strSrc.localeCompare('gif') === 0 || strSrc.localeCompare('png') === 0) {
 					obj.setAttribute("src", e.target.result);
+					if(show_img.width()>400)
+						show_img.width("400");
+					if(show_img.height()>260)
+						show_img.height("260");
+					if(show_headphoto.width()>400)
+						show_headphoto.width("400");
+					if(show_headphoto.height()>260)
+						show_headphoto.height("260");
 				} else {
 					throw new Error('File type Error! please image file upload..');
 				}

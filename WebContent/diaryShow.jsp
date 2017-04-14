@@ -24,8 +24,6 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<p class="navbar-text navbar-right fl-login" style="margin-right: 5px;"><a href="#" class="navbar-link" id="fl-register">注册</a></p>
-			<p class="navbar-text navbar-right fl-login"><a href="#" class="navbar-link fl-login" id="fl-login">登陆</a></p>
 		</div>
 		
 		
@@ -44,23 +42,24 @@
 <div id="fl-main">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8 col-sm-8 col-xs-12" style="">
-				<textarea name="" rows="24" cols="" class="fl-diary-write col-md-12 col-xs-12" placeholder="来写写吧"></textarea>
-				<div class="fl-diary" class="col-md-12 col-xs-12" style=""></div>
-			</div>
-			<div class="col-md-4 col-sm-4 col-xs-12" style="border:2px solid #555;background: #fff;">
+		
+			<div class="col-md-4 col-sm-4 col-xs-12 fl-right" >
 				<div class="col-md-12 fl-center">
-					<img src="images/photoalbu1.jpg" alt="" style="width:70px;height:70px;border-radius:50px"/>
+					<img src="images/photoalbum1.jpg" alt="" />
 					<p class="fl-diary-id">myID</p>
 				</div>
 				<div class="col-md-12 fl-center" >
-					<buttton class="fl-writeDiary-btn btn btn-default" style="margin-bottom:10px;">写日记</buttton>
-					<p class="form-control center-block" style="width:30%">我的日记</p>
+					<buttton class="fl-writeDiary-btn btn btn-default" >写日记</buttton>
+					<p class="form-control center-block fl-mydiary-title" >我的日记</p>
 					<ul>
 						<li class="fl-diary-title">haha</li>
 					</ul>
-				</div>
-				
+				</div>	
+			</div>
+			
+			<div class="col-md-8 col-sm-8 col-xs-12 fl-left" >
+				<textarea name="" rows="24" cols="" class="fl-diary-write col-md-12 col-xs-12" placeholder="来写写吧"></textarea>
+				<div class="fl-diary" class="col-md-12 col-xs-12" ></div>
 			</div>
 		</div>
 	</div>
