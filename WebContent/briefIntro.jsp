@@ -15,10 +15,10 @@
 	<link href='http://cdn.webfont.youziku.com/webfonts/nomal/100824/46614/58eb444ff629d817a412b491.css' rel='stylesheet' type='text/css' />
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" id="fl-nav">
-	<div class="container">
+<nav class="navbar navbar-default navbar-fixed-top" id="fl-nav" style="background: #EA6678;">
+	<div class="container" >
 		<div class="navbar-header">
-			<a href="#" class="navbar-brand">LOGO缘来是你</a>
+			<a href="#" class="navbar-brand" style="margin:0;padding: 0;"><img src="images/logo3.png" alt=""/></a>
 		</div>
 		<div class="fl-navbar-main">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
@@ -84,7 +84,7 @@
 </div>
 
 <div id="fl-footer">
-	<div class="container text-muted" style="background:#EF95A8;height:50px;color:#000">
+	<div class="container text-muted" style="height:50px;color:#000">
 		<p style="text-align: center"><a href="">隐私保护</a> | <a href="">联系我们</a> | <a href="">帮助中心</a> | <a href="">交友提示</a> | <a href="">诚征英才</a></p>
 		<p style="text-align: center">©2016-2017 缘来是你官方网站All Right Reserved</p>
 </div>

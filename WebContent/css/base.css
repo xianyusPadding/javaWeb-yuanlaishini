@@ -23,6 +23,9 @@ a{
 a:hover{
 	text-decoration: none;
 }
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
+	background: #D94156;
+}
 .font1{
 	font-family:'VisbyRoundCF-Bo9f707cc45189d8';
 }
@@ -53,10 +56,22 @@ a:hover{
 	width:200px;
 }
 #fl-nav .fl-navbar-link:hover{
-	color: #EF95A8;
+	color: #663A40;
 	/*color:#fff;*/
 }
 .fl-navbar-main{
+	color:#000;
+}
+.navbar-default .navbar-link{
+	color:#fff;
+}
+.navbar-default .navbar-link:hover{
+	color: #663A40;
+}
+#navbar-collapse a{
+	color:#fff;
+}
+#navbar-collapse a:hover{
 	color:#000;
 }
 .navbar-toggle{
@@ -100,7 +115,7 @@ a:hover{
 	position: absolute;
 	bottom: -50px;*/
 	/*margin-top:1000px;*/
-	background:#EF95A8;
+	background: #EA6678;
 	height:60px;
 	font-size: 15px;
 }
