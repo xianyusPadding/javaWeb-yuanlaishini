@@ -21,8 +21,12 @@
 }
 #fl-main .fl-activity{
 	margin-bottom: 30px;
-	background:#eee;
-	
+	background:#eee;	
+}
+.fl-activity-main ul li figcaption h5{
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
 }
 #username-error,#fl-user-error,#fl-email-error,#fl-pass-error,#fl-password-error{
 	color:red;

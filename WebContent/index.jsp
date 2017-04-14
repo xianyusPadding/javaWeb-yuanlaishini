@@ -157,44 +157,44 @@
 						<div class="row">
 							<div class="col-md-6" style="position: relative;">
 								<h5>Kingle</h5>
-								<p>有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</p>
+								<p><a href="diaryShow.html?action=1">有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</a></p>
 							</div>
 							<div class="col-md-6 ">
 								<h5>等待漫长岁月</h5>
-								<p>缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</p>
+								<p><a href="diaryShow.html?action=2">缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</a></p>
 							</div>
 						</div>
 						
 						<div class="row">
 							<div class="col-md-6">
 								<h5>hikky<h5>
-								<p>却不知道后悔还是悲伤，连和你说话都懒得费劲了。婚姻就像是钟钱书先...</p>
+								<p><a href="diaryShow.html?action=3">却不知道后悔还是悲伤，连和你说话都懒得费劲了。婚姻就像是钟钱书先...</a></p>
 							</div>
 							<div class="col-md-6">
 								<h5>婷婷</h5>
-								<p>对的时间遇到对的人真系好难</p>
+								<p><a href="diaryShow.html?action=4">对的时间遇到对的人真系好难</a></p>
 							</div>
 						</div>
 						
 						<div class="row">
 							<div class="col-md-6">
 								<h5>Kingle</h5>
-								<p>有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难</p>
+								<p><a href="diaryShow.html?action=5">有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难</a></p>
 							</div>
 							<div class="col-md-6">
 								<h5>等待漫长岁月</h5>
-								<p>缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</p>
+								<p><a href="diaryShow.html?action=6">缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</a></p>
 							</div>
 						</div>
 						
 						<div class="row">
 							<div class="col-md-6">
 								<h5>hikky<h5>
-								<p>却不知道后悔还是悲伤，连和你说话都懒得费劲了。婚姻就像是钟钱书先...</p>
+								<p><a href="diaryShow.html?action=7">却不知道后悔还是悲伤，连和你说话都懒得费劲了。婚姻就像是钟钱书先...</a></p>
 							</div>
 							<div class="col-md-6">
 								<h5>婷婷</h5>
-								<p>对的时间遇到对的人真系好难</p>
+								<p><a href="diaryShow.html?action=8">对的时间遇到对的人真系好难</a></p>
 							</div>
 						</div>
 
