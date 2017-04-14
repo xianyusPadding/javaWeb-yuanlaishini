@@ -186,10 +186,10 @@
 	margin-bottom: 20px;
 }
 #fl-photoalbum-style div:nth-of-type(even) img{
-	transform: rotate(13deg);
+	transform: rotate(15deg);
 }
 #fl-photoalbum-style div:nth-of-type(odd) img{
-	transform: rotate(-13deg);
+	transform: rotate(-15deg);
 }
 #fl-photoalbum-style div img:hover{
 	transform: rotate(0deg);
@@ -270,13 +270,17 @@
 	top:0;
 	opacity: 0;
 }
-#fl-upload-photo,#fl-upload-headphoto{
+#fl-upload-photo{
 	position: relative;
 }
-.fl-btn-closeBulidUpload,.fl-btn-closeHeadphoto{
+.fl-btn-closeBulidUpload{
+	/*padding: 0 10px;*/
 	position: absolute;
 	left:0;
 	bottom: 5px;	
+}
+#fl-tab2 .fl-showPhoto{
+	
 }
 .fl-tab3-left{
 	background: #fff;
@@ -309,10 +313,6 @@
 .fl-tab3-details ul li{
 	line-height: 60px;
 	height:60px;
-}
-#fl-tab3 .fl-keep-btn{
-	width:50%;
-	margin:20px 0;
 }
 .fl-bigPhotoshow-img{
 	border:7px solid #eee;
