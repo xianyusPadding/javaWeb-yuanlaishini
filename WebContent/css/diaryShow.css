@@ -1,30 +1,23 @@
 #fl-main{
 	margin-top:50px;
 }
-.fl-left{
-	float:right;
+.fl-diary-write h3{
+	letter-spacing: 1px;
+	color:
 }
-.fl-right{
-	border:2px solid #555;
-	background: #fff;
-	float:left;
-	width:90%;
-	margin:0 15px 10px 15px;
-}
-.fl-center img{
-	width:70px;
-	height:70px;
-	border-radius:50px;
-	margin-top:10px;
+.fl-diary-write select,.fl-diary-write input,.fl-writeDiary-btn,.fl-diary-write button{
+	margin-bottom: 10px;
 }
 .fl-diary{
 	border:2px solid #9D9D9D;
+	margin-right: 10px;
 	height:500px;
 	display:none ;
-	background:#fff;
+	border-radius: 5px;
+	background: #fff;
 }
-.fl-writeDiary-btn{
-	margin-bottom:10px;
+.fl-diary h4,.fl-diary p{
+	color:#6A6868;
 }
 .fl-diary-title p{
 	overflow:hidden;
@@ -34,18 +27,56 @@
 .fl-diary-title p{
 	cursor: pointer;
 }
-.fl-mydiary-title{
-	width:50%;
+.fl-left{
+	float:right;
 }
-@media (min-width:500px ) {
+.fl-right{
+	border:2px solid #ccc;
+	background: #fff;
+	border-radius:5px;
+	float: left;
+	margin-bottom:20px;
+}
+.fl-right img{
+	border:1px solid #ccc;
+	width:70px;
+	height:70px;
+	border-radius:50px;
+	margin-top: 10px;
+}
+.fl-right select{
+	display: block;
+	margin:0 auto 10px auto;
+}
+.fl-diary-title ul li{
+	line-height:2;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+.fl-diary-title ul li:hover{
+	cursor: pointer;
+	color:#EF95A8;
+}
+#fl-add-group input,#fl-del-group input{
+	margin-top: 10px;
+}
+#fl-add-group button,#fl-del-group button{
+	margin-top: 10px;
+	float:right;
+}
+.ui-draggable-handle{
+	border:none;
+	border-bottom: 1px solid #ccc;
+	background: #fff;
+}
+@media (min-width: 400px) {
 	.fl-left{
 		float:left;
 	}
 	.fl-right{
-		width:30%;
 		float:right;
 	}
-	.fl-mydiary-title{
-		width:30%;
-	}
+	
 }
+
