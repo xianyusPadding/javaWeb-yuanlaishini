@@ -236,4 +236,14 @@
     <servlet-name>SearchServlet</servlet-name>
     <url-pattern>/searchServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateShareStart</display-name>
+    <servlet-name>UpdateShareStart</servlet-name>
+    <servlet-class>servlet.ajax.UpdateShareStart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateShareStart</servlet-name>
+    <url-pattern>/updateShareStart</url-pattern>
+  </servlet-mapping>
 </web-app>

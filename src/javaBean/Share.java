@@ -16,6 +16,10 @@ public class Share {
 	private List<Comment> listComment;
 	
 	
+	public Share() {
+		super();
+	}
+	
 	public List<Comment> getListComment() {
 		return listComment;
 	}

@@ -148,10 +148,10 @@
 								</div>
 								<div class="row">
 									<ul class="nav nav-tabs nav-justified" style="">
-										<li style=""><a href="">阅读(${s.readNum})</a></li>
+										<li><a>阅读(${s.readNum})</a></li>
 										<li><a href="">转发</a></li>
 										<li class="fl-href-comment"><input type='text' value='${s.s_id }' hidden='hidden'><a href="#1">评论</a></li>
-										<li><a href="">赞(${s.startNum})</a></li>
+										<li><input type='text' value='${s.s_id }' hidden='hidden'><a style='cursor:pointer;' class='clickStart'>赞(${s.startNum})</a></li>
 									</ul>
 								</div>
 							</div>

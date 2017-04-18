@@ -104,7 +104,7 @@
 					<button class="fl-group-closeBtn btn btn-default" style="margin:20px 0 10px 60px;display:none">收起</button>
 				
 			</div>
-			<div  class="col-md-7 col-md-offset-2 col-sm-9 col-sm-offset-3 col-xs-12" class="fl-center fl-main-middle">		
+			<div  id="share_content" class="col-md-7 col-md-offset-2 col-sm-9 col-sm-offset-3 col-xs-12" class="fl-center fl-main-middle">		
 				<c:forEach var="s" items="${shareList}" varStatus="s_status">
 					<div class="row fl-dynamic" style="margin-top:0">
 						<div class="row">
@@ -129,7 +129,14 @@
 								<li><a href="" style="border:none;">阅读(${s.readNum})</a></li>
 								<li><a href="">转发</a></li>
 								<li class="fl-href-comment"><input type='text' value='${s.s_id }' hidden='hidden'><a href="#1">评论</a></li>
-								<li><a href="">赞(${s.startNum})</a></li>
+								<c:choose>
+									<c:when test="${s.u_id==user.u_id }">
+									<li><input type='text' value='${s.s_id }' hidden='hidden'><a style='cursor:pointer;' class=''>赞(${s.startNum})</a></li>
+									</c:when>
+									<c:otherwise>
+									<li><input type='text' value='${s.s_id }' hidden='hidden'><a style='cursor:pointer;' class='clickStart'>赞(${s.startNum})</a></li>
+									</c:otherwise>
+								</c:choose>
 							</ul>
 							<div class='fl-comment row' style='display: none;background: #B66F58;'>
 								<div class='row' >
