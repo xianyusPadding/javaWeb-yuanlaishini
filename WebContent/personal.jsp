@@ -14,10 +14,12 @@
 	<script type="text/javascript" src="js/base.js"></script>
 	<script type="text/javascript" src="js/personal.js"></script>
 	<script type="text/javascript" src="js/area.js"></script>
+	<script type="text/javascript" src="js/diaryShow.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/jquery-ui.css">
 	<link rel="stylesheet" href="css/base.css">
 	<link rel="stylesheet" href="css/personal.css">
+	<link rel="stylesheet" href="css/diaryShow.css" />
 	<link href='http://cdn.webfont.youziku.com/webfonts/nomal/100824/47383/58e9f9a3f629d811b8f741c4.css' rel='stylesheet' type='text/css' />
 </head>
 <body>
@@ -119,7 +121,8 @@
 		<ul>
 			<li class="fl-tabs-link"><a href="#fl-tab1">个人动态</a></li>
 			<li class="fl-tabs-link"><a href="#fl-tab2">我的相册</a></li>
-			<li class="fl-tabs-link"><a href="#fl-tab3">管理中心</a></li>
+			<li class="fl-tabs-link"><a href="#fl-tab3">我的日记</a></li>
+			<li class="fl-tabs-link"><a href="#fl-tab4">管理中心</a></li>
 		</ul>
 		 <div id="fl-tab1">
 			<div id="container">
@@ -267,7 +270,7 @@
 		</form>
 		
 		
-		<div id='fl-tab3'>
+		<div id='fl-tab4'>
 			<div class='container'>
 				<div class='row' style='position: relative;background: ;'>
 					<div class='col-md-3 fl-tab3-left'>
@@ -435,6 +438,50 @@
 				</div>
 			</div>
 		</div>
+		<div id="fl-tab3">
+			<div class="row">
+				<div class="fl-right col-md-4 col-sm-4 col-xs-12">
+					<div class="col-md-12 fl-center">
+						<img src='<c:out value="${user.i_p_url}"></c:out>' alt='' />
+						<p><c:out value="${user.username}"></c:out></p> 
+					</div>
+					<div class="col-md-12 fl-center fl-diary-title" >
+						<buttton class="fl-writeDiary-btn btn btn-default">写日记</buttton>
+						<select name="" id="" class="btn btn-default" >
+							<option value="" >默认日记</option>
+						</select>
+						<ul>
+							<li class='fl-diaryTitle'>1.有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</li>
+							<li class='fl-diaryTitle'>2.缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</li>
+						</ul>
+					</div>
+					
+				</div>
+				
+				<div class="fl-left col-md-8 col-sm-8 col-xs-12" style="padding:0">				
+					<div class="fl-diary-write col-md-12 col-xs-12">
+						<select name="" id="" class="btn btn-default">
+							<option value="" >默认日记</option>
+						</select>
+						<button class="btn btn-default fl-delGroup-btn" style="float: right;">删除分组</button>
+						<button class="btn btn-default fl-addGroup-btn" style="float: right;margin-right:10px">添加分组</button>					
+						<input type="text" placeholder="标题" class="form-control"/>
+						<textarea name="" rows="24" cols="" class="col-md-12 col-xs-12 form-control" placeholder="来写写吧" ></textarea>
+						<button class=" btn btn-default" style="float: right;margin-top: 10px;">提交</button>
+					</div>				
+					<div class="fl-diary" class="col-md-12 col-xs-12">
+						<div class="fl-diary-tab" style="display: none;">
+							<h4 class="fl-center">日记1</h4>
+							<p>有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</p>
+						</div>
+						
+						<div class="fl-diary-tab" style="display: none;">
+							<h4 class="fl-center">日记2</h4>
+							<p>缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</p>
+						</div>					
+					</div>				
+				</div>
+		</div>
 	</div>
 			
 </div>
@@ -452,6 +499,16 @@
 </div>
 
 <div id="fl-background-img"></div>
+
+<div id="fl-add-group">
+	<input type="text" class="fl-addGroup-title form-control " placeholder="请输入分组名称："/>
+	<button class="btn btn-default fl-addGroup-okBtn" style="">确定</button>
+</div>
+
+<div id="fl-del-group">
+	<input type="text" class="fl-delGroup-title form-control " placeholder="请输入分组名称："/>
+	<button class="btn btn-default fl-delGroup-okBtn" style="">确定</button>
+</div>
 </body>
 <script type="text/javascript">
 	

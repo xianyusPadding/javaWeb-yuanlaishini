@@ -42,25 +42,49 @@
 <div id="fl-main">
 	<div class="container">
 		<div class="row">
-		
-			<div class="col-md-4 col-sm-4 col-xs-12 fl-right" >
+			
+			<div class="fl-right col-md-4 col-sm-4 col-xs-12">
 				<div class="col-md-12 fl-center">
-					<img src="images/photoalbum1.jpg" alt="" />
+					<img src="images/photoalbu22.jpg" alt="" />
 					<p class="fl-diary-id">myID</p>
 				</div>
-				<div class="col-md-12 fl-center" >
-					<buttton class="fl-writeDiary-btn btn btn-default" >写日记</buttton>
-					<p class="form-control center-block fl-mydiary-title" >我的日记</p>
+				<div class="col-md-12 fl-center fl-diary-title" >
+					<buttton class="fl-writeDiary-btn btn btn-default">写日记</buttton>
+					<select name="" id="" class="btn btn-default" >
+						<option value="" >默认日记</option>
+					</select>
 					<ul>
-						<li class="fl-diary-title">haha</li>
+						<li class='fl-diaryTitle'>1.有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</li>
+						<li class='fl-diaryTitle'>2.缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</li>
 					</ul>
-				</div>	
+				</div>
+				
 			</div>
 			
-			<div class="col-md-8 col-sm-8 col-xs-12 fl-left" >
-				<textarea name="" rows="24" cols="" class="fl-diary-write col-md-12 col-xs-12" placeholder="来写写吧"></textarea>
-				<div class="fl-diary" class="col-md-12 col-xs-12" ></div>
+			<div class="fl-left col-md-8 col-sm-8 col-xs-12" style="padding:0">				
+				<div class="fl-diary-write col-md-12 col-xs-12">
+					<select name="" id="" class="btn btn-default">
+						<option value="" >默认日记</option>
+					</select>
+					<button class="btn btn-default fl-delGroup-btn" style="float: right;">删除分组</button>
+					<button class="btn btn-default fl-addGroup-btn" style="float: right;margin-right:10px">添加分组</button>
+					<input type="text" placeholder="标题" class="form-control"/>
+					<textarea name="" rows="24" cols="" class="col-md-12 col-xs-12 form-control" placeholder="来写写吧" ></textarea>
+					<button class=" btn btn-default" style="float: right;margin-top: 10px;">提交</button>
+				</div>				
+				<div class="fl-diary" class="col-md-12 col-xs-12">
+					<div class="fl-diary-tab" style="display: none;">
+						<h4 class="fl-center">日记1</h4>
+						<p>有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</p>
+					</div>
+					
+					<div class="fl-diary-tab" style="display: none;">
+						<h4 class="fl-center">日记2</h4>
+						<p>缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</p>
+					</div>					
+				</div>				
 			</div>
+			
 		</div>
 	</div>
 </div>
@@ -72,6 +96,15 @@
 	</div>
 </div>
 <div id="fl-background-img"></div>
+
+<div id="fl-add-group">
+	<input type="text" class="fl-addGroup-title form-control " placeholder="请输入分组名称："/>
+	<button class="btn btn-default fl-addGroup-okBtn" style="">确定</button>
+</div>
+<div id="fl-del-group">
+	<input type="text" class="fl-delGroup-title form-control " placeholder="请输入分组名称："/>
+	<button class="btn btn-default fl-delGroup-okBtn" style="">确定</button>
+</div>
 </body>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery-ui.js"></script>
@@ -79,43 +112,4 @@
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/base.js"></script>
 <script type="text/javascript" src="js/diaryShow.js"></script>
-<script>
-	var url=window.location.href;
-	var str=url.split('?');
-	var action=str[1].split('=');
-	var id=$('.fl-diary-id');
-	var title=$('.fl-diary-title');
-	if(action[1]==1){
-	id.html("<p>Kingle</p>");
-	title.html("<p>1.有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</p>");
-	}
-	if(action[1]==2){
-	id.html("<p>等待漫长岁月</p>");
-	title.html("<p>1.缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</p>");
-	}
-	if(action[1]==3){
-	id.html("<p>hikky</p>");
-	title.html("<p>1.却不知道后悔还是悲伤，连和你说话都懒得费劲了。婚姻就像是钟钱书先..</p>");
-	}
-	if(action[1]==4){
-	id.html("<p>婷婷</p>");
-	title.html("<p>1.对的时间遇到对的人真系好难</p>");
-	}
-	if(action[1]==5){
-	id.html("<p>Kingle</p>");
-	title.html("<p>1.有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</p>");
-	}
-	if(action[1]==6){
-	id.html("<p>等待漫长岁月</p>");
-	title.html("<p>1.缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</p>");
-	}
-	if(action[1]==7){
-	id.html("<p>hikky</p>");
-	title.html("<p>1.却不知道后悔还是悲伤，连和你说话都懒得费劲了。婚姻就像是钟钱书先..</p>");
-	}
-	if(action[1]==8){
-	id.html("<p>婷婷</p>");
-	title.html("<p>1.对的时间遇到对的人真系好难</p>");
-	}
-</script>
 </html>
