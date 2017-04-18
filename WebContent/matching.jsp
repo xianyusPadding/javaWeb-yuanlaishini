@@ -143,9 +143,8 @@
 			<a href="otherPersonalServlet?uid=${user.u_id }"><img src="${user.i_p_url }" alt="" /></a>
 				<figcaption>
 					<p>${user.username}</p>
-					<c:if test="${user.age!=0}"><p>${user.age}岁&nbsp;&nbsp;</p></c:if>	
-					
-					<p>${user.province }&nbsp;${user.city }&nbsp;${user.country }&nbsp;&nbsp;</p><p>&nbsp;</p>
+					<c:if test="${user.age!=0}"><p>${user.age}岁 </p></c:if>	
+					<p>${user.province } ${user.city } ${user.country } </p><p>&nbsp;</p>
 					<c:if test="${user.information.height!=0}"><p>${user.information.height}cm</p></c:if>	
 				 <c:if test="${user.information.motto!=null}"><p>${user.information.motto}</p></c:if>	
 				</figcaption>

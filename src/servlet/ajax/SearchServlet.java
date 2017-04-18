@@ -91,13 +91,16 @@ public class SearchServlet extends HttpServlet {
 			  writer.append("<figure>")
 					.append("<a href='otherPersonalServlet?uid="+user1.getU_id()+"'><img src='"+user1.getI_p_url()+"' alt='' /></a>")
 					.append("<figcaption>")
-					.append("<p>"+user1.getUsername()+"</p>")
-					.append("<p>"+user1.getAge()+"岁&nbsp;&nbsp;</p>")
-					.append("<p"+user1.getProvince()+"&nbsp;"+user1.getCity()+"&nbsp;"+user1.getCountry()+"&nbsp;&nbsp;</p>")
-					.append("<p>"+user1.getInformation().getHeight()+"cm</p>")
-					.append("<p>"+user1.getInformation().getMotto()+"</p>")
-					.append("</figcaption>")
-					.append("</figure>");
+					.append("<p>"+user1.getUsername()+"</p>");
+			  		if(user1.getAge()!=0) writer.append("<p>"+user1.getAge()+"岁&nbsp;&nbsp;</p>");
+			  		
+			  		writer.append("<p>"+user1.getProvince()+" "+user1.getCity()+" "+user1.getCountry()+" </p><p>&nbsp;</p>");
+			  		
+			  		if(user1.getInformation().getHeight()!=0) writer.append("<p>"+user1.getInformation().getHeight()+"cm</p>");
+			  		
+			  		if(user1.getInformation().getMotto()!=null) writer.append("<p>"+user1.getInformation().getMotto()+"</p>");
+			  		
+			  		writer.append("</figcaption>").append("</figure>");
 		}
 	}
 }
