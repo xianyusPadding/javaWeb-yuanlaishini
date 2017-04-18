@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : wamp
-Source Server Version : 50051
+Source Server Version : 50617
 Source Host           : localhost:3306
 Source Database       : ylsn_db
 
 Target Server Type    : MYSQL
-Target Server Version : 50051
+Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2017-04-14 01:24:09
+Date: 2017-04-18 22:31:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,12 +20,12 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `album`;
 CREATE TABLE `album` (
-  `a_id` int(5) NOT NULL auto_increment,
+  `a_id` int(5) NOT NULL AUTO_INCREMENT,
   `u_id` varchar(10) NOT NULL,
   `a_title` varchar(50) NOT NULL,
-  `flag` varchar(5) NOT NULL default '公开',
+  `flag` varchar(5) NOT NULL DEFAULT '公开',
   `date` datetime NOT NULL,
-  PRIMARY KEY  (`a_id`),
+  PRIMARY KEY (`a_id`),
   KEY `u_id` (`u_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
@@ -54,12 +54,12 @@ INSERT INTO `album` VALUES ('26', '2014354124', '狄仁杰', '公开', '2017-04-
 -- ----------------------------
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
-  `c_id` int(5) NOT NULL auto_increment,
+  `c_id` int(5) NOT NULL AUTO_INCREMENT,
   `u_id` varchar(10) NOT NULL,
   `s_id` int(5) NOT NULL,
   `c_content` text NOT NULL,
   `date` datetime NOT NULL,
-  PRIMARY KEY  (`c_id`),
+  PRIMARY KEY (`c_id`),
   KEY `u_id` (`u_id`),
   KEY `s_id` (`s_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
@@ -71,17 +71,56 @@ INSERT INTO `comment` VALUES ('20', 'admin', '8', '心情不好', '2017-04-12 09
 INSERT INTO `comment` VALUES ('21', 'admin', '6', '哈哈', '2017-04-12 16:41:46');
 
 -- ----------------------------
+-- Table structure for `dgrounp`
+-- ----------------------------
+DROP TABLE IF EXISTS `dgrounp`;
+CREATE TABLE `dgrounp` (
+  `dg_id` int(5) NOT NULL AUTO_INCREMENT,
+  `u_id` varchar(10) NOT NULL,
+  `dg_title` varchar(50) NOT NULL,
+  `flag` varchar(5) NOT NULL DEFAULT '公开',
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`dg_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of dgrounp
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `diary`
+-- ----------------------------
+DROP TABLE IF EXISTS `diary`;
+CREATE TABLE `diary` (
+  `s_id` int(5) NOT NULL AUTO_INCREMENT,
+  `u_id` varchar(10) NOT NULL,
+  `s_title` varchar(50) DEFAULT NULL,
+  `s_content` text NOT NULL,
+  `s_p_url` varchar(20) DEFAULT NULL,
+  `startNum` int(5) DEFAULT '0',
+  `readNum` int(5) DEFAULT '0',
+  `flag` varchar(6) NOT NULL DEFAULT '动态',
+  `date` datetime NOT NULL,
+  ` dg_id` int(10) NOT NULL,
+  PRIMARY KEY (`s_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of diary
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `friend`
 -- ----------------------------
 DROP TABLE IF EXISTS `friend`;
 CREATE TABLE `friend` (
   `u_id` varchar(10) NOT NULL,
   `f_id` varchar(10) NOT NULL,
-  `friend` int(1) default NULL,
-  `f_feeling` int(1) default NULL,
-  `f_collection` int(1) default NULL,
-  `data` datetime default NULL,
-  PRIMARY KEY  (`u_id`,`f_id`)
+  `friend` int(1) DEFAULT NULL,
+  `f_feeling` int(1) DEFAULT NULL,
+  `f_collection` int(1) DEFAULT NULL,
+  `data` datetime DEFAULT NULL,
+  PRIMARY KEY (`u_id`,`f_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -104,23 +143,23 @@ INSERT INTO `friend` VALUES ('xianyu', 'feilong', '1', '0', '1', '2017-04-06 23:
 -- ----------------------------
 DROP TABLE IF EXISTS `information`;
 CREATE TABLE `information` (
-  `name` varchar(10) default NULL,
+  `name` varchar(10) DEFAULT NULL,
   `u_id` varchar(10) NOT NULL,
-  `hobby` varchar(100) default NULL,
+  `hobby` varchar(100) DEFAULT NULL,
   `motto` text,
-  `start` int(5) default NULL,
+  `start` int(5) DEFAULT NULL,
   `friend` text,
   `f_feeling` text,
   `f_collection` text,
-  `location` varchar(20) default NULL,
-  `weight` int(3) default NULL,
-  `blood_type` varchar(10) default NULL,
-  `nation` varchar(10) default NULL,
-  `house` varchar(20) default NULL,
-  `have_child_not` varchar(5) default NULL,
-  `graduate_school` varchar(50) default NULL,
-  `height` int(2) default NULL,
-  PRIMARY KEY  (`u_id`)
+  `location` varchar(20) DEFAULT NULL,
+  `weight` int(3) DEFAULT NULL,
+  `blood_type` varchar(10) DEFAULT NULL,
+  `nation` varchar(10) DEFAULT NULL,
+  `house` varchar(20) DEFAULT NULL,
+  `have_child_not` varchar(5) DEFAULT NULL,
+  `graduate_school` varchar(50) DEFAULT NULL,
+  `height` int(2) DEFAULT NULL,
+  PRIMARY KEY (`u_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -157,16 +196,16 @@ INSERT INTO `information` VALUES (null, '易烊千玺我爱你', null, null, '0'
 -- ----------------------------
 DROP TABLE IF EXISTS `share`;
 CREATE TABLE `share` (
-  `s_id` int(5) NOT NULL auto_increment,
+  `s_id` int(5) NOT NULL AUTO_INCREMENT,
   `u_id` varchar(10) NOT NULL,
-  `s_title` varchar(50) default NULL,
+  `s_title` varchar(50) DEFAULT NULL,
   `s_content` text NOT NULL,
-  `s_p_url` varchar(20) default NULL,
-  `startNum` int(5) default '0',
-  `readNum` int(5) default '0',
-  `flag` varchar(6) NOT NULL default '动态',
+  `s_p_url` varchar(20) DEFAULT NULL,
+  `startNum` int(5) DEFAULT '0',
+  `readNum` int(5) DEFAULT '0',
+  `flag` varchar(6) NOT NULL DEFAULT '动态',
   `date` datetime NOT NULL,
-  PRIMARY KEY  (`s_id`),
+  PRIMARY KEY (`s_id`),
   KEY `u_id` (`u_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
 
@@ -215,12 +254,12 @@ INSERT INTO `share` VALUES ('55', 'admin', null, 'Hello', 'null', '0', '0', '动
 -- ----------------------------
 DROP TABLE IF EXISTS `unloadphotoalbum`;
 CREATE TABLE `unloadphotoalbum` (
-  `u_p_id` int(5) NOT NULL auto_increment,
+  `u_p_id` int(5) NOT NULL AUTO_INCREMENT,
   `u_id` varchar(10) NOT NULL,
   `a_id` int(5) NOT NULL,
   `a_p_url` text NOT NULL,
   `date` datetime NOT NULL,
-  PRIMARY KEY  (`u_p_id`),
+  PRIMARY KEY (`u_p_id`),
   KEY `u_id` (`u_id`),
   KEY `a_id` (`a_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
@@ -256,14 +295,14 @@ CREATE TABLE `user` (
   `sex` varchar(10) NOT NULL,
   `email` varchar(20) NOT NULL,
   `i_p_url` text,
-  `age` int(3) default NULL,
-  `tall` int(3) default NULL,
-  `salary` int(5) default NULL,
-  `province` varchar(20) default NULL,
-  `city` varchar(20) default NULL,
-  `country` varchar(20) default NULL,
+  `age` int(3) DEFAULT NULL,
+  `tall` int(3) DEFAULT NULL,
+  `salary` int(5) DEFAULT NULL,
+  `province` varchar(20) DEFAULT NULL,
+  `city` varchar(20) DEFAULT NULL,
+  `country` varchar(20) DEFAULT NULL,
   `date` datetime NOT NULL,
-  PRIMARY KEY  (`u_id`)
+  PRIMARY KEY (`u_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------

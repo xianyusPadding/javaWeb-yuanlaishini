@@ -10,6 +10,8 @@ import com.mysql.jdbc.PreparedStatement;
 
 import javaBean.Album;
 import javaBean.Comment;
+import javaBean.Dgrounp;
+import javaBean.Diary;
 import javaBean.Friend;
 import javaBean.Information;
 import javaBean.Photo;
@@ -416,17 +418,17 @@ public class OptionDB {
 	}
 	
 	@SuppressWarnings("finally")
-	public boolean insertAlbum(Album album) {
+	public boolean insertDgrounp(Dgrounp dgrounp) {
 		Connection conn=ConDataBase.getConn();
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
 		int result=0;
 		try {
-			String uid=album.getU_id();
-			String atitle=album.getA_title();
-			String flag=album.getFlag();
+			String uid=dgrounp.getU_id();
+			String atitle=dgrounp.getDg_title();
+			String flag=dgrounp.getFlag();
 			pstmt=(PreparedStatement) conn.prepareStatement
-					("insert into album(u_id,a_title,flag,date) values(?,?,?,now())");
+					("insert into dgrounp(u_id,dg_title,flag,date) values(?,?,?,now())");
 			pstmt.setString(1, uid);
 			pstmt.setString(2, atitle);
 			pstmt.setString(3, flag);
@@ -439,17 +441,18 @@ public class OptionDB {
 			return result!=0?true :false;
 		}
 	}
-	//删除所有相册
+	
+	//删除所有日记组
 		@SuppressWarnings("finally")
-		public boolean delete_all_Album(Album album) {
+		public boolean delete_all_Dgrounp(Dgrounp dgrounp) {
 			Connection conn=ConDataBase.getConn();
 			ResultSet rs = null;
 			PreparedStatement pstmt = null;
 			int result=0;
 			try {
-			         String uid=album.getU_id();
+			         String uid=dgrounp.getU_id();
 				pstmt=(PreparedStatement) conn.prepareStatement
-						("delete  from album where u_id=?");
+						("delete  from dgrounp where u_id=?");
 				pstmt.setString(1, uid);
 				//写进数据库
 				result=pstmt.executeUpdate();
@@ -460,17 +463,18 @@ public class OptionDB {
 				return result!=0?true :false;
 			}
 		}
-		//删除单个相册
+		
+		//删除单个日记组
 		@SuppressWarnings("finally")
-		public boolean deleteAlbum(Album album) {
+		public boolean deleteDgrounp(Dgrounp dgrounp) {
 			Connection conn=ConDataBase.getConn();
 			ResultSet rs = null;
 			PreparedStatement pstmt = null;
 			int result=0;
 			try {
-			         int aid=album.getA_id();
+			         int aid=dgrounp.getDg_id();
 				pstmt=(PreparedStatement) conn.prepareStatement
-						("delete  from album where a_id=?");
+						("delete  from dgrounp where dg_id=?");
 				pstmt.setInt(1, aid);
 				//写进数据库
 				result=pstmt.executeUpdate();
@@ -482,30 +486,30 @@ public class OptionDB {
 			}
 		}
 	/**
-	 * 查找相册逻辑是传入一个用户的id,查找该用户所创建的相册，返回一个集合list<Album>
-	 * @param album
+	 * 查找日记逻辑是传入一个用户的id,查找该用户所创建的日记组，返回一个集合list<Dgrounp>
+	 * @param user
 	 * @return
 	 */
 		@SuppressWarnings("finally")
-		public List<Album> selectAlbum(User user) {
+		public List<Dgrounp> selectDgrounp(User user) {
 			Connection conn=ConDataBase.getConn();
 			ResultSet rs = null;
 			PreparedStatement pstmt = null;
-		    List<Album> list=new ArrayList<Album>();
+		    List<Dgrounp> list=new ArrayList<Dgrounp>();
 			try {
 				String uid=user.getU_id();
 				pstmt=(PreparedStatement) conn.prepareStatement
-						("select * from album where u_id=?");
+						("select * from dgrounp where u_id=?");
 				pstmt.setString(1, uid);			
 				//写进数据库
 				rs=pstmt.executeQuery();
-				Album album=null;
+				Dgrounp dgrounp=null;
 				while(rs.next()){
 					String date =rs.getString(5);
 					String[] dates=date.split(" ");
-					album=new Album(rs.getInt(1),rs.getString(2),rs.getString(3),
+					dgrounp=new Dgrounp(rs.getInt(1),rs.getString(2),rs.getString(3),
 							rs.getString(4),dates[0]);
-					list.add(album);
+					list.add(dgrounp);
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -515,23 +519,23 @@ public class OptionDB {
 			}
 		}
 	/***
-	 * 修改相册应该是哪个人修改了哪个相册
-	 * @param album
+	 * 修改日记组应该是哪个人修改了哪个日记组
+	 * @param dgrounp
 	 * @return
 	 */
 		@SuppressWarnings("finally")
-		public boolean alterAlbum(Album album) {
+		public boolean alterAlbum(Dgrounp dgrounp) {
 			Connection conn=ConDataBase.getConn();
 			ResultSet rs = null;
 			PreparedStatement pstmt = null;
 			int result=0;
 			try {
-				int a_id=album.getA_id();
-				String uid=album.getU_id();
-				String atitle=album.getA_title();
-				String flag=album.getFlag();
+				int a_id=dgrounp.getDg_id();
+				String uid=dgrounp.getU_id();
+				String atitle=dgrounp.getDg_title();
+				String flag=dgrounp.getFlag();
 				pstmt=(PreparedStatement) conn.prepareStatement
-		("update album set A_title=?, flag=?, date=now() where u_id=? and a_id=?");
+		("update dgrounp set dg_title=?, flag=?, date=now() where u_id=? and dg_id=?");
 				pstmt.setString(1, atitle);
 				pstmt.setString(2, flag);
 				pstmt.setString(3, uid);
@@ -545,7 +549,139 @@ public class OptionDB {
 				return result!=0?true :false;
 			}
 		}
-	
+		
+		@SuppressWarnings("finally")
+		public boolean insertAlbum(Album album) {
+			Connection conn=ConDataBase.getConn();
+			ResultSet rs = null;
+			PreparedStatement pstmt = null;
+			int result=0;
+			try {
+				String uid=album.getU_id();
+				String atitle=album.getA_title();
+				String flag=album.getFlag();
+				pstmt=(PreparedStatement) conn.prepareStatement
+						("insert into album(u_id,a_title,flag,date) values(?,?,?,now())");
+				pstmt.setString(1, uid);
+				pstmt.setString(2, atitle);
+				pstmt.setString(3, flag);
+				//写进数据库
+				result=pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				ConDataBase.closeConn(rs, pstmt, conn);
+				return result!=0?true :false;
+			}
+		}
+		
+		//删除所有相册
+			@SuppressWarnings("finally")
+			public boolean delete_all_Album(Album album) {
+				Connection conn=ConDataBase.getConn();
+				ResultSet rs = null;
+				PreparedStatement pstmt = null;
+				int result=0;
+				try {
+				         String uid=album.getU_id();
+					pstmt=(PreparedStatement) conn.prepareStatement
+							("delete  from album where u_id=?");
+					pstmt.setString(1, uid);
+					//写进数据库
+					result=pstmt.executeUpdate();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					ConDataBase.closeConn(rs, pstmt, conn);
+					return result!=0?true :false;
+				}
+			}
+			
+			//删除单个相册
+			@SuppressWarnings("finally")
+			public boolean deleteAlbum(Album album) {
+				Connection conn=ConDataBase.getConn();
+				ResultSet rs = null;
+				PreparedStatement pstmt = null;
+				int result=0;
+				try {
+				         int aid=album.getA_id();
+					pstmt=(PreparedStatement) conn.prepareStatement
+							("delete  from album where a_id=?");
+					pstmt.setInt(1, aid);
+					//写进数据库
+					result=pstmt.executeUpdate();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					ConDataBase.closeConn(rs, pstmt, conn);
+					return result!=0?true :false;
+				}
+			}
+		/**
+		 * 查找相册逻辑是传入一个用户的id,查找该用户所创建的相册，返回一个集合list<Album>
+		 * @param album
+		 * @return
+		 */
+			@SuppressWarnings("finally")
+			public List<Album> selectAlbum(User user) {
+				Connection conn=ConDataBase.getConn();
+				ResultSet rs = null;
+				PreparedStatement pstmt = null;
+			    List<Album> list=new ArrayList<Album>();
+				try {
+					String uid=user.getU_id();
+					pstmt=(PreparedStatement) conn.prepareStatement
+							("select * from album where u_id=?");
+					pstmt.setString(1, uid);			
+					//写进数据库
+					rs=pstmt.executeQuery();
+					Album album=null;
+					while(rs.next()){
+						String date =rs.getString(5);
+						String[] dates=date.split(" ");
+						album=new Album(rs.getInt(1),rs.getString(2),rs.getString(3),
+								rs.getString(4),dates[0]);
+						list.add(album);
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					ConDataBase.closeConn(rs, pstmt, conn);
+					return list;
+				}
+			}
+		/***
+		 * 修改相册应该是哪个人修改了哪个相册
+		 * @param album
+		 * @return
+		 */
+			@SuppressWarnings("finally")
+			public boolean alterAlbum(Album album) {
+				Connection conn=ConDataBase.getConn();
+				ResultSet rs = null;
+				PreparedStatement pstmt = null;
+				int result=0;
+				try {
+					int a_id=album.getA_id();
+					String uid=album.getU_id();
+					String atitle=album.getA_title();
+					String flag=album.getFlag();
+					pstmt=(PreparedStatement) conn.prepareStatement
+			("update album set A_title=?, flag=?, date=now() where u_id=? and a_id=?");
+					pstmt.setString(1, atitle);
+					pstmt.setString(2, flag);
+					pstmt.setString(3, uid);
+					pstmt.setInt(4, a_id);
+					//写进数据库
+					result=pstmt.executeUpdate();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					ConDataBase.closeConn(rs, pstmt, conn);
+					return result!=0?true :false;
+				}
+			}
 	//comment表
 	@SuppressWarnings("finally")
 	public boolean insertComment(Comment comment) {
@@ -648,33 +784,36 @@ public class OptionDB {
 		}
 	}
 	
-	//share表
+	//Diary表
 	@SuppressWarnings("finally")
-	public boolean insertShare(Share share) {
+	public boolean insertDiary(Diary diary) {
 		Connection conn=ConDataBase.getConn();
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
 		int result=0;
 		try {
-			String uid=share.getU_id();
-			String stitle=share.getS_title();
-			String scontent=share.getS_content();
-			String spurl=share.getS_p_url();
-			String flag=share.getFlag();
+			String uid=diary.getU_id();
+			String stitle=diary.getS_title();
+			String scontent=diary.getS_content();
+			String spurl=diary.getS_p_url();
+			String flag=diary.getFlag();
+			int dg_id=diary.getDg_id();
 			pstmt=(PreparedStatement) conn.prepareStatement
-					("insert into share(u_id,s_title,s_content,s_p_url,flag,date) values("
+					("insert into diary(u_id,s_title,s_content,s_p_url,flag,date,dg_id) values("
 					+ "?,"
 					+ "?,"
 					+ "?,"
 					+ "?,"
 					+ "?,"
 					+ "now()"
+					+ "?,"
 					+")");
 			pstmt.setString(1, uid);
 			pstmt.setString(2, stitle);
 			pstmt.setString(3, scontent);
 			pstmt.setString(4, spurl);
 			pstmt.setString(5, flag);
+			pstmt.setInt(6, dg_id);
 			//写进数据库
 			result=pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -685,15 +824,15 @@ public class OptionDB {
 		}
 	}
 	@SuppressWarnings("finally")
-	public boolean deleteShare(Share share) {
+	public boolean deleteDiary(Diary diary) {
 		Connection conn=ConDataBase.getConn();
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
 		int result=0;
 		try {
-			int sid =share.getS_id();
+			int sid =diary.getS_id();
 			pstmt=(PreparedStatement) conn.prepareStatement
-					("delete  from share where s_id=?");
+					("delete  from diary where s_id=?");
 			pstmt.setInt(1, sid);
 			//写进数据库
 			result=pstmt.executeUpdate();
@@ -705,24 +844,26 @@ public class OptionDB {
 		}
 	}
 	@SuppressWarnings("finally")
-	public boolean selectShare_single(Share share) {
+	public Diary selectDiary_single(Diary diary) {
 		Connection conn=ConDataBase.getConn();
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
-		boolean flag1=false;
 		try {
-			int sid =share.getS_id();
+			int sid =diary.getS_id();
 			pstmt=(PreparedStatement) conn.prepareStatement
-					("select * from share where s_id=?");
+					("select * from diary where s_id=?");
 			pstmt.setInt(1, sid);			
 			//写进数据库
 			rs=pstmt.executeQuery();
-			flag1=true;
+			while(rs.next()){
+				String[] date=rs.getString(9).split(" ");
+				diary =new Diary(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8), date[0],rs.getInt(10));
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			ConDataBase.closeConn(rs, pstmt, conn);
-			return flag1;
+			return diary;
 		}
 	}
 	/**
@@ -731,26 +872,26 @@ public class OptionDB {
 	 * @return
 	 */
 	@SuppressWarnings("finally")
-	public List<Share> selectShare_user(User user) {
+	public List<Diary> selectDiary_user(User user) {
 		Connection conn=ConDataBase.getConn();
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
-		List<Share> list=new ArrayList<>();
+		List<Diary> list=new ArrayList<>();
 		try {
 			String uid=user.getU_id();
 			pstmt=(PreparedStatement) conn.prepareStatement
-					("select * from share where u_id=? order by date desc");
+					("select * from diary where u_id=? order by date desc");
 			pstmt.setString(1, uid);			
 			//写进数据库
 			rs=pstmt.executeQuery();
 			while(rs.next()){
 				String[] date=rs.getString(9).split(" ");
-				Share share =new Share(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8), date[0]);
+				Diary diary =new Diary(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8), date[0],rs.getInt(10));
 				User u  =selectUser(rs.getString(2));
-				share.setUser(u);;
+				diary.setUser(u);;
 //				List<Comment> comment=selectComment_share(share);
 //				share.setListComment(comment);;
-				list.add(share);
+				list.add(diary);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -765,24 +906,24 @@ public class OptionDB {
 	 * @return
 	 */
 	@SuppressWarnings("finally")
-	public List<Share> selectShare_all() {
+	public List<Diary> selectDiary_all() {
 		Connection conn=ConDataBase.getConn();
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
-		List<Share> list=new ArrayList<>();
+		List<Diary> list=new ArrayList<>();
 		try {
 			pstmt=(PreparedStatement) conn.prepareStatement
-					("select * from share order by date DESC");
+					("select * from diary order by date DESC");
 			//写进数据库
 			rs=pstmt.executeQuery();
 			while(rs.next()){
 				String[] date=rs.getString(9).split(" ");
-				Share share =new Share(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8), date[0]);
-				User user =selectUser(rs.getString(2));
-				share.setUser(user);
+				Diary diary =new Diary(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8), date[0],rs.getInt(10));
+				User u  =selectUser(rs.getString(2));
+				diary.setUser(u);;
 //				List<Comment> comment=selectComment_share(share);
 //				share.setListComment(comment);;
-				list.add(share);
+				list.add(diary);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -792,23 +933,25 @@ public class OptionDB {
 		}
 	}
 	
-	public boolean alterShare(Share share) {
+	@SuppressWarnings("finally")
+	public boolean alterDiary(Diary diary) {
 		Connection conn=ConDataBase.getConn();
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
 		int result=0;
 		try {
-			int sid =share.getS_id();
-			String uid=share.getU_id();
-			String stitle=share.getS_title();
-			String scontent=share.getS_content();
-			String spurl=share.getS_p_url();
-			int startNum=share.getStartNum();
-			int readNum=share.getReadNum();
-			String flag=share.getFlag();
+			int sid =diary.getS_id();
+			String uid=diary.getU_id();
+			String stitle=diary.getS_title();
+			String scontent=diary.getS_content();
+			String spurl=diary.getS_p_url();
+			int startNum=diary.getStartNum();
+			int readNum=diary.getReadNum();
+			String flag=diary.getFlag();
+			int dg_id=diary.getDg_id();
 			pstmt=(PreparedStatement) conn.prepareStatement
-					("update share set u_id=?,s_title=?,s_content=?,"
-		+ "s_p_url=?,startNum=?,readNum=?,flag=?,date=now() where s_id=?");
+					("update diary set u_id=?,s_title=?,s_content=?,"
+		+ "s_p_url=?,startNum=?,readNum=?,flag=?,date=now(),dg_id=? where s_id=?");
 			pstmt.setString(1, uid);
 			pstmt.setString(2, stitle);
 			pstmt.setString(3, scontent);
@@ -816,7 +959,8 @@ public class OptionDB {
 			pstmt.setInt(5, startNum);
 			pstmt.setInt(6, readNum);
 			pstmt.setString(7, flag);
-			pstmt.setInt(8, sid);
+			pstmt.setInt(8, dg_id);
+			pstmt.setInt(9, sid);
 			//写进数据库
 			result=pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -827,6 +971,184 @@ public class OptionDB {
 		}
 	}
 	
+	//share表
+		@SuppressWarnings("finally")
+		public boolean insertShare(Share share) {
+			Connection conn=ConDataBase.getConn();
+			ResultSet rs = null;
+			PreparedStatement pstmt = null;
+			int result=0;
+			try {
+				String uid=share.getU_id();
+				String stitle=share.getS_title();
+				String scontent=share.getS_content();
+				String spurl=share.getS_p_url();
+				String flag=share.getFlag();
+				pstmt=(PreparedStatement) conn.prepareStatement
+						("insert into share(u_id,s_title,s_content,s_p_url,flag,date) values("
+						+ "?,"
+						+ "?,"
+						+ "?,"
+						+ "?,"
+						+ "?,"
+						+ "now()"
+						+")");
+				pstmt.setString(1, uid);
+				pstmt.setString(2, stitle);
+				pstmt.setString(3, scontent);
+				pstmt.setString(4, spurl);
+				pstmt.setString(5, flag);
+				//写进数据库
+				result=pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				ConDataBase.closeConn(rs, pstmt, conn);
+				return result!=0?true :false;
+			}
+		}
+		@SuppressWarnings("finally")
+		public boolean deleteShare(Share share) {
+			Connection conn=ConDataBase.getConn();
+			ResultSet rs = null;
+			PreparedStatement pstmt = null;
+			int result=0;
+			try {
+				int sid =share.getS_id();
+				pstmt=(PreparedStatement) conn.prepareStatement
+						("delete  from share where s_id=?");
+				pstmt.setInt(1, sid);
+				//写进数据库
+				result=pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				ConDataBase.closeConn(rs, pstmt, conn);
+				return result!=0?true :false;
+			}
+		}
+		@SuppressWarnings("finally")
+		public boolean selectShare_single(Share share) {
+			Connection conn=ConDataBase.getConn();
+			ResultSet rs = null;
+			PreparedStatement pstmt = null;
+			boolean flag1=false;
+			try {
+				int sid =share.getS_id();
+				pstmt=(PreparedStatement) conn.prepareStatement
+						("select * from share where s_id=?");
+				pstmt.setInt(1, sid);			
+				//写进数据库
+				rs=pstmt.executeQuery();
+				flag1=true;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				ConDataBase.closeConn(rs, pstmt, conn);
+				return flag1;
+			}
+		}
+		/**
+		 * 查询一个用户的所有动态
+		 * @param user
+		 * @return
+		 */
+		@SuppressWarnings("finally")
+		public List<Share> selectShare_user(User user) {
+			Connection conn=ConDataBase.getConn();
+			ResultSet rs = null;
+			PreparedStatement pstmt = null;
+			List<Share> list=new ArrayList<>();
+			try {
+				String uid=user.getU_id();
+				pstmt=(PreparedStatement) conn.prepareStatement
+						("select * from share where u_id=? order by date desc");
+				pstmt.setString(1, uid);			
+				//写进数据库
+				rs=pstmt.executeQuery();
+				while(rs.next()){
+					String[] date=rs.getString(9).split(" ");
+					Share share =new Share(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8), date[0]);
+					User u  =selectUser(rs.getString(2));
+					share.setUser(u);;
+//					List<Comment> comment=selectComment_share(share);
+//					share.setListComment(comment);;
+					list.add(share);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				ConDataBase.closeConn(rs, pstmt, conn);
+				return list;
+			}
+		}
+		/**
+		 * 查询所有动态
+		 * @param user
+		 * @return
+		 */
+		@SuppressWarnings("finally")
+		public List<Share> selectShare_all() {
+			Connection conn=ConDataBase.getConn();
+			ResultSet rs = null;
+			PreparedStatement pstmt = null;
+			List<Share> list=new ArrayList<>();
+			try {
+				pstmt=(PreparedStatement) conn.prepareStatement
+						("select * from share order by date DESC");
+				//写进数据库
+				rs=pstmt.executeQuery();
+				while(rs.next()){
+					String[] date=rs.getString(9).split(" ");
+					Share share =new Share(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8), date[0]);
+					User user =selectUser(rs.getString(2));
+					share.setUser(user);
+//					List<Comment> comment=selectComment_share(share);
+//					share.setListComment(comment);;
+					list.add(share);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				ConDataBase.closeConn(rs, pstmt, conn);
+				return list;
+			}
+		}
+		
+		public boolean alterShare(Share share) {
+			Connection conn=ConDataBase.getConn();
+			ResultSet rs = null;
+			PreparedStatement pstmt = null;
+			int result=0;
+			try {
+				int sid =share.getS_id();
+				String uid=share.getU_id();
+				String stitle=share.getS_title();
+				String scontent=share.getS_content();
+				String spurl=share.getS_p_url();
+				int startNum=share.getStartNum();
+				int readNum=share.getReadNum();
+				String flag=share.getFlag();
+				pstmt=(PreparedStatement) conn.prepareStatement
+						("update share set u_id=?,s_title=?,s_content=?,"
+			+ "s_p_url=?,startNum=?,readNum=?,flag=?,date=now() where s_id=?");
+				pstmt.setString(1, uid);
+				pstmt.setString(2, stitle);
+				pstmt.setString(3, scontent);
+				pstmt.setString(4, spurl);
+				pstmt.setInt(5, startNum);
+				pstmt.setInt(6, readNum);
+				pstmt.setString(7, flag);
+				pstmt.setInt(8, sid);
+				//写进数据库
+				result=pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				ConDataBase.closeConn(rs, pstmt, conn);
+				return result!=0?true :false;
+			}
+		}
 	//unloadphotoalbum表
 	@SuppressWarnings("finally")
 	public boolean insertphoto(Photo photo) {
