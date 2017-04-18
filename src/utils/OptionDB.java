@@ -43,7 +43,7 @@ public class OptionDB {
 			String province=user.getProvince();
 			String city=user.getCity();
 			String country=user.getCountry();
-			pstmt=(PreparedStatement) conn.prepareStatement("insert into User values("
+			pstmt=(PreparedStatement) conn.prepareStatement("insert into user values("
 					+ "?,"
 					+ "?,"
 					+ "?,"
@@ -1359,7 +1359,7 @@ public class OptionDB {
 		PreparedStatement pstmt = null;
 		User user = null;
 		try {
-			pstmt=(PreparedStatement) conn.prepareStatement("select * from User where u_id=? and password=?");
+			pstmt=(PreparedStatement) conn.prepareStatement("select * from user where u_id=? and password=?");
 			pstmt.setString(1, username);
 			pstmt.setString(2, password);
 			//写进数据库
