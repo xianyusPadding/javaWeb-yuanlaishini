@@ -502,6 +502,8 @@
 
 <div id="fl-add-group">
 	<input type="text" class="fl-addGroup-title form-control " placeholder="请输入分组名称："/>
+	<input  type="radio" name="addGroup" id="addGroup_publish" value="0" checked="checked"/><label for="addGroup_publish">公开</label>
+	<input  type="radio" name="addGroup" id="addGroup_private" value="1"/><label for="addGroup_private">私密</label>
 	<button class="btn btn-default fl-addGroup-okBtn" style="">确定</button>
 </div>
 
