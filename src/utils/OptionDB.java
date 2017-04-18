@@ -1117,6 +1117,7 @@ public class OptionDB {
 			}
 		}
 		
+		@SuppressWarnings("finally")
 		public boolean alterShare(Share share) {
 			Connection conn=ConDataBase.getConn();
 			ResultSet rs = null;
@@ -1133,7 +1134,7 @@ public class OptionDB {
 				String flag=share.getFlag();
 				pstmt=(PreparedStatement) conn.prepareStatement
 						("update share set u_id=?,s_title=?,s_content=?,"
-			+ "s_p_url=?,startNum=?,readNum=?,flag=?,date=now() where s_id=?");
+			+ "s_p_url=?,startNum=?,readNum=?,flag=? where s_id=?");
 				pstmt.setString(1, uid);
 				pstmt.setString(2, stitle);
 				pstmt.setString(3, scontent);
