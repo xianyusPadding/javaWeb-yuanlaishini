@@ -11,6 +11,12 @@ public class ShareAction {
 	public boolean insertShare(Share share){
 		return db.insertShare(share);
 	}
+	public Share select(Share share){
+		return db.selectShare_single(share);
+	}
+	public boolean update(Share share){
+		return db.alterShare(share);
+	}
 	public List<Share>selectShare_user(User user){
 		return db.selectShare_user(user);
 	}
@@ -18,4 +24,5 @@ public class ShareAction {
 	public List<Share>selectShare_all(){
 		return db.selectShare_all();
 	}
+	
 }

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import action.CommentAction;
+import action.ShareAction;
 import action.UserAction;
 import javaBean.Comment;
 import javaBean.Share;
@@ -33,6 +34,10 @@ public class ComSelectServlet extends HttpServlet {
 			UserAction uAction=new UserAction();
 			CommentAction cAction =new CommentAction();
 			List<Comment>commentList =cAction.selectComment_share(share);
+			ShareAction sAction=new ShareAction();
+			share=sAction.select(share);
+			share.setReadNum(share.getReadNum()+1);
+			sAction.update(share);
 			//设置编码，不然会出现乱码 
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter writer=response.getWriter();

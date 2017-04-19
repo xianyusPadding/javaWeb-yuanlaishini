@@ -31,6 +31,9 @@ public class UploadServlet extends HttpServlet {
 	// 上传文件存储目录
     //private static final String UPLOAD_DIRECTORY = "F:/javaworkspace/Itweb/WebContent/upload";
 	private static final String UPLOAD_DIRECTORY = "D:/web/Itweb/WebContent/upload";
+	/*直接写tomcat服务器的upload路径就可以解决上传资源要刷新才能显示了*/
+	//private static final String UPLOAD_DIRECTORY = "D:/tomat_worksapce/webapps/Itweb/upload";
+	
 	private static boolean flag=false;
 	// 上传配置
     private static final int MEMORY_THRESHOLD   = 1024 * 1024 * 3;  // 3MB

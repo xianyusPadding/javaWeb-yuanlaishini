@@ -1028,11 +1028,10 @@ public class OptionDB {
 			}
 		}
 		@SuppressWarnings("finally")
-		public boolean selectShare_single(Share share) {
+		public Share selectShare_single(Share share) {
 			Connection conn=ConDataBase.getConn();
 			ResultSet rs = null;
 			PreparedStatement pstmt = null;
-			boolean flag1=false;
 			try {
 				int sid =share.getS_id();
 				pstmt=(PreparedStatement) conn.prepareStatement
@@ -1040,12 +1039,15 @@ public class OptionDB {
 				pstmt.setInt(1, sid);			
 				//写进数据库
 				rs=pstmt.executeQuery();
-				flag1=true;
+				while(rs.next()){
+					String[] date=rs.getString(9).split(" ");
+					share =new Share(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8), date[0]);
+				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}finally {
 				ConDataBase.closeConn(rs, pstmt, conn);
-				return flag1;
+				return share;
 			}
 		}
 		/**
@@ -1115,6 +1117,7 @@ public class OptionDB {
 			}
 		}
 		
+		@SuppressWarnings("finally")
 		public boolean alterShare(Share share) {
 			Connection conn=ConDataBase.getConn();
 			ResultSet rs = null;
@@ -1131,7 +1134,7 @@ public class OptionDB {
 				String flag=share.getFlag();
 				pstmt=(PreparedStatement) conn.prepareStatement
 						("update share set u_id=?,s_title=?,s_content=?,"
-			+ "s_p_url=?,startNum=?,readNum=?,flag=?,date=now() where s_id=?");
+			+ "s_p_url=?,startNum=?,readNum=?,flag=? where s_id=?");
 				pstmt.setString(1, uid);
 				pstmt.setString(2, stitle);
 				pstmt.setString(3, scontent);

@@ -439,5 +439,6 @@ $(function() {
 	//相片显示的关闭按钮
 	$('#fl-bigPhotoshow').on('click','.fl-bigPhotoshow-closebtn',function(){
 		$('#fl-bigPhotoshow').hide();
-	})
+	});
+	
 })

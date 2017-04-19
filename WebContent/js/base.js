@@ -201,5 +201,25 @@ $(function(){
 		if(pass_keyCode==13){
 			$('#fl-loginreg').submit();
 		}
-	})
+	});
+	//点赞功能
+	$('#share_content').on('click','.clickStart',function(){
+		var s_id=$(this).prev().val();
+		var _this =$(this);
+		$.ajax({
+	        type:'POST',
+	        url:'updateShareStart',
+	        data:{
+	        	s_id:s_id
+	        },
+	        success:function(response){
+	        	if(response=="0"){
+	        		alert("未知错误");
+	        	}else{
+	        		_this.html("赞("+response+")");
+		        	_this.attr("class","");
+	        	}
+	        }
+	    });
+	});
 })
