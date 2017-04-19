@@ -90,7 +90,7 @@
 	background: none;
 	border:none;
 }
-#fl-tabs .fl-tabs-link{
+#fl-tabs .fl-tabs-link,#fl-tabs .fl-tabs-link1{
 	/*margin:0 auto;
 	text-align: center;*/
 	background: #eee;
@@ -100,7 +100,11 @@
 	margin-bottom: -2px;
 	border-bottom: 2px solid #EF95A8;
 }
-#fl-tabs .fl-tabs-link a{
+#fl-tabs .fl-tabs-link1 a:hover{
+	margin-bottom: -2px;
+	border-bottom: 2px solid #EF95A8;
+}
+#fl-tabs .fl-tabs-link a,#fl-tabs .fl-tabs-link1 a{
 	color:#000;
 }
 .fl-tab1-publish h5{

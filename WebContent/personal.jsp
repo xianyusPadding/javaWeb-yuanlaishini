@@ -40,7 +40,7 @@
 				</c:when>
 				<c:otherwise>
 					<p class="navbar-text navbar-right fl-login"><a href="logoutServlet" class="navbar-link fl-login" >注销</a></p>
-					<p class="navbar-text navbar-right fl-login"><a href="personal.jsp" class="navbar-link fl-login" >${user.username}</a></p>
+					<p class="navbar-text navbar-right fl-login"><a href="personalServlet" class="navbar-link fl-login" >${user.username}</a></p>
 				</c:otherwise>
 			</c:choose>
 		</div>
@@ -446,13 +446,12 @@
 						<p><c:out value="${user.username}"></c:out></p> 
 					</div>
 					<div class="col-md-12 fl-center fl-diary-title" >
-						<buttton class="fl-writeDiary-btn btn btn-default">写日记</buttton>
 						<select name="" id="" class="btn btn-default" >
 							<option value="" >默认日记</option>
 						</select>
 						<ul>
-							<li class='fl-diaryTitle'>1.有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</li>
-							<li class='fl-diaryTitle'>2.缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</li>
+							<li class='fl-diaryTitle1'><a href="diaryShow.jsp">1.有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</a></li>
+							<li class='fl-diaryTitle1'><a href="diaryShow.jsp">2.缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</a></li>
 						</ul>
 					</div>
 					
@@ -469,7 +468,7 @@
 						<textarea name="" rows="24" cols="" class="col-md-12 col-xs-12 form-control" placeholder="来写写吧" ></textarea>
 						<button class=" btn btn-default" style="float: right;margin-top: 10px;">提交</button>
 					</div>				
-					<div class="fl-diary" class="col-md-12 col-xs-12">
+					<!--<div class="fl-diary" class="col-md-12 col-xs-12">
 						<div class="fl-diary-tab" style="display: none;">
 							<h4 class="fl-center">日记1</h4>
 							<p>有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</p>
@@ -479,7 +478,7 @@
 							<h4 class="fl-center">日记2</h4>
 							<p>缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</p>
 						</div>					
-					</div>				
+					</div>				-->
 				</div>
 		</div>
 	</div>

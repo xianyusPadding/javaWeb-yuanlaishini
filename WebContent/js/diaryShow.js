@@ -1,26 +1,19 @@
 $(function(){
 	$.each($('.fl-diary-title ul li'), function(index, value) {
-		$('.fl-diary-title ul li').eq(index).click(function() {
+		$('.fl-diaryTitle').eq(index).click(function() {
 			var i;
 			for(i = 0; i < 8; i++) {
 				if(i == index){
-					$('.fl-diary').show();
-					$('.fl-diary-title ul li').eq(index).parent().parent().parent().next().find('.fl-diary-tab').eq(i).show();
+					$('.fl-diaryTitle').eq(index).parent().parent().parent().next().find('.fl-diary-tab').eq(i).show();
 				}	
 				else{
-					$('.fl-diary-title ul li').eq(index).parent().parent().parent().next().find('.fl-diary-tab').eq(i).hide();
-					$('.fl-diary-write').hide();
+					$('.fl-diaryTitle').eq(index).parent().parent().parent().next().find('.fl-diary-tab').eq(i).hide();
 				}
 			}
 		})
 	})
-
 	
-	$('.fl-writeDiary-btn').click(function(){
-		$('.fl-diary-write').show();
-		$('.fl-diary').hide();
-	})
-	
+	//添加分组
 	$('#fl-add-group').dialog({
 		title:'添加分组',
 		maxWidth:300,
@@ -41,6 +34,7 @@ $(function(){
 		}		
 	})
 	
+	//删除分组
 	$('#fl-del-group').dialog({
 		title:'删除分组',
 		maxWidth:300,
@@ -60,5 +54,9 @@ $(function(){
 			$('#fl-del-group').dialog('close');
 		}		
 	})
+	
+	//
+//	if()
+//	$('.fl-diary-tab p')
 	
 })

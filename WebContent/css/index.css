@@ -62,6 +62,9 @@
 	transition: all  0.35s;
 	padding-left:0;
 }
+.fl-diary-main .col-md-6 a:hover{
+	color:#EF95A8;
+}
 
 /*日记导航的动画*/
 .fl-diary-float{

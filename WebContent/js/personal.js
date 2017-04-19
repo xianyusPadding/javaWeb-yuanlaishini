@@ -8,8 +8,10 @@ $(function() {
 	$(".fl-cover-float").css("left", ($(".fl-cover-img img").width() - $(".fl-cover-float").width()) / 2 + "px");
 	$(".fl-cover-float").css("top", ($(".fl-cover-img img").height() - $(".fl-cover-float").height()) / 2 + "px");
 	$(".fl-tabs-link").css("width", $(".container").width() / 4 - 8 + "px");
+	$(".fl-tabs-link1").css("width", $(".container").width() / 3 - 8 + "px");
 	$(".fl-tab1-publishMain").css("width", $(".container").width() - 35 + "px");
 	$(".fl-tabs-link a").css("margin-left", ($(".fl-tabs-link").width() - $(".fl-tabs-link a").width()) / 2 + "px");
+	$(".fl-tabs-link1 a").css("margin-left", ($(".fl-tabs-link1").width() - $(".fl-tabs-link1 a").width()) / 2 + "px");
 	var arrH = [];
 	var arrW = [];
 	$.each($("#fl-tab2 ul li img"), function(index, value) {
@@ -23,8 +25,10 @@ $(function() {
 		$(".fl-cover-float").css("left", ($(".fl-cover-img img").width() - $(".fl-cover-float").width()) / 2 + "px");
 		$(".fl-cover-float").css("top", ($(".fl-cover-img img").height() - $(".fl-cover-float").height()) / 2 + "px");
 		$(".fl-tabs-link").css("width", $(".container").width() / 4 - 8 + "px");
+		$(".fl-tabs-link1").css("width", $(".container").width() / 3 - 8 + "px");
 		$(".fl-tab1-publishMain").css("width", $(".container").width() - 35 + "px");
 		$(".fl-tabs-link a").css("margin-left", ($(".fl-tabs-link").width() - $(".fl-tabs-link a").width()) / 2 + "px");
+		$(".fl-tabs-link1 a").css("margin-left", ($(".fl-tabs-link1").width() - $(".fl-tabs-link1 a").width()) / 2 + "px");
 	})
 
 	//个人中心的选项卡

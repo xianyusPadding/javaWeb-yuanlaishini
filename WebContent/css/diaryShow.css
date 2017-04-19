@@ -10,14 +10,14 @@
 }
 .fl-diary{
 	border:2px solid #9D9D9D;
-	margin-right: 10px;
+	margin:0 10px 20px 0;
 	height:500px;
-	display:none ;
 	border-radius: 5px;
 	background: #fff;
 }
 .fl-diary h4,.fl-diary p{
 	color:#6A6868;
+	white-space:pre;
 }
 .fl-diary-title p{
 	overflow:hidden;
@@ -54,7 +54,7 @@
 	white-space:nowrap;
 	text-overflow:ellipsis;
 }
-.fl-diary-title ul li:hover{
+.fl-diary-title ul li a:hover{
 	cursor: pointer;
 	color:#EF95A8;
 }

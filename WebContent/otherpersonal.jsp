@@ -39,7 +39,7 @@
 				</c:when>
 				<c:otherwise>
 					<p class="navbar-text navbar-right fl-login"><a href="logoutServlet" class="navbar-link fl-login" >注销</a></p>
-					<p class="navbar-text navbar-right fl-login"><a href="personal.jsp" class="navbar-link fl-login" >${user.username}</a></p>
+					<p class="navbar-text navbar-right fl-login"><a href="personalServlet" class="navbar-link fl-login" >${user.username}</a></p>
 				</c:otherwise>
 			</c:choose>
 		</div>
@@ -118,16 +118,15 @@
 		<ul>
 			<c:choose>
 				<c:when test="${other.sex=='男'}">
-						<li class="fl-tabs-link"><a href="#fl-tab1">他的动态</a></li>
-						<li class="fl-tabs-link"><a href="#fl-tab2">他的相册</a></li>
+						<li class="fl-tabs-link1"><a href="#fl-tab1">他的动态</a></li>
+						<li class="fl-tabs-link1"><a href="#fl-tab2">他的相册</a></li>
 				</c:when>
 				<c:otherwise>
-						<li class="fl-tabs-link"><a href="#fl-tab1">她的动态</a></li>
-						<li class="fl-tabs-link"><a href="#fl-tab2">她的相册</a></li>
+						<li class="fl-tabs-link1"><a href="#fl-tab1">她的动态</a></li>
+						<li class="fl-tabs-link1"><a href="#fl-tab2">她的相册</a></li>
 				</c:otherwise>
 			</c:choose>
-			<li class="fl-tabs-link"><a href="#fl-tab3">我的日记</a></li>
-			<li class="fl-tabs-link"><a href="#fl-tab4">管理中心</a></li>
+			<li class="fl-tabs-link1"><a href="#fl-tab4">管理中心</a></li>
 		</ul>
 		 <div id="fl-tab1">
 			<div id="container">
@@ -313,7 +312,7 @@
 				</div>
 			</div>
 		</div>
-		<div id="fl-tab3">
+		<!--<div id="fl-tab3">
 			<div class="row">
 				<div class="fl-right col-md-4 col-sm-4 col-xs-12">
 					<div class="col-md-12 fl-center">
@@ -345,7 +344,7 @@
 					</div>				
 				</div>
 		</div>
-	</div>
+	</div>-->
 	</div>
 			
 </div>
