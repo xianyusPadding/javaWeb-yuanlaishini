@@ -70,6 +70,10 @@ public class ErrorAction {
 				message="请上传图片！";
 				link="personal.jsp";
 				break ;
+			case MyConstant.STATUS_DGROUNP_INSERT:
+				message="日记组创建失败！";
+				link="personal.jsp";
+				break ;
 		}
 		return this;
 	}

@@ -26,7 +26,8 @@ $(function(){
 	})
 	
 	$('.fl-addGroup-okBtn').click(function(){
-		if($('.fl-addGroup-title').val()==""){
+		console.log($('#dg_title').val());
+		if($('#dg_title').val()==""){
 			alert("分组名称不得为空！");
 		}
 		else{

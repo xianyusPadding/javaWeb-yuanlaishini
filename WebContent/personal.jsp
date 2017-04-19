@@ -448,6 +448,9 @@
 					<div class="col-md-12 fl-center fl-diary-title" >
 						<select name="" id="" class="btn btn-default" >
 							<option value="" >默认日记</option>
+							<c:forEach items="${dg_list}" var="dg">
+								<option value="${dg.dg_id }" >${dg.dg_title }</option>
+							</c:forEach>
 						</select>
 						<ul>
 							<li class='fl-diaryTitle1'><a href="diaryShow.jsp">1.有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</a></li>
@@ -498,18 +501,20 @@
 </div>
 
 <div id="fl-background-img"></div>
+<form action="dgrounpServlet" method="post">
+	<div id="fl-add-group">
+		<input type="text" name='dg_title' class="fl-addGroup-title form-control " id='dg_title' placeholder="请输入分组名称："/>
+		<input  type="radio" name="addGroup" id="addGroup_publish" value="0" checked="checked"/><label for="addGroup_publish">公开</label>
+		<input  type="radio" name="addGroup" id="addGroup_private" value="1"/><label for="addGroup_private">私密</label>
+		<input type='submit' class="btn btn-default fl-delGroup-okBtn"  value='确定'/>
+	</div>
+</form>
+	<div id="fl-del-group">
+		<input type="text" name='dg_title' class="fl-delGroup-title form-control " placeholder="请输入分组名称："/>
+		<input type='submit' class="btn btn-default fl-delGroup-okBtn"  value='确定'/>
+	</div>
 
-<div id="fl-add-group">
-	<input type="text" class="fl-addGroup-title form-control " placeholder="请输入分组名称："/>
-	<input  type="radio" name="addGroup" id="addGroup_publish" value="0" checked="checked"/><label for="addGroup_publish">公开</label>
-	<input  type="radio" name="addGroup" id="addGroup_private" value="1"/><label for="addGroup_private">私密</label>
-	<button class="btn btn-default fl-addGroup-okBtn" style="">确定</button>
-</div>
 
-<div id="fl-del-group">
-	<input type="text" class="fl-delGroup-title form-control " placeholder="请输入分组名称："/>
-	<button class="btn btn-default fl-delGroup-okBtn" style="">确定</button>
-</div>
 </body>
 <script type="text/javascript">
 	

@@ -17,4 +17,6 @@ public class MyConstant {
 	public final static int STATUS_MATCHING_SELECT=11;
 	
 	public final static int STATUS_UPLOAD_IMG_TYPE=12;
+	
+	public final static int STATUS_DGROUNP_INSERT=13;
 }

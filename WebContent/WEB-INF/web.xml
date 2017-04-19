@@ -256,4 +256,14 @@
     <servlet-name>SharePageServlet</servlet-name>
     <url-pattern>/sharePageServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DgrounpServlet</display-name>
+    <servlet-name>DgrounpServlet</servlet-name>
+    <servlet-class>servlet.DgrounpServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DgrounpServlet</servlet-name>
+    <url-pattern>/dgrounpServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
