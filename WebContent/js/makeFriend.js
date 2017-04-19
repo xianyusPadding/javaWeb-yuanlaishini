@@ -110,5 +110,18 @@ $(function(){
 	        }
 	    });
 	})
-	
+	var index=10;
+	$('#more').click(function(){
+		$.ajax({
+			type:'POST',
+			url:'sharePageServlet',
+			data:{
+				index:index
+			},
+			success:function(response){
+				$('#more').prev().html($('#more').prev().html()+response);
+				index+=10;
+			}
+		});
+	});
 })

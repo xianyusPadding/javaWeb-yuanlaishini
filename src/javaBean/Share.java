@@ -14,8 +14,7 @@ public class Share {
 	private String date;
 	private User user;
 	private List<Comment> listComment;
-	
-	
+
 	public Share() {
 		super();
 	}

@@ -246,4 +246,14 @@
     <servlet-name>UpdateShareStart</servlet-name>
     <url-pattern>/updateShareStart</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SharePageServlet</display-name>
+    <servlet-name>SharePageServlet</servlet-name>
+    <servlet-class>servlet.ajax.SharePageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SharePageServlet</servlet-name>
+    <url-pattern>/sharePageServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

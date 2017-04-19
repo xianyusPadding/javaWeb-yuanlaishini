@@ -1097,7 +1097,7 @@ public class OptionDB {
 			List<Share> list=new ArrayList<>();
 			try {
 				pstmt=(PreparedStatement) conn.prepareStatement
-						("select * from share order by date DESC");
+						("select * from share order by date DESC limit 10");
 				//写进数据库
 				rs=pstmt.executeQuery();
 				while(rs.next()){
@@ -1116,7 +1116,34 @@ public class OptionDB {
 				return list;
 			}
 		}
-		
+		@SuppressWarnings("finally")
+		public List<Share> selectShare_page(int index) {
+			Connection conn=ConDataBase.getConn();
+			ResultSet rs = null;
+			PreparedStatement pstmt = null;
+			List<Share> list=new ArrayList<>();
+			try {
+				pstmt=(PreparedStatement) conn.prepareStatement
+						("select * from share order by date DESC limit ?, 10");
+				pstmt.setInt(1, index);
+				//写进数据库
+				rs=pstmt.executeQuery();
+				while(rs.next()){
+					String[] date=rs.getString(9).split(" ");
+					Share share =new Share(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8), date[0]);
+					User user =selectUser(rs.getString(2));
+					share.setUser(user);
+//					List<Comment> comment=selectComment_share(share);
+//					share.setListComment(comment);;
+					list.add(share);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				ConDataBase.closeConn(rs, pstmt, conn);
+				return list;
+			}
+		}
 		@SuppressWarnings("finally")
 		public boolean alterShare(Share share) {
 			Connection conn=ConDataBase.getConn();

@@ -25,4 +25,7 @@ public class ShareAction {
 		return db.selectShare_all();
 	}
 	
+	public List<Share>selectShare_page(int index){
+		return db.selectShare_page(index);
+	}
 }
