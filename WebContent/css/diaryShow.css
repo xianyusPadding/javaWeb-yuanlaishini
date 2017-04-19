@@ -17,7 +17,10 @@
 }
 .fl-diary h4,.fl-diary p{
 	color:#6A6868;
-	white-space:pre;
+}
+.fl-diary-tab p{
+	word-break:break-all;
+	word-wrap:break-word;
 }
 .fl-diary-title p{
 	overflow:hidden;

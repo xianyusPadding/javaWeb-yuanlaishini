@@ -317,7 +317,7 @@
 		</div>
 		<div id="fl-tab3">
 			<div class="row">
-				<div class="fl-right col-md-4 col-sm-4 col-xs-12">
+				<div class="fl-right col-md-12 col-sm-12 col-xs-12">
 				<div class="col-md-12 fl-center">
 					<img src='<c:out value="${other.i_p_url}"></c:out>' alt='' />
 					<p><c:out value="${other.username}"></c:out></p>
@@ -334,7 +334,7 @@
 				
 			</div>
 			
-			<div class="fl-left col-md-8 col-sm-8 col-xs-12" style="padding:0">				
+			<!--<div class="fl-left col-md-8 col-sm-8 col-xs-12" style="padding:0">				
 				<div class="fl-diary" class="col-md-12 col-xs-12">
 					<div class="fl-diary-tab">
 						<h4 class="fl-center">日记1</h4>
@@ -346,7 +346,7 @@
 						<p><a href="">    缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</a></p>
 					</div>					
 				</div>				
-			</div>
+			</div>-->
 		</div>
 	</div>
 	</div>

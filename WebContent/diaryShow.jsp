@@ -54,8 +54,8 @@
 			
 			<div class="fl-right col-md-4 col-sm-4 col-xs-12">
 				<div class="col-md-12 fl-center">
-					<img src="images/photoalbum5.jpg" alt="" />
-					<p class="fl-diary-id">myID</p>
+					<img src='<c:out value="${other.i_p_url}"></c:out>' alt='' />
+					<p><c:out value="${other.username}"></c:out></p>
 				</div>
 				<div class="col-md-12 fl-center fl-diary-title" >
 					<select name="" id="" class="btn btn-default" >
