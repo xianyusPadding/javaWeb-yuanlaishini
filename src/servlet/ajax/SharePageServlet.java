@@ -40,7 +40,7 @@ public class SharePageServlet extends HttpServlet {
 			if(share.getUser().getU_id()==user.getU_id()){
 				writer.append("<a href='personalServlet'><img src='"+share.getUser().getI_p_url()+"' class='fl-dynamic-img' alt=''></a>");
 			}else{
-				writer.append("<a href='otherPersonalServlet?uid='"+share.getUser().getU_id()+"'><img src='"+share.getUser().getI_p_url()+"' class='fl-dynamic-img' alt=''></a>");
+				writer.append("<a href='otherPersonalServlet?uid="+share.getUser().getU_id()+"'><img src='"+share.getUser().getI_p_url()+"' class='fl-dynamic-img' alt=''></a>");
 			}
 			writer.append("</div><div class='col-md-10 col-xs-9' style='float:left;margin-left:5px;'>")
 				  .append("<h4 class='fl-id'>"+share.getUser().getUsername()+"</h4>")

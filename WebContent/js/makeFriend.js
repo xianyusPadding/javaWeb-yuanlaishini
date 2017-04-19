@@ -39,7 +39,7 @@ $(function(){
 	})
 
 	//显示评论
-	$(".fl-comment-parent").on('click', '.fl-href-comment', function() {
+	$("#share_content").on('click', '.fl-href-comment', function() {
 		var div=$(this).parent().next();
 		var s_id=$(this).find('input').val();
 		//清除上一次评论和回复的内容
@@ -119,8 +119,13 @@ $(function(){
 				index:index
 			},
 			success:function(response){
+				if(response==""){
+					$('#more').html("没有更多了");
+					$('#more').attr("disabled","disabled");
+				}
 				$('#more').prev().html($('#more').prev().html()+response);
 				index+=10;
+				
 			}
 		});
 	});

@@ -11,10 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import action.ShareAction;
-import javaBean.Photo;
 import javaBean.Share;
 import javaBean.User;
-import utils.MyConstant;
 
 /**
  * Servlet implementation class AjaxShareServlet

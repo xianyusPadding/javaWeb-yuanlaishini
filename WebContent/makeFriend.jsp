@@ -157,7 +157,7 @@
 					</div>
 				</c:forEach>
 			</div>
-			<button id='more'>更多</button>
+			<button id='more'>加载更多</button>
 			<div class="col-md-3 hidden-sm hidden-xs">
 				<div class="row" style="background:url(images/blackMatte.png);margin:0">
 					<div class="fl-easy-introduction">
