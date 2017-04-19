@@ -1,8 +1,12 @@
 $(function(){
 	//让分组里的下拉列表和父元素的li等宽
 	$(".dropdown-menu").css("width",$(".dropdown").width()+"px");
+	var more_marLeft = ($('.fl-dynamic').width()-$('#more').width())/2;
+	$('#more').css('margin-left',more_marLeft);
 	$(window).resize(function(){
 		$(".dropdown-menu").css("width",$(".dropdown").width()+"px");
+		more_marLeft = ($('.fl-dynamic').width()-$('#more').width())/2;
+		$('#more').css('margin-left',more_marLeft);
 	})
 	
 	//index大于2的分组隐藏
@@ -122,6 +126,7 @@ $(function(){
 				if(response==""){
 					$('#more').html("没有更多了");
 					$('#more').attr("disabled","disabled");
+					$('#more').css('background','#ccc');
 				}
 				$('#more').prev().html($('#more').prev().html()+response);
 				index+=10;
