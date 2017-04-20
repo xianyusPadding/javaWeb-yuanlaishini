@@ -19,4 +19,6 @@ public class MyConstant {
 	public final static int STATUS_UPLOAD_IMG_TYPE=12;
 	
 	public final static int STATUS_DGROUNP_INSERT=13;
+	
+	public final static int STATUS_DGROUNP_TEMPTY=14;
 }

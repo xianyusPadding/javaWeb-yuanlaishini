@@ -26,13 +26,15 @@ $(function(){
 	})
 	
 	$('.fl-addGroup-okBtn').click(function(){
-		console.log($('#dg_title').val());
-		if($('#dg_title').val()==""){
+		var _this=$('.fl-addGroup-okBtn');
+		if(_this.prev().prev().prev().prev().prev().val()==""){
 			alert("分组名称不得为空！");
+			return false;
 		}
 		else{
 			$('#fl-add-group').dialog('close');
-		}		
+		}	
+		return true;
 	})
 	
 	//删除分组
@@ -50,6 +52,7 @@ $(function(){
 	$('.fl-delGroup-okBtn').click(function(){
 		if($('.fl-delGroup-title').val()==""){
 			alert("分组名称不得为空！");
+			return false;
 		}
 		else{
 			$('#fl-del-group').dialog('close');

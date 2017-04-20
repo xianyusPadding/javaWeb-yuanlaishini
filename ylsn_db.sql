@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2017-04-18 22:31:10
+Date: 2017-04-20 18:09:07
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -81,11 +81,12 @@ CREATE TABLE `dgrounp` (
   `flag` varchar(5) NOT NULL DEFAULT '公开',
   `date` datetime NOT NULL,
   PRIMARY KEY (`dg_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dgrounp
 -- ----------------------------
+INSERT INTO `dgrounp` VALUES ('1', 'admin', '我的心扉', '私密', '2017-04-20 17:46:01');
 
 -- ----------------------------
 -- Table structure for `diary`
@@ -229,11 +230,11 @@ INSERT INTO `share` VALUES ('31', 'xueer', null, '梦初彷徨，三院琉璃不
 INSERT INTO `share` VALUES ('32', 'xueer', null, '大学校园色彩单调，却不乏味，虽然每天校园都重复着同一种节奏，但是故事却不尽相同，大学校园承载着莘莘学子心中的梦，也是心中的梦实现的地方。让我们以美妙的青春为圆心，以丰富的知识为半径，在大学校园中画出人生中最完美的一个圆。', 'null', '0', '0', '动态', '2017-04-09 23:12:51');
 INSERT INTO `share` VALUES ('33', 'minmin', null, '你不会想起在身边的人 ,你想起的人都不在身边', 'null', '0', '0', '动态', '2017-04-09 23:22:21');
 INSERT INTO `share` VALUES ('34', 'minmin', null, '你是天上人画中仙遥不可及难以靠近，留我在爱情迷局里寸步难行苟且至今', '', '0', '0', '愿望', '2017-04-09 23:22:49');
-INSERT INTO `share` VALUES ('35', '2014354130', null, '今天是我的第一天注册哦！！', 'null', '0', '0', '动态', '2017-04-09 23:37:24');
+INSERT INTO `share` VALUES ('35', '2014354130', null, '今天是我的第一天注册哦！！', 'null', '1', '1', '动态', '2017-04-09 23:37:24');
 INSERT INTO `share` VALUES ('38', '2014354124', null, '受尽苦难而不厌，此乃修罗之道。', 'null', '0', '0', '动态', '2017-04-10 00:14:01');
-INSERT INTO `share` VALUES ('39', '2014354131', null, '有个网站交友真心不错，这个网站蛮推荐的。', 'null', '0', '0', '动态', '2017-04-10 00:20:37');
+INSERT INTO `share` VALUES ('39', '2014354131', null, '有个网站交友真心不错，这个网站蛮推荐的。', 'null', '1', '1', '动态', '2017-04-10 00:20:37');
 INSERT INTO `share` VALUES ('40', '2014354131', null, '悄悄告诉你，我是他舍友', '', '0', '0', '愿望', '2017-04-10 00:21:09');
-INSERT INTO `share` VALUES ('41', '2014354130', null, '你猜一猜，牛大还是马大', '', '0', '0', '愿望', '2017-04-10 00:21:33');
+INSERT INTO `share` VALUES ('41', '2014354130', null, '你猜一猜，牛大还是马大', '', '1', '4', '愿望', '2017-04-10 00:21:33');
 INSERT INTO `share` VALUES ('42', '1231', null, '你说过，你要和我一起去看日落。', 'null', '0', '0', '动态', '2017-04-10 10:10:31');
 INSERT INTO `share` VALUES ('43', '1232', null, '我不知道说什么，我只是突然在这一刻很想你。', 'null', '0', '0', '动态', '2017-04-10 10:12:26');
 INSERT INTO `share` VALUES ('44', '1233', null, '永远那么理智就永远不会懂得爱情了。', 'null', '0', '0', '动态', '2017-04-10 10:14:56');
@@ -246,8 +247,8 @@ INSERT INTO `share` VALUES ('50', '1239', null, '你为了一个美丽的未来�
 INSERT INTO `share` VALUES ('51', '12310', null, '爱不是彼此凝视，而是一起注视同一个方向。', 'null', '0', '0', '动态', '2017-04-10 10:36:06');
 INSERT INTO `share` VALUES ('52', '12312', null, '人的一生，都有一些说不出的秘密，挽不回的遗憾，触不到的梦想，忘不了的爱', 'null', '0', '0', '动态', '2017-04-10 10:46:49');
 INSERT INTO `share` VALUES ('53', '12313', null, '倘若你愿意陪我一起许愿。你是否会许下不分离的诺言。', 'null', '0', '0', '动态', '2017-04-10 10:48:19');
-INSERT INTO `share` VALUES ('54', 'zzy110', null, '我很帅，真的不骗你', 'null', '0', '0', '动态', '2017-04-10 10:52:43');
-INSERT INTO `share` VALUES ('55', 'admin', null, 'Hello', 'null', '0', '0', '动态', '2017-04-12 12:43:17');
+INSERT INTO `share` VALUES ('54', 'zzy110', null, '我很帅，真的不骗你', 'null', '2', '3', '动态', '2017-04-10 10:52:43');
+INSERT INTO `share` VALUES ('55', 'admin', null, 'Hello', 'null', '0', '6', '动态', '2017-04-12 12:43:17');
 
 -- ----------------------------
 -- Table structure for `unloadphotoalbum`

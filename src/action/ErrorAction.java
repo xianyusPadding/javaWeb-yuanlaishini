@@ -74,6 +74,10 @@ public class ErrorAction {
 				message="日记组创建失败！";
 				link="personal.jsp";
 				break ;
+			case MyConstant.STATUS_DGROUNP_TEMPTY:
+				message="标题不能为空！";
+				link="personal.jsp";
+				break ;
 		}
 		return this;
 	}

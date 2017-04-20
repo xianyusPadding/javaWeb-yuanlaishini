@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import action.DgrounpAction;
 import action.PersonalAction;
 import javaBean.Album;
+import javaBean.Dgrounp;
 import javaBean.Information;
 import javaBean.Photo;
 import javaBean.Share;
@@ -33,6 +35,11 @@ public class PersonalServlet extends HttpServlet {
 			List<Photo> pslist=personal.selectImg_single(photo);
 			List<Share>shareList =personal.selectShare_user(user);
 			Information information=personal.selectInformation(user.getU_id());
+			
+			DgrounpAction dAction =new DgrounpAction();
+			List<Dgrounp> dg_list =dAction.select(user);
+			session.setAttribute("dg_list", dg_list);
+			session.setAttribute("dg_size", dg_list.size());
 			
 			session.setAttribute("shareList",shareList );
 			session.setAttribute("shareSize", shareList.size());

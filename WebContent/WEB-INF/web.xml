@@ -266,4 +266,14 @@
     <servlet-name>DgrounpServlet</servlet-name>
     <url-pattern>/dgrounpServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DiaryInsertServlet</display-name>
+    <servlet-name>DiaryInsertServlet</servlet-name>
+    <servlet-class>servlet.DiaryInsertServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DiaryInsertServlet</servlet-name>
+    <url-pattern>/DiaryInsertServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

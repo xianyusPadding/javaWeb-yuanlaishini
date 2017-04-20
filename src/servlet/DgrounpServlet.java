@@ -9,9 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import action.AlbumAction;
 import action.DgrounpAction;
-import javaBean.Album;
 import javaBean.Dgrounp;
 import javaBean.User;
 import utils.MyConstant;
@@ -29,6 +27,10 @@ public class DgrounpServlet extends HttpServlet {
 		HttpSession session =request.getSession();
 		User user =(User) session.getAttribute("user");
 		String dg_title =request.getParameter("dg_title");
+		if(dg_title==""){
+			session.setAttribute("status",MyConstant.STATUS_DGROUNP_TEMPTY);
+			response.sendRedirect(request.getContextPath()+"/errorServlet");
+		}
 		String flag =request.getParameter("addGroup");
 		if(flag.equals("0"))flag="公开";else flag="私密";
 		
