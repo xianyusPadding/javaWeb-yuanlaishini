@@ -274,6 +274,16 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>DiaryInsertServlet</servlet-name>
-    <url-pattern>/DiaryInsertServlet</url-pattern>
+    <url-pattern>/diaryInsertServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DiaryShowServlet</display-name>
+    <servlet-name>DiaryShowServlet</servlet-name>
+    <servlet-class>servlet.DiaryShowServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DiaryShowServlet</servlet-name>
+    <url-pattern>/diaryShowServlet</url-pattern>
   </servlet-mapping>
 </web-app>

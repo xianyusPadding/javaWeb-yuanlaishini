@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import action.LoginAction;
 import javaBean.User;
 
 @SuppressWarnings("serial")
@@ -23,7 +22,7 @@ public class LogoutServlet extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	@SuppressWarnings({ "unused", "unchecked" })
+	@SuppressWarnings({  "unchecked" })
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		HttpSession session =req.getSession();

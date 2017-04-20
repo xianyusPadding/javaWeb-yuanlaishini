@@ -805,8 +805,8 @@ public class OptionDB {
 					+ "?,"
 					+ "?,"
 					+ "?,"
-					+ "now()"
-					+ "?,"
+					+ "now(),"
+					+ "?"
 					+")");
 			pstmt.setString(1, uid);
 			pstmt.setString(2, stitle);
@@ -858,6 +858,8 @@ public class OptionDB {
 			while(rs.next()){
 				String[] date=rs.getString(9).split(" ");
 				diary =new Diary(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8), date[0],rs.getInt(10));
+				User user =selectUser(rs.getString(2));
+				diary.setUser(user);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -968,6 +970,35 @@ public class OptionDB {
 		}finally {
 			ConDataBase.closeConn(rs, pstmt, conn);
 			return result!=0?true :false;
+		}
+	}
+	
+	@SuppressWarnings("finally")
+	public List<Diary> selectDiary_page(int index) {
+		Connection conn=ConDataBase.getConn();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		List<Diary> list=new ArrayList<>();
+		try {
+			pstmt=(PreparedStatement) conn.prepareStatement
+					("select * from diary order by date DESC limit ?, 10");
+			pstmt.setInt(1, index);
+			//写进数据库
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+				String[] date=rs.getString(9).split(" ");
+				Diary  diary =new Diary(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8), date[0],rs.getInt(10));
+				User user =selectUser(rs.getString(2));
+				diary.setUser(user);
+//				List<Comment> comment=selectComment_share(share);
+//				share.setListComment(comment);;
+				list.add(diary);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConDataBase.closeConn(rs, pstmt, conn);
+			return list;
 		}
 	}
 	

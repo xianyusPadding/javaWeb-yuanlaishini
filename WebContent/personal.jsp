@@ -453,17 +453,20 @@
 							</c:forEach>
 						</select>
 						<ul>
-							<li class='fl-diaryTitle1'><a href="diaryShow.jsp">1.有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</a></li>
-							<li class='fl-diaryTitle1'><a href="diaryShow.jsp">2.缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</a></li>
+							<c:forEach var="diary"  items="${diaryList }">
+								<li class='fl-diaryTitle1'><a href="diaryShowServlet?s_id=${diary.s_id}">${diary.s_title }</a></li>
+							</c:forEach>
+							<!-- <li class='fl-diaryTitle1'><a href="diaryShow.jsp">1.有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</a></li>
+							<li class='fl-diaryTitle1'><a href="diaryShow.jsp">2.缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</a></li> -->
 						</ul>
 					</div>
 					
 				</div>
 				
 				<div class="fl-left col-md-8 col-sm-8 col-xs-12" style="padding:0">	
-					<form action="">
+					<form action="diaryInsertServlet" method="post">
 						<div class="fl-diary-write col-md-12 col-xs-12">
-							<select name="" id="" class="btn btn-default">
+							<select name="dgrounp" id="" class="btn btn-default">
 								<option value="0" >默认日记</option>
 								<c:forEach  var="dg" items="${dg_list}">
 									<option value="${dg.dg_id }">${dg.dg_title }</option>
@@ -471,8 +474,8 @@
 							</select>
 							<button class="btn btn-default fl-delGroup-btn" style="float: right;">删除分组</button>
 							<button class="btn btn-default fl-addGroup-btn" style="float: right;margin-right:10px">添加分组</button>					
-							<input type="text" placeholder="标题" class="form-control"/>
-							<textarea name="" rows="24" cols="" class="col-md-12 col-xs-12 form-control" placeholder="来写写吧" ></textarea>
+							<input type="text" name='title' placeholder="标题" class="form-control"/>
+							<textarea name="content" rows="24" cols="" class="col-md-12 col-xs-12 form-control" placeholder="来写写吧" ></textarea>
 							<button class=" btn btn-default" style="float: right;margin-top: 10px;">提交</button>
 						</div>	
 					</form>				

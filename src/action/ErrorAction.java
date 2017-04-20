@@ -47,7 +47,7 @@ public class ErrorAction {
 				link="personal.jsp";
 				break ;
 			case MyConstant.STATUS_SHARE_CONTENT_EMPTY:
-				message="分享内容不能为空！";
+				message="内容不能为空！";
 				link="personal.jsp";
 				break ;
 			case MyConstant.STATUS_SHARE_INSERT:

@@ -54,16 +54,16 @@
 			
 			<div class="fl-right col-md-4 col-sm-4 col-xs-12">
 				<div class="col-md-12 fl-center">
-					<img src='<c:out value="${other.i_p_url}"></c:out>' alt='' />
-					<p><c:out value="${other.username}"></c:out></p>
+					<img src='<c:out value="${diary.user.i_p_url}"></c:out>' alt='' />
+					<p><c:out value="${diary.user.username}"></c:out></p>
 				</div>
 				<div class="col-md-12 fl-center fl-diary-title" >
 					<select name="" id="" class="btn btn-default" >
 						<option value="" >默认日记</option>
 					</select>
 					<ul>
-						<li class='fl-diaryTitle'><a href="diaryShow.jsp">1.有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</a></li>
-						<li class='fl-diaryTitle'><a href="diaryShow.jsp">2.缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</a></li>
+						<li class='fl-diaryTitle'><a href="#">1.有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</a></li>
+						<li class='fl-diaryTitle'><a href="#">2.缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</a></li>
 					</ul>
 				</div>
 				
@@ -72,8 +72,8 @@
 			<div class="fl-left col-md-8 col-sm-8 col-xs-12" style="padding:0">				
 				<div class="fl-diary" class="col-md-12 col-xs-12">
 					<div class="fl-diary-tab">
-						<h4 class="fl-center">日记1</h4>
-						<p><a href="#">    有无佛山F想认识下新朋友，对的时间遇到对的人真系好难...</a></p>
+						<h4 class="fl-center">${diary.s_title }</h4>
+						<p>${diary.s_content }</p>
 					</div>
 					
 					<div class="fl-diary-tab" style="display: none;">
