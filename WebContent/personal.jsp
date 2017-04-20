@@ -476,7 +476,7 @@
 							<button class="btn btn-default fl-addGroup-btn" style="float: right;margin-right:10px">添加分组</button>					
 							<input type="text" name='title' placeholder="标题" class="form-control"/>
 							<textarea name="content" rows="24" cols="" class="col-md-12 col-xs-12 form-control" placeholder="来写写吧" ></textarea>
-							<button class=" btn btn-default" style="float: right;margin-top: 10px;">提交</button>
+							<input type='submit' class=" btn btn-default" style="float: right;margin-top: 10px;" value='提交'/>
 						</div>	
 					</form>				
 			<!-- 		<div class="fl-diary" class="col-md-12 col-xs-12">

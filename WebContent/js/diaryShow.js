@@ -23,6 +23,7 @@ $(function(){
 	$('.fl-addGroup-btn').click(function(){
 		$('#fl-add-group').dialog('open');
 		$('#fl-del-group').dialog('close');
+		return false;
 	})
 	
 	$('.fl-addGroup-okBtn').click(function(){
@@ -47,6 +48,7 @@ $(function(){
 	$('.fl-delGroup-btn').click(function(){
 		$('#fl-del-group').dialog('open');
 		$('#fl-add-group').dialog('close');
+		return false;
 	})
 	
 	$('.fl-delGroup-okBtn').click(function(){
