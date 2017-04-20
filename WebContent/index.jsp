@@ -225,56 +225,68 @@
 				<ul class="row">
 					<li class="col-md-6">
 						<figure>
-							<img src="images/activity1.jpg" alt="" />
-							<figcaption>
-								<h5>vo1.林尘街道宵夜，唱k一条龙</h5>
-								<p>时间：2016年3月</p>
-							</figcaption>
+							<a href="offline_Activity.jsp">
+								<img src="images/activity1.jpg" alt="" />
+								<figcaption>
+									<h5>vo1.林尘街道宵夜，唱k一条龙</h5>
+									<p>时间：2016年3月</p>
+								</figcaption>
+							</a>
 						</figure>
 					</li>
 					<li class="col-md-6">
 						<figure>
+							<a href="offline_Activity.jsp">
 							<img src="images/activity2.jpg" alt="" />
 							<figcaption>
 								<h5>vo2.相识愚人前</h5>
 								<p>时间：2016年4月</p>
 							</figcaption>
+							</a>
 						</figure>
 					</li>
 					<li class="col-md-6">
 						<figure>
+							<a href="offline_Activity.jsp">
 							<img src="images/activity3.jpg" alt="" />
 							<figcaption>
 								<h5>vo3.环保男女沙滩派对</h5>
 								<p>时间：2016年7月</p>
 							</figcaption>
-						</figure>						
+							</a>
+						</figure>								
 					</li>
 					<li class="col-md-6">
 						<figure>
+							<a href="offline_Activity.jsp">
 							<img src="images/activity4.png" alt="" />
 							<figcaption>
 								<h5>vo4.脱光送温暖</h5>
 								<p>时间：2016年7月</p>
 							</figcaption>
+							</a>
 						</figure>
 					</li>
 					<li class="col-md-6">
 						<figure>
+							<a href="offline_Activity.jsp">
 							<img src="images/activity5.jpg" alt="" />
 							<figcaption>
 								<h5>vo5.圣诞party</h5>
 								<p>时间：2016年12月</p>
 							</figcaption>
+							</a>
 						</figure>					
 					</li>
 					<li class="col-md-6">
 						<figure>
+							<a href="offline_Activity.jsp">
 							<img src="images/activity5.jpg" alt="" />
 							<figcaption>
 								<h5>vo6.圣诞party</h5>
 								<p>时间：2017年12月</p>
 							</figcaption>
+							</a>
 						</figure>
 					</li>
 				</ul>
