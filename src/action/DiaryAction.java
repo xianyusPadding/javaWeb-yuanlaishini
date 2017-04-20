@@ -21,6 +21,9 @@ public class DiaryAction {
 	public List<Diary>selectDiary_user(User user){
 		return db.selectDiary_user(user);
 	}
+	public List<Diary>selectDiary_user_dg(Diary diary){
+		return db.selectDiary_user_dg(diary);
+	}
 	
 	public List<Diary>selectDiary_all(){
 		return db.selectDiary_all();

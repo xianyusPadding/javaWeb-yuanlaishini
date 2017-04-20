@@ -51,7 +51,8 @@ public class DiaryInsertServlet extends HttpServlet {
 				response.sendRedirect(request.getContextPath()+"/errorServlet");
 			}else{
 				if(dAction.insertDiary(diary)){
-					List<Diary>diaryList =dAction.selectDiary_user(user);
+					diary.setDg_id(0);
+					List<Diary>diaryList =dAction.selectDiary_user_dg(diary);
 					session.setAttribute("diaryList",diaryList );
 					session.setAttribute("diarySize", diaryList.size());
 					response.sendRedirect(request.getContextPath()+"/personal.jsp");

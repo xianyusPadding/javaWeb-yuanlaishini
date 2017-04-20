@@ -286,4 +286,14 @@
     <servlet-name>DiaryShowServlet</servlet-name>
     <url-pattern>/diaryShowServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DiarySelectServlet</display-name>
+    <servlet-name>DiarySelectServlet</servlet-name>
+    <servlet-class>servlet.ajax.DiarySelectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DiarySelectServlet</servlet-name>
+    <url-pattern>/diarySelectServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

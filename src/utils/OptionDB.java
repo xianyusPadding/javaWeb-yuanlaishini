@@ -902,6 +902,38 @@ public class OptionDB {
 			return list;
 		}
 	}
+	
+	@SuppressWarnings("finally")
+	public List<Diary> selectDiary_user_dg(Diary diary) {
+		Connection conn=ConDataBase.getConn();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		List<Diary> list=new ArrayList<>();
+		try {
+			String uid=diary.getU_id();
+			int dg_id=diary.getDg_id();
+			pstmt=(PreparedStatement) conn.prepareStatement
+					("select * from diary where u_id=? and dg_id=? order by date desc");
+			pstmt.setString(1, uid);	
+			pstmt.setInt(2, dg_id);
+			//写进数据库
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+				String[] date=rs.getString(9).split(" ");
+				Diary d =new Diary(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8), date[0],rs.getInt(10));
+				User u  =selectUser(rs.getString(2));
+				d.setUser(u);;
+//				List<Comment> comment=selectComment_share(share);
+//				share.setListComment(comment);;
+				list.add(d);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConDataBase.closeConn(rs, pstmt, conn);
+			return list;
+		}
+	}
 	/**
 	 * 查询所有动态
 	 * @param user

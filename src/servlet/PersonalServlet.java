@@ -44,7 +44,10 @@ public class PersonalServlet extends HttpServlet {
 			session.setAttribute("dg_size", dg_list.size());
 			
 			DiaryAction diaryAction =new DiaryAction();
-			List<Diary>diaryList =diaryAction.selectDiary_user(user);
+			Diary diary=new Diary();
+			diary.setU_id(user.getU_id());
+			diary.setDg_id(0);
+			List<Diary>diaryList =diaryAction.selectDiary_user_dg(diary);
 			session.setAttribute("diaryList",diaryList );
 			session.setAttribute("diarySize", diaryList.size());
 			
