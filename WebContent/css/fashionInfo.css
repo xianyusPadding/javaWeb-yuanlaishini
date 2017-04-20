@@ -1,0 +1,29 @@
+#fl-main{
+	margin-top: 30px;
+}
+.fl-navbar a:hover{
+	color:#EF95A8;
+	
+}
+.fl-navbar{
+	background: #ddd;
+	padding: 5px 0 5 10px;
+}
+.fl-contentAbo-navbar,.fl-content-title{
+	text-align: center;
+}
+.fl-contentAbo-navbar li{
+	display: inline-block;
+	margin:0 8px;
+}
+.fl-content{
+	background: #fff;
+}
+.fl-content p{
+	word-break:break-all;
+	word-wrap:break-word;
+}
+.fl-content img{
+	display: block;
+	margin:0 auto;
+}

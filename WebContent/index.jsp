@@ -206,14 +206,14 @@
 					<p class="font1" style="border-bottom:2px solid #EF95A8;margin-top:20px">型事追击&nbsp;FASHION INFO</p>
 					<div class="fl-followUp-main">
 						<ul>
-							<li>回头可以测测你的女朋友！女生真爱你都有这些表现！</li>
-							<li>男生看准了！男人收复女人的绝招有这些！</li>
-							<li>如何判断一个TA的不仅走肾，而且还走心？</li>
-							<li>追女生失败？一定是你的追求方式不对！</li>
-							<li>如何判断一个男生是真心还是套路？准爆！</li>
-							<li>你们知道吗？女生们往往都喜欢找这样的男生结</li>
-							<li>婚前真的适合同居吗？</li>
-							<li>看完大写的服！女人收服男人的绝招有这些！</li>
+							<li><a href="fashionInfo.jsp">回头可以测测你的女朋友！女生真爱你都有这些表现！</a></li>
+							<li><a href="fashionInfo.jsp">男生看准了！男人收复女人的绝招有这些！</a></li>
+							<li><a href="fashionInfo.jsp">如何判断一个TA的不仅走肾，而且还走心？</a></li>
+							<li><a href="fashionInfo.jsp">追女生失败？一定是你的追求方式不对！</a></li>
+							<li><a href="fashionInfo.jsp">如何判断一个男生是真心还是套路？准爆！</a></li>
+							<li><a href="fashionInfo.jsp">你们知道吗？女生们往往都喜欢找这样的男生结</a></li>
+							<li><a href="fashionInfo.jsp">婚前真的适合同居吗？</a></li>
+							<li><a href="fashionInfo.jsp">看完大写的服！女人收服男人的绝招有这些！</a></li>
 						</ul>
 					</div>
 				</div>
