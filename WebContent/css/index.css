@@ -13,11 +13,10 @@
 	float:right;
 }
 #fl-main .fl-thumbnail{
-
+	transition:all 0.2s;
 }
 #fl-main .fl-thumbnail:hover{
 	transform: scale(1.8,1.8);
-	/*background: #EF95A8;*/
 }
 #fl-main .fl-activity{
 	margin-bottom: 30px;
@@ -99,6 +98,9 @@
 	color:#E34C6C;
 	cursor: pointer;
 }
+.fl-followUp-main a:hover{
+	color:#E34C6C;
+}
 
 /*线下活动*/
 .fl-activity-title{
@@ -117,11 +119,13 @@
 	width:150px;
 	height:90px;
 	display: inline-block;
+	transition:all 0.25s;
 }
 .fl-activity img:hover{
 	cursor:pointer;
 	border:5px solid #F9F8F8;
 	opacity:0.9;
+	transform:scale(1.3,1.3);
 }
 .fl-activity figcaption{
 	display: inline-block;
@@ -139,6 +143,7 @@
 .fl-activity figcaption p{
 	color:#8C8C8C;
 }
+
 
 @media (max-width: 321px) {
 	.fl-activity img{

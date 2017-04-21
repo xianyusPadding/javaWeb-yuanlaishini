@@ -52,6 +52,14 @@ a:hover{
 	margin-bottom: 50px;
 	/*box-shadow: 0px 5px 5px #000;*/
 }
+/*.navbar-header img{
+	transition:all 0.6s;
+	transform: rotate(0deg);
+}
+.navbar-header img:hover{
+	transform: rotate(360deg);
+	opacity: 0.9;
+}*/
 #fl-nav .navbar-brand{
 	width:200px;
 }
@@ -106,17 +114,12 @@ a:hover{
 	text-indent: 5px;
 	color:#666;
 	background: #fff;
-
 }
 #fl-nav{
 	border:none;
 }
 
 #fl-footer{
-	/*width:100%;
-	position: absolute;
-	bottom: -50px;*/
-	/*margin-top:1000px;*/
 	background: #EA6678;
 	height:60px;
 	font-size: 15px;
@@ -153,10 +156,7 @@ a:hover{
 		font-size: 13px;
 	}
 	#navbar-collapse a{
-		color:#777;
-	}
-	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
-		background: #ddd;
+		color:#fff;
 	}
 	.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
 		background: #EA6678;
