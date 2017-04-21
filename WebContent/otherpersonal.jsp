@@ -323,12 +323,17 @@
 					<p><c:out value="${other.username}"></c:out></p>
 				</div>
 				<div class="col-md-12 fl-center fl-diary-title" >
+					<input id='uid' type="text" value="${other.u_id }" hidden="hidden" />
 					<select name="" id="fl-diary-select" class="btn btn-default" autocomplete="off">
-						<option value="" >默认日记</option>
+						<option value="0" selected="selected">默认日记</option>
+						<c:forEach  var="dg" items="${other_dg_list}">
+									<option value="${dg.dg_id }">${dg.dg_title }</option>
+						</c:forEach>
 					</select>
 					<ul>
-						<li class='fl-diaryTitle'><a href="diaryShow.jsp">1.有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</a></li>
-						<li class='fl-diaryTitle'><a href="diaryShow.jsp">2.缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</a></li>
+						<c:forEach var="diary"  items="${other_diaryList }" varStatus="i">
+									<li class='fl-diaryTitle1'><a href="diaryShowServlet?s_id=${diary.s_id}&index=${i.index}&dg_id=${diary.dg_id}">${diary.s_title }</a></li>
+						</c:forEach>
 					</ul>
 				</div>
 				

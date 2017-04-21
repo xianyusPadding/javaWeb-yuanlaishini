@@ -9,8 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import action.DgrounpAction;
+import action.DiaryAction;
 import action.PersonalAction;
 import javaBean.Album;
+import javaBean.Dgrounp;
+import javaBean.Diary;
 import javaBean.Friend;
 import javaBean.Information;
 import javaBean.Photo;
@@ -49,6 +53,18 @@ public class OtherPersonalServlet extends HttpServlet {
 			session.setAttribute("friend", friend);
 			session.setAttribute("shareList",shareList );
 			session.setAttribute("shareSize", shareList.size());
+			
+			DgrounpAction dAction =new DgrounpAction();
+			List<Dgrounp> dg_list =dAction.select(other);
+			session.setAttribute("other_dg_list", dg_list);
+			session.setAttribute("other_dg_size", dg_list.size());
+			DiaryAction diaryAction =new DiaryAction();
+			Diary diary=new Diary();
+			diary.setU_id(other.getU_id());
+			diary.setDg_id(0);
+			List<Diary>diaryList =diaryAction.selectDiary_user_dg(diary);
+			session.setAttribute("other_diaryList",diaryList );
+			session.setAttribute("other_diarySize", diaryList.size());
 			
 			session.setAttribute("a_list",list );
 			session.setAttribute("a_size", list.size());
