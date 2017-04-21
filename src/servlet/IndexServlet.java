@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import action.DiaryAction;
 import action.IndexAction;
+import javaBean.Diary;
 import javaBean.User;
 
 public class IndexServlet extends HttpServlet {
@@ -25,6 +27,10 @@ public class IndexServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session =request.getSession();
 		User user =(User) session.getAttribute("user");
+		DiaryAction dAction =new DiaryAction();
+		List<Diary>diaryAllList =dAction.selectDiary_all();
+		session.setAttribute("diaryAllList",diaryAllList );
+		session.setAttribute("diaryAllSize", diaryAllList.size());
 		if(user!=null) {
 			IndexAction iAction =new IndexAction();
 			List<User> indexUserList=new ArrayList<>();

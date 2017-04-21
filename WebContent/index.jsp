@@ -154,7 +154,13 @@
 				<div>
 					<p class="font1" style="border-bottom:2px solid #EF95A8;margin-top:20px">会员日记&nbsp;DIARY</p>
 					<div class="fl-diary-main">
-						<div class="row">
+						<c:forEach var="diary"  items="${diaryAllList}" varStatus="i">
+							<div class="col-md-6" style="position: relative;">
+								<h5>${diary.user.username}</h5>
+								<p><a href="diaryShowServlet?s_id=${diary.s_id}&index=${i.index}&dg_id=${diary.dg_id}">${diary.s_title }</a></p>
+							</div>
+						</c:forEach>
+<!-- 						<div class="row">
 							<div class="col-md-6" style="position: relative;">
 								<h5>Kingle</h5>
 								<p><a href="diaryShow.jsp">有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</a></p>
@@ -196,7 +202,7 @@
 								<h5>婷婷</h5>
 								<p><a href="diaryShow.jsp">对的时间遇到对的人真系好难</a></p>
 							</div>
-						</div>
+						</div> -->
 
 					</div>
 				</div>

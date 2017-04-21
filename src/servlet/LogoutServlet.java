@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import javaBean.Diary;
 import javaBean.User;
 
 @SuppressWarnings("serial")
@@ -28,10 +29,14 @@ public class LogoutServlet extends HttpServlet {
 		HttpSession session =req.getSession();
 		List<User> indexUserList=new ArrayList<>();
 		indexUserList=(List<User>) session.getAttribute("indexUserList");
+		List<Diary>diaryAllList =new ArrayList<>();
+		diaryAllList=(List<Diary>) session.getAttribute("diaryAllList");
 		//清除所有session
 		session.invalidate();
 		session =req.getSession();
 		session.setAttribute("indexUserList", indexUserList);
+		session.setAttribute("diaryAllList",diaryAllList );
+		session.setAttribute("diaryAllSize", diaryAllList.size());
 		resp.sendRedirect(req.getContextPath()+"/index.jsp");
 	}
 	

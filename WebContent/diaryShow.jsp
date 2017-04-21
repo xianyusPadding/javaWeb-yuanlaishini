@@ -26,7 +26,6 @@
 			</button>
 			<c:choose>
 				<c:when test="${user==null }">
-					<c:out value="<script type='text/javascript'>alert('请先登录!');location.href='index.jsp';</script>" escapeXml="false"></c:out>
 				</c:when>
 				<c:otherwise>
 					<p class="navbar-text navbar-right fl-login"><a href="logoutServlet" class="navbar-link fl-login" >注销</a></p>
@@ -51,6 +50,7 @@
 <div id="fl-main">
 	<div class="container">
 		<div class="row">
+			<input id='SelectGp' type="text" value="${diary.dg_id }"  hidden="hidden"/>
 			<input type="text" value="${index }" hidden="hidden" id='diarySelectID'>
 			<div class="fl-right col-md-4 col-sm-4 col-xs-12">
 				<div class="col-md-12 fl-center">
@@ -58,6 +58,7 @@
 					<p><c:out value="${diary.user.username}"></c:out></p>
 				</div>
 				<div class="col-md-12 fl-center fl-diary-title" >
+				<input id='uid' type="text" value="${diary.user.u_id }" hidden="hidden" />
 					<select name="" id="fl-diary-select" class="btn btn-default" autocomplete="off">
 						<option value="0" selected="selected">默认日记</option>
 						<c:forEach  var="dg" items="${dg_list}">

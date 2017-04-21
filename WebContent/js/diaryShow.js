@@ -76,16 +76,25 @@ $(function(){
 	
 	$('#fl-diary-select').on('change',function(){
 		var dg_id=$(this).val();
+		var u_id=$('#uid').val();
 		$.ajax({
 			type:'POST',
 			url:'diarySelectServlet',
 			data:{
 				dg_id:dg_id,
+				u_id:u_id
 			},
 			success:function(response){
 				$('.fl-right ul').html(response);
 			},
 		})
 	})
+	
+	$('#fl-diary-select').find('option').each(function(){
+		var _this =$(this);
+		if(_this.val()==$('#SelectGp').val()){
+			_this.attr("selected","selected");
+		}
+	})
+});
 
-})

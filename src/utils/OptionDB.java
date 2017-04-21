@@ -947,7 +947,7 @@ public class OptionDB {
 		List<Diary> list=new ArrayList<>();
 		try {
 			pstmt=(PreparedStatement) conn.prepareStatement
-					("select * from diary order by date DESC");
+					("select * from diary order by date DESC limit 10");
 			//写进数据库
 			rs=pstmt.executeQuery();
 			while(rs.next()){
