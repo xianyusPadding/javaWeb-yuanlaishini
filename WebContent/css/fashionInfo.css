@@ -20,6 +20,10 @@
 	background: #fff;
 }
 .fl-content p{
+	text-indent:2em;
+	letter-spacing:0.5px;
+	line-height:1.5;
+	padding:10px 20px 20px 20px;
 	word-break:break-all;
 	word-wrap:break-word;
 }

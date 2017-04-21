@@ -19,8 +19,15 @@
 	color:#6A6868;
 }
 .fl-diary-tab p{
+	text-indent:2em;
+	letter-spacing:0.5px;
+	line-height:1.5;
+	padding:0 20px 20px 20px;
 	word-break:break-all;
 	word-wrap:break-word;
+}
+.fl-diary-tab h4{
+	padding:10px 0;
 }
 .fl-diary-title p{
 	overflow:hidden;
