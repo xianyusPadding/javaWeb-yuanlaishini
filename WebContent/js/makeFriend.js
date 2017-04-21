@@ -116,6 +116,9 @@ $(function(){
 	})
 	var index=10;
 	$('#more').click(function(){
+		var _this=$('#more');
+		_this.hide();
+		$('#loading').show();
 		$.ajax({
 			type:'POST',
 			url:'sharePageServlet',
@@ -130,7 +133,8 @@ $(function(){
 				}
 				$('#more').prev().html($('#more').prev().html()+response);
 				index+=10;
-				
+				$('#loading').hide();
+				_this.show();
 			}
 		});
 	});

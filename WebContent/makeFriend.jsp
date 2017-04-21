@@ -157,9 +157,9 @@
 					</div>
 				</c:forEach>
 				<div>
-				
 				</div>
 				<button id='more' class='btn btn-large btn-block '  style="margin-left: 0px;">加载更多</button>
+				<div id='loading' hidden="hidden"><img  alt="加载中" src="images/loading.gif" ></div>
 			</div>
 			<div class="col-md-3 hidden-sm hidden-xs">
 				<div class="row" style="background:url(images/blackMatte.png);margin:0">
@@ -181,7 +181,6 @@
 		</div>		
 	</div>
 </div>
-
 
 <div id="fl-footer">
 	<div class="container text-muted" style="height:50px;color:#000">

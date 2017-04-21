@@ -34,6 +34,11 @@ public class SharePageServlet extends HttpServlet {
 		PrintWriter writer=response.getWriter();
 		ShareAction sAction =new ShareAction();
 		List<Share>shareList =sAction.selectShare_page(Integer.parseInt(index));
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		for (int i = 0; i < shareList.size(); i++) {
 			Share share =shareList.get(i);
 			writer.append("<div class='row fl-dynamic' style='margin-top:0'><div class='row'><div class='col-md-1 col-xs-2' style='float:left'>");

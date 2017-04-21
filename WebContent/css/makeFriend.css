@@ -3,6 +3,10 @@
 	left:-13px;
 	background-color: #e0b68f;
 }
+#loading {  
+	margin: auto;
+	text-align: center;
+} 
 #fl-footer{
 	margin-top:50px;
 }
