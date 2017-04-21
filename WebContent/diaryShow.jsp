@@ -58,8 +58,8 @@
 					<p><c:out value="${diary.user.username}"></c:out></p>
 				</div>
 				<div class="col-md-12 fl-center fl-diary-title" >
-					<select name="" id="" class="btn btn-default" >
-						<option value="0" >默认日记</option>
+					<select name="" id="fl-diary-select" class="btn btn-default" autocomplete="off">
+						<option value="0" selected="selected">默认日记</option>
 						<c:forEach  var="dg" items="${dg_list}">
 									<option value="${dg.dg_id }">${dg.dg_title }</option>
 						</c:forEach>

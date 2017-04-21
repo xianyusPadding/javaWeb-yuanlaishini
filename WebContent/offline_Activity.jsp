@@ -15,6 +15,7 @@
 	<script type="text/javascript" src="js/personal.js"></script>
 	<script type="text/javascript" src="js/area.js"></script>
 	<script type="text/javascript" src="js/offline_Activity.js"></script>
+	<script type="text/javascript" src="js/jquery_moblie-min.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/jquery-ui.css">
 	<link rel="stylesheet" href="css/base.css">

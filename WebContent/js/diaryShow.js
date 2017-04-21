@@ -74,8 +74,18 @@ $(function(){
 		}		
 	})
 	
-	//
-//	if()
-//	$('.fl-diary-tab p')
-	
+	$('#fl-diary-select').on('change',function(){
+		var dg_id=$(this).val();
+		$.ajax({
+			type:'POST',
+			url:'diarySelectServlet',
+			data:{
+				dg_id:dg_id,
+			},
+			success:function(response){
+				$('.fl-right ul').html(response);
+			},
+		})
+	})
+
 })
