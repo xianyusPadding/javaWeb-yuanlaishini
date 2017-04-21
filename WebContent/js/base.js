@@ -3,7 +3,7 @@ $(function(){
 	$.fn.bootstrapBtn = bootstrapButton;
 
 	$(".navbar-toggle").click(function(){
-		$("#navbar-collapse").css("background","#eee");
+		$("#navbar-collapse").css("background","#EA6678");
 	});
 	
 	$("#fl-registerreg").dialog({
