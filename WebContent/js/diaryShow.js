@@ -96,5 +96,10 @@ $(function(){
 			_this.attr("selected","selected");
 		}
 	})
+	
+	//设置内容文本的高度
+	var fl_diary_p = $('.fl-diary-tab p').height();
+	if(fl_diary_p <= 500)
+		$('.fl-diary-tab p').height("500");
 });
 

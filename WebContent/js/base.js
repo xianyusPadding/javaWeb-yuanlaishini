@@ -12,6 +12,8 @@ $(function(){
 		width: 330,
 		height: 360,
 		resizable: false,
+		show:true,
+		hide:true,
 		buttons: {
 			"提交": function() {
 				$(this).submit();
@@ -26,6 +28,8 @@ $(function(){
 		width: 330,
 		height: 210,
 		resizable: false,
+		show:true,
+		hide:true,
 		buttons: {
 			"确认登陆": function() {
 				$(this).submit();
