@@ -51,7 +51,7 @@
 <div id="fl-main">
 	<div class="container">
 		<div class="row">
-			
+			<input type="text" value="${index }" hidden="hidden" id='diarySelectID'>
 			<div class="fl-right col-md-4 col-sm-4 col-xs-12">
 				<div class="col-md-12 fl-center">
 					<img src='<c:out value="${diary.user.i_p_url}"></c:out>' alt='' />
@@ -59,27 +59,28 @@
 				</div>
 				<div class="col-md-12 fl-center fl-diary-title" >
 					<select name="" id="" class="btn btn-default" >
-						<option value="" >默认日记</option>
+						<option value="0" >默认日记</option>
+						<c:forEach  var="dg" items="${dg_list}">
+									<option value="${dg.dg_id }">${dg.dg_title }</option>
+						</c:forEach>
 					</select>
 					<ul>
-						<li class='fl-diaryTitle'><a href="#">1.有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</a></li>
-						<li class='fl-diaryTitle'><a href="#">2.缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</a></li>
+						<c:forEach var="diary"  items="${diaryList }">
+							<li class='fl-diaryTitle'><a href="#">${diary.s_title }</a></li>
+						</c:forEach>
+						<!-- <li class='fl-diaryTitle'><a href="#">1.有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</a></li>
+						<li class='fl-diaryTitle'><a href="#">2.缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</a></li> -->
 					</ul>
 				</div>
-				
 			</div>
-			
 			<div class="fl-left col-md-8 col-sm-8 col-xs-12" style="padding:0">				
 				<div class="fl-diary" class="col-md-12 col-xs-12">
-					<div class="fl-diary-tab">
-						<h4 class="fl-center">${diary.s_title }</h4>
-						<p>${diary.s_content }</p>
-					</div>
-					
-					<div class="fl-diary-tab" style="display: none;">
-						<h4 class="fl-center">日记2</h4>
-						<p><a href="">    缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</a></p>
-					</div>					
+					<c:forEach var="diary"  items="${diaryList }">
+							<div class="fl-diary-tab">
+								<h4 class="fl-center">${diary.s_title }</h4>
+								<p>${diary.s_content }</p>
+							</div>
+					</c:forEach>
 				</div>				
 			</div>
 			

@@ -453,8 +453,8 @@
 							</c:forEach>
 						</select>
 						<ul>
-							<c:forEach var="diary"  items="${diaryList }">
-								<li class='fl-diaryTitle1'><a href="diaryShowServlet?s_id=${diary.s_id}">${diary.s_title }</a></li>
+							<c:forEach var="diary"  items="${diaryList }" varStatus="i">
+								<li class='fl-diaryTitle1'><a href="diaryShowServlet?s_id=${diary.s_id}&index=${i.index}">${diary.s_title }</a></li>
 							</c:forEach>
 							<!-- <li class='fl-diaryTitle1'><a href="diaryShow.jsp">1.有无佛山F 想认识下新朋友，对的时间遇到对的人真系好难...</a></li>
 							<li class='fl-diaryTitle1'><a href="diaryShow.jsp">2.缘分是一场偶遇也是一场痛苦，在游戏认识了我认识了Z小姐，因为某次...</a></li> -->

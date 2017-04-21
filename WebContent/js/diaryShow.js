@@ -1,8 +1,21 @@
 $(function(){
+	var showIndex=$('#diarySelectID').val();
 	$.each($('.fl-diary-title ul li'), function(index, value) {
+		var i;
+		for(i = 0; i < $('.fl-diaryTitle').length; i++) {
+			if(i == showIndex){
+				$('.fl-diaryTitle').eq(index).parent().parent().parent().next().find('.fl-diary-tab').eq(i).show();
+			}	
+			else{
+				$('.fl-diaryTitle').eq(index).parent().parent().parent().next().find('.fl-diary-tab').eq(i).hide();
+			}
+		}
+	})
+	$.each($('.fl-diary-title ul li'), function(index, value) {
+//		$('.dropdown-menu').on('click','#fl-deleteFriend',function(){});
 		$('.fl-diaryTitle').eq(index).click(function() {
 			var i;
-			for(i = 0; i < 8; i++) {
+			for(i = 0; i < $('.fl-diaryTitle').length; i++) {
 				if(i == index){
 					$('.fl-diaryTitle').eq(index).parent().parent().parent().next().find('.fl-diary-tab').eq(i).show();
 				}	

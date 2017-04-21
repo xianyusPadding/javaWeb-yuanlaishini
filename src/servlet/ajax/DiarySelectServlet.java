@@ -40,7 +40,7 @@ public class DiarySelectServlet extends HttpServlet {
 		List<Diary>diaryList =dAction.selectDiary_user_dg(diary);
 		for(int i=0;i<diaryList.size();i++){
 			Diary d =diaryList.get(i);
-			writer.append("<li class='fl-diaryTitle1'><a href='diaryShowServlet?s_id="+d.getS_id()+"'>"+d.getS_title()+"</a></li>");
+			writer.append("<li class='fl-diaryTitle1'><a href='diaryShowServlet?s_id="+d.getS_id()+"&index="+i+"'>"+d.getS_title()+"</a></li>");
 		}
 	}
 }
