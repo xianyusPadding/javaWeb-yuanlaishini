@@ -142,6 +142,8 @@ $(function(){
 	
 	if(body_height < window_height)
 		$('#fl-footer').css("position","fixed").css("bottom",0).css("left",0).css("width",window_width);
+	else
+		$('#fl-footer').css("position","relative");
 		
 	$(window).resize(function(){		
 		body_height = $('body').height();
@@ -149,6 +151,8 @@ $(function(){
 	    window_width = $(window).width();	
 	    
 		if(body_height < window_height)
-		$('#fl-footer').css("position","fixed").css("bottom",0).css("left",0).css("width",window_width);
+			$('#fl-footer').css("position","fixed").css("bottom",0).css("left",0).css("width",window_width);
+		else
+			$('#fl-footer').css("position","relative");
 	})
 })
