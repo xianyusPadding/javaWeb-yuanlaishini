@@ -98,9 +98,11 @@ $(function(){
 	})
 	
 	//设置内容文本的高度
-	var fl_diary_p = $('.fl-diary-tab p').height();
+	var fl_diary_p = $('.fl-diary-tab').height();
 	if(fl_diary_p <= 500)
-		$('.fl-diary-tab p').height("500");
+		$('.fl-diary-tab').height("500");
+	else
+		$('.fl-diary-tab').height(fl_diary_p);
 		
 	//在body的高度小于window高度时，把footer置于底部
 	var body_height = $('body').height();

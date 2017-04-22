@@ -64,12 +64,8 @@
 				<p class="fl-page-title">
 					 romantic page
 				</p>
-					<div class="input-group fl-navbarLeft-search" style="margin:5px">
-						<!-- <span class="input-group-addon glyphicon glyphicon-search"></span> -->
-						<input type="text" class="form-control" placeholder="搜索">
-					</div>
 					<ul class="nav nav-pills nav-stacked" style="margin-top=10px;">
-						<li><a href="#" ><span class="glyphicon glyphicon-home"></span>  首页</a></li>
+						<li><a href="indexServlet" ><span class="glyphicon glyphicon-home"></span>  首页</a></li>
 						<li><a href="#"><span class="glyphicon glyphicon-star-empty"></span>  我的收藏</a></li>
 						<li><a href="#"><span class="glyphicon glyphicon-thumbs-up"></span>  我的赞</a></li>
 					</ul>

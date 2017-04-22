@@ -1,4 +1,4 @@
-#fl-main{
+fl-left#fl-main{
 	margin-top:50px;
 }
 .fl-diary-write h3{
@@ -11,7 +11,6 @@
 .fl-diary{
 	border:2px solid #9D9D9D;
 	margin:0 10px 20px 0;
-	height:500px;
 	border-radius: 5px;
 	background: #fff;
 }

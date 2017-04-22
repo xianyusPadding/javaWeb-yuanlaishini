@@ -220,6 +220,7 @@
 							<li><a href="fashionInfo.jsp">你们知道吗？女生们往往都喜欢找这样的男生结</a></li>
 							<li><a href="fashionInfo.jsp">婚前真的适合同居吗？</a></li>
 							<li><a href="fashionInfo.jsp">看完大写的服！女人收服男人的绝招有这些！</a></li>
+							<li><a href="fashionInfo.jsp">分享：男生衣着打扮和发型的搭配有这些</a></li>
 						</ul>
 					</div>
 				</div>
