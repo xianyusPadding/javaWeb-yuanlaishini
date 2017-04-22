@@ -12,15 +12,18 @@ $(function(){
 			var i;
 			for(i=0;i<12;i++){
 				if(i == index)
-					$(value).parent().parent().parent().parent().next().find('div').eq(i).show();
+					$(value).parent().parent().parent().parent().next().find($('.fl-tab')).eq(i).show();
 				else
-					$(value).parent().parent().parent().parent().next().find('div').eq(i).hide();
+					$(value).parent().parent().parent().parent().next().find($('.fl-tab')).eq(i).hide();
 					
 			}
 		})
 	})
 	
-//	var label_length = $('.fl-tab').find('label').length;
-//	if(label_length > =10)
-//		$('fl-more-btn').show();
+	var fl_rightHeight = $('.fl-right').height();
+	if(fl_rightHeight < 500){
+		$('.fl-right').height("500");
+	}
+	else
+		$('.fl-right').height(fl_rightHeight);
 })

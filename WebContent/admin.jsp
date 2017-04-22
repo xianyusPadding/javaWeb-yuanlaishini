@@ -114,7 +114,10 @@
 					<button class="btn btn-default">添加</button>
 				</div>
 				<div class="fl-tab">
-					<input type="text" class="form-control" placeholder="搜索"/>
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="搜索" style="margin-top: 2px;"/>
+						<span class="input-group-addon glyphicon glyphicon-search"></span>
+					</div>
 					<h4>动态：</h4>
 					<label ><input type="checkbox"  name='' value =''/>动态1</label>
 					<label ><input type="checkbox"  name='' value =''/>动态2</label>
@@ -122,7 +125,10 @@
 					<button class="btn btn-default">通过</button>
 				</div>
 				<div class="fl-tab">
-					<input type="text" class="form-control" placeholder="搜索"/>
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="搜索" style="margin-top: 2px;"/>
+						<span class="input-group-addon glyphicon glyphicon-search"></span>
+					</div>
 					<h4>动态：</h4>
 					<label ><input type="checkbox"  name='' value =''/>动态1</label>
 					<label ><input type="checkbox"  name='' value =''/>动态2</label>
