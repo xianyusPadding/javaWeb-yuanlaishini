@@ -1,3 +1,73 @@
 #fl-main{
-	margin-top:50px;
+	margin:40px 0;
+}
+.fl-left{
+	border-top:3px solid #E34C6C;
+	border-bottom:3px solid #E34C6C;
+	background: #fff;
+}
+.fl-left span,a{
+	color:#4E4D4C;
+}
+.fl-left li{
+	line-height: 2;
+}
+.fl-left li:hover{
+	cursor: pointer;
+}
+.fl-left li a:hover{
+	border-bottom: 1px solid #E34C6C;
+	color:#E34C6C;
+	line-height: 2;
+}
+.fl-navbar-ul{
+	padding: 0;
+}
+.fl-admin-navbar2{
+	/*border-bottom:3px solid #E34C6C;*/
+}
+.fl-admin-navbar2 li{
+	list-style:disc;
+}
+.fl-right{
+	height:500px;
+	background: #fff;
+}
+.fl-right label{
+	line-height: 2;
+	width:100px;
+	margin:10px 0;
+	display: block;
+	text-indent: 12px;
+	
+}
+.fl-right button{
+	display: block;
+	margin:10px 0;
+	float: right;
+}
+.fl-right h4{
+	text-indent: 8px;
+	border-radius: 5px;
+	line-height: 1.5;
+	margin:10px 0;
+	font-size: 16px;
+	transition: all 0.35s;
+}
+.fl-right h4:hover{
+	background:#EF95A8;
+	color: #fff;
+}
+.fl-right input{
+	margin: 10px 0;	
+}
+.fl-right input[type="checkbox"]{
+	margin:10px 5px 10px 0;
+	line-height: 2;
+}
+.fl-right textarea{
+	margin: 10px 0;
+}
+.fl-tab{
+	display: none;
 }
