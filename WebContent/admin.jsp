@@ -99,16 +99,15 @@
 				</div>
 				<div class="fl-tab">
 					<h4>普通会员：</h4>
-					<label ><input type="checkbox"  name='' value =''/>会员1</label>
-					<label ><input type="checkbox"  name='' value =''/>会员2</label>
+					<c:forEach var="user" items="${userList }">
+						<label ><input type="checkbox"  name='username' value ='${user.u_id }'/>${user.username }</label>
+					</c:forEach>
 					<button class="btn btn-default fl-">删除</button>
 				</div>
 				<div class="fl-tab">
 					<h4>管理员：</h4>
 					<ul>
-						<li>jinbiao</li>
-						<li>咸鱼</li>
-						<li>guanfu</li>
+						<li>${user.username }</li>
 					</ul>
 					<input type="text" placeholder="请输入会员id：" class="form-control">
 					<button class="btn btn-default">添加</button>
