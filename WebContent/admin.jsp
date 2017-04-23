@@ -118,9 +118,12 @@
 						<span class="input-group-addon glyphicon glyphicon-search"></span>
 					</div>
 					<h4>动态：</h4>
-					<label ><input type="checkbox"  name='' value =''/>动态1</label>
-					<label ><input type="checkbox"  name='' value =''/>动态2</label>
-					<label ><input type="checkbox"  name='' value =''/>动态3</label>
+				<%-- 	<c:forEach var="share" items="${shareList }">
+						<label ><input type="checkbox"  name='sid' value ='${share.s_id }'/>${share.s_title }</label>
+					</c:forEach> --%>
+					<label ><input type="checkbox"  name='' value =''/>执子之手，与子偕老！</label>
+					<label ><input type="checkbox"  name='' value =''/>分享生活，留在感动！</label>
+					<label ><input type="checkbox"  name='' value =''/>赠人玫瑰，手留余香。</label>
 					<button class="btn btn-default">通过</button>
 				</div>
 				<div class="fl-tab">
@@ -129,9 +132,9 @@
 						<span class="input-group-addon glyphicon glyphicon-search"></span>
 					</div>
 					<h4>动态：</h4>
-					<label ><input type="checkbox"  name='' value =''/>动态1</label>
-					<label ><input type="checkbox"  name='' value =''/>动态2</label>
-					<label ><input type="checkbox"  name='' value =''/>动态3</label>
+					<c:forEach var="share" items="${shareList }">
+						<label ><input type="checkbox"  name='sid' value ='${share.s_id }'/>${share.s_content }</label>
+					</c:forEach>
 					<button class="btn btn-default">删除</button>
 				</div>
 				<div class="fl-tab">
@@ -140,8 +143,9 @@
 				</div>
 				<div class="fl-tab">
 					<h4>首页日记：</h4>
-					<label ><input type="checkbox"  name='' value =''/>日记1</label>
-					<label ><input type="checkbox"  name='' value =''/>日记2</label>
+					<c:forEach var="diary" items="${diaryList }">
+						<label ><input type="checkbox"  name='did' value ='${diary.s_id }'/>${diary.s_title }</label>
+					</c:forEach>
 					<button class="btn btn-default">删除</button>
 				</div>
 				<div class="fl-tab">

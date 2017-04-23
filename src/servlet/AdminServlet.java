@@ -9,7 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import action.DiaryAction;
+import action.ShareAction;
 import action.UserAction;
+import javaBean.Diary;
+import javaBean.Share;
 import javaBean.User;
 import utils.MyConstant;
 public class AdminServlet extends HttpServlet {
@@ -30,6 +34,17 @@ public class AdminServlet extends HttpServlet {
 			List<User> userList=userAction.selectUser_all(user.getU_id());
 			session.setAttribute("userList",userList );
 			session.setAttribute("userSize", userList.size());
+			
+			ShareAction shareAction=new ShareAction();
+			List<Share> shareList=shareAction.selectShare_all();
+			session.setAttribute("shareList",shareList );
+			session.setAttribute("shareSize", shareList.size());
+			
+			DiaryAction diaryAction =new DiaryAction();
+			List<Diary> diaryList=diaryAction.selectDiary_all();
+			session.setAttribute("diaryList",diaryList );
+			session.setAttribute("diarySize", diaryList.size());
+			
 			response.sendRedirect(request.getContextPath()+"/admin.jsp");
 		}else{
 			session.setAttribute("status",MyConstant.STATUS_AUTHOR);
