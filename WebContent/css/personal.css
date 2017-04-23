@@ -29,9 +29,10 @@
 	height: 80px;
 	border:2px solid #ccc;
 	border-radius: 50px;
+	transition: all 0.25s; 
 }
 #fl-section-cover .fl-cover-float .fl-cover-icon:hover{
-	/*border:2px solid #EF95A8; */
+	transform: scale(1.1,1.1);
 }
 #fl-section-cover .fl-cover-float .fl-cover-id{
 /*	position: absolute;*/
@@ -189,10 +190,20 @@
 	box-shadow:1px 1px 1px #aaa;
 	margin-bottom: 20px;
 }
+#fl-tab2 .fl-photoAlbum-none{
+	width:90px;
+	height:130px;
+	border:7px solid #fff;
+	cursor:pointer;
+	box-shadow:1px 1px 1px #aaa;
+	margin-bottom: 20px;
+}
 #fl-photoalbum-style div:nth-of-type(even) img{
+	transition: all 0.35s;
 	transform: rotate(15deg);
 }
 #fl-photoalbum-style div:nth-of-type(odd) img{
+	transition: all 0.35s;
 	transform: rotate(-15deg);
 }
 #fl-photoalbum-style div img:hover{
@@ -346,6 +357,17 @@
 	width:200px;
 	height:190px;
 	opacity: 0.3;
+}
+.fl-addGroup-okBtn{
+	margin-top: 10px;
+}
+.fl-addGroup-okBtn,.fl-delGroup-okBtn{
+	display: block;
+	float:right;
+}
+.fl-keep-btn{
+	width:250px;
+	margin-bottom: 10px;
 }
 @media (min-width: 425px){
 	.fl-tab1-publish img{

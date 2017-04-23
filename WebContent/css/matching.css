@@ -65,9 +65,13 @@
 	border:2px solid #D9534F;
 }
 #fl-main-middle figure img{
-	width:126px;
 	cursor: pointer;
-	/*border:7px solid #ddd;*/
+}
+#fl-main-middle figure{
+	transition:all 0.2s;
+}
+#fl-main-middle figure:hover{
+	transform:scale(1.1,1.1);
 }
 #fl-main-middle figure figcaption{
 	

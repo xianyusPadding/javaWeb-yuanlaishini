@@ -53,6 +53,10 @@
 	position: absolute;
 	bottom:0%;
 	right:5%;
+	transition:all 0.3s;
+}
+.fl-smallPerson-icon:hover{
+	width:60px;
 }
 
 #fl-footer{
@@ -80,6 +84,10 @@
 	.fl-smallPerson-icon{
 		width:80px;
 		bottom:-20%;
+		transition:all 0.3s;
+	}
+	.fl-smallPerson-icon:hover{
+		width:90px;
 	}
 }
 @media (min-width: 1200px) {
@@ -98,5 +106,9 @@
 	.fl-smallPerson-icon{
 		width:80px;
 		bottom:-20%;
+		transition:all 0.3s;
+	}
+	.fl-smallPerson-icon:hover{
+		width:90px;
 	}
 }

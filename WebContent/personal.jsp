@@ -129,7 +129,7 @@
 			<!-- <form action="ajaxShareServlet" method="post"> -->
 				<div class="row fl-tab1-publish" style="position: relative;">
 					<h5>有什么新鲜或者记忆深刻的事想告诉大家？</h5>
-					<textarea id="s_content" name="content" class="fl-tab1-publishMain" cols="30" rows="10"></textarea>
+					<textarea id="s_content" name="content" class="form-control fl-tab1-publishMain" cols="30" rows="10"></textarea>
 					<img src="images/rose.png" alt=""/>
 					<input id="s_p_url" type="text" name="s_p_url" hidden="hidden" value="null">
 					<input id="flag" type="text" name="flag" hidden="hidden" value="0">
@@ -193,7 +193,7 @@
 		</div>
 		<div id="fl-tab2" style="padding:0 0 60px 0">
 			<div class="container" id="fl-photoalbum-style" >
-				<div class="row" style="margin-left:10px">
+				<div class="row" style="margin:20px 0 0 10px">
 					<button class="btn btn-default fl-photoalbum-btn" style="margin-bottom:20px"><a href="#">创建相册</a></button>
 					<button class="btn btn-default fl-uploadPhoto-btn" style="margin-bottom:20px"><a href="#">上传相片</a></button>
 				</div>

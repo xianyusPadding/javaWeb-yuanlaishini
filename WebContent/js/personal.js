@@ -46,6 +46,8 @@ $(function() {
 		title: "创建相册",
 		width: 300,
 		height: 200,
+		show:true,
+		hide:true,
 		autoOpen: false,
 	})
 
@@ -61,6 +63,8 @@ $(function() {
 		title: "上传图片",
 		width: 500,
 		height: 400,
+		show:true,
+		hide:true,
 		autoOpen: false,
 	})
 
@@ -81,7 +85,10 @@ $(function() {
 
 	$("#fl-photoShow").dialog({
 		title:$(".fl-photoAlbum").parent().find("h4").html(),
-		width:860,
+		maxWidth:860,
+		minWidth:300,
+		show:true,
+		hide:true,
 		autoOpen:false,
 	})
 	
@@ -133,6 +140,8 @@ $(function() {
 	})
 	$(".fl-showPriphoto").dialog({
 		width:1263,
+		show:true,
+		hide:true,
 		autoOpen:false,
 	})
 
@@ -245,6 +254,8 @@ $(function() {
 	$('#fl-friendGroup').dialog({
 		title:'设置分组',
 		width:300,
+		show:true,
+		hide:true,
 		autoOpen:false,
 	})
 	
@@ -361,8 +372,12 @@ $(function() {
 	//上传头像dialog
 	$('#fl-upload-headphoto').dialog({
 		title: "修改头像",
-		width: 500,
-		height: 400,
+		maxWidth: 400,
+		minWidth:200,
+		maxHeight: 300,
+		minHeight:150,
+		show:true,
+		hide:true,
 		autoOpen: false,
 	})
 	

@@ -72,8 +72,7 @@
 					<h2 class="fl-future-title font3">公司理念</h2>
 					<ul>
 						<li><a href="#">1、基于交友，立足婚姻，旨在做得更好</a></li>
-						<li><a href="#">2、</a></li>
-						<li><a href="#">3、</a></li>
+						<li><a href="#">2、希望更多的朋友在这里可以找到属于自己的另一半</a></li>
 					</ul>
 				</div>
 			</div>

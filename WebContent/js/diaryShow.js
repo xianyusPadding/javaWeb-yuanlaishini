@@ -30,6 +30,8 @@ $(function(){
 	$('#fl-add-group').dialog({
 		title:'添加分组',
 		maxWidth:300,
+		show:true,
+		hide:true,
 		autoOpen:false,
 	})
 	
@@ -55,6 +57,8 @@ $(function(){
 	$('#fl-del-group').dialog({
 		title:'删除分组',
 		maxWidth:300,
+		show:true,
+		hide:true,
 		autoOpen:false,
 	})
 	
