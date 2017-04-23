@@ -15,7 +15,6 @@ $(function(){
 				if(i == index){
 					fl_right_tab.show();
 					var fl_rightHeight = fl_right_tab.height();
-					alert(fl_rightHeight);
 					if(fl_right_tab < 500){
 						fl_right_tab.height("500");
 					}

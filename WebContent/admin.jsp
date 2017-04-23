@@ -50,13 +50,8 @@
 <div id="fl-main">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-2 fl-left" style="">
+			<div class="col-md-2 fl-left">
 				<ul class="fl-navbar-ul">
-					<li class="fl-admin-navbar"><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;公告管理</li>
-					<ul class="fl-admin-navbar2">
-							<li><a href="#fl-tab1">发表公告</a></li>
-							<li><a href="#fl-tab2">删除公告</a></li>
-					</ul>
 					<li class="fl-admin-navbar"><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;会员管理</li>
 					<ul class="fl-admin-navbar2">
 						<li><a href="#fl-tab3">删除会员</a></li>
@@ -85,18 +80,7 @@
 				</ul>
 			</div>
 			
-			<div class="col-md-9 col-md-offset-1 fl-right" >
-				<div class="fl-tab" style="display: block">
-					<textarea name="" rows="10" cols="" placeholder="公告栏：" class="form-control"></textarea>
-					<button class="btn btn-default fl-">发布</button>
-				</div>
-				<div class="fl-tab">
-					<h4>公告：</h4>
-					<label ><input type="checkbox"  name='' value =''/>公告1</label>
-					<label ><input type="checkbox"  name='' value =''/>公告2</label>
-					<input type="button" value="加载更多" class="btn btn-default fl-more-btn"/>
-					<button class="btn btn-default fl-" >删除</button>
-				</div>
+			<div class="col-md-9 col-md-offset-1 fl-right" style="margin-bottom:20px">
 				<div class="fl-tab">
 					<h4>普通会员：</h4>
 					<c:forEach var="user" items="${userList }">

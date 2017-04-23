@@ -153,6 +153,9 @@
 	.fl-activity figcaption{
 		display: block;
 	}
+	.fl-activity img:hover{
+		transform:scale(1.0,1.0);
+	}
 }
 
 

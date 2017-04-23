@@ -1,5 +1,5 @@
 #fl-main{
-	margin:40px 0;
+	margin:50px 0;
 }
 .fl-left{
 	border-top:3px solid #E34C6C;
@@ -64,4 +64,7 @@
 }
 .fl-tab{
 	display: none;
+}
+.fl-tab ul{
+	padding-left:10px;
 }
