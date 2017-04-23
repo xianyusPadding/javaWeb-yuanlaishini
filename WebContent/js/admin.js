@@ -11,21 +11,24 @@ $(function(){
 		$(value).click(function(){
 			var i;
 			for(i=0;i<12;i++){
-				if(i == index)
-					$(value).parent().parent().parent().parent().next().find($('.fl-tab')).eq(i).show();
+				var fl_right_tab = $(value).parent().parent().parent().parent().next().find($('.fl-tab')).eq(i);
+				if(i == index){
+					fl_right_tab.show();
+					var fl_rightHeight = fl_right_tab.height();
+					alert(fl_rightHeight);
+					if(fl_right_tab < 500){
+						fl_right_tab.height("500");
+					}
+					else
+						fl_right_tab.height(fl_rightHeight);
+				}
 				else
-					$(value).parent().parent().parent().parent().next().find($('.fl-tab')).eq(i).hide();
-					
+					fl_right_tab.hide();	
 			}
+
 		})
 	})
 	
-	var fl_rightHeight = $('.fl-right').height();
-	if(fl_rightHeight < 500){
-		$('.fl-right').height("500");
-	}
-	else
-		$('.fl-right').height(fl_rightHeight);
 		
 	//在body的高度小于window高度时，把footer置于底部
 	var body_height = $('body').height();

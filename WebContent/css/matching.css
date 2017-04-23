@@ -70,9 +70,6 @@
 #fl-main-middle figure{
 	transition:all 0.2s;
 }
-#fl-main-middle figure:hover{
-	transform:scale(1.1,1.1);
-}
 #fl-main-middle figure figcaption{
 	
 }
